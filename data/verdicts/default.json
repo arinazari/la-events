@@ -46848,14 +46848,13 @@
       "score_at_judge": 9
     },
     "e235cd52c6fe": {
-      "tier": "solid",
-      "lane": "club:mainstream",
-      "adjust": -1,
-      "why": "Dillon Francis plays moombahton and trap, not house, in a hall-scale Halloween night. It's a fun mainstream show but outside your house/techno spine.",
+      "tier": "great",
+      "adjust": 1,
+      "why": "Dillon Francis is an LA name doing a Halloween set at Exchange, close to home; trap/moombahton-leaning rather than your house core, but a real draw and a fun night out.",
       "confidence": "med",
-      "judged_at": "2026-10-03T12:14:50",
+      "judged_at": "2026-10-19T12:16:23",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 10
     },
     "1df4be05bb48": {
       "tier": "solid",
@@ -46924,12 +46923,13 @@
     },
     "ebdc793b3e5c": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Hardcore/jungle/hard-dance skew on the bill, with Force Placement the one respected techno name. Fun for a cheap Halloween, but it leans outside the lane.",
+      "lane": "club:underground",
+      "adjust": 0,
+      "why": "Halloween multi-room underground at Coyote Studios with Force Placement (Black Lodge) as the credible name; the bill leans hardcore/breaks/jungle, so it's more mixed than your house-techno lane.",
       "confidence": "med",
-      "judged_at": "2026-10-03T12:14:50",
+      "judged_at": "2026-10-19T12:16:23",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 10
     },
     "5749041a1df8": {
       "tier": "solid",
@@ -48463,12 +48463,12 @@
     },
     "97047fb7a327": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Chromeo is a real draw. The DJ set is funk and electro at Avalon for $30, a fun big-room Friday even if it isn't house-pure.",
+      "adjust": 0,
+      "why": "Chromeo DJ set is electro-funk party fun in the Daft Punk/Todd Terje neighborhood, which sits close to your listening; Avalon hall night, more feel-good than selector.",
       "confidence": "med",
-      "judged_at": "2026-10-17T12:12:29",
+      "judged_at": "2026-10-19T12:16:23",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "0633c104ab2d": {
       "tier": "solid",
@@ -49028,13 +49028,52 @@
       "score_at_judge": 8
     },
     "f7e263e1eeff": {
-      "tier": "great",
+      "tier": "must-see",
       "adjust": 3,
-      "why": "Dekmantel Soundsystem is the Amsterdam taste-maker format, with Masha Mar, one of your core rotation, at a free listening bar near home.",
+      "why": "Free Dekmantel Soundsystem at Bar Franca, 7pm to 2am, with Masha Mar (core rotation for you): a European taste-maker house/techno takeover in a small DTLA listening bar. Rare for LA and it's near home.",
       "confidence": "high",
-      "judged_at": "2026-10-18T12:14:24",
+      "judged_at": "2026-10-19T12:16:23",
       "input_version": 2,
-      "score_at_judge": 9
+      "score_at_judge": 13
+    },
+    "1eb703a601b6": {
+      "tier": "solid",
+      "lane": "club:mainstream",
+      "adjust": -1,
+      "why": "Halloween-themed house night at Precinct with no lineup listed; close to home but nothing to judge it on.",
+      "confidence": "low",
+      "judged_at": "2026-10-19T12:16:23",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "13f551a82934": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -3,
+      "why": "Free USC campus Halloween party with no billed DJ; a college house party, not a house-music night.",
+      "confidence": "med",
+      "judged_at": "2026-10-19T12:16:23",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "ead862670fc3": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Free 'girls night out' hard techno at a secret DTLA spot with no lineup; hard techno isn't your lane and the billing is promo-driven.",
+      "confidence": "low",
+      "judged_at": "2026-10-19T12:16:23",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "34d0fd2d079f": {
+      "tier": "solid",
+      "lane": "club:mainstream",
+      "adjust": 0,
+      "why": "Clown-themed disco party at the Woodbridge with Lavenge, a local open-format/house DJ; close to home and playful, but a themed night, not a selector booking.",
+      "confidence": "med",
+      "judged_at": "2026-10-19T12:16:23",
+      "input_version": 2,
+      "score_at_judge": 8
     }
   }
 }

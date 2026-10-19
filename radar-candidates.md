@@ -1,15 +1,9 @@
 # Radar candidates — on the radar
 
-_Generated 10/18/2026 deterministically (no API). 146 candidates. Signals: big-venue 118, festival 21, tracked 8, editorial 2._
+_Generated 10/19/2026 deterministically (no API). 144 candidates. Signals: big-venue 116, festival 20, tracked 8, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 11/22 | 3 | El Tri - 21 & Over | Yaamava Resort & Casino at San Man | editorial, big-venue | [link](https://yaamava.com/yaamava-theater) |
 
 ## December 2026
 
@@ -22,7 +16,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 11/22 | 2 | Three Days Grace - Alienation Tour  | Intuit Dome | festival, big-venue | [link](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0) |
 | Fri 11/27 | 9 | Time Warp Los Angeles 2026 | Ace*Mission Studios | tracked:Gerd Janson,Richie Hawtin | [link](https://ra.co/events/2512911) |
 
 ## February 2027
@@ -50,7 +43,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 11/27 | 5 | Time Warp LA | Ace * Mission Studios | tracked:Richie Hawtin | [link](https://on.fgtix.com/trk/CFLtc) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 | Sat 11/28 | 5 | Nu Moda San Diego w/ Max Styler, Hot Since 82, Scenarios | Gallagher Square (San Diego) | tracked:Hot Since 82 | [link](https://laylo.com/ledpresents/maxstyler) |
-| Sun 11/22 | 4 | WORK Weekender Day 3: BB Shaine, David Castellani [LIVE],  | TBA - Los Angeles | festival | [link](https://ra.co/events/2537315) |
 
 ## December 2026
 
@@ -84,6 +76,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 1/1 | 3 | Totally Tubular Festival | The Show at Agua Caliente Casino R | festival | [link](https://www.ticketmaster.com/totally-tubular-festival-rancho-mirage-california-01-01-2027/event/0900652A153D27DB) |
 | Sat 1/2 | 3 | Lost In Dreams Presents: ARMNHMR(18+) (FROM OBS OC FESTIVA | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/lost-in-dreams-presents-armnhmr18-from-anaheim-california-01-02-2027/event/090065468B706282) |
+| Sat 1/2 | 3 | ARMNHMR (18+)- MOVED TO HOUSE OF BLUES ANAHEIM | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/armnhmr-18-moved-to-house-of-santa-ana-california-01-02-2027/event/0900649CF4A8321F) |
 
 ## February 2027
 
@@ -160,7 +153,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 11/22 | 3 | KATSEYE: THE WILDWORLD TOUR | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/katseye-the-wildworld-tour-los-angeles-california-11-22-2026/event/2C0064B3CEC7151F) |
 | Fri 11/27 | 3 | Gerardo Ortiz - El Ejemplar Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/gerardo-ortiz-el-ejemplar-tour-inglewood-california-11-27-2026/event/0A006473C7B5D973) |
 | Fri 11/27 | 3 | Afrojack Presents: CONTROL | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1468576/afrojack-presents-control-tickets) |
 | Sat 11/28 | 3 | Ohgeesy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1533707/ohgeesy-tickets) |
@@ -233,6 +225,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 4/3 | 3 | FINAL FANTASY 40th Anniversary | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1621573/final-fantasy-40th-anniversary-tickets) |
 | Sat 4/3 | 3 | Distant Worlds: Music from Final Fantasy | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 4/10 | 3 | Jay Wheeler - La Voz Favorita Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jay-wheeler-la-voz-favorita-tour-inglewood-california-04-10-2027/event/0A00654405517B6A) |
+| Fri 4/16 | 3 | Fonseca: Antes Que El Tiempo Se Vaya Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/fonseca-antes-que-el-tiempo-se-inglewood-california-04-16-2027/event/0A00654EE3119A84) |
 
 ## November 2026
 
