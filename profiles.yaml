@@ -117,3 +117,13 @@ profiles:
     name: Sevryn             #   username is the access key; swap for something non-obvious before
     taste: profiles/sevryn/taste.yaml       #   sharing the feed widely.
     profile: profiles/sevryn/profile.yaml   # geo only: Culver City home + Westside near-home radius.
+
+  - username: justin         # friend profile (not owner/admin). EMPTY — taste not configured yet.
+    name: Justin             #   Atwater Village; married to Kohar (username: kohar). Username is
+    taste: profiles/justin/taste.yaml       #   guessable — swap before sharing widely.
+    profile: profiles/justin/profile.yaml   # geo only: Atwater home + Eastside near-home radius.
+
+  - username: kohar          # friend profile (not owner/admin). EMPTY — taste not configured yet.
+    name: Kohar              #   Atwater Village; married to Justin (username: justin). Username is
+    taste: profiles/kohar/taste.yaml        #   guessable — swap before sharing widely.
+    profile: profiles/kohar/profile.yaml    # geo only: Atwater home + Eastside near-home radius.
