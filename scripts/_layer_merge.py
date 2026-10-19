@@ -1,5 +1,9 @@
-"""One-off: merge pre-fetched squarespace/ics/jsonld/editorial JSON into catalog.json.
+"""Merge Step-2 layered rows (webfetch venues / editorial / one-off JSON-LD) into catalog.json.
 Run once per digest, then `run_digest.py --no-fetch` redoes expire/tag/score/candidates.
+
+Rows may already be in catalog schema (`"sources": [...]`) or raw fetcher output (`"source": "x"`);
+raw rows are normalized first so they carry `sources` — without it a row never counts toward
+source freshness, so the venue would keep reading stale in the run report and digest footer.
 """
 import json
 import sys
@@ -19,7 +23,10 @@ for fname in sys.argv[1:]:
     if not p.exists():
         continue
     rows = json.loads(p.read_text())
-    incoming.extend(rows)
+    if isinstance(rows, dict):
+        rows = rows.get("events", [])
+    incoming.extend(r if r.get("sources") else P.normalize_record(r, r.get("source") or "webfetch")
+                    for r in rows)
 
 incoming = [r for r in incoming if r.get("title") and r.get("date")]
 print(f"layering {len(incoming)} incoming records from {len(sys.argv[1:])} files")

@@ -146,7 +146,9 @@ def main():
         json.dump(events, f, indent=2)
     print(f"Wrote {len(events)} events from {len(feeds) - len(failed)}/{len(feeds)} ICS feeds "
           f"-> {args.out}" + (f" | failed: {', '.join(failed)}" if failed else ""))
-    return 0
+    # Every feed down = report a failure, not "0 events": run_digest ghost-checks sources that
+    # fetched OK, so a silent empty success would flag all of these feeds' rows unlisted.
+    return 1 if feeds and len(failed) == len(feeds) else 0
 
 
 if __name__ == "__main__":

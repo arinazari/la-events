@@ -32,10 +32,10 @@ jobs:
       # behind a rebuild-profile run and only start AFTER it. Checking out the triggering SHA would then
       # re-publish that older snapshot and silently drop a per-profile digest the rebuild just committed
       # (exactly how Taylor's digest got committed to main yet 404'd live). ref:main = always newest.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: main
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       # The dashboard reads ./digests/latest.md (default) and ./digests/<hash>/latest.md (per
       # logged-in profile). stage_digests.py stages the consolidated daily digest (digests/latest.md,
       # falling back to the newest dated) to latest.md AND, for owner:true profiles, into their hash
@@ -43,8 +43,8 @@ jobs:
       # their own digest: dir are staged too). The repo's digests/ stays untouched; stdlib-only.
       - name: Stage digests for the dashboard
         run: python3 scripts/stage_digests.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dashboard
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

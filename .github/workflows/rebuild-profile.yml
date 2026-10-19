@@ -39,17 +39,17 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0      # build_profiles bakes a git diff + reflected/pending flag into the feed;
                               # needs real history. Also lets the final step rebuild the feed against the
                               # just-committed enrichment so it bakes "reflected" immediately.
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "22"
       - run: pip install pyyaml
 
       - name: Resolve the target hash
@@ -101,29 +101,46 @@ jobs:
           HASH: ${{ steps.target.outputs.hash }}
           IS_OWNER: ${{ steps.target.outputs.is_owner }}
         run: |
-          paths="dashboard/data.$HASH.json dashboard/catalog_meta.json"
-          # Owner = the canonical/default feed, and their displayed digest IS the consolidated one.
-          # Re-render it deterministically (same path refresh-events/nightly use) so the owner's
-          # Update visibly refreshes the digest, not just the feed. Best-effort — and BEFORE the
-          # feed build: build_profiles lifts "The Take" (front_page.take) from digests/latest.md,
-          # so the feed must read the doc this run deploys (fresh scaffold -> take null until the
-          # nightly voice pass), not carry yesterday's intro over a digest that no longer has it.
-          if [ "$IS_OWNER" = "true" ]; then
-            python scripts/build_radar.py || true
-            python scripts/render_digest.py --consolidated \
-              --md digests/latest.md || true
-            paths="$paths digests/latest.md"
-          fi
-          python scripts/build_profiles.py --only-hash "$HASH"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -- $paths 2>/dev/null || true
-          if git diff --cached --quiet; then
-            echo "No feed/digest change for $HASH."
-          else
+          # repository_dispatch checks out the SHA main had when the click was DISPATCHED, and this
+          # job can then sit queued behind other `pages` runs (build-profiles on the same taste-edit
+          # push) that move main. Committing on that stale base made the push non-fast-forward and
+          # failed the whole Update (10/9, 10/17). So build on the CURRENT main, and if main moves
+          # again mid-step, rebuild on the new tip (a rebase would conflict: build-profiles rewrites
+          # this same generated feed). Untracked/gitignored inputs (the Spotify sync above) survive
+          # the reset.
+          for attempt in 1 2 3; do
+            git fetch origin main -q && git reset --hard FETCH_HEAD -q
+            paths="dashboard/data.$HASH.json dashboard/catalog_meta.json"
+            # Owner = the canonical/default feed, and their displayed digest IS the consolidated one.
+            # Re-render it deterministically (same path refresh-events/nightly use) so the owner's
+            # Update visibly refreshes the digest, not just the feed. Best-effort — and BEFORE the
+            # feed build: build_profiles lifts "The Take" (front_page.take) from digests/latest.md,
+            # so the feed must read the doc this run deploys (fresh scaffold -> take null until the
+            # nightly voice pass), not carry yesterday's intro over a digest that no longer has it.
+            if [ "$IS_OWNER" = "true" ]; then
+              python scripts/build_radar.py || true
+              python scripts/render_digest.py --consolidated \
+                --md digests/latest.md || true
+              paths="$paths digests/latest.md"
+            fi
+            python scripts/build_profiles.py --only-hash "$HASH"
+            git add -- $paths 2>/dev/null || true
+            if git diff --cached --quiet; then
+              echo "No feed/digest change for $HASH."
+              break
+            fi
             git commit -m "rebuild: re-rank profile $HASH against latest catalog [skip ci]"
-            git push origin HEAD:main
-          fi
+            if git push origin HEAD:main; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then
+              echo "main kept moving; feed push failed 3 times" >&2
+              exit 1
+            fi
+            echo "main moved under this rebuild; rebuilding on the new tip (attempt $attempt)"
+          done
 
       # LLM pass: fresh event-editor verdicts (+ optional enrichment). The digest is NOT here
       # anymore (2026-08 render+voice redesign): the two steps below render the deterministic
@@ -258,11 +275,11 @@ jobs:
           fi
           git push origin HEAD:main || echo "push skipped (this run's deploy still ships the receipt; nightly persists the rest)"
 
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - name: Stage digests for the dashboard
         run: python3 scripts/stage_digests.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dashboard
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

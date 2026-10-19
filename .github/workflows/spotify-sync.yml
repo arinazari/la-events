@@ -37,14 +37,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0      # build_profiles (run below) bakes a git diff of the taste/profile edit +
                               # a reflected/pending flag into each feed; needs real history, not a shallow
                               # clone. Without this, a depth-1 checkout makes the baked self_edit diff show
                               # the whole file as newly-added and mis-attributes the edit to this run's
                               # commit. Mirrors build-profiles.yml / rebuild-profile.yml.
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install pyyaml
@@ -72,7 +72,7 @@ jobs:
 
       # Deploy the refreshed dashboard/ to Pages (mirror of deploy-dashboard.yml; the [skip ci]
       # commit above won't trigger that workflow, so we publish here).
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - name: Stage latest digest(s) for the dashboard
         run: |
           mkdir -p dashboard/digests
@@ -94,8 +94,8 @@ jobs:
             case "$h" in *[!0-9a-f]*|"") continue ;; esac
             if [ -f "$d/latest.md" ]; then mkdir -p "dashboard/digests/$h"; cp "$d/latest.md" "dashboard/digests/$h/latest.md"; fi
           done
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dashboard
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

@@ -91,6 +91,13 @@ FETCHERS = [
     # wiring time (2026-07-27); returns 0 cleanly (one page fetch) until Beatport lists LA.
     {"name": "Beatport", "source": "beatport", "script": "fetch_beatport.py",
      "args": ["--days", "{days}"], "far": True},
+    # Squarespace venue collections (Junior High, Vibrato, The Smell, The Circle OC) and ICS feeds
+    # (Maui Sugar Mill). Deterministic, one request per site — they used to ride SKILL Step 2's
+    # by-hand layering, which unattended runs skipped every night from 9/28, freezing those
+    # venues for 3+ weeks. In the core they refresh (and ghost-check) like every other feed.
+    {"name": "Squarespace venues", "source": "squarespace", "script": "fetch_squarespace.py",
+     "args": ["--days", "{days}"]},
+    {"name": "ICS feeds", "source": "ics", "script": "fetch_ics.py", "args": ["--days", "{days}"]},
 ]
 
 
@@ -111,9 +118,10 @@ def run_fetcher(entry: dict, days: int, tmpdir: str, far_days: int = None) -> li
     out = Path(tmpdir) / f"{entry['source']}.json"
     args = [a.format(days=fetch_window(entry, days, far_days)) for a in entry["args"]]
     cmd = [sys.executable, str(REPO / "scripts" / entry["script"]), *args, "-o", str(out)]
-    # Eventbrite crawls ~70 event pages (curated organizers) and reliably takes ~130s — the old
-    # 120s cap was timing it out every run, not degrading a genuinely dead source.
-    fetch_timeout = 200 if entry["source"] == "eventbrite" else 120
+    # Eventbrite crawls ~50 organizer + ~115 event pages (curated organizers). Serial, that hit
+    # ~185s by 10/2026 against the old 200s cap (failing whole runs); the fetcher now crawls with a
+    # few workers (~60s), and the cap keeps headroom for the list to keep growing via harvests.
+    fetch_timeout = 300 if entry["source"] == "eventbrite" else 120
     proc = subprocess.run(cmd, capture_output=True, timeout=fetch_timeout, cwd=str(REPO), text=True)
     if proc.returncode != 0:
         tail = (proc.stderr or proc.stdout or "").strip().splitlines()

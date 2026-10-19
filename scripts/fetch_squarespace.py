@@ -116,7 +116,9 @@ def main():
     print(f"Wrote {len(events)} events from {len(SITES) - len(failed)}/{len(SITES)} "
           f"Squarespace sites -> {args.out}"
           + (f" | failed: {', '.join(failed)}" if failed else ""))
-    return 0
+    # Every site down = report a failure, not "0 events": run_digest ghost-checks sources that
+    # fetched OK, so a silent empty success would flag all of these venues' rows unlisted.
+    return 1 if len(failed) == len(SITES) else 0
 
 
 if __name__ == "__main__":

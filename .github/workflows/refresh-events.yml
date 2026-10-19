@@ -32,8 +32,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install pyyaml
@@ -78,11 +78,11 @@ jobs:
           fi
 
       # Deploy the refreshed dashboard/ to Pages (the [skip ci] commit won't trigger deploy-dashboard).
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - name: Stage digests for the dashboard
         run: python3 scripts/stage_digests.py
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dashboard
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

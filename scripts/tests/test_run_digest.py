@@ -45,6 +45,59 @@ def test_fetch_window_two_speed():
     assert R.fetch_window(ra, days=21, far_days=None) == 21
 
 
+def test_venue_feeds_run_in_core():
+    """Squarespace + ICS venue feeds are core fetchers (unattended runs skipped by-hand layering),
+    on the near window, with the window threaded through."""
+    for src, script in (("squarespace", "fetch_squarespace.py"), ("ics", "fetch_ics.py")):
+        e = next((e for e in R.FETCHERS if e["source"] == src), None)
+        assert e is not None, src
+        assert e["script"] == script and "--days" in e["args"] and not e.get("far")
+        assert R.fetch_window(e, days=120, far_days=180) == 120
+
+
+def _venue_fetcher_exit(module_name, all_fail):
+    """Run a venue fetcher's main() with urlopen stubbed to fail (every site, or none) -> exit code."""
+    import importlib
+    import json
+    import tempfile
+    from urllib.error import URLError
+    mod = importlib.import_module(module_name)
+
+    class _Resp:
+        def __init__(self, body):
+            self.body = body
+        def read(self):
+            return self.body
+        def __enter__(self):
+            return self
+        def __exit__(self, *a):
+            return False
+
+    def fake_urlopen(req, timeout=None):
+        if all_fail:
+            raise URLError("down")
+        if module_name == "fetch_ics":
+            return _Resp(b"BEGIN:VCALENDAR\nEND:VCALENDAR\n")
+        return _Resp(json.dumps({"items": []}).encode())
+
+    orig_urlopen, orig_argv = mod.urlopen, sys.argv
+    with tempfile.TemporaryDirectory() as tmp:
+        mod.urlopen = fake_urlopen
+        sys.argv = [module_name, "--days", "7", "-o", str(Path(tmp) / "out.json")]
+        try:
+            return mod.main()
+        finally:
+            mod.urlopen, sys.argv = orig_urlopen, orig_argv
+
+
+def test_venue_fetchers_report_total_outage():
+    """Every site down must exit non-zero: run_digest ghost-checks sources that fetched OK, so a
+    silent '0 events' success would flag every one of those venues' rows unlisted."""
+    for mod in ("fetch_squarespace", "fetch_ics"):
+        assert _venue_fetcher_exit(mod, all_fail=True) == 1, mod
+        assert _venue_fetcher_exit(mod, all_fail=False) == 0, mod
+
+
 def _run_affinity_with_fake_spotify(stdout, returncode=0):
     """Drive load_affinity_layer with a stubbed fetch_spotify subprocess + a present token,
     and return the recorded report['spotify']. Restores the globals it touches."""

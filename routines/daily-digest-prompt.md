@@ -50,9 +50,15 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    (`SPOTIFY_SYNC_TOKEN`) — and folds it with `data/feedback.jsonl` into the scoring BEFORE the
    enrichment head / editor pool are cut (report prints a `music layer …` line; a missing or failed
    sync lands in the digest footer).
-2. **Layer in + re-score:** add the sources the core doesn't cover (SKILL Step 2) — the Gmail
-   "Events" label if available, `webfetch`/`squarespace`/`ics` venues (≤15-source budget), and this
-   week's editorial roundups as `editorial_mentions`. Then `python scripts/run_digest.py --no-fetch`
+2. **Layer in + re-score — do NOT skip this step.** Squarespace + ICS venues now run inside the core
+   (step 1); what's left is SKILL Step 2: the Gmail "Events" label if the connector is attached; the
+   `method: webfetch`, `status: active` venues in `sources.yaml` (McCabe's, Harvelle's, The Dresden,
+   Sam First, The Venice West, Avalon Hollywood, …; ≤15/run, stalest first — the run report's stale
+   line names them); and this week's editorial roundups as `editorial_mentions`. WebFetch each venue
+   calendar, write its rows (catalog schema, `"sources": ["webfetch"]`) to a JSON file, and fold them
+   in with `python scripts/_layer_merge.py <file>.json`. Unattended runs skipped this step every night
+   from 9/28, freezing those venues for 3+ weeks — so it is not optional: a venue you genuinely can't
+   read goes in the footer by name. Then `python scripts/run_digest.py --no-fetch`
    to re-dedupe + re-score and refresh `data/candidates.json` + `data/editor_pool.json`.
 3. **Judge the ranking (event-editor):** `python scripts/editor_batches.py` selects the
    not-yet-judged events in `data/editor_pool.json` (`editor.select_for_verdict` — only new/changed

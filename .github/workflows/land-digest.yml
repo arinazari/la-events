@@ -46,7 +46,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || startsWith(github.event.head_commit.message, 'digest:') || startsWith(github.event.head_commit.message, 'discover:')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0 # full commit graph for the ancestry check
           filter: blob:none # ...but no blobs; the catalog history is heavy

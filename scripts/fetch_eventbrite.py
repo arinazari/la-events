@@ -31,6 +31,7 @@ import os
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -45,6 +46,11 @@ NON_LA = {"san francisco", "oakland", "berkeley", "san diego", "new york",
 HOUSE = re.compile(r"house|techno|acid|rave|disco|hardstyle|warehouse|after\s?hours|dj|club", re.I)
 MAX_EVENTS_PER_ORG = 12
 REGISTRY = "sources.yaml"
+# Pages fetched concurrently. The serial crawl (~50 organizers + ~115 event pages, 0.4-0.5s
+# politeness sleep each) reached ~185s by 10/2026 and kept tripping run_digest's per-fetcher
+# timeout as harvests grew the list. Three workers, each still sleeping between its own
+# requests, keep the load on eventbrite.com to a few req/s while cutting wall-clock ~3x.
+WORKERS = 3
 
 
 def organizer_name(org_url: str) -> str:
@@ -192,18 +198,30 @@ def main() -> int:
 
     organizers = args.org or ([] if args.event else load_organizers())
 
-    event_urls, seen = list(args.event), set(args.event)
-    for org in organizers:
-        for url in organizer_event_links(org):
-            if url not in seen:
-                seen.add(url)
-                event_urls.append(url)
+    def org_links(org):
+        links = organizer_event_links(org)
         time.sleep(0.5)  # be polite
+        return links
+
+    def scrape_page(url):
+        evs = lj.scrape(url, "eventbrite")
+        time.sleep(0.4)
+        return evs
+
+    # pool.map keeps input order, so the output is identical to the old serial crawl.
+    event_urls, seen = list(args.event), set(args.event)
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        for links in pool.map(org_links, organizers):
+            for url in links:
+                if url not in seen:
+                    seen.add(url)
+                    event_urls.append(url)
+        pages = list(pool.map(scrape_page, event_urls))
 
     lo, hi = date.today(), date.today() + timedelta(days=args.days)
     events = []
-    for url in event_urls:
-        for ev in lj.scrape(url, "eventbrite"):
+    for page in pages:
+        for ev in page:
             if (ev.get("neighborhood") or "").strip().lower() in NON_LA:
                 continue  # multi-city organizer's non-LA event
             ev["category"] = "electronic" if HOUSE.search(ev.get("title") or "") else "general"
@@ -214,7 +232,6 @@ def main() -> int:
                 in_window = True
             if in_window:
                 events.append(ev)
-        time.sleep(0.4)
 
     # de-dup by id/url
     uniq, ids = [], set()

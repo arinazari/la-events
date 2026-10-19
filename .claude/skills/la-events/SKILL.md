@@ -54,7 +54,8 @@ expire → score — and writes `data/catalog.json` (durable, score-free) plus `
 score these by hand anymore.** It covers the single-endpoint structured fetchers: Ticketmaster
 (`TM_API_KEY`), Resident Advisor, 19hz, Goldenvoice, Vidiots (Filmbot), Posh (`POSH_TOKEN`),
 Eventbrite (curated organizers), DICE, Beatport (beatportal.com — ticketed listing still
-empty for LA, but its "RSVP Now" article sweep catches Beatport Live's free LA drops). It **degrades gracefully** — any fetcher that errors / times
+empty for LA, but its "RSVP Now" article sweep catches Beatport Live's free LA drops), and the
+Squarespace + ICS venue feeds (Junior High, Vibrato, The Smell, The Circle OC, Maui Sugar Mill). It **degrades gracefully** — any fetcher that errors / times
 out / is missing its key is listed in the printed run report (carry that into the footer), never
 blocking the run.
 
@@ -67,11 +68,12 @@ Add these to `data/catalog.json` yourself, then re-score in Step 3:
    forwards). Extract name, date, venue/TBA, lineup, ticket link. Blasts often announce *beyond* the
    window — fold those into "further out, just announced." **When a blast carries an Eventbrite link,
    run the organizer-harvest (Mode 3).**
-2. **`webfetch` / `squarespace` / `ics` / JSON-LD venues** in `sources.yaml` not covered by the core
-   (McCabe's, Dresden, Harvelle's, Sam First, Junior High, The Smell, Maui Sugar Mill, …) — read the
-   rendered calendar at digest time (`scripts/fetch_squarespace.py` / `fetch_ics.py` / `fetch_jsonld.py`
-   where applicable, else the WebFetch tool). Budget ~15 sources/run; skip `dead`/`flaky` and note
-   them in the footer.
+2. **`webfetch` / JSON-LD venues** in `sources.yaml` not covered by the core (McCabe's, Dresden,
+   Harvelle's, Sam First, The Venice West, …) — read the rendered calendar at digest time
+   (`scripts/fetch_jsonld.py` where applicable, else the WebFetch tool), write the rows
+   (`"sources": ["webfetch"]`) to a JSON file, and merge them with `python scripts/_layer_merge.py
+   <file>.json`. Budget ~15 sources/run; skip `dead`/`flaky` and note them in the footer.
+   (Squarespace + ICS venues — Junior High, The Smell, Vibrato, Maui Sugar Mill — run in the core.)
 3. **SMS inbox** (`data/inbox.jsonl`, when the Twilio receiver is live) — process `processed == false`
    entries per `sms-ingestion.md`: parse text or the MMS flyer, normalize, tag `source: sms`, mark
    processed. Idempotent on `sid`. (Twilio media URLs expire — fetch during the run.)
@@ -374,6 +376,8 @@ Free events, films, and markets are never checked — no resale market exists fo
 - `scripts/fetch_posh.py` — Posh authenticated tRPC explore (needs `POSH_TOKEN`)
 - `scripts/fetch_eventbrite.py` — curated-organizer crawler + `--harvest` / `--scan-catalog`
 - `scripts/fetch_beatport.py` — Beatport Tickets/Live via beatportal.com (geo-filtered listing → JSON-LD + "RSVP Now" free-party article drops)
+- `scripts/fetch_squarespace.py` — Squarespace venue collections (`?format=json-pretty`; `SITES` list)
+- `scripts/fetch_ics.py` — iCalendar/Tockify venue feeds (`FEEDS` list)
 - `scripts/fetch_jsonld.py` — generic schema.org/Event scraper (curl fallback)
 
 ## Practical notes
