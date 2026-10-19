@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T12:19:43+00:00",
+  "generated_at": "2026-10-19T23:13:35+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "4d125e09d364",
@@ -260688,8 +260688,8 @@
             "summary": "taste(Alexa): Loves movies/film, eclectic taste across genres, Armenian culture/events"
           },
           {
-            "date": "2026-09-27",
-            "summary": "react(Ari): star \u2014 Boiler Room : HoneyLuv, Floorplan, Coco & Breezy, Kitty Amor"
+            "date": "2026-06-25",
+            "summary": "Add three empty friend profiles: garo, taylor, alexa (#62)"
           }
         ],
         "diff": "diff --git a/profiles/alexa/taste.yaml b/profiles/alexa/taste.yaml\nindex 0cd4c9e..2c2a18a 100644\n--- a/profiles/alexa/taste.yaml\n+++ b/profiles/alexa/taste.yaml\n@@ -4,16 +4,19 @@\n # Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n \n categories:\n-  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n-  medium:  []   # +2 each\n-  low:     []   # +1, include only if exceptional\n+  high: [ film, eclectic / genre-spanning events ] # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium: [] # +2 each\n+  low: [] # +1, include only if exceptional\n \n-boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n-penalties: []   # -2 each (the \"not for me\" list)\n+boosts: [ Armenian culture & events, lively young-crowd / early-30s energy ] # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: [] # -2 each (the \"not for me\" list)\n \n-artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n-comedians_loved:  []\n-venues_loved:     []\n+artists_tracked: [] # lineup match => +2 and a \"tracked\" badge\n+comedians_loved: []\n+venues_loved: []\n \n feedback:\n   - \"New empty profile \u2014 taste not configured yet.\"\n+  - \"2026-10-17: Loves movies/film, eclectic taste across genres, Armenian\n+    culture/events, and lively younger-crowd (early 30s) scenes. (self-edit via\n+    concierge)\"",

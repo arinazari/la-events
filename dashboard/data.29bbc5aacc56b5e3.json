@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T23:11:56+00:00",
+  "generated_at": "2026-10-19T23:13:56+00:00",
   "source_file": "data/catalog.json",
   "is_sample": false,
   "catalog_version": "4d125e09d364",
@@ -260653,19 +260653,29 @@
       "taste": {
         "file": "profiles/kohar/taste.yaml",
         "exists": true,
-        "history": [],
-        "diff": "",
-        "diff_kind": "none",
-        "reflected": null,
+        "history": [
+          {
+            "date": "2026-10-19",
+            "summary": "profiles: add blank profiles for justin + kohar (Atwater Village, married)"
+          }
+        ],
+        "diff": "diff --git a/profiles/kohar/taste.yaml b/profiles/kohar/taste.yaml\nnew file mode 100644\nindex 0000000..12f3b04\n--- /dev/null\n+++ b/profiles/kohar/taste.yaml\n@@ -0,0 +1,19 @@\n+# Taste profile \u2014 Kohar. EMPTY starter: no preferences set yet, so this feed scores every\n+# event at baseline (nothing boosted or penalized) until the sections below are filled in.\n+# Edit freely (or let the concierge edit it), then rebuild:  python scripts/build_profiles.py --only kohar\n+# Schema mirrors the root taste.yaml \u2014 see it for examples of what each section can hold.\n+\n+categories:\n+  high:    []   # +3 each match \u2014 the core \"yes, this is for me\" buckets\n+  medium:  []   # +2 each\n+  low:     []   # +1, include only if exceptional\n+\n+boosts:    []   # +1 each (context: setting, night-of-week, editorial mention, \u2026)\n+penalties: []   # -2 each (the \"not for me\" list)\n+\n+artists_tracked:  []   # lineup match => +2 and a \"tracked\" badge\n+comedians_loved:  []\n+venues_loved:     []\n+\n+feedback:\n+  - \"New empty profile \u2014 taste not configured yet.\"",
+        "diff_kind": "pending",
+        "reflected": false,
         "enriched_at": null
       },
       "profile": {
         "file": "profiles/kohar/profile.yaml",
         "exists": true,
-        "history": [],
-        "diff": "",
-        "diff_kind": "none",
-        "reflected": null,
+        "history": [
+          {
+            "date": "2026-10-19",
+            "summary": "profiles: add blank profiles for justin + kohar (Atwater Village, married)"
+          }
+        ],
+        "diff": "diff --git a/profiles/kohar/profile.yaml b/profiles/kohar/profile.yaml\nnew file mode 100644\nindex 0000000..4beda5e\n--- /dev/null\n+++ b/profiles/kohar/profile.yaml\n@@ -0,0 +1,38 @@\n+# profile.yaml \u2014 MECHANISM overrides for Kohar's feed (username: kohar).\n+# taste.yaml = CONTENT (what they like); this = MECHANISM (home + scoring dials). Only the knobs\n+# that differ need to live here \u2014 anything absent falls back to the repo defaults.\n+#\n+# Kohar lives in Atwater Village (married to Justin, username: justin \u2014 same home), so geo is the only\n+# override. The code default is Ari's Silver Lake radius, which mostly overlaps; this re-centers\n+# it on Atwater and pulls in Glendale / Burbank, dropping the Westlake / Filipinotown edge.\n+\n+home:\n+  neighborhood: Atwater Village\n+  coords: [ 34.1187, -118.2606 ] # geo.py's Atwater centroid; drives night-planner travel times\n+\n+scoring:\n+  # Walkable / short drive from Atwater (+1), out to ~5 mi. Matched case-insensitively against each\n+  # event's neighborhood (whole name, not substring).\n+  near_home_neighborhoods:\n+    - atwater village\n+    - atwater\n+    - frogtown\n+    - elysian valley\n+    - silver lake\n+    - silverlake\n+    - los feliz\n+    - echo park\n+    - east hollywood\n+    - virgil village\n+    - glendale\n+    - burbank\n+    - glassell park\n+    - cypress park\n+    - mount washington\n+    - eagle rock\n+    - highland park\n+    - lincoln heights\n+    - chinatown\n+    - downtown\n+    - dtla\n+    - arts district",
+        "diff_kind": "pending",
+        "reflected": false,
         "enriched_at": null
       }
     }
