@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/19/2026 deterministically (no API). 144 candidates. Signals: big-venue 116, festival 20, tracked 8, editorial 1._
+_Generated 10/20/2026 deterministically (no API). 145 candidates. Signals: big-venue 117, festival 20, tracked 9, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -10,6 +10,17 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 12/12 | 5 | JOHN SUMMIT - CTRL ESCAPE TOUR | Los Angeles Memorial Coliseum | tracked:John Summit, big-venue | [link](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7) |
+
+## January 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 1/30 | 5 | MAU P PRESENTS: GENERATION REBRAND | BMO Stadium | tracked:Mau P, big-venue | [link](https://www.ticketmaster.com/mau-p-presents-generation-rebrand-los-angeles-california-01-30-2027/event/0A006550EE2DDD30) |
+
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
 | Fri 12/4 | 4 | Angine de Poitrine | The Wiltern | editorial | [link](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617) |
 
 ## November 2026
