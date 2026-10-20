@@ -59,6 +59,29 @@ def test_editorial_only_match_merges_and_venueless_item_is_skipped():
     assert len(merged) == 1 and merged[0]["start"] == "17:00" and merged[0]["last_seen"] == TODAY.isoformat()
 
 
+
+def test_mention_skips_tba_rows_and_layered_changes_reach_todays_meta():
+    import json
+    import tempfile
+    tba = {"title": "Halloween Party", "date": "2026-10-31", "venue": "TBA", "sources": ["posh"],
+           "first_seen": "2026-10-01", "last_seen": "2026-10-19"}
+    real = {"title": "Halloween Party", "date": "2026-10-31", "venue": "Zebulon", "sources": ["dice"],
+            "first_seen": "2026-10-01", "last_seen": "2026-10-19"}
+    cat = [dict(tba), dict(real)]
+    inc = L.normalize_rows([{"title": "Halloween Party", "date": "2026-10-31", "venue": "Zebulon",
+                             "sources": ["editorial"], "editorial_mentions": ["LAist"]}])
+    _, folded, _ = L.fold_mentions(cat, inc)
+    assert folded == 1 and "editorial_mentions" not in cat[0] and cat[1]["editorial_mentions"] == ["LAist"]
+    with tempfile.TemporaryDirectory() as tmp:
+        mp = Path(tmp) / "catalog_meta.json"
+        mp.write_text(json.dumps({"fetched_at": "2026-10-19T19:00:00+00:00", "added": 98, "updated": 20,
+                                  "changes": [{"title": "a"}]}))
+        L.count_layered_changes(mp, {"added": 2, "updated": 1, "changes": [{"title": "b"}]}, TODAY)
+        m = json.loads(mp.read_text())
+        assert (m["added"], m["updated"], [c["title"] for c in m["changes"]]) == (100, 21, ["b", "a"])
+        L.count_layered_changes(mp, {"added": 5, "updated": 0}, date(2026, 10, 22))   # not today's fetch
+        assert json.loads(mp.read_text())["added"] == 100
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

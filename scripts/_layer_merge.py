@@ -47,7 +47,10 @@ def fold_mentions(catalog: list, incoming: list) -> tuple:
             if D._is_placeholder_venue(r.get("venue")):
                 unplaced += 1
                 continue
-            hits = [e for e in catalog if D.is_duplicate(e, r) and set(e.get("sources") or []) - {"editorial"}]
+            # A TBA/placeholder-venue catalog row matches anything with a similar title — not a
+            # place to hang a venue-specific mention.
+            hits = [e for e in catalog if D.is_duplicate(e, r) and set(e.get("sources") or []) - {"editorial"}
+                    and not D._is_placeholder_venue(e.get("venue"))]
             if hits:   # >1 = unmerged duplicates of the same event at this venue — mention each
                 for hit in hits:
                     hit["editorial_mentions"] = D.merge_mentions(hit.get("editorial_mentions"),
@@ -58,17 +61,19 @@ def fold_mentions(catalog: list, incoming: list) -> tuple:
     return rest, folded, unplaced
 
 
-def count_layered_adds(meta_path: Path, added: int, today) -> None:
-    """Count layered additions in today's change summary. The `run_digest --no-fetch` that follows
-    diffs against this already-layered catalog, so otherwise they'd never read as "new" (and the
-    next day's fetch sees them as pre-existing too)."""
+def count_layered_changes(meta_path: Path, delta: dict, today) -> None:
+    """Fold this layering pass's {added, updated, changes} into today's change summary. The
+    `run_digest --no-fetch` that follows diffs against this already-layered catalog, so otherwise
+    layered rows would never read as new/updated (and the next day's fetch sees them as pre-existing)."""
     meta = CM.read_meta(meta_path)
     try:
         same_day = datetime.fromisoformat(meta["fetched_at"]).astimezone(P._LA).date() == today
     except (KeyError, TypeError, ValueError):
         same_day = False
-    if added and same_day:
-        meta["added"] = int(meta.get("added") or 0) + added
+    if same_day and (delta.get("added") or delta.get("updated")):
+        meta["added"] = int(meta.get("added") or 0) + int(delta.get("added") or 0)
+        meta["updated"] = int(meta.get("updated") or 0) + int(delta.get("updated") or 0)
+        meta["changes"] = (list(delta.get("changes") or []) + list(meta.get("changes") or []))[:25]
         meta_path.write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
 
 
@@ -85,13 +90,15 @@ def main(paths: list) -> int:
         rows.extend(doc.get("events", []) if isinstance(doc, dict) else doc)
     incoming = normalize_rows(rows)
     print(f"layering {len(incoming)} incoming records from {len(paths)} files")
+    old_index = P.content_index(catalog)   # before folding/merging: what this pass adds or moves
     incoming, folded, unplaced = fold_mentions(catalog, incoming)
     if folded or unplaced:
         print(f"  {folded} editorial mention(s) folded onto existing rows; {unplaced} skipped (no venue)")
     catalog, stats = P.merge_new(catalog, incoming, today)
+    delta = P.diff_catalog(old_index, catalog, today)   # also stamps updated_at/changed_fields
     cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
-    print("merge stats:", stats)
-    count_layered_adds(cat_path.parent / "catalog_meta.json", stats.get("added"), today)
+    print("merge stats:", stats, f"| +{delta['added']} new, {delta['updated']} updated")
+    count_layered_changes(cat_path.parent / "catalog_meta.json", delta, today)
     return 0
 
 
