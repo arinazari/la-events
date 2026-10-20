@@ -45,8 +45,9 @@ SITES = {
 
 DATE_TITLE = re.compile(r"^(mon|tue|wed|thu|fri|sat|sun)", re.I)
 # Venues pull a show by retitling it ("CANCELLED Community Care…", "POSTPONED: …") rather than
-# deleting it. Skip those: they must never be recommended, and once the catalog row stops being
-# re-seen the ghost sweep marks it unlisted.
+# deleting it. Emit those with status "cancelled" (not skipped): the catalog row matches the
+# retitle, takes the status in the same run, and drops out of every surface right away — skipping
+# would leave the old row recommended until the ghost sweep's grace window ran out.
 PULLED = re.compile(r"^\W*(cancel+ed|postponed)\b", re.I)
 
 
@@ -74,8 +75,7 @@ def fetch_site(venue, url, hood, category, now, hi):
             continue
         # Squarespace titles arrive HTML-escaped ("Tony Guerrero &amp; Friends").
         title = html.unescape(it.get("title") or "").strip()
-        if PULLED.match(title):
-            continue
+        pulled = bool(PULLED.match(title))
         detail = strip_html(it.get("excerpt") or it.get("body") or "")
         # Some venues (The Smell) title entries by date — use the body's first line instead.
         if DATE_TITLE.match(title) and detail:
@@ -94,6 +94,7 @@ def fetch_site(venue, url, hood, category, now, hi):
             "image": images.clean(it.get("assetUrl")),  # Squarespace item primary image — free
             "url": (origin + full) if full.startswith("/") else (full or url),
             "detail": detail[:300] or None,
+            **({"status": "cancelled"} if pulled else {}),
         })
     return out
 

@@ -81,10 +81,9 @@ def parse_feed(body, venue, hood, category, now, hi):
         if line == "END:VEVENT":
             in_ev = False
             dt = cur.get("_start")
-            # RFC 5545 STATUS:CANCELLED (or a "CANCELLED …" retitle) — a pulled show stays in the
-            # feed; never list it.
-            if (cur.get("STATUS") or "").upper() == "CANCELLED" or PULLED.match(cur.get("SUMMARY") or ""):
-                continue
+            # RFC 5545 STATUS:CANCELLED (or a "CANCELLED …" retitle): a pulled show stays in the
+            # feed — mark it so the catalog row is hidden this run (see fetch_squarespace).
+            pulled = (cur.get("STATUS") or "").upper() == "CANCELLED" or bool(PULLED.match(cur.get("SUMMARY") or ""))
             if dt and now.date() <= dt.date() <= hi.date():
                 out.append({
                     "source": "ics",
@@ -98,6 +97,7 @@ def parse_feed(body, venue, hood, category, now, hi):
                     "price": None,
                     "url": cur.get("URL") or cur.get("_loc_url"),
                     "detail": cur.get("DESCRIPTION"),
+                    **({"status": "cancelled"} if pulled else {}),
                 })
             continue
         if not in_ev or ":" not in line:

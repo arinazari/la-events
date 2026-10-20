@@ -71,7 +71,7 @@ def select_events(catalog: list, args, today_iso: str) -> list:
         qtok = set(q.split())
         out = []
         for ev in catalog:
-            if str(ev.get("date") or "") < today_iso or ev.get("status") == "unlisted":
+            if str(ev.get("date") or "") < today_iso or ev.get("status") in ("unlisted", "cancelled"):
                 continue
             blob = normalize(" ".join([str(ev.get("title") or "")] +
                                       [str(x) for x in (ev.get("lineup") or [])] +
@@ -88,7 +88,7 @@ def select_events(catalog: list, args, today_iso: str) -> list:
     starred = set(star_map(load_reactions(REPO / "data" / "reactions.jsonl")).keys())
     scored = []
     for ev in catalog:
-        if str(ev.get("date") or "")[:10] >= today_iso and ev.get("status") != "unlisted":
+        if str(ev.get("date") or "")[:10] >= today_iso and ev.get("status") not in ("unlisted", "cancelled"):
             scored.append(dict(ev, score=score_event(ev, taste, profile, affinity)["score"]))
     pool = PR.auto_pool(scored, verdicts, today_iso, days=args.days, starred=starred)
     picked, names = [], set()

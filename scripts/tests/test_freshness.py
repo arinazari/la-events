@@ -130,10 +130,30 @@ def test_flag_stale_skips_venues_whose_site_failed():
     dead_site = _future(5, venue="Vibrato Grill Jazz", sources=["squarespace"], last_seen=old)
     dead_site_long = _future(6, venue="Vibrato Grill Jazz (Bel Air)", sources=["squarespace"], last_seen=old)
     healthy = _future(5, venue="Junior High", sources=["squarespace"], last_seen=old)
-    n = P.flag_stale([dead_site, dead_site_long, healthy], {"squarespace"}, today, horizon_days=120,
-                     skip_venues=["Vibrato Grill Jazz"])
-    assert n == 1 and healthy["status"] == "unlisted"
+    other_src = _future(5, venue="Vibrato Grill Jazz", sources=["19hz"], last_seen=old)   # 19hz did fetch
+    n = P.flag_stale([dead_site, dead_site_long, healthy, other_src], {"squarespace", "19hz"}, today,
+                     horizon_days=120, skip_venues={"squarespace": ["Vibrato Grill Jazz"]})
+    assert n == 2 and healthy["status"] == "unlisted" and other_src["status"] == "unlisted"
     assert "status" not in dead_site and "status" not in dead_site_long
+
+
+def test_cancelled_marker_reaches_the_row_and_hides_it():
+    """A venue's 'CANCELLED …' retitle (status cancelled) lands on the matching catalog row in the
+    same merge and keeps it out of the scored pool; a later clean listing clears it."""
+    today = date(2026, 6, 23)
+    row = _future(3, title="Community Care & Self Care", venue="Junior High", sources=["squarespace"],
+                  last_seen=(today - timedelta(days=1)).isoformat())
+    pulled = P.normalize_record({"title": "CANCELLED Community Care & Self Care", "date": row["date"],
+                                 "venue": "Junior High", "status": "cancelled"}, "squarespace")
+    assert pulled["status"] == "cancelled"
+    assert "status" not in P.normalize_record({"title": "x", "date": row["date"], "status": "onsale"}, "goldenvoice")
+    cat, _ = P.merge_new([row], [pulled], today)
+    assert len(cat) == 1 and cat[0]["status"] == "cancelled"
+    assert P.score_pool(cat, {}, {}, today) == []
+    relisted = P.normalize_record({"title": "Community Care & Self Care", "date": row["date"],
+                                   "venue": "Junior High"}, "squarespace")
+    cat, _ = P.merge_new(cat, [relisted], today + timedelta(days=1))
+    assert "status" not in cat[0]
 
 if __name__ == "__main__":
     fails = 0

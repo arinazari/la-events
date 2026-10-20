@@ -1272,12 +1272,13 @@ async function handleSpotify(url, request, env, cors, ctx) {
     if (!tok.refresh_token) return htmlPage("Spotify didn't return a refresh token. Try Connect again.", back);
     let name = null, blocked = null;
     try { name = (await spotifyApiGet(`${DEFAULTS.SPOTIFY_API}/me`, tok.access_token)).display_name || null; }
-    catch (e) { blocked = String((e && e.message) || e).slice(0, 300); }
+    catch (e) { const msg = String((e && e.message) || e).slice(0, 300); if (/^403\b/.test(msg)) blocked = msg; /* else optional */ }
     // Keep the token either way (it starts working once the account is allowed), but don't claim
     // success: a Development-mode app hands any Spotify account a token, then 403s every API call
     // for accounts that aren't on its Users Management allowlist — exactly how two friends sat
     // "connected" for months with no music layer and no hint why.
-    await env.SPOTIFY_KV.put("rt:" + hash, JSON.stringify({ rt: tok.refresh_token, name, ts: Date.now(), ...(blocked ? { blocked } : {}) }));
+    await env.SPOTIFY_KV.put("rt:" + hash, JSON.stringify({ rt: tok.refresh_token, name, ts: Date.now() }));
+    await setSpotifyBlocked(env, hash, blocked);
     // waitUntil, not a bare call: once the response is sent the runtime may cancel an un-awaited
     // fetch, which is why this dispatch never reached spotify-sync.yml.
     const kick = dispatchSync(env, hash);   // best-effort: kick the rebuild so the feed re-ranks in ~1–2 min
@@ -1292,7 +1293,8 @@ async function handleSpotify(url, request, env, cors, ctx) {
     const hash = hashOf(url.searchParams.get("profile"));
     if (!hash) return json({ connected: false }, 200, cors);
     const rec = await kvJson(env, "rt:" + hash);
-    return json({ connected: !!(rec && rec.rt), name: (rec && rec.name) || null, blocked: (rec && rec.blocked) || null }, 200, cors);
+    const blocked = (rec && rec.rt && await env.SPOTIFY_KV.get("blk:" + hash)) || null;
+    return json({ connected: !!(rec && rec.rt), name: (rec && rec.name) || null, blocked }, 200, cors);
   }
 
   // --- browser: forget my token ---
@@ -1301,6 +1303,7 @@ async function handleSpotify(url, request, env, cors, ctx) {
     const hash = hashOf(body.profile);
     if (!hash) return json({ ok: false }, 400, cors);
     await env.SPOTIFY_KV.delete("rt:" + hash);
+    await setSpotifyBlocked(env, hash, null);
     return json({ ok: true }, 200, cors);
   }
 
@@ -1329,13 +1332,13 @@ async function handleSpotify(url, request, env, cors, ctx) {
     if (!access) return json({ error: "no access token" }, 502, cors);
     let pulled;
     try { pulled = await spotifyPull(access); }
-    catch (e) { return json({ error: "spotify fetch failed", detail: String((e && e.message) || e).slice(0, 500) }, 502, cors); }
-    // The account works now (e.g. it was allowlisted after connecting) — drop the stale connect-time flag.
-    if (rec.blocked) {
-      const rest = { ...rec };
-      delete rest.blocked;
-      await env.SPOTIFY_KV.put("rt:" + hash, JSON.stringify(rest));
+    catch (e) {
+      const detail = String((e && e.message) || e).slice(0, 500);
+      // The nightly sync is what sees accounts connected before /spotify/callback flagged blocks.
+      if (/^403\b/.test(detail)) await setSpotifyBlocked(env, hash, detail.slice(0, 300));
+      return json({ error: "spotify fetch failed", detail }, 502, cors);
     }
+    await setSpotifyBlocked(env, hash, null);   // works now (e.g. allowlisted after connecting)
     return json(pulled, 200, cors);
   }
 
@@ -1361,6 +1364,15 @@ async function spotifyToken(env, form) {
   });
   if (!r.ok) throw new Error(r.status + " " + (await r.text().catch(() => "")).slice(0, 200));
   return r.json();
+}
+/* Spotify's per-account Development-mode block lives under its OWN key, so setting/clearing it never
+ * rewrites rt:<hash> (no CAS in KV: a read-modify-write of the token record from a slow sync could
+ * resurrect a just-disconnected token or revert a fresh reconnect). Best-effort — never fails a request. */
+async function setSpotifyBlocked(env, hash, reason) {
+  try {
+    if (reason) await env.SPOTIFY_KV.put("blk:" + hash, String(reason));
+    else await env.SPOTIFY_KV.delete("blk:" + hash);
+  } catch { /* best-effort */ }
 }
 async function spotifyApiGet(urlStr, access) {
   const r = await fetch(urlStr, { headers: { authorization: "Bearer " + access, "user-agent": "la-events-concierge" } });

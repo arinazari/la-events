@@ -38,6 +38,11 @@ SOURCE_CATEGORY = {
 NORMALIZERS: dict = {}
 
 
+# Catalog rows kept for identity/history but never surfaced: "unlisted" (flag_stale — every source
+# dropped it) and "cancelled" (a source says it's called off).
+HIDDEN_STATUSES = ("unlisted", "cancelled")
+
+
 def today_la() -> date:
     """Today's date in America/Los_Angeles (window math must be LA-local, not UTC)."""
     return datetime.now(_LA).date() if _LA else date.today()
@@ -278,6 +283,11 @@ def normalize_record(raw: dict, source=None) -> dict:
         "price": _price(raw),
         "ra_pick": bool(raw.get("ra_pick")),
         "afterhours": bool(raw.get("afterhours") or raw.get("afterhours_flag")),
+        # A source saying the show is called off (a venue's "CANCELLED …" retitle, ICS
+        # STATUS:CANCELLED, a ticketer's canceled flag). Only this one status is carried: merge()
+        # copies the fresher side's status onto the catalog row in the same run, so the event drops
+        # out of every surface at once; a later listing without it clears it again.
+        **({"status": "cancelled"} if str(raw.get("status") or "").lower() in ("cancelled", "canceled") else {}),
     }
 
 
@@ -535,7 +545,7 @@ def diff_catalog(old_index: dict, new_catalog: list, today: date = None) -> dict
 
 
 def flag_stale(catalog: list, fetched_sources, today: date = None, *,
-               horizon_days: int, grace_days: int = 2, skip_venues=None) -> int:
+               horizon_days: int, grace_days: int = 2, skip_venues: dict = None) -> int:
     """Ghost detection: an event still future-dated but no longer listed by ANY of its sources is
     probably cancelled / postponed / sold-through / pulled — stamp `status: "unlisted"` so it stops
     being recommended (score_pool drops it) while staying in the catalog (it un-flags if it returns).
@@ -543,16 +553,17 @@ def flag_stale(catalog: list, fetched_sources, today: date = None, *,
     Conservative on purpose — only judges an event when we can: every one of its sources was fetched
     OK this run (a source that failed/wasn't fetched tells us nothing), the event is inside the fetch
     horizon (beyond it, absence is expected), and it's been unseen for `grace_days` (last_seen lag),
-    so a single source hiccup doesn't ghost the catalog. `skip_venues`: venues a multi-site
-    source reported as failed this run (one dead Squarespace site among four that share the
-    "squarespace" source) — their rows weren't really re-fetched, so they aren't judged either.
+    so a single source hiccup doesn't ghost the catalog. `skip_venues` = {source: [venues]} a
+    multi-site source reported as failed this run (one dead Squarespace site among four that share
+    the "squarespace" source): a row carrying that source at that venue wasn't really re-fetched,
+    so it isn't judged. Rows at the venue from OTHER sources only are still judged.
     Returns the number newly flagged."""
     today = today or today_la()
     fetched = set(fetched_sources or [])
     if not fetched:
         return 0                              # no successful structured fetch → can't judge anything
     horizon = today + timedelta(days=horizon_days)
-    skip = [k for k in (normalize(v) for v in (skip_venues or [])) if k]
+    skip = {s: [k for k in (normalize(v) for v in vs) if k] for s, vs in (skip_venues or {}).items()}
     flagged = 0
     for ev in catalog:
         d = parse_event_date(ev)
@@ -561,8 +572,10 @@ def flag_stale(catalog: list, fetched_sources, today: date = None, *,
         srcs = set(ev.get("sources") or [])
         if not srcs or not srcs.issubset(fetched):     # some source wasn't refreshed → don't judge
             continue
-        if skip and any(normalize(ev.get("venue")).startswith(k) for k in skip):
-            continue                                   # its site failed this run → can't judge
+        if skip:
+            vk = normalize(ev.get("venue"))
+            if any(vk.startswith(k) for s in srcs & skip.keys() for k in skip[s]):
+                continue                               # its site failed this run → can't judge
         ls = str(ev.get("last_seen") or "")[:10]
         try:
             seen = date.fromisoformat(ls) if ls else None
@@ -671,7 +684,7 @@ def score_pool(catalog, taste, profile, today=None, window_days=None, affinity=N
 
     scored = []
     for ev in catalog:
-        if ev.get("status") == "unlisted":          # ghost (dropped from all its sources) — don't surface
+        if ev.get("status") in HIDDEN_STATUSES:     # ghost (dropped by its sources) / called off — don't surface
             continue
         card = ((enrich_cache or {}).get("events", {}).get(event_key(ev)) or {}).get("card")
         v = score_view(ev, taste, profile, affinity, card=card)

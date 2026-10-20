@@ -124,12 +124,14 @@ def test_no_fetch_carries_the_last_fetch_report_and_delta():
     from datetime import date
     rep = {"ok": [["ra", 9]], "failed": [["eventbrite", "timeout"]], "skipped": [],
            "spotify": {"ok": False, "note": "x"}}
+    today = date(2026, 10, 19)
     with tempfile.TemporaryDirectory() as tmp:
         cand = Path(tmp) / "candidates.json"
-        assert R.carried_report(cand) == {"ok": [], "failed": [], "skipped": []}   # no file yet
-        cand.write_text(json.dumps({"sources": rep, "candidates": []}))
-        assert R.carried_report(cand) == rep
-    today = date(2026, 10, 19)
+        assert R.carried_report(cand, today) == {"ok": [], "failed": [], "skipped": []}   # no file yet
+        cand.write_text(json.dumps({"today": "2026-10-19", "sources": rep, "candidates": []}))
+        assert R.carried_report(cand, today) == rep
+        # a report from an earlier day is not today's fetch — don't present its gaps as current
+        assert R.carried_report(cand, date(2026, 10, 21)) == {"ok": [], "failed": [], "skipped": []}
     prev = {"fetched_at": "2026-10-19T19:15:00+00:00", "added": 98, "updated": 20,
             "changes": [{"title": "a"}]}
     delta, fetched_at = R.carried_delta(prev, {"added": 2, "updated": 0, "changes": [{"title": "b"}]}, today)

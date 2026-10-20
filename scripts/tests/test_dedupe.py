@@ -548,6 +548,12 @@ def test_merge_heals_html_escaped_titles():
     assert merge(a, b)["title"] == "Tony Guerrero & Friends featuring Tawanda"
     assert merge(b, a)["title"] == "Tony Guerrero & Friends featuring Tawanda"
 
+
+def test_merge_mentions_tolerates_strings_and_case_dupes():
+    from lib.dedupe import merge_mentions
+    assert merge_mentions("Time Out", ["time out", "LAist"]) == ["Time Out", "LAist"]
+    assert merge_mentions(None, None) == []
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

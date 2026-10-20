@@ -2,9 +2,10 @@
 """Tests for the venue-feed fetchers' degrade/cancel contracts (no network — urlopen is stubbed).
 
 Run: python scripts/tests/test_fetch_venues.py   (also pytest-compatible)
-- fetch_squarespace: HTML-entity titles decoded; CANCELLED/POSTPONED retitles skipped; a dead site
-  is reported in `failed_venues` (so run_digest won't ghost its rows) while live sites still emit.
-- fetch_ics: RFC 5545 STATUS:CANCELLED events skipped.
+- fetch_squarespace: HTML-entity titles decoded; CANCELLED/POSTPONED retitles emitted with
+  status "cancelled" (so the catalog row is hidden the same run); a dead site is reported in
+  `failed_venues` (so run_digest won't ghost its rows) while live sites still emit.
+- fetch_ics: RFC 5545 STATUS:CANCELLED (or a CANCELLED retitle) emitted with status "cancelled".
 - fetch_eventbrite: a total outage (no organizer links / no event JSON-LD) exits 1, not "0 events".
 """
 
@@ -44,7 +45,7 @@ def _run_main(mod, argv):
         sys.argv = orig
 
 
-def test_squarespace_decodes_entities_skips_pulled_and_reports_dead_site():
+def test_squarespace_decodes_entities_marks_pulled_and_reports_dead_site():
     soon = int((datetime.now(SQ.LA) + timedelta(days=3)).timestamp() * 1000)
     items = [{"title": "Tony Guerrero &amp; Friends", "startDate": soon, "fullUrl": "/e/1"},
              {"title": "CANCELLED Community Care &amp; Self Care", "startDate": soon, "fullUrl": "/e/2"},
@@ -64,19 +65,22 @@ def test_squarespace_decodes_entities_skips_pulled_and_reports_dead_site():
             doc = json.loads(out.read_text())
     finally:
         SQ.urlopen = orig
-    titles = {e["title"] for e in doc["events"]}
-    assert titles == {"Tony Guerrero & Friends"}
+    status = {e["title"]: e.get("status") for e in doc["events"]}
+    assert status == {"Tony Guerrero & Friends": None,
+                      "CANCELLED Community Care & Self Care": "cancelled",
+                      "POSTPONED: Handmade Design Class": "cancelled"}
     assert doc["failed_venues"] == ["The Smell"]
 
 
-def test_ics_skips_cancelled_events():
+def test_ics_marks_cancelled_events():
     now = datetime.now(ICS.LA)
     day = (now + timedelta(days=2)).strftime("%Y%m%d")
     body = (f"BEGIN:VCALENDAR\nBEGIN:VEVENT\nDTSTART:{day}T200000\nSUMMARY:Live Band\nEND:VEVENT\n"
             f"BEGIN:VEVENT\nDTSTART:{day}T210000\nSUMMARY:Pulled Show\nSTATUS:CANCELLED\nEND:VEVENT\n"
             f"BEGIN:VEVENT\nDTSTART:{day}T220000\nSUMMARY:CANCELLED - Late Set\nEND:VEVENT\nEND:VCALENDAR\n")
     got = ICS.parse_feed(body, "Maui Sugar Mill Saloon", "Tarzana", "live_music", now, now + timedelta(days=7))
-    assert [e["title"] for e in got] == ["Live Band"]
+    assert [(e["title"], e.get("status")) for e in got] == [
+        ("Live Band", None), ("Pulled Show", "cancelled"), ("CANCELLED - Late Set", "cancelled")]
 
 
 def test_eventbrite_total_outage_exits_nonzero():

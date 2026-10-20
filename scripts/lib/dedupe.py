@@ -400,6 +400,19 @@ def _union(a, b):
     return out
 
 
+def merge_mentions(a, b) -> list:
+    """Union two editorial_mentions values. Tolerates a bare string (which list() would explode
+    into characters — +1 score each) and dedupes on a normalized key, so "Time Out" / "time out"
+    don't stack as two +1s."""
+    out, seen = [], set()
+    for m in ([a] if isinstance(a, str) else list(a or [])) + ([b] if isinstance(b, str) else list(b or [])):
+        k = re.sub(r"[^a-z0-9]", "", str(m).casefold()) if isinstance(m, str) else ""
+        if k and k not in seen:
+            seen.add(k)
+            out.append(m.strip())
+    return out
+
+
 def _richest(*vals):
     """Longest non-empty string among vals (None if all empty)."""
     best = None
@@ -446,7 +459,7 @@ def merge(a: dict, b: dict) -> dict:
         out["lineup_genre"] = a.get("lineup_genre") or b.get("lineup_genre")  # base (a) never has it until a fetch backfills
     # Editorial mentions accumulate (each roundup is +1 in scoring): a layered row carrying a new
     # mention must add it to the catalog row it matches, not be dropped because `out` starts from a.
-    em = _union(a.get("editorial_mentions"), b.get("editorial_mentions"))
+    em = merge_mentions(a.get("editorial_mentions"), b.get("editorial_mentions"))
     if em:
         out["editorial_mentions"] = em
     out["ra_pick"] = bool(a.get("ra_pick") or b.get("ra_pick"))

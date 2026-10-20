@@ -157,12 +157,14 @@ def fetch_all(selected: set, days: int, far_days: int = None) -> tuple:
     return incoming, report
 
 
-def carried_report(cand_path: Path) -> dict:
-    """The last fetch's run report, for a --no-fetch re-score. That pass (the routine's Step-2
+def carried_report(cand_path: Path, today) -> dict:
+    """Today's fetch run report, for a --no-fetch re-score. That pass (the routine's Step-2
     layering) fetches nothing, so starting from an empty report would blank the coverage-gap and
-    Spotify notes the digest footer reads from candidates.json `sources`. Empty report if unreadable."""
+    Spotify notes the digest footer reads from candidates.json `sources`. Only a report from TODAY
+    is carried — an older one would present stale gaps as current. Empty report otherwise."""
     try:
-        prev = json.loads(cand_path.read_text()).get("sources")
+        doc = json.loads(cand_path.read_text())
+        prev = doc.get("sources") if doc.get("today") == today.isoformat() else None
     except (OSError, ValueError, AttributeError):
         prev = None
     if isinstance(prev, dict) and all(isinstance(prev.get(k), list) for k in ("ok", "failed", "skipped")):
@@ -311,7 +313,7 @@ def main() -> int:
         incoming, report = fetch_all(selected, args.days, args.far_days)
         incoming = [r for r in incoming if r.get("title") and r.get("date")]
     else:
-        report = carried_report(cand_path)   # nothing fetched → keep the last fetch's report
+        report = carried_report(cand_path, today)   # nothing fetched → keep today's fetch report
 
     # Pin Ticketmaster rows to their night-of (URL-slug) date, undoing any UTC-dateTime day-roll left by
     # an older fetcher or re-seeded by a stale source. BEFORE dedupe so a duplicate the bug split across
@@ -354,9 +356,8 @@ def main() -> int:
     # Never on --no-fetch, even though the report is carried forward: nothing was re-fetched, so
     # judging absence would ghost every row whose last_seen is older than the grace window.
     fetched_ok = set() if args.no_fetch else {s for s, _ in report.get("ok", [])}
-    failed_venues = [v for vs in (report.get("partial") or {}).values() for v in vs]
     stale_n = P.flag_stale(catalog, fetched_ok, today, horizon_days=args.days,
-                           skip_venues=failed_venues)
+                           skip_venues=report.get("partial") or {})
     # What moved since last run: stamps updated_at/changed_fields on changed records, returns the
     # {added, updated, changes} summary (must run AFTER tagging + flag_stale so the record is final).
     delta = P.diff_catalog(old_index, catalog, today)

@@ -7,11 +7,13 @@ ticket `url` becomes `links`), keeping any extra fields like `editorial_mentions
 """
 import json
 import sys
+from datetime import datetime
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "scripts"))
 from lib import pipeline as P
+from lib import catalog_meta as CM
 from lib import dedupe as D
 
 # Raw-fetcher spellings normalize_record folds into canonical fields — don't re-add them.
@@ -49,8 +51,7 @@ for r in incoming:
     if r.get("editorial_mentions") and set(r.get("sources") or []) <= {"editorial"}:
         hit = next((e for e in catalog if D.is_duplicate(e, r)), None)
         if hit is not None:
-            have = list(hit.get("editorial_mentions") or [])
-            hit["editorial_mentions"] = have + [m for m in r["editorial_mentions"] if m not in have]
+            hit["editorial_mentions"] = D.merge_mentions(hit.get("editorial_mentions"), r["editorial_mentions"])
             mentioned += 1
             continue
     rest.append(r)
@@ -61,3 +62,16 @@ if mentioned:
 catalog, stats = P.merge_new(catalog, incoming, today)
 cat_path.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n")
 print("merge stats:", stats)
+
+# Count the layered additions in today's change summary. The `run_digest --no-fetch` that follows
+# diffs against this already-layered catalog, so otherwise they'd never read as "new" (and the
+# next day's fetch sees them as pre-existing too).
+meta_path = cat_path.parent / "catalog_meta.json"
+meta = CM.read_meta(meta_path)
+try:
+    same_day = datetime.fromisoformat(meta["fetched_at"]).astimezone(P._LA).date() == today
+except (KeyError, TypeError, ValueError):
+    same_day = False
+if stats.get("added") and same_day:
+    meta["added"] = int(meta.get("added") or 0) + stats["added"]
+    meta_path.write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")

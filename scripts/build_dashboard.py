@@ -593,7 +593,7 @@ def main() -> int:
     # one. They stay in the catalog (flag_stale un-flags them if a source re-lists) and the
     # catalog_meta version fallback below still spans them, so the staleness key can't drift
     # from the run_digest stamp.
-    catalog = [e for e in all_rows if e.get("status") != "unlisted"]
+    catalog = [e for e in all_rows if e.get("status") not in ("unlisted", "cancelled")]
     ghosts = len(all_rows) - len(catalog)
     taste = load_yaml(taste_path)
     profile = load_yaml(profile_path)

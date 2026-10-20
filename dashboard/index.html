@@ -1757,7 +1757,7 @@ class Component extends DCLogic {
     apiKeyOn:false, apiKey:'', sharedToken:'',
     chatOpen:false, chatInput:'', chatMsgs:[], chatBusy:false, updating:null,
     backendStatus:null, backendVer:null, liveReply:null, chatFiltered:null, chatFilterLabel:'',
-    digestModalOpen:false, spotifyStatus:null, spotifyName:'',
+    digestModalOpen:false, spotifyStatus:null, spotifyName:'', spotifyBlocked:false,
     calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
     openFilter:null, exFrom:'', exTo:'',
     exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] },
@@ -2936,7 +2936,7 @@ class Component extends DCLogic {
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.syncStars(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', spotifyBlocked:false, backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.syncStars(); this.showToast('Signed out — back to the house feed', null); };
   // ---------- pipeline jobs: per-profile Update + owner Refresh, persisted across reloads ----------
   workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
   checkCatalogFreshness() { return this.loadMeta(); }
@@ -3307,7 +3307,7 @@ class Component extends DCLogic {
     if (!this.BACKEND_URL || !(p && p.hash)) { this.setState({ spotifyStatus:null }); return; }
     fetch(this.spotifyUrl('/spotify/status?profile=' + p.hash), { cache:'no-store' })
       .then(res => res.ok ? res.json() : null)
-      .then(j => this.setState(j ? { spotifyStatus:!!j.connected, spotifyName:j.name||'' } : { spotifyStatus:null }))
+      .then(j => this.setState(j ? { spotifyStatus:!!j.connected, spotifyName:j.name||'', spotifyBlocked:!!(j.connected && j.blocked) } : { spotifyStatus:null }))
       .catch(() => this.setState({ spotifyStatus:null }));
   };
   connectSpotify = () => {
@@ -3326,7 +3326,7 @@ class Component extends DCLogic {
     try {
       await fetch(this.spotifyUrl('/spotify/disconnect'), { method:'POST', headers: this.backendHeaders(), body: JSON.stringify({ profile:p.hash }) });
     } catch (e) {}
-    this.setState({ spotifyStatus:false, spotifyName:'' });
+    this.setState({ spotifyStatus:false, spotifyName:'', spotifyBlocked:false });
     this.showToast('Spotify disconnected', null);
   };
 
@@ -4337,8 +4337,8 @@ class Component extends DCLogic {
       acctName, acctInitial:(acctName.charAt(0) || '?').toUpperCase(),
       syncBadge: this.needsUpdate() ? 'UPDATE AVAILABLE' : 'CURRENT',
       pullShort: this.getRefreshing() ? ('refreshing… ' + this.fmtElapsed((this.getRefreshing()||{}).startedAt)) : ('pulled ' + pullStamp.split(',')[0]),
-      spotifyShort: (() => { const s = this.state.spotifyStatus; if (s === true) return '✓ ' + (this.state.spotifyName || 'connected'); if (s === null) return 'checking…'; return 'not connected'; })(),
-      spotifyShortColor: this.state.spotifyStatus === true ? '#1f7a4d' : '#a7a59b',
+      spotifyShort: (() => { const s = this.state.spotifyStatus; if (s === true && this.state.spotifyBlocked) return '⚠︎ awaiting access'; if (s === true) return '✓ ' + (this.state.spotifyName || 'connected'); if (s === null) return 'checking…'; return 'not connected'; })(),
+      spotifyShortColor: this.state.spotifyStatus === true ? (this.state.spotifyBlocked ? '#b26a00' : '#1f7a4d') : '#a7a59b',
       apiShort: (() => { const key = this.byokKey(); const idn = key ? 'your key' : (this.BACKEND_TOKEN ? 'shared token' : 'not set'); return backendOld ? (idn + ' · old build') : idn; })(),
       dataPull:pullStamp,
       dataChanged:(this.LIVE_CATALOG && (this.LIVE_CATALOG.added != null || this.LIVE_CATALOG.updated != null)) ? ((this.LIVE_CATALOG.added||0)+' added · '+(this.LIVE_CATALOG.updated||0)+' updated'+((this.LIVE_CATALOG.changes||[]).length?' →':'')) : 'no changes',
@@ -4367,6 +4367,7 @@ class Component extends DCLogic {
         const s = this.state.spotifyStatus;
         if (!this.state.loggedIn) return 'log in to connect your listening';
         if (s === null) return 'checking…';
+        if (s === true && this.state.spotifyBlocked) return 'connected, but Spotify isn’t sharing your listening yet — ask Ari to add your Spotify email';
         if (s === true) return 'connected' + (this.state.spotifyName ? ' · ' + this.state.spotifyName : '') + ' — re-ranks to your listening';
         return 'not connected — link it to re-rank to your listening';
       })(),
@@ -4381,6 +4382,9 @@ class Component extends DCLogic {
         const musicLayer = (this.META && this.META.music) || null;
         const feedHasSpotify = !!(musicLayer && /spotify/.test(musicLayer.layer || '') && (musicLayer.artists || 0) > 0);
         const staleHint = ' ⚠︎ But your current ranking was built without it — it may still be syncing (give it a minute), or the last refresh failed. Try Ranks & Digest → Update, or Disconnect and reconnect.';
+        // Development-mode Spotify app: an account not on its Users Management allowlist connects
+        // fine but every API call 403s (the Worker flags it `blocked`). Reconnecting won't help.
+        if (st2 === true && this.state.spotifyBlocked) return 'Connected — but Spotify isn’t sharing your listening with this app yet. That’s a Spotify developer-mode limit: Ari has to add the email on your Spotify account to the app’s allowed users. Until then your picks rank on your taste profile and reactions.';
         return st2 === true ? ('Connected' + (this.state.spotifyName ? ' as ' + this.state.spotifyName : '') + ' — your feed re-ranks to what you actually listen to.' + (feedHasSpotify ? '' : staleHint))
           : st2 === null ? 'Checking your Spotify connection…'
           : 'Not connected. Link your Spotify so your picks re-rank to what you actually listen to.';

@@ -318,7 +318,7 @@ def auto_pool(catalog: list, verdicts: dict, today_iso: str, days: int = 21,
     pool = []
     for ev in catalog:
         d = str(ev.get("date") or "")[:10]
-        if not d or d < today_iso or ev.get("status") == "unlisted":
+        if not d or d < today_iso or ev.get("status") in ("unlisted", "cancelled"):
             continue
         key = event_key(ev)
         star = bool(starred and key in starred)
