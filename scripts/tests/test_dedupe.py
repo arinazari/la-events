@@ -552,6 +552,8 @@ def test_merge_heals_html_escaped_titles():
 def test_merge_mentions_tolerates_strings_and_case_dupes():
     from lib.dedupe import merge_mentions
     assert merge_mentions("Time Out", ["time out", "LAist"]) == ["Time Out", "LAist"]
+    assert merge_mentions(["Time Out", "LAist"], ["Time Out Los Angeles", "LAist — Best Things To Do"]) == ["Time Out", "LAist"]
+    assert merge_mentions(["6AM"], ["6AM Group"]) == ["6AM", "6AM Group"]   # keys under 4 chars never prefix-match
     assert merge_mentions(None, None) == []
 
 if __name__ == "__main__":

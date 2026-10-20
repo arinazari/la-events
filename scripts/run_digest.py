@@ -174,9 +174,10 @@ def carried_report(cand_path: Path, today) -> dict:
 
 def carried_delta(prev_meta: dict, delta: dict, today) -> tuple:
     """(delta, fetched_at) for a --no-fetch re-score's catalog_meta. Its own diff runs against the
-    already-fetched catalog, so alone it reads '0 new, 0 updated' and would overwrite the fetch's
-    real summary. If the previous meta is from today (LA), fold this pass's delta (the layered
-    rows) into it and keep that fetch's timestamp; otherwise this pass's delta stands."""
+    already-fetched (and already-layered) catalog, so alone it reads ~'0 new, 0 updated' and would
+    overwrite the fetch's real summary. If the previous meta is from today (LA), add this pass's
+    delta to it and keep that fetch's timestamp (layered rows are counted by _layer_merge itself);
+    otherwise this pass's delta stands."""
     fetched_at = (prev_meta or {}).get("fetched_at")
     try:
         prev_day = datetime.fromisoformat(fetched_at).astimezone(P._LA).date() if fetched_at else None
@@ -357,7 +358,8 @@ def main() -> int:
     # judging absence would ghost every row whose last_seen is older than the grace window.
     fetched_ok = set() if args.no_fetch else {s for s, _ in report.get("ok", [])}
     stale_n = P.flag_stale(catalog, fetched_ok, today, horizon_days=args.days,
-                           skip_venues=report.get("partial") or {})
+                           skip_venues=report.get("partial") or {},
+                           core_sources={e["source"] for e in FETCHERS})
     # What moved since last run: stamps updated_at/changed_fields on changed records, returns the
     # {added, updated, changes} summary (must run AFTER tagging + flag_stale so the record is final).
     delta = P.diff_catalog(old_index, catalog, today)

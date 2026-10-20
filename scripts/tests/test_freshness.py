@@ -155,6 +155,18 @@ def test_cancelled_marker_reaches_the_row_and_hides_it():
     cat, _ = P.merge_new(cat, [relisted], today + timedelta(days=1))
     assert "status" not in cat[0]
 
+
+def test_flag_stale_judges_core_sources_only():
+    """A nightly webfetch merge adds 'webfetch' to a 19hz row; with core_sources given, the row is
+    still judged on 19hz (cancelled → ghosted), while a webfetch-only row is never judged."""
+    today = date(2026, 6, 23)
+    old = (today - timedelta(days=4)).isoformat()
+    mixed = _future(5, sources=["19hz", "webfetch"], last_seen=old)
+    layered_only = _future(5, sources=["webfetch"], last_seen=old)
+    assert P.flag_stale([dict(mixed)], {"19hz"}, today, horizon_days=120) == 0       # legacy: never judged
+    n = P.flag_stale([mixed, layered_only], {"19hz"}, today, horizon_days=120, core_sources={"19hz", "ra"})
+    assert n == 1 and mixed["status"] == "unlisted" and "status" not in layered_only
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

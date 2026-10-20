@@ -545,7 +545,8 @@ def diff_catalog(old_index: dict, new_catalog: list, today: date = None) -> dict
 
 
 def flag_stale(catalog: list, fetched_sources, today: date = None, *,
-               horizon_days: int, grace_days: int = 2, skip_venues: dict = None) -> int:
+               horizon_days: int, grace_days: int = 2, skip_venues: dict = None,
+               core_sources=None) -> int:
     """Ghost detection: an event still future-dated but no longer listed by ANY of its sources is
     probably cancelled / postponed / sold-through / pulled — stamp `status: "unlisted"` so it stops
     being recommended (score_pool drops it) while staying in the catalog (it un-flags if it returns).
@@ -557,6 +558,10 @@ def flag_stale(catalog: list, fetched_sources, today: date = None, *,
     multi-site source reported as failed this run (one dead Squarespace site among four that share
     the "squarespace" source): a row carrying that source at that venue wasn't really re-fetched,
     so it isn't judged. Rows at the venue from OTHER sources only are still judged.
+    `core_sources` (run_digest passes its fetcher names): judge a row on the core sources it carries
+    and ignore layered tags (webfetch / editorial / legacy venue names) the core never fetches — the
+    nightly Step-2 webfetch merge would otherwise add one to a 19hz/TM row and switch off its ghost
+    check for good. A venue page still listing the show keeps last_seen fresh, so it isn't ghosted.
     Returns the number newly flagged."""
     today = today or today_la()
     fetched = set(fetched_sources or [])
@@ -564,12 +569,15 @@ def flag_stale(catalog: list, fetched_sources, today: date = None, *,
         return 0                              # no successful structured fetch → can't judge anything
     horizon = today + timedelta(days=horizon_days)
     skip = {s: [k for k in (normalize(v) for v in vs) if k] for s, vs in (skip_venues or {}).items()}
+    core = set(core_sources) if core_sources is not None else None
     flagged = 0
     for ev in catalog:
         d = parse_event_date(ev)
         if d is None or d < today or d > horizon:
             continue
         srcs = set(ev.get("sources") or [])
+        if core is not None:
+            srcs &= core                               # layered-only tags don't block (or enable) judging
         if not srcs or not srcs.issubset(fetched):     # some source wasn't refreshed → don't judge
             continue
         if skip:

@@ -57,9 +57,12 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
      `editorial` — today that's Avalon Hollywood, McCabe's, Harvelle's, The Dresden, Sam First, The
      Venice West): WebFetch its calendar and write its upcoming rows (`title`, `date`, `start`,
      `venue`, `url`, `"sources": ["webfetch"]`) to a JSON file;
-   - this week's editorial roundups (the `category: editorial` sources — UncoverLA, Discover Los
-     Angeles, LAist, Time Out, …): rows with `"sources": ["editorial"]` + `editorial_mentions:
-     ["<roundup name>"]` — a mention of an event the catalog already has only adds the mention.
+   - this week's editorial roundups (the `category: editorial`, `status: active` sources that aren't
+     `method: manual` — LAist, Time Out, We Like LA, UncoverLA, Discover Los Angeles): one row per
+     dated item with `title`, `date`, `venue`, `url`, `"sources": ["editorial"]` and
+     `editorial_mentions: ["<roundup>"]`, using these exact short names — "LAist", "Time Out",
+     "We Like LA", "UncoverLA", "Discover LA". A mention of an event the catalog already has only
+     adds the mention; an item with no venue is skipped.
 
    Fold the files in with `python scripts/_layer_merge.py <file>.json …`, then `python
    scripts/run_digest.py --no-fetch` to re-dedupe + re-score and refresh `data/candidates.json` +

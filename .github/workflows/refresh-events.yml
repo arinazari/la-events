@@ -77,7 +77,14 @@ jobs:
             echo "No changes after refresh."
           else
             git commit -m "refresh: rebuild events catalog from sources [skip ci]"
-            git push
+            # The fetch takes minutes and main can move meanwhile (Worker reaction/taste commits,
+            # land-digest). Those touch other files, so rebase + retry; a real conflict (a nightly
+            # catalog landed mid-run) still fails loudly instead of clobbering it.
+            for i in 1 2 3; do
+              git push origin HEAD:main && break
+              [ "$i" = 3 ] && { echo "push failed 3 times" >&2; exit 1; }
+              git pull --rebase -q origin main || { echo "rebase conflict with main" >&2; exit 1; }
+            done
           fi
 
       # Deploy the refreshed dashboard/ to Pages (the [skip ci] commit won't trigger deploy-dashboard).

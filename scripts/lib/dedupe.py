@@ -402,14 +402,17 @@ def _union(a, b):
 
 def merge_mentions(a, b) -> list:
     """Union two editorial_mentions values. Tolerates a bare string (which list() would explode
-    into characters — +1 score each) and dedupes on a normalized key, so "Time Out" / "time out"
-    don't stack as two +1s."""
-    out, seen = [], set()
+    into characters — +1 score each) and dedupes on a normalized key, treating a key that extends
+    another ("Time Out Los Angeles" vs "Time Out", "LAist — Best Things To Do" vs "LAist") as the same
+    roundup, so one roundup never stacks +1s under spelling drift. The first spelling seen wins."""
+    out, seen = [], []
     for m in ([a] if isinstance(a, str) else list(a or [])) + ([b] if isinstance(b, str) else list(b or [])):
-        k = re.sub(r"[^a-z0-9]", "", str(m).casefold()) if isinstance(m, str) else ""
-        if k and k not in seen:
-            seen.add(k)
-            out.append(m.strip())
+        k = re.sub(r"[^a-z0-9]", "", m.casefold()) if isinstance(m, str) else ""
+        if not k or any(k == s or (min(len(k), len(s)) >= 4 and (k.startswith(s) or s.startswith(k)))
+                        for s in seen):
+            continue
+        seen.append(k)
+        out.append(m.strip())
     return out
 
 
