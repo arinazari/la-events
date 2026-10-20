@@ -10,7 +10,7 @@ import re
 from datetime import date, datetime, timedelta, timezone
 
 from .scoring import score_event, score_to_rating, parse_event_date
-from .dedupe import dedupe
+from .dedupe import dedupe, normalize
 from .enrich import event_key
 from .catalog_meta import VOLATILE_FIELDS, _lineup_sig
 from .affinity import ambiguous_set, tracked_hits
@@ -535,7 +535,7 @@ def diff_catalog(old_index: dict, new_catalog: list, today: date = None) -> dict
 
 
 def flag_stale(catalog: list, fetched_sources, today: date = None, *,
-               horizon_days: int, grace_days: int = 2) -> int:
+               horizon_days: int, grace_days: int = 2, skip_venues=None) -> int:
     """Ghost detection: an event still future-dated but no longer listed by ANY of its sources is
     probably cancelled / postponed / sold-through / pulled — stamp `status: "unlisted"` so it stops
     being recommended (score_pool drops it) while staying in the catalog (it un-flags if it returns).
@@ -543,12 +543,16 @@ def flag_stale(catalog: list, fetched_sources, today: date = None, *,
     Conservative on purpose — only judges an event when we can: every one of its sources was fetched
     OK this run (a source that failed/wasn't fetched tells us nothing), the event is inside the fetch
     horizon (beyond it, absence is expected), and it's been unseen for `grace_days` (last_seen lag),
-    so a single source hiccup doesn't ghost the catalog. Returns the number newly flagged."""
+    so a single source hiccup doesn't ghost the catalog. `skip_venues`: venues a multi-site
+    source reported as failed this run (one dead Squarespace site among four that share the
+    "squarespace" source) — their rows weren't really re-fetched, so they aren't judged either.
+    Returns the number newly flagged."""
     today = today or today_la()
     fetched = set(fetched_sources or [])
     if not fetched:
         return 0                              # no successful structured fetch → can't judge anything
     horizon = today + timedelta(days=horizon_days)
+    skip = [k for k in (normalize(v) for v in (skip_venues or [])) if k]
     flagged = 0
     for ev in catalog:
         d = parse_event_date(ev)
@@ -557,6 +561,8 @@ def flag_stale(catalog: list, fetched_sources, today: date = None, *,
         srcs = set(ev.get("sources") or [])
         if not srcs or not srcs.issubset(fetched):     # some source wasn't refreshed → don't judge
             continue
+        if skip and any(normalize(ev.get("venue")).startswith(k) for k in skip):
+            continue                                   # its site failed this run → can't judge
         ls = str(ev.get("last_seen") or "")[:10]
         try:
             seen = date.fromisoformat(ls) if ls else None

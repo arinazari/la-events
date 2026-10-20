@@ -33,6 +33,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main   # a repository_dispatch run would otherwise check out the dispatch-time SHA and,
+                      # queued behind other `pages` runs, push non-fast-forward (as build-profiles does)
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"

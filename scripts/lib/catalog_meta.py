@@ -64,7 +64,7 @@ def content_version(catalog) -> str:
     return _digest_of(_content_identity(e) for e in (catalog or []))
 
 
-def build_meta(catalog, delta: dict = None, stale: list = None) -> dict:
+def build_meta(catalog, delta: dict = None, stale: list = None, fetched_at: str = None) -> dict:
     meta = {
         "version": version(catalog),
         "content_version": content_version(catalog),
@@ -72,7 +72,8 @@ def build_meta(catalog, delta: dict = None, stale: list = None) -> dict:
         # Timezone-AWARE (UTC) so the browser parses the right instant and renders it in the
         # viewer's local zone. A naive datetime.now() has no offset → JS reads it as local → the
         # CI runner's UTC clock shows ~hours in the "future" for a PT viewer.
-        "fetched_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        # `fetched_at` passed in = a --no-fetch re-score keeping the real fetch's timestamp.
+        "fetched_at": fetched_at or datetime.now(timezone.utc).isoformat(timespec="seconds"),
     }
     if delta:
         # This run's change summary (since the previous catalog) — drives the digest freshness line
@@ -88,9 +89,9 @@ def build_meta(catalog, delta: dict = None, stale: list = None) -> dict:
     return meta
 
 
-def write_meta(path, catalog, delta: dict = None, stale: list = None) -> dict:
+def write_meta(path, catalog, delta: dict = None, stale: list = None, fetched_at: str = None) -> dict:
     """Write {version, content_version, count, fetched_at, [added/updated/changes/stale_sources]}; return it."""
-    meta = build_meta(catalog, delta, stale)
+    meta = build_meta(catalog, delta, stale, fetched_at)
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")

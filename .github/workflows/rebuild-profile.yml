@@ -111,7 +111,8 @@ jobs:
           # this same generated feed). Untracked/gitignored inputs (the Spotify sync above) survive
           # the reset.
           for attempt in 1 2 3; do
-            git fetch origin main -q && git reset --hard FETCH_HEAD -q
+            git fetch origin main -q || { sleep 5; git fetch origin main -q; } || { echo "git fetch failed" >&2; exit 1; }
+            git reset --hard FETCH_HEAD -q
             paths="dashboard/data.$HASH.json dashboard/catalog_meta.json"
             # Owner = the canonical/default feed, and their displayed digest IS the consolidated one.
             # Re-render it deterministically (same path refresh-events/nightly use) so the owner's

@@ -51,15 +51,21 @@ Run the la-events digest per .claude/skills/la-events/SKILL.md, in **weekend-set
    enrichment head / editor pool are cut (report prints a `music layer …` line; a missing or failed
    sync lands in the digest footer).
 2. **Layer in + re-score — do NOT skip this step.** Squarespace + ICS venues now run inside the core
-   (step 1); what's left is SKILL Step 2: the Gmail "Events" label if the connector is attached; the
-   `method: webfetch`, `status: active` venues in `sources.yaml` (McCabe's, Harvelle's, The Dresden,
-   Sam First, The Venice West, Avalon Hollywood, …; ≤15/run, stalest first — the run report's stale
-   line names them); and this week's editorial roundups as `editorial_mentions`. WebFetch each venue
-   calendar, write its rows (catalog schema, `"sources": ["webfetch"]`) to a JSON file, and fold them
-   in with `python scripts/_layer_merge.py <file>.json`. Unattended runs skipped this step every night
-   from 9/28, freezing those venues for 3+ weeks — so it is not optional: a venue you genuinely can't
-   read goes in the footer by name. Then `python scripts/run_digest.py --no-fetch`
-   to re-dedupe + re-score and refresh `data/candidates.json` + `data/editor_pool.json`.
+   (step 1); what's left is SKILL Step 2:
+   - the Gmail "Events" label, if the connector is attached;
+   - **every** `method: webfetch`, `status: active` VENUE in `sources.yaml` (category not
+     `editorial` — today that's Avalon Hollywood, McCabe's, Harvelle's, The Dresden, Sam First, The
+     Venice West): WebFetch its calendar and write its upcoming rows (`title`, `date`, `start`,
+     `venue`, `url`, `"sources": ["webfetch"]`) to a JSON file;
+   - this week's editorial roundups (the `category: editorial` sources — UncoverLA, Discover Los
+     Angeles, LAist, Time Out, …): rows with `"sources": ["editorial"]` + `editorial_mentions:
+     ["<roundup name>"]` — a mention of an event the catalog already has only adds the mention.
+
+   Fold the files in with `python scripts/_layer_merge.py <file>.json …`, then `python
+   scripts/run_digest.py --no-fetch` to re-dedupe + re-score and refresh `data/candidates.json` +
+   `data/editor_pool.json` (it keeps step 1's run report and change counts). Unattended runs skipped
+   this step every night from 9/28, freezing those venues for 3+ weeks — so it is not optional: a
+   venue you genuinely can't read goes in the footer by name.
 3. **Judge the ranking (event-editor):** `python scripts/editor_batches.py` selects the
    not-yet-judged events in `data/editor_pool.json` (`editor.select_for_verdict` — only new/changed
    events cost a call) and writes self-contained batch files to `data/editor_batches/default/`

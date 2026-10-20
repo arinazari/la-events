@@ -98,6 +98,48 @@ def test_venue_fetchers_report_total_outage():
         assert _venue_fetcher_exit(mod, all_fail=False) == 0, mod
 
 
+
+def test_fetch_all_reports_partial_site_failures():
+    """A fetcher that lost only some sites stays in `ok` (its live rows merge) but its dead sites
+    land in report['partial'] — the footer names them and the ghost sweep skips their rows."""
+    def fake(entry, days, tmpdir, far_days=None, partial=None):
+        if entry["source"] == "squarespace" and partial is not None:
+            partial["squarespace"] = ["Vibrato Grill Jazz"]
+        return [{"title": "x", "date": "2026-11-01"}]
+    orig = R.run_fetcher
+    R.run_fetcher = fake
+    try:
+        _, report = R.fetch_all({"squarespace", "ics"}, days=7)
+    finally:
+        R.run_fetcher = orig
+    assert [s for s, _ in report["ok"]] == ["squarespace", "ics"]
+    assert report["partial"] == {"squarespace": ["Vibrato Grill Jazz"]}
+
+
+def test_no_fetch_carries_the_last_fetch_report_and_delta():
+    """--no-fetch (the routine's Step-2 re-score) fetched nothing: it must not blank the run report
+    the digest footer reads, nor overwrite today's '+N new, M updated' with zeros."""
+    import json
+    import tempfile
+    from datetime import date
+    rep = {"ok": [["ra", 9]], "failed": [["eventbrite", "timeout"]], "skipped": [],
+           "spotify": {"ok": False, "note": "x"}}
+    with tempfile.TemporaryDirectory() as tmp:
+        cand = Path(tmp) / "candidates.json"
+        assert R.carried_report(cand) == {"ok": [], "failed": [], "skipped": []}   # no file yet
+        cand.write_text(json.dumps({"sources": rep, "candidates": []}))
+        assert R.carried_report(cand) == rep
+    today = date(2026, 10, 19)
+    prev = {"fetched_at": "2026-10-19T19:15:00+00:00", "added": 98, "updated": 20,
+            "changes": [{"title": "a"}]}
+    delta, fetched_at = R.carried_delta(prev, {"added": 2, "updated": 0, "changes": [{"title": "b"}]}, today)
+    assert (delta["added"], delta["updated"]) == (100, 20) and fetched_at == prev["fetched_at"]
+    assert [c["title"] for c in delta["changes"]] == ["b", "a"]
+    # A previous meta from another day isn't this run's fetch — this pass's delta stands alone.
+    own = {"added": 2, "updated": 0}
+    assert R.carried_delta({**prev, "fetched_at": "2026-10-17T19:15:00+00:00"}, own, today) == (own, None)
+    assert R.carried_delta({}, own, today) == (own, None)
+
 def _run_affinity_with_fake_spotify(stdout, returncode=0):
     """Drive load_affinity_layer with a stubbed fetch_spotify subprocess + a present token,
     and return the recorded report['spotify']. Restores the globals it touches."""

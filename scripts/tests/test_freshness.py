@@ -121,6 +121,20 @@ def test_score_pool_drops_unlisted():
     assert "Show" in titles and "Dead" not in titles
 
 
+
+def test_flag_stale_skips_venues_whose_site_failed():
+    """A multi-site source (4 Squarespace venues share "squarespace") that lost ONE site still
+    fetched OK — but that venue's rows weren't re-fetched, so they must not be ghosted."""
+    today = date(2026, 6, 23)
+    old = (today - timedelta(days=5)).isoformat()
+    dead_site = _future(5, venue="Vibrato Grill Jazz", sources=["squarespace"], last_seen=old)
+    dead_site_long = _future(6, venue="Vibrato Grill Jazz (Bel Air)", sources=["squarespace"], last_seen=old)
+    healthy = _future(5, venue="Junior High", sources=["squarespace"], last_seen=old)
+    n = P.flag_stale([dead_site, dead_site_long, healthy], {"squarespace"}, today, horizon_days=120,
+                     skip_venues=["Vibrato Grill Jazz"])
+    assert n == 1 and healthy["status"] == "unlisted"
+    assert "status" not in dead_site and "status" not in dead_site_long
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

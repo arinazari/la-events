@@ -129,7 +129,9 @@ def main() -> int:
         try:
             print("  " + sync_one(args.url, args.token, h, out_dir))
             synced += 1
-        except (HTTPError, URLError, ValueError, KeyError) as e:
+        except HTTPError as e:
+            print(f"  WARN: {h} failed ({_worker_error(e)}); skipped.", file=sys.stderr)
+        except (URLError, ValueError, KeyError) as e:
             print(f"  WARN: {h} failed ({e}); skipped.", file=sys.stderr)
 
     # Owner bridge: the owner's feed is built from the owner-affinity path, not the per-profile
@@ -147,13 +149,29 @@ def main() -> int:
 
     failed = len(attempted) - synced
     # Exit 0 even when some/all fail — a revoked token or a Worker blip must never block the feed
-    # rebuild/deploy that follows. The failed count is surfaced loudly instead (those feeds keep
-    # their last good music layer from the committed data.<hash>.json).
+    # rebuild/deploy that follows. The failed count is surfaced loudly instead. data/spotify/ is
+    # gitignored and not cached, so in a fresh CI container a failed profile has NO Spotify layer:
+    # its feed builds from reactions only (or no music layer at all) until a sync succeeds.
     summary = f"Synced {synced}/{len(attempted)} connected profile(s)."
     if failed:
-        summary += f" {failed} FAILED — those feeds keep their last good music layer."
+        summary += f" {failed} FAILED — those feeds build without a Spotify layer this run."
     print(summary)
     return 0
+
+
+def _worker_error(e: HTTPError) -> str:
+    """The Worker's JSON error ({error, detail}) carries Spotify's own message — print it, not just
+    'HTTP Error 502'. Spotify error bodies hold no token, and the Bearer token is never echoed."""
+    msg = f"HTTP {e.code}"
+    try:
+        body = json.loads(e.read().decode("utf-8", "replace") or "{}")
+        msg += f": {body.get('error') or ''} — {str(body.get('detail') or '')[:500]}".rstrip(" —")
+    except (ValueError, OSError, AttributeError):
+        pass
+    if e.code == 502 and " 403 " in f" {msg} ":
+        msg += (" [Development-mode Spotify app: add this person's exact Spotify-account email under"
+                " Developer Dashboard → the app → Settings → Users Management (max 5 users)]")
+    return msg
 
 
 if __name__ == "__main__":

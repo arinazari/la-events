@@ -44,6 +44,10 @@ SITES = {
 }
 
 DATE_TITLE = re.compile(r"^(mon|tue|wed|thu|fri|sat|sun)", re.I)
+# Venues pull a show by retitling it ("CANCELLED Community Care…", "POSTPONED: …") rather than
+# deleting it. Skip those: they must never be recommended, and once the catalog row stops being
+# re-seen the ghost sweep marks it unlisted.
+PULLED = re.compile(r"^\W*(cancel+ed|postponed)\b", re.I)
 
 
 def strip_html(s):
@@ -68,7 +72,10 @@ def fetch_site(venue, url, hood, category, now, hi):
         when = datetime.fromtimestamp(ms / 1000, tz=LA)
         if not (now.date() <= when.date() <= hi.date()):
             continue
-        title = (it.get("title") or "").strip()
+        # Squarespace titles arrive HTML-escaped ("Tony Guerrero &amp; Friends").
+        title = html.unescape(it.get("title") or "").strip()
+        if PULLED.match(title):
+            continue
         detail = strip_html(it.get("excerpt") or it.get("body") or "")
         # Some venues (The Smell) title entries by date — use the body's first line instead.
         if DATE_TITLE.match(title) and detail:
@@ -99,7 +106,7 @@ def main():
 
     now = datetime.now(LA)
     hi = now + timedelta(days=args.days)
-    events, failed = [], []
+    events, failed, failed_venues = [], [], []
     for venue, (url, hood, cat) in SITES.items():
         try:
             got = fetch_site(venue, url, hood, cat, now, hi)
@@ -107,12 +114,17 @@ def main():
             print(f"  {venue}: {len(got)} events", file=sys.stderr)
         except (HTTPError, URLError) as e:
             failed.append(f"{venue} ({getattr(e, 'code', e)})")
+            failed_venues.append(venue)
         except Exception as e:  # noqa: BLE001
             failed.append(f"{venue} ({e})")
+            failed_venues.append(venue)
 
     events.sort(key=lambda x: (x["date"], x["start"]))
+    # `failed_venues` lets run_digest skip ghost-checking just those venues' rows: every site
+    # shares the one "squarespace" source, so a single dead site would otherwise read as
+    # "fetched OK, events gone" and get its whole calendar flagged unlisted.
     with open(args.out, "w") as f:
-        json.dump(events, f, indent=2)
+        json.dump({"events": events, "failed_venues": failed_venues}, f, indent=2)
     print(f"Wrote {len(events)} events from {len(SITES) - len(failed)}/{len(SITES)} "
           f"Squarespace sites -> {args.out}"
           + (f" | failed: {', '.join(failed)}" if failed else ""))

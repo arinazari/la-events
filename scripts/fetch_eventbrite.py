@@ -218,6 +218,19 @@ def main() -> int:
                     event_urls.append(url)
         pages = list(pool.map(scrape_page, event_urls))
 
+    # Total outage (a WAF challenge on every page, or a network block) must read as a FAILURE: an
+    # exit-0 "0 events" would put eventbrite in run_digest's fetched-OK set and let the ghost sweep
+    # flag every Eventbrite row unlisted. Organizers crawled but no event links at all, or event
+    # pages fetched but none carried a single event, is that outage — not a quiet week.
+    if organizers and not event_urls:
+        print(f"ERROR: none of {len(organizers)} organizer page(s) listed an event link "
+              "(blocked or challenged?)", file=sys.stderr)
+        return 1
+    if event_urls and not any(pages):
+        print(f"ERROR: none of {len(event_urls)} event page(s) carried event JSON-LD "
+              "(blocked or challenged?)", file=sys.stderr)
+        return 1
+
     lo, hi = date.today(), date.today() + timedelta(days=args.days)
     events = []
     for page in pages:

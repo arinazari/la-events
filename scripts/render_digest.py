@@ -360,7 +360,9 @@ def _footer_notes(doc: dict) -> list:
     Neither blocks the digest — they're surfaced, per the 'degrade gracefully' contract."""
     sources = doc.get("sources") or {}
     notes = []
-    failed = sources.get("failed") or []
+    failed = list(sources.get("failed") or [])
+    # A multi-site source that lost only some sites still counts as fetched — name those sites.
+    failed += [(s, "failed: " + ", ".join(vs)) for s, vs in (sources.get("partial") or {}).items() if vs]
     if failed:
         notes.append("*Coverage gaps: " + ", ".join(f"{s} ({why})" for s, why in failed) + "*")
     # A source gone dark (frozen last_seen — broken fetcher / lapsed key) is worse than a one-run

@@ -28,6 +28,8 @@ except Exception:  # pragma: no cover
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
+PULLED = re.compile(r"^\W*(cancel+ed|postponed)\b", re.I)
+
 # name -> (ics_url, neighborhood, category). Grow in Discover mode.
 FEEDS = {
     "Maui Sugar Mill Saloon": ("https://tockify.com/api/feeds/ics/sugarmillsaloon",
@@ -79,6 +81,10 @@ def parse_feed(body, venue, hood, category, now, hi):
         if line == "END:VEVENT":
             in_ev = False
             dt = cur.get("_start")
+            # RFC 5545 STATUS:CANCELLED (or a "CANCELLED …" retitle) — a pulled show stays in the
+            # feed; never list it.
+            if (cur.get("STATUS") or "").upper() == "CANCELLED" or PULLED.match(cur.get("SUMMARY") or ""):
+                continue
             if dt and now.date() <= dt.date() <= hi.date():
                 out.append({
                     "source": "ics",
@@ -102,7 +108,7 @@ def parse_feed(body, venue, hood, category, now, hi):
         name = name.upper()
         if name == "DTSTART":
             cur["_start"] = parse_dt(val, params)
-        elif name in ("SUMMARY", "DESCRIPTION", "URL", "LOCATION"):
+        elif name in ("SUMMARY", "DESCRIPTION", "URL", "LOCATION", "STATUS"):
             cur[name] = unescape(val)
     return out
 
@@ -124,7 +130,7 @@ def main():
 
     now = datetime.now(LA)
     hi = now + timedelta(days=args.days)
-    events, failed = [], []
+    events, failed, failed_venues = [], [], []
     for venue, (url, hood, cat) in feeds.items():
         try:
             req = Request(url, headers={"User-Agent": UA, "Accept": "text/calendar,*/*"})
@@ -132,18 +138,22 @@ def main():
                 body = resp.read().decode("utf-8", "replace")
             if "BEGIN:VCALENDAR" not in body:
                 failed.append(f"{venue} (not an ICS feed)")
+                failed_venues.append(venue)
                 continue
             got = parse_feed(body, venue, hood, cat, now, hi)
             events.extend(got)
             print(f"  {venue}: {len(got)} events", file=sys.stderr)
         except (HTTPError, URLError) as e:
             failed.append(f"{venue} ({getattr(e, 'code', e)})")
+            failed_venues.append(venue)
         except Exception as e:  # noqa: BLE001
             failed.append(f"{venue} ({e})")
+            failed_venues.append(venue)
 
     events.sort(key=lambda x: (x["date"], x["start"]))
+    # `failed_venues`: run_digest skips ghost-checking those feeds' rows (see fetch_squarespace).
     with open(args.out, "w") as f:
-        json.dump(events, f, indent=2)
+        json.dump({"events": events, "failed_venues": failed_venues}, f, indent=2)
     print(f"Wrote {len(events)} events from {len(feeds) - len(failed)}/{len(feeds)} ICS feeds "
           f"-> {args.out}" + (f" | failed: {', '.join(failed)}" if failed else ""))
     # Every feed down = report a failure, not "0 events": run_digest ghost-checks sources that

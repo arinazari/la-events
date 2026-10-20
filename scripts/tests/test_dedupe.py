@@ -528,6 +528,26 @@ def test_merge_preserves_image_from_either_record():
     assert "image" not in merge(base, dict(base, last_seen="2026-07-10"))
 
 
+
+def test_merge_unions_editorial_mentions():
+    """Each roundup mention is +1 in scoring — a layered row's new mention must survive the merge."""
+    a = {"title": "Show", "date": "2026-07-01", "venue": "Zebulon", "sources": ["ra"],
+         "editorial_mentions": ["LAist"]}
+    b = {"title": "Show", "date": "2026-07-01", "venue": "Zebulon", "sources": ["dice"],
+         "editorial_mentions": ["LAist", "Secret LA"]}
+    assert merge(a, b)["editorial_mentions"] == ["LAist", "Secret LA"]
+    assert "editorial_mentions" not in merge({k: v for k, v in a.items() if k != "editorial_mentions"},
+                                             {k: v for k, v in b.items() if k != "editorial_mentions"})
+
+
+def test_merge_heals_html_escaped_titles():
+    """An escaped title must not win as the 'richest' (longer) string over its clean re-fetch."""
+    a = {"title": "Tony Guerrero &amp; Friends featuring Tawanda", "date": "2026-11-01",
+         "venue": "Vibrato Grill Jazz", "sources": ["squarespace"]}
+    b = dict(a, title="Tony Guerrero & Friends featuring Tawanda")
+    assert merge(a, b)["title"] == "Tony Guerrero & Friends featuring Tawanda"
+    assert merge(b, a)["title"] == "Tony Guerrero & Friends featuring Tawanda"
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

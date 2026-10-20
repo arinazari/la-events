@@ -110,8 +110,11 @@ def fetch_window(entry: dict, days: int, far_days: int = None) -> int:
     return far_days if (far_days and entry.get("far")) else days
 
 
-def run_fetcher(entry: dict, days: int, tmpdir: str, far_days: int = None) -> list:
-    """Run one fetcher as a subprocess and return its normalized records. Raises on any failure."""
+def run_fetcher(entry: dict, days: int, tmpdir: str, far_days: int = None, partial: dict = None) -> list:
+    """Run one fetcher as a subprocess and return its normalized records. Raises on any failure.
+    A multi-site fetcher that lost only SOME sites lists them as `failed_venues` in its output;
+    those land in `partial[source]` (when given) so the run reports them and the ghost sweep
+    leaves their rows alone."""
     for var in entry.get("needs", []):
         if not os.environ.get(var):
             raise RuntimeError(f"missing ${var}")
@@ -128,6 +131,8 @@ def run_fetcher(entry: dict, days: int, tmpdir: str, far_days: int = None) -> li
         raise RuntimeError(tail[-1][:160] if tail else f"exit {proc.returncode}")
     raw = json.loads(out.read_text())
     records = raw.get("events", raw) if isinstance(raw, dict) else raw
+    if isinstance(raw, dict) and raw.get("failed_venues") and partial is not None:
+        partial[entry["source"]] = list(raw["failed_venues"])
     return [P.normalize_record(r, entry["source"]) for r in records]
 
 
@@ -135,18 +140,52 @@ def fetch_all(selected: set, days: int, far_days: int = None) -> tuple:
     """Run the configured fetchers, collecting normalized records. Returns (incoming, report)."""
     report = {"ok": [], "failed": [], "skipped": []}
     incoming = []
+    partial = {}
     with tempfile.TemporaryDirectory() as tmp:
         for e in FETCHERS:
             if selected and e["source"] not in selected:
                 report["skipped"].append(e["source"])
                 continue
             try:
-                recs = run_fetcher(e, days, tmp, far_days)
+                recs = run_fetcher(e, days, tmp, far_days, partial=partial)
                 incoming.extend(recs)
                 report["ok"].append((e["source"], len(recs)))
             except Exception as ex:  # degrade gracefully — never block the run
                 report["failed"].append((e["source"], str(ex).splitlines()[0][:120]))
+    if partial:
+        report["partial"] = partial   # {source: [venues that failed]} — footer + ghost-sweep skip
     return incoming, report
+
+
+def carried_report(cand_path: Path) -> dict:
+    """The last fetch's run report, for a --no-fetch re-score. That pass (the routine's Step-2
+    layering) fetches nothing, so starting from an empty report would blank the coverage-gap and
+    Spotify notes the digest footer reads from candidates.json `sources`. Empty report if unreadable."""
+    try:
+        prev = json.loads(cand_path.read_text()).get("sources")
+    except (OSError, ValueError, AttributeError):
+        prev = None
+    if isinstance(prev, dict) and all(isinstance(prev.get(k), list) for k in ("ok", "failed", "skipped")):
+        return prev
+    return {"ok": [], "failed": [], "skipped": []}
+
+
+def carried_delta(prev_meta: dict, delta: dict, today) -> tuple:
+    """(delta, fetched_at) for a --no-fetch re-score's catalog_meta. Its own diff runs against the
+    already-fetched catalog, so alone it reads '0 new, 0 updated' and would overwrite the fetch's
+    real summary. If the previous meta is from today (LA), fold this pass's delta (the layered
+    rows) into it and keep that fetch's timestamp; otherwise this pass's delta stands."""
+    fetched_at = (prev_meta or {}).get("fetched_at")
+    try:
+        prev_day = datetime.fromisoformat(fetched_at).astimezone(P._LA).date() if fetched_at else None
+    except (TypeError, ValueError):
+        prev_day = None
+    if prev_day != today:
+        return delta, None
+    merged = {"added": int(prev_meta.get("added") or 0) + int(delta.get("added") or 0),
+              "updated": int(prev_meta.get("updated") or 0) + int(delta.get("updated") or 0),
+              "changes": list(delta.get("changes") or []) + list(prev_meta.get("changes") or [])}
+    return merged, fetched_at
 
 
 def _clean_spotify_note(note: str) -> str:
@@ -271,6 +310,8 @@ def main() -> int:
         selected = {s.strip() for s in args.sources.split(",") if s.strip()}
         incoming, report = fetch_all(selected, args.days, args.far_days)
         incoming = [r for r in incoming if r.get("title") and r.get("date")]
+    else:
+        report = carried_report(cand_path)   # nothing fetched → keep the last fetch's report
 
     # Pin Ticketmaster rows to their night-of (URL-slug) date, undoing any UTC-dateTime day-roll left by
     # an older fetcher or re-seeded by a stale source. BEFORE dedupe so a duplicate the bug split across
@@ -310,8 +351,12 @@ def main() -> int:
     # NB: ghost-detection horizon stays the NEAR window (args.days), never --far-days. Far-horizon
     # plan-ahead events legitimately come and go from feeds (a venue hasn't listed November yet),
     # so judging their absence beyond the near window would false-flag them as unlisted.
-    fetched_ok = {s for s, _ in report.get("ok", [])}
-    stale_n = P.flag_stale(catalog, fetched_ok, today, horizon_days=args.days)
+    # Never on --no-fetch, even though the report is carried forward: nothing was re-fetched, so
+    # judging absence would ghost every row whose last_seen is older than the grace window.
+    fetched_ok = set() if args.no_fetch else {s for s, _ in report.get("ok", [])}
+    failed_venues = [v for vs in (report.get("partial") or {}).values() for v in vs]
+    stale_n = P.flag_stale(catalog, fetched_ok, today, horizon_days=args.days,
+                           skip_venues=failed_venues)
     # What moved since last run: stamps updated_at/changed_fields on changed records, returns the
     # {added, updated, changes} summary (must run AFTER tagging + flag_stale so the record is final).
     delta = P.diff_catalog(old_index, catalog, today)
@@ -323,7 +368,10 @@ def main() -> int:
     # carries this run's added/updated counts + a sample of what changed for the digest line.
     meta_path = cat_path.parent / "catalog_meta.json"
     stale = P.stale_sources(catalog, today)   # sources gone dark (frozen last_seen) → meta + report
-    cat_meta = CM.write_meta(meta_path, catalog, delta, stale)
+    fetched_at = None
+    if args.no_fetch:   # keep the fetch's real summary; this pass only adds the layered rows
+        delta, fetched_at = carried_delta(CM.read_meta(meta_path), delta, today)
+    cat_meta = CM.write_meta(meta_path, catalog, delta, stale, fetched_at)
 
     # Best-effort: resolve NEW lineup / scene-graph artists to their Spotify artist pages
     # (data/artist_links.json — the dashboard's direct ▶ listen links; search-URL fallback
@@ -415,10 +463,14 @@ def main() -> int:
           f"{f', +{len(recurring)} recurring' if recurring else ''}) "
           f"-> {len(candidates)} candidates, {len(judge)} to judge, {len(blurb_cands)} blurb pool"
           f"{f' (+{blurb_overflow} overflow)' if blurb_overflow else ''}")
+    carried = " (carried from the last fetch)" if args.no_fetch else ""
     if report["ok"]:
-        print("  fetched:", ", ".join(f"{s}:{n}" for s, n in report["ok"]))
+        print(f"  fetched{carried}:", ", ".join(f"{s}:{n}" for s, n in report["ok"]))
     if report["failed"]:
-        print("  failed: ", ", ".join(f"{s} ({e})" for s, e in report["failed"]))
+        print(f"  failed{carried}: ", ", ".join(f"{s} ({e})" for s, e in report["failed"]))
+    if report.get("partial"):
+        print("  partial (these sites failed; their rows weren't ghost-checked):",
+              ", ".join(f"{s}: {', '.join(vs)}" for s, vs in report["partial"].items()))
     if report["skipped"]:
         print("  skipped:", ", ".join(report["skipped"]))
     # Loud alarm for a source that has gone dark (fetcher broke / key/token lapsed): its newest

@@ -63,7 +63,7 @@ import CalendarCore from "../dashboard/calendar-core.js";
 // prefix: the page flags a stale deploy by comparing DATE PREFIXES against its
 // MIN_BACKEND_VERSION (dashboard/index.html) — day granularity only, the suffix is free-form
 // (same-day suffixes don't sort: "-stream10" < "-stream2").
-const VERSION = "2026-10-06-cal-verdicts";
+const VERSION = "2026-10-19-spotify-errbody";
 
 const DEFAULTS = {
   ANTHROPIC_MODEL: "claude-sonnet-5",     // executor — does the bulk of generation
@@ -107,7 +107,7 @@ async function handleRequest(request, env, cors, ctx) {
   // Per-profile Spotify (browser OAuth + KV token store + an authed sync the routine/CI calls)
   // is path-routed here; every other request is the chat proxy below. One Worker, one deploy.
   const url = new URL(request.url);
-  if (url.pathname.startsWith("/spotify/")) return handleSpotify(url, request, env, cors);
+  if (url.pathname.startsWith("/spotify/")) return handleSpotify(url, request, env, cors, ctx);
   if (url.pathname === "/refresh-events" || url.pathname === "/rebuild-profile")
     return handlePipeline(url, request, env, cors);
   // Calendar-subscription feed (GET, unauthenticated — see handleCalendar for why).
@@ -1232,7 +1232,7 @@ async function groupFeedMatrix(env, input, callerHash) {
  * Extra env: KV binding SPOTIFY_KV; secrets SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET,
  * SPOTIFY_SYNC_TOKEN, STATE_SECRET; vars SPOTIFY_REDIRECT_URI, PAGE_URL.
  */
-async function handleSpotify(url, request, env, cors) {
+async function handleSpotify(url, request, env, cors, ctx) {
   const path = url.pathname;
   if (!env.SPOTIFY_KV) return json({ error: "spotify not configured (no SPOTIFY_KV binding)" }, 501, cors);
   const hashOf = (s) => { const h = String(s || "").toLowerCase(); return /^[0-9a-f]{8,32}$/.test(h) ? h : null; };
@@ -1270,10 +1270,20 @@ async function handleSpotify(url, request, env, cors) {
     try { tok = await spotifyToken(env, { grant_type: "authorization_code", code, redirect_uri: spotifyRedirect(env, url) }); }
     catch { return htmlPage("Couldn't complete the Spotify handshake. Try again in a minute.", back); }
     if (!tok.refresh_token) return htmlPage("Spotify didn't return a refresh token. Try Connect again.", back);
-    let name = null;
-    try { name = (await spotifyApiGet(`${DEFAULTS.SPOTIFY_API}/me`, tok.access_token)).display_name || null; } catch { /* optional */ }
-    await env.SPOTIFY_KV.put("rt:" + hash, JSON.stringify({ rt: tok.refresh_token, name, ts: Date.now() }));
-    dispatchSync(env, hash);   // best-effort: kick the rebuild so the feed re-ranks in ~1–2 min
+    let name = null, blocked = null;
+    try { name = (await spotifyApiGet(`${DEFAULTS.SPOTIFY_API}/me`, tok.access_token)).display_name || null; }
+    catch (e) { blocked = String((e && e.message) || e).slice(0, 300); }
+    // Keep the token either way (it starts working once the account is allowed), but don't claim
+    // success: a Development-mode app hands any Spotify account a token, then 403s every API call
+    // for accounts that aren't on its Users Management allowlist — exactly how two friends sat
+    // "connected" for months with no music layer and no hint why.
+    await env.SPOTIFY_KV.put("rt:" + hash, JSON.stringify({ rt: tok.refresh_token, name, ts: Date.now(), ...(blocked ? { blocked } : {}) }));
+    // waitUntil, not a bare call: once the response is sent the runtime may cancel an un-awaited
+    // fetch, which is why this dispatch never reached spotify-sync.yml.
+    const kick = dispatchSync(env, hash);   // best-effort: kick the rebuild so the feed re-ranks in ~1–2 min
+    if (ctx && ctx.waitUntil) ctx.waitUntil(kick);
+    if (blocked && /^403\b/.test(blocked))
+      return htmlPage("Connected — but Spotify isn't sharing your listening with this app yet. Ask Ari to add your Spotify account's email to the app's allowed users; your picks re-rank to your listening once he does.", back);
     return htmlPage(`Spotify connected${name ? " — hey " + name : ""}! Your picks re-rank to your listening in a minute or two.`, back);
   }
 
@@ -1282,7 +1292,7 @@ async function handleSpotify(url, request, env, cors) {
     const hash = hashOf(url.searchParams.get("profile"));
     if (!hash) return json({ connected: false }, 200, cors);
     const rec = await kvJson(env, "rt:" + hash);
-    return json({ connected: !!(rec && rec.rt), name: (rec && rec.name) || null }, 200, cors);
+    return json({ connected: !!(rec && rec.rt), name: (rec && rec.name) || null, blocked: (rec && rec.blocked) || null }, 200, cors);
   }
 
   // --- browser: forget my token ---
@@ -1315,10 +1325,18 @@ async function handleSpotify(url, request, env, cors) {
     if (!rec || !rec.rt) return json({ error: "not connected" }, 404, cors);
     let access;
     try { access = (await spotifyToken(env, { grant_type: "refresh_token", refresh_token: rec.rt })).access_token; }
-    catch (e) { return json({ error: "refresh failed", detail: String((e && e.message) || e).slice(0, 200) }, 502, cors); }
+    catch (e) { return json({ error: "refresh failed", detail: String((e && e.message) || e).slice(0, 500) }, 502, cors); }
     if (!access) return json({ error: "no access token" }, 502, cors);
-    try { return json(await spotifyPull(access), 200, cors); }
-    catch (e) { return json({ error: "spotify fetch failed", detail: String((e && e.message) || e).slice(0, 200) }, 502, cors); }
+    let pulled;
+    try { pulled = await spotifyPull(access); }
+    catch (e) { return json({ error: "spotify fetch failed", detail: String((e && e.message) || e).slice(0, 500) }, 502, cors); }
+    // The account works now (e.g. it was allowlisted after connecting) — drop the stale connect-time flag.
+    if (rec.blocked) {
+      const rest = { ...rec };
+      delete rest.blocked;
+      await env.SPOTIFY_KV.put("rt:" + hash, JSON.stringify(rest));
+    }
+    return json(pulled, 200, cors);
   }
 
   return json({ error: "not found" }, 404, cors);
@@ -1346,7 +1364,12 @@ async function spotifyToken(env, form) {
 }
 async function spotifyApiGet(urlStr, access) {
   const r = await fetch(urlStr, { headers: { authorization: "Bearer " + access, "user-agent": "la-events-concierge" } });
-  if (!r.ok) throw new Error(r.status + " " + urlStr);
+  // Keep Spotify's error body ({"error":{"status":403,"message":...}} — no token in it): it's the only
+  // thing that tells a per-user Development-mode block ("not registered") from any other 403.
+  if (!r.ok) {
+    const body = (await r.text().catch(() => "")).replace(/\s+/g, " ").slice(0, 300);
+    throw new Error(`${r.status} ${new URL(urlStr).pathname} ${body}`.trim());
+  }
   return r.json();
 }
 /* Pull the three open-to-new-apps signals (top / followed / recently-played) — the same set

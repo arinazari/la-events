@@ -69,8 +69,8 @@ Add these to `data/catalog.json` yourself, then re-score in Step 3:
    window — fold those into "further out, just announced." **When a blast carries an Eventbrite link,
    run the organizer-harvest (Mode 3).**
 2. **`webfetch` / JSON-LD venues** in `sources.yaml` not covered by the core (McCabe's, Dresden,
-   Harvelle's, Sam First, The Venice West, …) — read the rendered calendar at digest time
-   (`scripts/fetch_jsonld.py` where applicable, else the WebFetch tool), write the rows
+   Harvelle's, Sam First, The Venice West, … — the non-`editorial` ones) — read the rendered calendar
+   at digest time (`scripts/fetch_jsonld.py` where applicable, else the WebFetch tool), write the rows
    (`"sources": ["webfetch"]`) to a JSON file, and merge them with `python scripts/_layer_merge.py
    <file>.json`. Budget ~15 sources/run; skip `dead`/`flaky` and note them in the footer.
    (Squarespace + ICS venues — Junior High, The Smell, Vibrato, Maui Sugar Mill — run in the core.)
@@ -286,7 +286,9 @@ Run on request, or proactively suggest running it if it hasn't run in 7+ days (c
 4. **Propose, don't auto-add**: present candidates as a short table (name, category, best
    method, sample of what it lists, recommendation). On user approval, append to
    `sources.yaml` with `status: active` (or `status: manual` for IG/SMS-only sources, with
-   a note on how to capture them). Update `last_discovery`.
+   a note on how to capture them). Update `last_discovery`. A `squarespace` / `ics` approval
+   must ALSO go into `SITES` (`fetch_squarespace.py`) / `FEEDS` (`fetch_ics.py`) — those
+   core fetchers read their own lists, not `sources.yaml`.
 5. IG-only promoters: never scrape Instagram. Register them as `method: manual` with the
    handle, and remind the user these flow in via the flyer-capture mode or by joining
    their text/email list (route to the Gmail "Events" label).

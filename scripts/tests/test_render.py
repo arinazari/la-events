@@ -57,6 +57,9 @@ def test_footer_notes_disclose_coverage_and_music():
     # A healthy layer adds no ranking note; nothing failed adds no footer at all.
     assert R._footer_notes({"sources": {"spotify": {"ok": True, "note": "Wrote Spotify affinity"}}}) == []
     assert R._footer_notes({}) == []
+    # A multi-site source that lost only some sites is named too (it still counted as fetched).
+    part = R._footer_notes({"sources": {"failed": [], "partial": {"squarespace": ["Vibrato Grill Jazz"]}}})
+    assert any("Coverage gaps" in n and "squarespace (failed: Vibrato Grill Jazz)" in n for n in part)
     # And it wires through the actual renderer footer (taste-only disclosure).
     md = R.render_markdown({"today": "2026-06-17", "candidates": [], "sources": sources}, [])
     assert "Ranking note" in md and "taste profile only" in md

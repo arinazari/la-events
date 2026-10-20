@@ -55,20 +55,33 @@ jobs:
           SPOTIFY_SYNC_TOKEN: ${{ secrets.SPOTIFY_SYNC_TOKEN }}
         run: python scripts/sync_profiles_spotify.py
 
-      - name: Rebuild profile feeds (not the default) with each profile's music layer
-        run: python scripts/build_profiles.py --skip-default
-
-      - name: Commit refreshed feeds
+      # Rebuild + commit on the CURRENT main, retrying when main moves. A friend's Connect fires this
+      # via repository_dispatch, which checks out the dispatch-time SHA, and the job can queue behind
+      # other `pages` runs that move main — the same non-fast-forward push rebuild-profile.yml hit.
+      # The synced data/spotify/*.json is gitignored, so it survives the reset.
+      - name: Rebuild profile feeds (not the default) with each profile's music layer + commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -- 'dashboard/data.*.json' 2>/dev/null || true
-          if git diff --cached --quiet; then
-            echo "No feed changes to commit."
-          else
+          for attempt in 1 2 3; do
+            git fetch origin main -q || { sleep 5; git fetch origin main -q; } || { echo "git fetch failed" >&2; exit 1; }
+            git reset --hard FETCH_HEAD -q
+            python scripts/build_profiles.py --skip-default
+            git add -- 'dashboard/data.*.json' 2>/dev/null || true
+            if git diff --cached --quiet; then
+              echo "No feed changes to commit."
+              break
+            fi
             git commit -m "build: re-rank profile feeds from Spotify [skip ci]"
-            git push
-          fi
+            if git push origin HEAD:main; then
+              break
+            fi
+            if [ "$attempt" = 3 ]; then
+              echo "main kept moving; feed push failed 3 times" >&2
+              exit 1
+            fi
+            echo "main moved under this sync; rebuilding on the new tip (attempt $attempt)"
+          done
 
       # Deploy the refreshed dashboard/ to Pages (mirror of deploy-dashboard.yml; the [skip ci]
       # commit above won't trigger that workflow, so we publish here).

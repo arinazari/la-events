@@ -11,6 +11,7 @@ is_duplicate(a, b) -> bool          # the pairwise predicate (unit-tested)
 merge(a, b) -> dict                 # combine two duplicate records
 """
 
+import html
 import re
 from collections import defaultdict
 from datetime import date
@@ -431,7 +432,10 @@ def merge(a: dict, b: dict) -> dict:
                      if len(fresh.get("lineup") or []) >= len(stale.get("lineup") or [])
                      else stale.get("lineup"))
     out["detail"] = _richest(a.get("detail"), b.get("detail"))
-    out["title"] = _richest(a.get("title"), b.get("title")) or a.get("title")
+    # Unescape before picking: "Tony Guerrero &amp; Friends" (an HTML-escaped feed) would otherwise
+    # beat the clean re-fetch as the LONGER string and pin the entity in the catalog for good.
+    out["title"] = (_richest(*(html.unescape(t) if isinstance(t, str) else t
+                               for t in (a.get("title"), b.get("title")))) or a.get("title"))
     out["organizers"] = _richest(a.get("organizers"), b.get("organizers"))
     out["neighborhood"] = a.get("neighborhood") or b.get("neighborhood")
     out["genre"] = a.get("genre") or b.get("genre")  # sparse (only some sources classify); don't lose it if the base lacks one
@@ -440,6 +444,11 @@ def merge(a: dict, b: dict) -> dict:
         out["image"] = img
     if a.get("lineup_genre") or b.get("lineup_genre"):  # sparse TM attraction genre — the catalog
         out["lineup_genre"] = a.get("lineup_genre") or b.get("lineup_genre")  # base (a) never has it until a fetch backfills
+    # Editorial mentions accumulate (each roundup is +1 in scoring): a layered row carrying a new
+    # mention must add it to the catalog row it matches, not be dropped because `out` starts from a.
+    em = _union(a.get("editorial_mentions"), b.get("editorial_mentions"))
+    if em:
+        out["editorial_mentions"] = em
     out["ra_pick"] = bool(a.get("ra_pick") or b.get("ra_pick"))
     out["afterhours"] = bool(a.get("afterhours") or b.get("afterhours"))
     # Volatile fields: the fresher side's non-null reading wins, so a re-fetch updates them in place.
