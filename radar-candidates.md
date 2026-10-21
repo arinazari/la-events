@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/20/2026 deterministically (no API). 145 candidates. Signals: big-venue 117, festival 20, tracked 9, editorial 1._
+_Generated 10/21/2026 deterministically (no API). 146 candidates. Signals: big-venue 118, festival 20, tracked 9, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -201,6 +201,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 1/16 | 3 | D.O.D. - Ages 18+ | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 1/16 | 3 |  iHeartRadio ALTer EGO Presented by Capital One | Kia Forum | big-venue | [link](https://www.ticketmaster.com/iheartradio-alter-ego-presented-by-capital-inglewood-california-01-16-2027/event/09006548A834A495) |
 | Fri 1/22 | 3 | Riordan Presents "Remapped" | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1642398/riordan-presents-remapped-tickets) |
+| Fri 1/22 | 3 | Pancho Barraza | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/pancho-barraza-ontario-california-01-22-2027/event/0900655312484BAC) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
 | Sat 1/23 | 3 | Swimming Paul | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1645234/swimming-paul-tickets) |
 | Fri 1/29 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
@@ -242,7 +243,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 11/24 | 2 | Los Tucanes de Tijuana (21+) | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7Paao) |
 | Wed 11/25 | 2 | Eslabon Armado | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/eslabon-armado-ontario-california-11-25-2026/event/0900654EB49CA10C) |
 
 ## December 2026
@@ -304,6 +304,12 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sun 3/7 | 2 | Elevation Worship & Steven Furtick | Kia Forum | big-venue | [link](https://www.ticketmaster.com/elevation-worship-steven-furtick-inglewood-california-03-07-2027/event/09006528E7F4DAA3) |
 
+## April 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sun 4/18 | 2 | Fonseca - Antes Que El Tiempo Se Vaya Tour - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74Q4) |
+
 ## November 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -340,12 +346,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 4/2 | 1 | HANS ZIMMER LIVE - THE NEXT LEVEL | Honda Center | big-venue | [link](https://www.axs.com/events/1615242/hans-zimmer-tickets) |
 
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Tue 11/24 | 0 | JOURNEY - Final Frontier Tour (An Evening With) | Honda Center | big-venue | [link](https://www.ticketmaster.com/journey-final-frontier-tour-an-evening-anaheim-california-11-24-2026/event/090064A695B5BA92) |
-
 ## December 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -369,3 +369,4 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Thu 4/1 | 0 | Dancing with the Stars: Live! - 2027 Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-live-2027-anaheim-california-04-01-2027/event/0900653E9B4AA1E1) |
+| Sun 4/18 | 0 | Nickelback: Everything Under The Sun Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/nickelback-everything-under-the-sun-tour-anaheim-california-04-18-2027/event/09006546BC85E784) |
