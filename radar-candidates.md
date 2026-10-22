@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/21/2026 deterministically (no API). 146 candidates. Signals: big-venue 118, festival 20, tracked 9, editorial 1._
+_Generated 10/22/2026 deterministically (no API). 148 candidates. Signals: big-venue 120, festival 20, tracked 9, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -239,12 +239,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 4/10 | 3 | Jay Wheeler - La Voz Favorita Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jay-wheeler-la-voz-favorita-tour-inglewood-california-04-10-2027/event/0A00654405517B6A) |
 | Fri 4/16 | 3 | Fonseca: Antes Que El Tiempo Se Vaya Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/fonseca-antes-que-el-tiempo-se-inglewood-california-04-16-2027/event/0A00654EE3119A84) |
 
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 11/25 | 2 | Eslabon Armado | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/eslabon-armado-ontario-california-11-25-2026/event/0900654EB49CA10C) |
-
 ## December 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -255,6 +249,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Tue 12/8 | 2 | Victoria Monét: Frequency Of Love Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/victoria-monet-frequency-of-love-tour-inglewood-california-12-08-2026/event/0A006528B4649609) |
 | Wed 12/9 | 2 | Gipsy Kings featuring Nicolas Reyes - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
+| Thu 12/10 | 2 | The Game Awards | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
 | Sun 12/13 | 2 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597468/red-bull-home-ground-world-finals-2026-tickets) |
@@ -293,6 +288,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Tue 2/2 | 2 | Christine D'Clario - La Novia Tour  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/christine-dclario-la-novia-tour-inglewood-california-02-02-2027/event/0A006179983A3029) |
+| Thu 2/11 | 2 | La Arrolladora Banda El Limon (21+ Event) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 2/17 | 2 | Yuridia - 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 2/18 | 2 | PABLO ALBORAN - GLOBAL TOUR KM0 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pablo-alboran-global-tour-km0-inglewood-california-02-18-2027/event/0A0064CAC3AADDB8) |
 | Sun 2/21 | 2 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-21-2027/event/0A006524AD56A71F) |
@@ -331,6 +327,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 2/12 | 1 | Cristian Castro: Nada Solo Exitos Tour 2027 | Honda Center | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-anaheim-california-02-12-2027/event/09006454A8EDEE77) |
 | Sat 2/13 | 1 | Cristian Castro: Nada Solo Éxitos Tour 2027 | Acrisure Arena at Greater Palm Spr | big-venue | [link](https://www.ticketmaster.com/cristian-castro-nada-solo-exitos-tour-palm-desert-california-02-13-2027/event/0A0064AF217B07C1) |
 | Sat 2/13 | 1 | La Arrolladora Banda El Limon: Si Las Miradas Matan | Honda Center | big-venue | [link](https://www.ticketmaster.com/la-arrolladora-banda-el-limon-si-anaheim-california-02-13-2027/event/09006543C9DE61DB) |
+| Thu 2/18 | 1 | Penn And Teller | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 2/25 | 1 | Puppers Presents Letterkenny Live | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/puppers-presents-letterkenny-live-inglewood-california-02-25-2027/event/0A0064C9D0ACDE80) |
 
 ## March 2027
