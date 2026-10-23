@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/22/2026 deterministically (no API). 148 candidates. Signals: big-venue 120, festival 20, tracked 9, editorial 1._
+_Generated 10/23/2026 deterministically (no API). 149 candidates. Signals: big-venue 121, festival 20, tracked 9, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -15,7 +15,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 1/30 | 5 | MAU P PRESENTS: GENERATION REBRAND | BMO Stadium | tracked:Mau P, big-venue | [link](https://www.ticketmaster.com/mau-p-presents-generation-rebrand-los-angeles-california-01-30-2027/event/0A006550EE2DDD30) |
+| Sat 1/30 | 5 | MAU P PRESENTS: GENERATION REBRAND (18 and Over) | BMO Stadium | tracked:Mau P, big-venue | [link](https://www.ticketmaster.com/mau-p-presents-generation-rebrand-los-angeles-california-01-30-2027/event/0A006550EE2DDD30) |
 
 ## December 2026
 
@@ -227,6 +227,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 3/5 | 3 | The Love of Soul Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/the-love-of-soul-tour-ontario-california-03-05-2027/event/09006538BF19D600) |
+| Fri 3/5 | 3 | 2hollis: The Pirouette Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/2hollis-the-pirouette-tour-inglewood-california-03-05-2027/event/09006554C41482E5) |
 | Sat 3/6 | 3 | Freestyle Explosion | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/freestyle-explosion-inglewood-california-03-06-2027/event/0A00653EBBF9FC1B) |
 
 ## April 2027
