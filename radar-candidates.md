@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/23/2026 deterministically (no API). 149 candidates. Signals: big-venue 121, festival 20, tracked 9, editorial 1._
+_Generated 10/24/2026 deterministically (no API). 143 candidates. Signals: big-venue 116, festival 21, tracked 7, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -22,12 +22,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/4 | 4 | Angine de Poitrine | The Wiltern | editorial | [link](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617) |
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Fri 11/27 | 9 | Time Warp Los Angeles 2026 | Ace*Mission Studios | tracked:Gerd Janson,Richie Hawtin | [link](https://ra.co/events/2512911) |
 
 ## February 2027
 
@@ -51,7 +45,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/27 | 5 | Time Warp LA | Ace * Mission Studios | tracked:Richie Hawtin | [link](https://on.fgtix.com/trk/CFLtc) |
 | Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
 | Sat 11/28 | 5 | Nu Moda San Diego w/ Max Styler, Hot Since 82, Scenarios | Gallagher Square (San Diego) | tracked:Hot Since 82 | [link](https://laylo.com/ledpresents/maxstyler) |
 
@@ -95,6 +88,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 2/5 | 3 | Dark Star Orchestra 2 Day Pass | The Wiltern | festival | [link](https://www.ticketmaster.com/dark-star-orchestra-los-angeles-california-02-05-2027/event/09006538CB1DEB91) |
 | Sat 2/6 | 3 | Classics : Painting in Notes | Terrace Theater - Long Beach Conve | festival | [link](https://www.ticketmaster.com/classics-painting-in-notes-long-beach-california-02-06-2027/event/0B0064279F502922) |
+| Sat 2/20 | 3 | Hellfest West 2027 | The Fox Theater - Pomona | festival | [link](https://www.ticketweb.com/event/hellfest-west-2027-the-fox-theater-tickets/15054963?REFERRAL_ID=tmfeed) |
 
 ## March 2027
 
@@ -139,9 +133,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/27 | 4 | Tierra Cali w/ Banda Machos | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
-| Fri 11/27 | 4 | Afrojack presents: CONTROL | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507536) |
-| Fri 11/27 | 4 | Afrojack: Control | Shrine Expo Hall (Los Angeles) | big-venue | [link](https://www.axs.com/events/1468576) |
 | Sat 11/28 | 4 | Cristian Castro | Peacock Theater - LA | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-f4V) |
 
 ## December 2026
@@ -164,8 +155,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 11/27 | 3 | Gerardo Ortiz - El Ejemplar Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/gerardo-ortiz-el-ejemplar-tour-inglewood-california-11-27-2026/event/0A006473C7B5D973) |
-| Fri 11/27 | 3 | Afrojack Presents: CONTROL | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1468576/afrojack-presents-control-tickets) |
 | Sat 11/28 | 3 | Ohgeesy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1533707/ohgeesy-tickets) |
 | Sat 11/28 | 3 | Jonathan Lee - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZsja) |
 | Sat 11/28 | 3 | Welcome To The West | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/welcome-to-the-west-ontario-california-11-28-2026/event/0900654EB0C198D9) |
