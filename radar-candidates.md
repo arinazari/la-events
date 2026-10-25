@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/24/2026 deterministically (no API). 143 candidates. Signals: big-venue 116, festival 21, tracked 7, editorial 1._
+_Generated 10/25/2026 deterministically (no API). 137 candidates. Signals: big-venue 113, festival 21, tracked 4, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -29,29 +29,11 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 2/5 | 8 | Hot Since 82 | Reframe Studios Indoors (Los Angel | tracked:Hot Since 82 | [link](https://dice.fm/event/7d5ea9-hot-since-82-5th-feb-reframe-studios-indoors-los-angeles-tickets) |
 
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 11/28 | 7 | Solomun | Hollywood Blvd (Los Angeles) | tracked:Solomun | [link](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets) |
-
 ## December 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/11 | 7 | Drumcode: Adam Beyer, Dreya V, Marco Faraone | Reframe Studios Indoors (Los Angel | tracked:Adam Beyer | [link](https://dice.fm/event/mxyk5l-drumcode-la-11th-dec-reframe-studios-indoors-los-angeles-tickets) |
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 11/28 | 5 | Max Styler + Hot Since 82 + Scenarios | Gallagher Square Petco Park (San D | tracked:Hot Since 82 | [link](https://events.leapevents.com/event/led-presents-max-styler-more-at-gallagher-square-petco-park/tag/laylo-presale) |
-| Sat 11/28 | 5 | Nu Moda San Diego w/ Max Styler, Hot Since 82, Scenarios | Gallagher Square (San Diego) | tracked:Hot Since 82 | [link](https://laylo.com/ledpresents/maxstyler) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
 
 ## January 2027
@@ -129,11 +111,11 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sun 12/13 | 0 | Slackfest West | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/slackfest-west-anaheim-california-12-13-2026/event/09006506EF9C1651) |
 
-## November 2026
+## January 2027
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 11/28 | 4 | Cristian Castro | Peacock Theater - LA | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1A7-f4V) |
+| Fri 1/22 | 5 | Riordan - Remapped w/ Idemi & Boss Priester | Shrine Expo Hall (Los Angeles) | big-venue | [link](https://www.axs.com/events/1642398) |
 
 ## December 2026
 
@@ -150,14 +132,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 4/2 | 4 | Dancing with the Stars: Live! - 2027 Tour | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-live-2027-los-angeles-california-04-02-2027/event/2C00654197E40B25) |
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 11/28 | 3 | Ohgeesy | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1533707/ohgeesy-tickets) |
-| Sat 11/28 | 3 | Jonathan Lee - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZsja) |
-| Sat 11/28 | 3 | Welcome To The West | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/welcome-to-the-west-ontario-california-11-28-2026/event/0900654EB0C198D9) |
 
 ## December 2026
 
@@ -295,12 +269,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sun 4/18 | 2 | Fonseca - Antes Que El Tiempo Se Vaya Tour - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74Q4) |
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 11/28 | 1 | Los Gemelos de Sinaloa: The Gemeliza Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/los-gemelos-de-sinaloa-the-gemeliza-anaheim-california-11-28-2026/event/09006523992B5AEA) |
+| Thu 4/22 | 2 | Carly Rae Jepsen: Day and Night Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/carly-rae-jepsen-day-and-night-inglewood-california-04-22-2027/event/0900653DD37AFC77) |
 
 ## December 2026
 
