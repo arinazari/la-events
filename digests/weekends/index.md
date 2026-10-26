@@ -2,9 +2,8 @@
 
 | Weekend (Fri) | Events | Top pick |
 |---|---|---|
-| [2026-10-23](2026-10-23.md) | 17 | SYNTHESIS 002: Anastasia Giovani, Blazej Malinowski, Kameliia & Secus |
 | [2026-10-30](2026-10-30.md) | 13 | Escape Halloween |
-| [2026-11-06](2026-11-06.md) | 17 | Mixmag Lab: Los Angeles ft. Sam Divine's 555 [L.A. Debut] |
+| [2026-11-06](2026-11-06.md) | 16 | Mixmag Lab: Los Angeles ft. Sam Divine's 555 [L.A. Debut] |
 | [2026-11-13](2026-11-13.md) | 17 | Into The Woods presents Theo Parrish (All Night Long) |
 | [2026-11-20](2026-11-20.md) | 18 | Beacon of Light: Spacetime Continuum, Lovefingers, Felix The Dog |
 | [2026-11-27](2026-11-27.md) | 12 | Time Warp Los Angeles 2026 |

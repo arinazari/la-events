@@ -1,25 +1,20 @@
 {
-  "version": "da4e256a7ed7",
-  "content_version": "b1dabc9d38ab",
-  "count": 3084,
-  "fetched_at": "2026-10-25T12:16:07+00:00",
+  "version": "fc6324c0bca2",
+  "content_version": "5a65793583e3",
+  "count": 3030,
+  "fetched_at": "2026-10-26T12:29:05+00:00",
   "added": 0,
   "updated": 0,
   "stale_sources": [
     {
       "source": "webfetch",
-      "days": 35,
-      "count": 115
-    },
-    {
-      "source": "squarespace",
-      "days": 27,
-      "count": 22
+      "days": 36,
+      "count": 111
     },
     {
       "source": "posh",
-      "days": 3,
-      "count": 90
+      "days": 4,
+      "count": 75
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/25/2026 deterministically (no API). 137 candidates. Signals: big-venue 113, festival 21, tracked 4, editorial 1._
+_Generated 10/26/2026 deterministically (no API). 139 candidates. Signals: big-venue 115, festival 21, tracked 4, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -202,6 +202,8 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 4/3 | 3 | Distant Worlds: Music from Final Fantasy | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 4/10 | 3 | Jay Wheeler - La Voz Favorita Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jay-wheeler-la-voz-favorita-tour-inglewood-california-04-10-2027/event/0A00654405517B6A) |
 | Fri 4/16 | 3 | Fonseca: Antes Que El Tiempo Se Vaya Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/fonseca-antes-que-el-tiempo-se-inglewood-california-04-16-2027/event/0A00654EE3119A84) |
+| Fri 4/23 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-23-2027/event/0B006528E5B15ED4) |
+| Fri 4/23 | 3 | Yuri & Lucero - ENTRE AMIGAS TOUR | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/yuri-lucero-entre-amigas-tour-ontario-california-04-23-2027/event/0900650ED430DA8E) |
 
 ## December 2026
 
