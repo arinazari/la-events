@@ -1,7 +1,29 @@
 # Source candidates — Discover mode
 
-_Generated 2026-10-13 (previous pass: 2026-10-06). Review → approve → fold into `sources.yaml`,
-then update `last_discovery`. Eventbrite `--scan-catalog` run today: no new organizers._
+
+_Generated 2026-10-27 (previous pass: 2026-10-13). Eventbrite `--scan-catalog` auto-added 2 organizers (Inland Empire 80s, Masked Superstar Events). Nothing below is in `sources.yaml` yet; approve, then add and bump `last_discovery`._
+
+## New this pass (2026-10-27) — live music / art nights / community
+
+Scout had WebFetch/WebSearch only (no DICE slugs, no JSON-LD visibility).
+
+| Name | Category | Method | Endpoint | What it lists | Rec |
+|---|---|---|---|---|---|
+| DTLA ArtNight | general | ics | https://www.dtlaartnight.com/artnight.ics | Free monthly gallery/museum night (~50 stops, trolley, free concert, night market). Feed is ONE rolling VEVENT, no RRULE (next 11/5 6pm PT, DTSTART in UTC). Alt: recurring.yaml (first Thu). | ADD p1, high; human call on ICS vs recurring |
+| Blue Note Los Angeles | live_music | webfetch | https://www.bluenotejazz.com/la/ | Nightly jazz/R&B/hip-hop, ~4 wks out; likely overlaps TM | ADD p2, high |
+| Grand Performances | live_music | squarespace | https://grandperformances.org/events | Free outdoor Jun-Sep season; upcoming[] empty until ~May 2027 | ADD p2, seasonal |
+| Skirball Cultural Center | general | webfetch | https://www.skirball.org/calendar | Paginated by 10 days (`/calendar/YYYY-MM-DD`); ~half kids/classes, filter | ADD p3, medium |
+| The Bellwether (DTLA) | live_music | webfetch | https://www.thebellwetherla.com/ | ~60 shows to May 2027, mostly TM dupes; value is Camille's room | Optional p3 |
+| Oh My Rockness (LA) | live_music | scrape | https://www.ohmyrockness.com/shows?city=los-angeles | Unverified (WebFetch returned NYC) | Needs real-UA check |
+
+Paste-ready YAML for the first four is in the 2026-10-27 scout report (same fields as above).
+
+### Status-change flags
+- **Cinespia** (`candidate`): Halloween weekend live (10/30, 10/31) → promote to `active`, drop to p3 after 10/31.
+- Echo/Echoplex: TM ticketing, expect heavy dedupe. Zebulon: DICE is the only path.
+- Rejected: Jazz at LACMA (skip until May 2027), Getty, LACMA, MOCA, Autry, Natural History Museum, Hotel Cafe (stale), bluewhale.net (dead), Downtown Art Walk (IG-only).
+- Unreachable from here: Hammer (503), culture.lacity.gov / calendar.lacity.org / Music Center (403), Hi Hat, Teragram, Broad. Residential-IP probe of `culture.lacity.gov/events/?ical=1` is the next step for library/park series.
+- Manual captures: Grand Park Noche de los Muertos Sun 11/1 3-7pm (grandparkla.org/diadelosmuertos).
 
 ## New this pass (2026-10-13) — comedy / rep cinema / live / theater
 
