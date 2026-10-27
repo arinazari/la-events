@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/26/2026 deterministically (no API). 139 candidates. Signals: big-venue 115, festival 21, tracked 4, editorial 1._
+_Generated 10/27/2026 deterministically (no API). 147 candidates. Signals: big-venue 123, festival 21, tracked 4, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -71,6 +71,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 2/5 | 3 | Dark Star Orchestra 2 Day Pass | The Wiltern | festival | [link](https://www.ticketmaster.com/dark-star-orchestra-los-angeles-california-02-05-2027/event/09006538CB1DEB91) |
 | Sat 2/6 | 3 | Classics : Painting in Notes | Terrace Theater - Long Beach Conve | festival | [link](https://www.ticketmaster.com/classics-painting-in-notes-long-beach-california-02-06-2027/event/0B0064279F502922) |
 | Sat 2/20 | 3 | Hellfest West 2027 | The Fox Theater - Pomona | festival | [link](https://www.ticketweb.com/event/hellfest-west-2027-the-fox-theater-tickets/15054963?REFERRAL_ID=tmfeed) |
+| Tue 2/23 | 3 | The Flaming Lips - 2 Day Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/the-flaming-lips-223-los-angeles-california-02-23-2027/event/09006557B75417C7) |
 
 ## March 2027
 
@@ -84,17 +85,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 12/18 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-18-2026/event/0B00648CEFEE57B8) |
 | Sat 12/19 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-19-2026/event/0B00648CEFEF57BB) |
-
-## November 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Mon 11/30 | 1 | The Wiz (Touring) | Fox Performing Arts Center | festival | [link](https://www.ticketmaster.com/the-wiz-touring-riverside-california-11-30-2026/event/0B0064F4C60A3867) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Tue 12/1 | 1 | The Wiz (Touring) | Fox Performing Arts Center | festival | [link](https://www.ticketmaster.com/the-wiz-touring-riverside-california-12-01-2026/event/0B0064F4C60F386B) |
 | Sun 12/6 | 1 | Modi: Big Deal Comedy Festival | The Wiltern | festival | [link](https://www.ticketmaster.com/modi-big-deal-comedy-festival-los-angeles-california-12-06-2026/event/0900652AE3A9D236) |
 | Sun 12/20 | 1 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-20-2026/event/0B00648CEFF257C5) |
@@ -158,6 +148,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 1/9 | 3 | Jodeci - 35th Anniversary Tour of Forever My Lady | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jodeci-35th-anniversary-tour-of-forever-inglewood-california-01-09-2027/event/0A0064F7D00DB5D5) |
 | Fri 1/15 | 3 | New Edition - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 1/16 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-16-2027/event/0900649DE84C64CD) |
 | Sat 1/16 | 3 | D.O.D Twin Diplomacy, Nate Band, Teeb | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1592102/d-o-d-tickets) |
@@ -202,8 +193,10 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 4/3 | 3 | Distant Worlds: Music from Final Fantasy | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 4/10 | 3 | Jay Wheeler - La Voz Favorita Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jay-wheeler-la-voz-favorita-tour-inglewood-california-04-10-2027/event/0A00654405517B6A) |
 | Fri 4/16 | 3 | Fonseca: Antes Que El Tiempo Se Vaya Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/fonseca-antes-que-el-tiempo-se-inglewood-california-04-16-2027/event/0A00654EE3119A84) |
+| Sat 4/17 | 3 | Jesse & Joy - El Amor De Mexico | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jesse-joy-el-amor-de-mexico-inglewood-california-04-17-2027/event/0A006556A685B207) |
 | Fri 4/23 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-23-2027/event/0B006528E5B15ED4) |
 | Fri 4/23 | 3 | Yuri & Lucero - ENTRE AMIGAS TOUR | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/yuri-lucero-entre-amigas-tour-ontario-california-04-23-2027/event/0900650ED430DA8E) |
+| Sat 4/24 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-24-2027/event/0B006528E9AB6118) |
 
 ## December 2026
 
@@ -217,6 +210,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
 | Thu 12/10 | 2 | The Game Awards | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
+| Sat 12/12 | 2 | Big Boy's Comedy Fiesta - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA7EvM) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
 | Sun 12/13 | 2 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597468/red-bull-home-ground-world-finals-2026-tickets) |
 | Sun 12/13 | 2 | Lea Salonga - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74uP) |
@@ -270,8 +264,12 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Tue 4/6 | 2 | Man?? - La Residencia - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Thu 4/8 | 2 | Man?? - La Residencia - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Sun 4/11 | 2 | Man?? - La Residencia - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 4/18 | 2 | Fonseca - Antes Que El Tiempo Se Vaya Tour - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74Q4) |
 | Thu 4/22 | 2 | Carly Rae Jepsen: Day and Night Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/carly-rae-jepsen-day-and-night-inglewood-california-04-22-2027/event/0900653DD37AFC77) |
+| Sat 4/24 | 2 | Jo Koy: Koy Meets World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-inglewood-california-04-24-2027/event/09006528EC0BDF60) |
 
 ## December 2026
 
