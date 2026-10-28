@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/27/2026 deterministically (no API). 147 candidates. Signals: big-venue 123, festival 21, tracked 4, editorial 1._
+_Generated 10/28/2026 deterministically (no API). 147 candidates. Signals: big-venue 124, festival 20, tracked 4, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -85,7 +85,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 12/18 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-18-2026/event/0B00648CEFEE57B8) |
 | Sat 12/19 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-19-2026/event/0B00648CEFEF57BB) |
-| Tue 12/1 | 1 | The Wiz (Touring) | Fox Performing Arts Center | festival | [link](https://www.ticketmaster.com/the-wiz-touring-riverside-california-12-01-2026/event/0B0064F4C60F386B) |
 | Sun 12/6 | 1 | Modi: Big Deal Comedy Festival | The Wiltern | festival | [link](https://www.ticketmaster.com/modi-big-deal-comedy-festival-los-angeles-california-12-06-2026/event/0900652AE3A9D236) |
 | Sun 12/20 | 1 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-20-2026/event/0B00648CEFF257C5) |
 
@@ -137,6 +136,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 12/11 | 3 | Pepe Aguilar (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 12/12 | 3 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597291/red-bull-home-ground-world-finals-2026-tickets) |
 | Sat 12/12 | 3 | Los Gemelos de Sinaloa: The Gemeliza Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/los-gemelos-de-sinaloa-the-gemeliza-inglewood-california-12-12-2026/event/0A006523CE04D208) |
+| Sat 12/12 | 3 | KROQ Almost Acoustic Christmas | Kia Forum | big-venue | [link](https://www.ticketmaster.com/kroq-almost-acoustic-christmas-inglewood-california-12-12-2026/event/0900655BD381EF41) |
 | Sun 12/13 | 3 | Armenian Music Awards | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Thu 12/17 | 3 | Cece Winans | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
@@ -202,7 +202,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 12/1 | 2 | Sin Bandera (21 and Over) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 12/2 | 2 | BEAT: Belew/Vai/Levin/Bozzio Performing the Music of KING  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/beat-belewvailevinbozzio-performing-the-music-of-inglewood-california-12-02-2026/event/0A0064FEFC6652B8) |
 | Sat 12/5 | 2 | Matt Rife | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZzjw) |
 | Tue 12/8 | 2 | Victoria Monét: Frequency Of Love Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/victoria-monet-frequency-of-love-tour-inglewood-california-12-08-2026/event/0A006528B4649609) |
@@ -270,6 +269,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sun 4/18 | 2 | Fonseca - Antes Que El Tiempo Se Vaya Tour - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74Q4) |
 | Thu 4/22 | 2 | Carly Rae Jepsen: Day and Night Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/carly-rae-jepsen-day-and-night-inglewood-california-04-22-2027/event/0900653DD37AFC77) |
 | Sat 4/24 | 2 | Jo Koy: Koy Meets World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-inglewood-california-04-24-2027/event/09006528EC0BDF60) |
+| Sun 4/25 | 2 | Meshuggah: The Forty-Year Anomaly w/ Testament & Blood Inc | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/meshuggah-the-fortyyear-anomaly-w-testament-inglewood-california-04-25-2027/event/0A006555020897D7) |
 
 ## December 2026
 
