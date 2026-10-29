@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/28/2026 deterministically (no API). 147 candidates. Signals: big-venue 124, festival 20, tracked 4, editorial 1._
+_Generated 10/29/2026 deterministically (no API). 146 candidates. Signals: big-venue 123, festival 20, tracked 4, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -154,6 +154,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 1/16 | 3 | D.O.D Twin Diplomacy, Nate Band, Teeb | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1592102/d-o-d-tickets) |
 | Sat 1/16 | 3 | D.O.D. - Ages 18+ | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 1/16 | 3 |  iHeartRadio ALTer EGO Presented by Capital One | Kia Forum | big-venue | [link](https://www.ticketmaster.com/iheartradio-alter-ego-presented-by-capital-inglewood-california-01-16-2027/event/09006548A834A495) |
+| Sat 1/16 | 3 | Jodeci - 35th Anniversary Tour of Forever My Lady | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jodeci-35th-anniversary-tour-of-forever-ontario-california-01-16-2027/event/090064F8C7A6AA1D) |
 | Fri 1/22 | 3 | Riordan Presents "Remapped" | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1642398/riordan-presents-remapped-tickets) |
 | Fri 1/22 | 3 | Pancho Barraza | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/pancho-barraza-ontario-california-01-22-2027/event/0900655312484BAC) |
 | Sat 1/23 | 3 | Joyce Manor | Kia Forum | big-venue | [link](https://www.ticketmaster.com/joyce-manor-inglewood-california-01-23-2027/event/090064F8E444D2E7) |
@@ -202,7 +203,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 12/2 | 2 | BEAT: Belew/Vai/Levin/Bozzio Performing the Music of KING  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/beat-belewvailevinbozzio-performing-the-music-of-inglewood-california-12-02-2026/event/0A0064FEFC6652B8) |
 | Sat 12/5 | 2 | Matt Rife | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZzjw) |
 | Tue 12/8 | 2 | Victoria Monét: Frequency Of Love Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/victoria-monet-frequency-of-love-tour-inglewood-california-12-08-2026/event/0A006528B4649609) |
 | Wed 12/9 | 2 | Gipsy Kings featuring Nicolas Reyes - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -301,12 +301,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 4/2 | 1 | HANS ZIMMER LIVE - THE NEXT LEVEL | Honda Center | big-venue | [link](https://www.axs.com/events/1615242/hans-zimmer-tickets) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Wed 12/2 | 0 | Jonas Brothers: The Burning Up Tour All Over Again | Honda Center | big-venue | [link](https://www.ticketmaster.com/jonas-brothers-the-burning-up-tour-anaheim-california-12-02-2026/event/0900650C4618D89F) |
 
 ## February 2027
 
