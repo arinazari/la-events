@@ -4,6 +4,11 @@ LA events aggregator + personalized digest for Ari. Built collaboratively in cla
 (June 2026); this repo is the source of truth going forward. Read ROADMAP.md for current
 phase and open decisions before starting any non-trivial task.
 
+For audit, performance, or cleanup work, read and update
+[the shared audit and work tracker](docs/AUDIT-2026-10-07-performance-cleanup.md).
+Its findings describe an earlier revision: revalidate an item against current code
+before implementing it, and record decisions, changes, and validation in that file.
+
 ## What this project does
 
 1. **Aggregates** LA events from structured pipelines (Ticketmaster Discovery API, RA
