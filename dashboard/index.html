@@ -542,12 +542,34 @@
         </div>
       </sc-if>
 
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; flex-wrap:wrap;">
-        <span style="display:inline-flex; align-items:center; gap:9px; min-width:0;">
+      <div style="position:relative; display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; flex-wrap:wrap;">
+        <span style="display:inline-flex; align-items:center; gap:9px; min-width:0; flex-wrap:wrap;">
           <span style="font:600 10.5px/1 ui-monospace,Menlo,monospace; color:#a7a59b;">{{ exploreCountLabel }}</span>
+          <!-- star filters: quick keeps on the `star` axis; ▾ opens the per-person STARRED BY menu -->
+          <span style="display:inline-flex; align-items:center; gap:6px;">
+            <sc-if value="{{ showMyStarsChip }}" hint-placeholder-val="{{ true }}"><span onClick="{{ toggleMyStars }}" title="Only events you starred — tap again to clear" style="cursor:pointer; padding:5px 10px; border:1px solid {{ myStarsChipBd }}; background:{{ myStarsChipBg }}; color:{{ myStarsChipColor }}; border-radius:999px; font:700 10px/1 ui-monospace,Menlo,monospace; white-space:nowrap;">{{ myStarsChipLabel }}</span></sc-if>
+            <span onClick="{{ toggleFriendStars }}" title="Only events your friends starred — tap again to clear" style="cursor:pointer; padding:5px 10px; border:1px solid {{ friendStarsChipBd }}; background:{{ friendStarsChipBg }}; color:{{ friendStarsChipColor }}; border-radius:999px; font:700 10px/1 ui-monospace,Menlo,monospace; white-space:nowrap;">{{ friendStarsChipLabel }}</span>
+            <span onClick="{{ openStarChipF }}" title="Starred by — pick a person, or ✕ hide someone's stars" style="cursor:pointer; padding:5px 8px; border:1px solid {{ starMoreBd }}; background:#fff; color:{{ starMoreColor }}; border-radius:999px; font:700 10px/1 ui-monospace,Menlo,monospace; white-space:nowrap;">{{ starMoreLabel }}</span>
+          </span>
           <sc-if value="{{ hasChatFilter }}" hint-placeholder-val="{{ false }}"><span onClick="{{ clearChatFilter }}" title="Clear the concierge's filter" style="cursor:pointer; display:inline-flex; align-items:center; gap:5px; max-width:280px; font:700 10px/1.3 ui-monospace,Menlo,monospace; color:#2b5cd9; padding:5px 10px; border:1px solid #c3d2f4; background:#eaf0fe; border-radius:999px; white-space:nowrap;"><span style="overflow:hidden; text-overflow:ellipsis;">✦ {{ chatFilterLabel }}</span><span style="flex:none;">×</span></span></sc-if>
         </span>
         <sc-if value="{{ exHasActive }}" hint-placeholder-val="{{ false }}"><span onClick="{{ exResetFn }}" style="flex:none; cursor:pointer; font:700 10px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear filters ×</span></sc-if>
+        <sc-if value="{{ starChipOpen }}" hint-placeholder-val="{{ false }}">
+          <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+          <div style="position:absolute; top:calc(100% + 4px); left:0; z-index:51; display:flex; align-items:stretch; width:max-content; max-width:calc(100vw - 32px); background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+            <sc-for list="{{ starFCols }}" as="fc" hint-placeholder-count="1">
+              <div class="fcol" style="flex:0 0 auto; width: {{ fc.w }}; max-width:100%; max-height:300px; overflow-y:auto; padding:0 9px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                          <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                          <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                        </div>
+                        <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="4">
+                          <div onClick="{{ o.onClick }}" title="click: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                        </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
       </div>
       <!-- mobile: flat card list (the table is a desktop surface) topped by the SAME column
            controls as the desktop table, condensed into one sticky strip — tap a label to sort,
@@ -765,7 +787,28 @@
                   </div>
                 </sc-if>
               </th>
-              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:68px;">WHO</th>
+              <th style="text-align:left; padding:9px 12px; font:600 10px/1 ui-monospace,Menlo,monospace; letter-spacing:0.06em; color:#76746b; white-space:nowrap; user-select:none; width:68px; position:relative;">
+                <span style="display:inline-flex; align-items:center; gap:6px;">
+                  <span>WHO</span>
+                  <span onClick="{{ openStarF }}" title="Starred by — click a person to keep · again to hide · again to clear" style="cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; gap:2px; padding:2px 1px; color: {{ starIcon }};" style-hover="color:#2b5cd9;"><span style="height:1.4px; width:11px; background:currentColor;"></span><span style="height:1.4px; width:7px; background:currentColor;"></span><span style="height:1.4px; width:3px; background:currentColor;"></span></span>
+                </span>
+                <sc-if value="{{ starOpen }}" hint-placeholder-val="{{ false }}">
+                  <span onClick="{{ closeFilterMenu }}" style="position:fixed; inset:0; z-index:50; cursor:default;"></span>
+                  <div style="position:absolute; top:30px; right:12px; z-index:51; display:flex; align-items:stretch; width:max-content; max-width:92vw; background:#fff; border:1px solid #c9c7bd; border-radius:6px; box-shadow:0 10px 30px rgba(0,0,0,0.14); padding:8px 4px;">
+                    <sc-for list="{{ starFCols }}" as="fc" hint-placeholder-count="1">
+                      <div class="fcol" style="flex:0 0 auto; width: {{ fc.w }}; max-height:300px; overflow-y:auto; padding:0 9px; border-left: {{ fc.bl }};">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 7px; border-bottom:1px solid #eceae2; margin-bottom:5px;">
+                          <span style="font:600 8.5px/1 ui-monospace,Menlo,monospace; letter-spacing:0.1em; color:#a7a59b;">{{ fc.label }}</span>
+                          <sc-if value="{{ fc.hasSel }}" hint-placeholder-val="{{ false }}"><span onClick="{{ fc.onClear }}" style="cursor:pointer; font:500 8.5px/1 ui-monospace,Menlo,monospace; color:#2b5cd9;" style-hover="text-decoration:underline;">clear</span></sc-if>
+                        </div>
+                        <sc-for list="{{ fc.items }}" as="o" hint-placeholder-count="4">
+                          <div onClick="{{ o.onClick }}" title="click: ✓ only these → ✕ hide → off" style="display:flex; align-items:center; gap:8px; padding:5px 7px; margin:1px 0; border-radius:5px; cursor:pointer; font: {{ o.weight }} 11px/1.3 ui-monospace,Menlo,monospace; color: {{ o.color }}; background: {{ o.bg }};" style-hover="background:#f1efe7;"><span style="font-size:10px; color: {{ o.boxColor }};">{{ o.box }}</span><span style="text-decoration: {{ o.deco }};">{{ o.label }}</span></div>
+                        </sc-for>
+                      </div>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -1760,7 +1803,7 @@ class Component extends DCLogic {
     digestModalOpen:false, spotifyStatus:null, spotifyName:'',
     calModalOpen:false, calSource:'picks', calStatus:'', calCfg:null,
     openFilter:null, exFrom:'', exTo:'',
-    exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] },
+    exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[], star:[], xstar:[] },
     guideOpen:false, guideTab:'how', welcomeOpen:false, welcomeStep:0, nudgeOpen:false, nudgeMore:false, digestMenuOpen:false, digestEmailOpen:false, digestPast:null, digestEmail:'', spotifyModalOpen:false,
     priceLive:null, priceLiveFor:null, priceLiveStatus:null };
 
@@ -2925,7 +2968,7 @@ class Component extends DCLogic {
       if (!this._applyFeed(raw)) { this.showToast('That profile\u2019s feed is empty', null); return; }
       const prof = { u, hash };
       try { localStorage.setItem('la-profile', JSON.stringify(prof)); } catch (e) {}
-      this.setState({ profile:prof, loggedIn:true, settingsOpen:false });
+      this.setState(st => ({ profile:prof, loggedIn:true, settingsOpen:false, exFilters:{ ...st.exFilters, star:[], xstar:[] } }));   // 'me' is a different person now
       this.setReactions({});   // chips/less are per-person — server stars for this profile ride the feed
       this.setSeen({});        // "Saw this" is per-person too — a fresh profile starts unhidden
       this.BACKEND_TOKEN = this.readConn(prof).token || '';   // connection is per-profile
@@ -2936,7 +2979,7 @@ class Component extends DCLogic {
       this.showToast('Signed in — taste profile + ranking loaded', null);
     } catch (e) { this.showToast('Could not load that profile', null); }
   };
-  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.syncStars(); this.showToast('Signed out — back to the house feed', null); };
+  doLogout = () => { try { localStorage.removeItem('la-profile'); } catch (e) {} this.setReactions({}); this.setSeen({}); this.BACKEND_TOKEN = this.readConn(null).token || ''; this.setState({ profile:null, loggedIn:false, settingsOpen:false, exFilters:{ ...this.state.exFilters, star:[], xstar:[] }, username:'', spotifyStatus:null, spotifyName:'', backendStatus:null, backendVer:null, chatFiltered:null, chatFilterLabel:'' }, () => { if (this.BACKEND_URL) this.pingBackend(); }); this.loadFeedFor(null); this.loadDigest(); this.syncStars(); this.showToast('Signed out — back to the house feed', null); };
   // ---------- pipeline jobs: per-profile Update + owner Refresh, persisted across reloads ----------
   workerUrl(path) { try { return new URL(path, this.BACKEND_URL).href; } catch (e) { return ''; } }
   checkCatalogFreshness() { return this.loadMeta(); }
@@ -3474,7 +3517,29 @@ class Component extends DCLogic {
   // an anchored menu of that column's values (hood+region; cat+genre+vibe+setting; source;
   // dates). Desktop anchors them to the table headers; mobile mirrors the same headers as a
   // sticky strip over the card list, with full-width dropdowns. One state, two anchorings.
-  EX_AXES = ['cat','genre','vibe','setting','hood','region','source'];
+  EX_AXES = ['cat','genre','vibe','setting','hood','region','source','star'];
+  // The `star` axis is who starred an event: 'me' (my effective star, live taps included),
+  // 'friends' (anyone else's) and 'p:<hash>' per person. Logged out there is no 'me' — every
+  // star on the house feed is someone else's.
+  starVals(e) {
+    const h = this.myHash();
+    const out = this.myStar(e) ? ['me'] : [];
+    const others = (e.stars || []).filter(s => s.hash !== h);
+    if (others.length) { out.push('friends'); for (const s of others) out.push('p:' + s.hash); }
+    return out;
+  }
+  // Quick chips (My stars / Friends' stars) toggle a keep on one star value; the menu keeps
+  // the full ✓ / ✕ / off cycle like every other axis. Keeps OR together (mine + friends' =
+  // anything starred), and a person is a narrowing of 'friends' — so keeping one drops
+  // 'friends' (else "just Lori" would still show every friend's), and the Friends chip, which
+  // lights up for person picks too, clears them all.
+  exToggleStar(v) {
+    const f = this.state.exFilters;
+    const people = v === 'friends' ? f.star.filter(x => x.startsWith('p:')) : [];
+    const on = f.star.indexOf(v) !== -1 || people.length > 0;
+    const star = on ? f.star.filter(x => x !== v && people.indexOf(x) === -1) : f.star.concat([v]);
+    this.setState({ exFilters: { ...f, star, xstar: f.xstar.filter(x => x !== v) } });
+  }
   openFilterMenu = (col) => this.setState(s => ({ openFilter: s.openFilter === col ? null : col }));
   closeFilterMenu = () => this.setState({ openFilter:null });
   exClearAxis = (ax) => this.setState(s => { const nf = { ...s.exFilters }; nf[ax] = []; nf['x'+ax] = []; return { exFilters:nf }; });
@@ -3485,10 +3550,14 @@ class Component extends DCLogic {
     if (i === -1 && o === -1) inc.push(val);
     else if (i !== -1) { inc.splice(i, 1); exc.push(val); }
     else exc.splice(o, 1);
+    if (axis === 'star' && inc.indexOf(val) !== -1) {   // see exToggleStar: a person narrows 'friends'
+      if (val.startsWith('p:')) { const j = inc.indexOf('friends'); if (j !== -1) inc.splice(j, 1); }
+      else if (val === 'friends') for (let k = inc.length - 1; k >= 0; k--) if (inc[k].startsWith('p:')) inc.splice(k, 1);
+    }
     const nf = { ...f }; nf[axis] = inc; nf['x'+axis] = exc;
     this.setState({ exFilters: nf });
   }
-  exReset = () => this.setState({ exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[] }, exFrom:'', exTo:'', exploreSearch:'', chatFiltered:null, chatFilterLabel:'' });
+  exReset = () => this.setState({ exFilters:{ cat:[], xcat:[], genre:[], xgenre:[], vibe:[], xvibe:[], setting:[], xsetting:[], hood:[], xhood:[], region:[], xregion:[], source:[], xsource:[], star:[], xstar:[] }, exFrom:'', exTo:'', exploreSearch:'', chatFiltered:null, chatFilterLabel:'' });
   exActiveCount() {
     const f = this.state.exFilters;
     let n = this.EX_AXES.reduce((a, ax) => a + f[ax].length + f['x'+ax].length, 0);
@@ -3513,6 +3582,7 @@ class Component extends DCLogic {
     if (axis === 'setting') return e.settings;
     if (axis === 'hood') return [e.hood];
     if (axis === 'region') return e.regions;
+    if (axis === 'star') return this.starVals(e);
     return [e.source];
   }
   exPass(e) {
@@ -3555,6 +3625,7 @@ class Component extends DCLogic {
     "- The **front page** opens on your window — *tonight · this weekend · next 3 weeks · plan ahead* — with the lead pick, a shortlist beside it, and the marquees split into that window's days, weeks, or months. Tap any card for details + tickets.",
     "- **Explore** (top right) is the full table. **Sort** by tapping the `DATE`, `EVENT`, `NEIGHBORHOOD`, `CATEGORY`, `RANK`, `MATCH` or `SOURCE` headers.",
     "- **Filter from the columns**: the little funnel in a header opens that column's menu — `DATE` holds the presets + a custom range, `NEIGHBORHOOD` also carries region, `CATEGORY / VIBE` carries category, genre, vibe and setting side by side, `SOURCE` stands alone. Click a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear; a blue funnel means that column is filtering. On a phone the same headers ride a strip pinned above the list — tap a label to sort, tap its funnel for the menu.",
+    "- **Stars as a filter**: above the Explore list, **★ My stars** shows only what you starred and **★ Friends' stars** only what friends starred (both on = either). The **▾** beside them (or the `WHO` funnel on desktop) picks one person — *just Lori's stars* — or **✕ hides** someone's.",
     "- **Tap any tag** on a card (like *techno* or *warehouse*) to jump into Explore filtered to exactly that tag.",
     "- **Search** everything from the box in the header.",
     "",
@@ -3605,6 +3676,10 @@ class Component extends DCLogic {
     "# What's new",
     "",
     "Recent upgrades to the site. See **how it works** (Settings → About) any time for the full tour.",
+    "",
+    "## October 2026",
+    "",
+    "- **Filter by stars.** Explore has two new chips above the list: **★ My stars** (only what you starred) and **★ Friends' stars** (only what your friends starred) — turn both on for everything starred by you or a friend. The **▾** next to them, or the `WHO` column's funnel on desktop, narrows to one friend's stars or hides someone's. Counts on each chip are what's still ahead.",
     "",
     "## September 2026",
     "",
@@ -4247,8 +4322,48 @@ class Component extends DCLogic {
         fcol('SETTING', 'setting', tagAxis('setting', e => e.settings || []), pretty, '138px'),
       ];
       out.sourceFCols = [fcol('SOURCE', 'source', uniqV(upcoming.map(e => e.source).filter(Boolean)).sort((a,b) => a.localeCompare(b)), null, '170px', true)];
+      // ---- star filters: My stars / Friends' stars chips + the per-person STARRED BY menu ----
+      // Counts are over what Explore can show (upcoming, not marked seen), before other filters.
+      const meH = this.myHash();
+      let nMine = 0, nFriends = 0; const people = new Map();   // hash -> { name, n }
+      for (const e of upcoming) {
+        if (this.isSeen(e)) continue;
+        if (this.myStar(e)) nMine++;
+        const others = (e.stars || []).filter(s => s.hash !== meH);
+        if (others.length) nFriends++;
+        for (const s of others) { const p = people.get(s.hash) || { name: s.name, n: 0 }; p.n++; people.set(s.hash, p); }
+      }
+      const starName = (v) => { const p = people.get(v.slice(2)); if (p) return p.name; const s = this.ALL.flatMap(e => e.stars || []).find(x => 'p:' + x.hash === v); return s ? s.name : 'someone'; };
+      const starLab = (v) => v === 'me' ? 'You · ' + nMine
+        : v === 'friends' ? (meH ? 'Any friend' : 'Anyone') + ' · ' + nFriends
+        : starName(v) + ' · ' + ((people.get(v.slice(2)) || {}).n || 0);
+      const personVals = [...people.entries()].sort((a, b) => b[1].n - a[1].n || a[1].name.localeCompare(b[1].name)).map(([hh]) => 'p:' + hh);
+      out.starFCols = [fcol('STARRED BY', 'star', (meH ? ['me'] : []).concat(['friends'], personVals), starLab, '190px', true)];
+      const starOn = (v) => f.star.indexOf(v) !== -1;
+      out.showMyStarsChip = !!meH;
+      out.myStarsChipLabel = '★ My stars · ' + nMine;
+      out.friendStarsChipLabel = '★ ' + (meH ? "Friends' stars" : 'Starred') + ' · ' + nFriends;
+      const chipCss = (on) => ({ bg: on ? '#1b1a17' : '#fff', color: on ? '#fff' : '#3f3d36', bd: on ? '#1b1a17' : '#d2d0c7' });
+      const keptPeople = f.star.filter(v => v.startsWith('p:'));
+      if (keptPeople.length) {   // the Friends chip names who it's narrowed to
+        const nEv = upcoming.filter(e => !this.isSeen(e) && (e.stars || []).some(s => keptPeople.indexOf('p:' + s.hash) !== -1)).length;
+        out.friendStarsChipLabel = '★ ' + (keptPeople.length === 1 ? starName(keptPeople[0]) + "'s stars" : keptPeople.length + " friends' stars") + ' · ' + nEv;
+      }
+      const myChip = chipCss(starOn('me')), frChip = chipCss(starOn('friends') || keptPeople.length > 0);
+      out.myStarsChipBg = myChip.bg; out.myStarsChipColor = myChip.color; out.myStarsChipBd = myChip.bd;
+      out.friendStarsChipBg = frChip.bg; out.friendStarsChipColor = frChip.color; out.friendStarsChipBd = frChip.bd;
+      out.toggleMyStars = () => this.exToggleStar('me');
+      out.toggleFriendStars = () => this.exToggleStar('friends');
+      // the ▾ flags hides (✕ someone's stars) — keeps already show on the chips
+      const nHides = f.xstar.length;
+      out.starMoreLabel = nHides ? '▾ ✕' + nHides : '▾';
+      out.starMoreColor = nHides ? '#b4543f' : '#76746b';
+      out.starMoreBd = nHides ? '#e6c9bf' : '#d2d0c7';
       const openF = this.state.openFilter;
       out.dateOpen = openF==='date'; out.hoodOpen = openF==='hood'; out.catOpen = openF==='cat'; out.sourceOpen = openF==='source';
+      out.starOpen = openF==='star'; out.starChipOpen = openF==='starchip';
+      out.openStarF = () => this.openFilterMenu('star'); out.openStarChipF = () => this.openFilterMenu('starchip');
+      out.starIcon = nsel('star') ? '#2b5cd9' : '#bdbbb1';
       out.openDateF = () => this.openFilterMenu('date'); out.openHoodF = () => this.openFilterMenu('hood');
       out.openCatF = () => this.openFilterMenu('cat'); out.openSourceF = () => this.openFilterMenu('source');
       out.closeFilterMenu = this.closeFilterMenu;

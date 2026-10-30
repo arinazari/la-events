@@ -573,6 +573,19 @@ would catch big names nobody listed, but needs the arena tier judged (~250 rows 
 window once, then ~9/day as arena dates age into it) — the list + listening cover it
 deterministically for now.
 
+### 2026-10-30 — Filter by stars (Ari's ask, high priority)
+Explore gains a `star` facet axis (client-only; the feed's `stars [{name,hash}]` + the live
+`GET /stars` overlay already carry everything): **★ My stars** (my effective star — live taps
+included, un-star tombstones respected) and **★ Friends' stars** quick chips above the list,
+OR-ed together, plus a per-person **STARRED BY** menu (the chip row's ▾, and a funnel on the
+desktop `WHO` column) with the usual ✓ keep / ✕ hide / off cycle. A person pick *narrows*
+"any friend" (keeping Lori drops the any-friend keep, and the Friends chip renames to
+"Lori's stars"); logged out there is no "me", so the one chip reads **★ Starred** (anyone).
+The star axis resets on login/logout since "me" changes. Counts are upcoming + not-seen, so
+a starred event marked *Saw this* stays hidden from Explore (seen still wins on browsing
+surfaces; it's on the Starred calendar). Not done: the front page and the concierge's Fast
+filter don't know about stars yet.
+
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
   ships plain JS (dc-runtime `support.js` evaluates the template directly; no in-browser Babel),
