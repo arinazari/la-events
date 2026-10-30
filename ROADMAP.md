@@ -586,6 +586,28 @@ a starred event marked *Saw this* stays hidden from Explore (seen still wins on 
 surfaces; it's on the Starred calendar). Not done: the front page and the concierge's Fast
 filter don't know about stars yet.
 
+### 2026-10-30 — Permalinks (Ari's ask)
+`?e=<event_key>` already opened a card on boot (the digest's "card ↗" links); now it's a
+first-class feature. The detail gains **Copy link** (phones: **Share ↗** → the native share
+sheet), and the address bar tracks the open card (`replaceState` on open/switch/close — no
+history entries). **Durability** was the real gap: `event_key` hashes title|date|venue, and a
+merge that picks a richer title or fills in a TBA venue re-keys the row — measured on the
+committed history, **3.5% of upcoming events re-key within 14 days** (81/2,283; every one the
+same event under a new key, mostly the warehouse/Halloween parties people actually share).
+`dedupe.merge` now records `key_aliases` (every key either side was known by, minus the
+current one; ~17 KB worst case on the catalog), feeds carry them via `dict(ev)`, and the
+page's `byKey` resolves aliases (a live key always wins), healing the URL to the current
+key. Aliases accrue from the first nightly run after this lands — links that broke earlier
+stay broken. **Open (same root cause):** stars, reactions, verdicts, enrichment and
+price checks are all keyed by exact `event_key`, so a re-keyed event silently loses its stars
+on the card and in digests (and re-pays editor/enrichment). The alias data now exists to fix
+stars — rewrite `reactions.jsonl` keys through the alias map before `star_map` (last state
+per profile wins across old/new keys), plus a page live-overlay rule that only trusts an
+alias's live stars when the bake agrees (the Worker's `/stars` map can't order an unstar
+under the new key against a star under the old one). No link previews: a static page can't
+emit per-event Open Graph tags; that would need a Worker route (`/e/<key>` → OG meta +
+redirect).
+
 ### Dashboard follow-ups (TODO — from the front-end swap)
 - [x] **Pre-transpile build step** — OBSOLETE as written (2026-07-24): the redesigned front end
   ships plain JS (dc-runtime `support.js` evaluates the template directly; no in-browser Babel),

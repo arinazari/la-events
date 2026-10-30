@@ -528,6 +528,25 @@ def test_merge_preserves_image_from_either_record():
     assert "image" not in merge(base, dict(base, last_seen="2026-07-10"))
 
 
+def test_merge_records_key_aliases_when_identity_key_changes():
+    # The live case: a later source's richer title wins the merge, so the row's event_key moves —
+    # the key a ?e= permalink was minted with must stay resolvable via key_aliases.
+    from lib.enrich import event_key
+    old = {"title": "Linger", "venue": "Baby Battista @ Nico's", "date": "2026-10-30", "last_seen": "2026-10-20"}
+    new = {"title": "Linger: Mary McHenry, deesco", "venue": "Baby Battista @ Nico's", "date": "2026-10-30",
+           "last_seen": "2026-10-28"}
+    m = merge(old, new)
+    assert event_key(m) == event_key(new) != event_key(old)
+    assert m["key_aliases"] == [event_key(old)]                  # the current key is never its own alias
+    # Aliases accumulate across retitles (a link minted at any point keeps resolving)...
+    newer = dict(new, title="Linger: Mary McHenry, deesco, Special Guest", last_seen="2026-10-29")
+    m2 = merge(m, newer)
+    assert set(m2["key_aliases"]) == {event_key(old), event_key(new)}
+    # ...and an unchanged key adds nothing (the daily same-title re-fetch is a no-op).
+    same = merge(dict(old), dict(old, last_seen="2026-10-28"))
+    assert "key_aliases" not in same
+
+
 if __name__ == "__main__":
     fails = 0
     for name, fn in sorted(globals().items()):

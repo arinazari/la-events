@@ -1000,6 +1000,7 @@
       <div style="margin-top:18px; display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
         <sc-for list="{{ detail.ticketLinks }}" as="tk" hint-placeholder-count="1"><span onClick="{{ tk.onGo }}" style="font:700 11px/1 ui-monospace,Menlo,monospace; padding:11px 16px; background:transparent; color:#2b5cd9; border:1px solid #2b5cd9; border-radius:999px; cursor:pointer;" style-hover="background:#2b5cd9; color:#fff;">{{ tk.label }} ↗</span></sc-for>
         <button onClick="{{ detail.onCal }}" style="display:inline-flex; align-items:center; gap:6px; font:700 11px/1 ui-monospace,Menlo,monospace; padding:11px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#a7a59b;">Add to calendar ↓</button>
+        <sc-if value="{{ detail.hasLink }}" hint-placeholder-val="{{ true }}"><button onClick="{{ detail.onShare }}" title="{{ detail.shareTitle }}" style="display:inline-flex; align-items:center; gap:6px; font:700 11px/1 ui-monospace,Menlo,monospace; padding:11px 14px; border:1px solid #d2d0c7; background:#fff; color:#3f3d36; border-radius:999px; cursor:pointer;" style-hover="border-color:#a7a59b;">{{ detail.shareLabel }}</button></sc-if>
       </div>
       <div style="margin-top:16px; padding-top:14px; border-top:1px solid #eeece4; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
         <span style="display:inline-flex; align-items:center; gap:14px; flex-wrap:wrap;">
@@ -1586,6 +1587,7 @@ class Component extends DCLogic {
       rating: (typeof r.rating === 'number' ? r.rating : null),
       verdict: r.verdict || null,
       key: r.key || null,
+      aliases: Array.isArray(r.key_aliases) ? r.key_aliases : [],   // older keys (pre-retitle) — permalinks resolve through them
       stars: Array.isArray(r.stars) ? r.stars.filter(s => s && s.name && s.hash) : [],
       lane: r.lane || null,
       firstSeen: r.first_seen || null,
@@ -1609,6 +1611,7 @@ class Component extends DCLogic {
     this.ALL = mapped;
     this.BYKEY = new Map();
     for (const e of mapped) if (e.key) this.BYKEY.set(e.key, e);
+    for (const e of mapped) for (const a of e.aliases) if (!this.BYKEY.has(a)) this.BYKEY.set(a, e);
     this.META = (raw && !Array.isArray(raw)) ? raw : {};
     this.applyLiveStars();   // a fresh feed carries baked stars — re-overlay the live map
     this.setState({ dataSource: 'live' });
@@ -1649,6 +1652,38 @@ class Component extends DCLogic {
     const ev = this.byKey(k);
     if (ev) this.setState({ detailId: ev.id });
     else this.showToast('That event isn’t in the current feed anymore', null);
+  }
+  // ---------- permalinks ----------
+  // An event's link is the site + ?e=<key> (the same URL the digest's "card ↗" links use). While a
+  // card is open the address bar carries it — replaceState, so no history entries and Back behaves
+  // as before — and drops it on close; copying the address bar = copying the card's permalink.
+  // Keys survive retitles: a merged row keeps its old keys (key_aliases) and byKey resolves them.
+  permalinkFor(e) { return location.origin + location.pathname + '?e=' + encodeURIComponent(e.key); }
+  componentDidUpdate() {
+    if (this._deepKey) return;   // boot: leave ?e= alone until openDeepLink has consumed it
+    if (this.state.detailId === this._urlDetailId) return;   // runs on every update — only act on open/close/switch
+    this._urlDetailId = this.state.detailId;
+    const de = this.state.detailId != null ? this.byId(this.state.detailId) : null;
+    const k = (de && de.key) || null;
+    if (k === this._urlKey) return;
+    this._urlKey = k;
+    try {
+      const u = new URL(location.href);
+      if (k) u.searchParams.set('e', k); else u.searchParams.delete('e');
+      history.replaceState(history.state, '', u.pathname + u.search + u.hash);
+    } catch (err) {}
+  }
+  // Phones get the native share sheet (text it straight to a friend); desktop copies the link.
+  shareEvent(e) {
+    if (!e || !e.key) return;
+    const url = this.permalinkFor(e);
+    if (this.state.isMobile && navigator.share) {
+      navigator.share({ title: e.title, url }).catch(() => {});   // dismissing the sheet is not an error
+      return;
+    }
+    const copied = () => this.showToast('Link copied — it opens this event', null);
+    try { navigator.clipboard.writeText(url).then(copied, () => this.showToast(url, null)); }
+    catch (err) { this.showToast(url, null); }
   }
   // Digest "card ↗" links (…?e=<key>) open the event's card right here instead of reloading the site.
   onDigestClick = (e) => {
@@ -3626,6 +3661,7 @@ class Component extends DCLogic {
     "- **Explore** (top right) is the full table. **Sort** by tapping the `DATE`, `EVENT`, `NEIGHBORHOOD`, `CATEGORY`, `RANK`, `MATCH` or `SOURCE` headers.",
     "- **Filter from the columns**: the little funnel in a header opens that column's menu — `DATE` holds the presets + a custom range, `NEIGHBORHOOD` also carries region, `CATEGORY / VIBE` carries category, genre, vibe and setting side by side, `SOURCE` stands alone. Click a value once to **✓ keep** only matches, again to **✕ hide** it, once more to clear; a blue funnel means that column is filtering. On a phone the same headers ride a strip pinned above the list — tap a label to sort, tap its funnel for the menu.",
     "- **Stars as a filter**: above the Explore list, **★ My stars** shows only what you starred and **★ Friends' stars** only what friends starred (both on = either). The **▾** beside them (or the `WHO` funnel on desktop) picks one person — *just Lori's stars* — or **✕ hides** someone's.",
+    "- **Share an event**: every event's detail has **Copy link** (**Share** on a phone — straight to the share sheet). The link opens that event's card for whoever taps it, and the address bar always holds the open card's link too.",
     "- **Tap any tag** on a card (like *techno* or *warehouse*) to jump into Explore filtered to exactly that tag.",
     "- **Search** everything from the box in the header.",
     "",
@@ -3679,6 +3715,7 @@ class Component extends DCLogic {
     "",
     "## October 2026",
     "",
+    "- **Permalinks.** Every event's detail has **Copy link** (**Share ↗** on a phone, which opens the share sheet). Whoever opens the link lands on that event's card, and while a card is open the address bar holds its link too. Links keep working when an event's listing changes after you share it, like a lineup added to the title or a secret venue revealed.",
     "- **Filter by stars.** Explore has two new chips above the list: **★ My stars** (only what you starred) and **★ Friends' stars** (only what your friends starred) — turn both on for everything starred by you or a friend. The **▾** next to them, or the `WHO` column's funnel on desktop, narrows to one friend's stars or hides someone's. Counts on each chip are what's still ahead.",
     "",
     "## September 2026",
@@ -4422,6 +4459,9 @@ class Component extends DCLogic {
         seriesBadge: (de.series && de.series.count > 1) ? ((de.series.venues || []).length > 1 ? (de.series.count + ' dates · ' + de.series.venues.length + ' theaters') : (de.series.count + ' nights')) : '',
         sceneLabel:(this.shelfOf(de) || sc).label, onScene:() => { const shf = this.shelfOf(de); this.openScene(shf ? shf.id : sc.id); }, poster:this.posterFor(de),
         onCal:() => { this.downloadIcs(de); this.showToast('Calendar file downloaded — open it to add', null); },
+        hasLink: !!de.key, onShare: () => this.shareEvent(de),
+        shareLabel: (this.state.isMobile && typeof navigator !== 'undefined' && navigator.share) ? 'Share ↗' : 'Copy link',
+        shareTitle: 'A permanent link to this event — anyone with it lands on this card',
         onLess:(ev) => this.react(de.id,'less',ev),
         lessLabel: this.state.reactions[de.id]==='less' ? '✓ Showing less like this' : 'Show less like this',
         lessColor: this.state.reactions[de.id]==='less' ? '#8a887e' : '#a9a79d',

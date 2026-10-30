@@ -456,7 +456,21 @@ def merge(a: dict, b: dict) -> dict:
         out["first_seen"] = min(fs)
     if ls:
         out["last_seen"] = max(ls)
+    # Identity continuity: the merge can change the row's event_key (the richer title wins, so
+    # "Linger" becomes "Linger: Mary McHenry, deesco"), and that key is what ?e= permalinks and
+    # digest card links point at. Keep every key either side was known by so they still resolve.
+    aliases = set(a.get("key_aliases") or ()) | set(b.get("key_aliases") or ()) | {_event_key(a), _event_key(b)}
+    aliases.discard(_event_key(out))
+    if aliases:
+        out["key_aliases"] = sorted(aliases)
+    else:
+        out.pop("key_aliases", None)
     return out
+
+
+def _event_key(ev: dict) -> str:
+    from .enrich import event_key   # lazy: enrich imports this module's normalize
+    return event_key(ev)
 
 
 def dedupe(events: list) -> tuple:
