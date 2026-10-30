@@ -1,15 +1,13 @@
 # LA Events — 2026-10-30
-*Digest regenerated Fri 10/30 — picks updated.*
-
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Fri 10/30 · no new or changed events since the last pull*
 
-<!-- take: Halloween weekend is stacked — Giegling, Avalon Emerson and a vinyl-only warehouse all land Saturday. -->
-Halloween weekend is the heat of the month: Friday is a warm-up, Saturday is where the real techno lives. If you can only do one Saturday, make it Giegling with Cassy; Lights Down Low (Avalon Emerson, Ellen Allien) is the close second and the better bet if you want a full-lineup night, while the all-vinyl warehouse is the cheap, purist pick. The following week settles into WORK and the Mixmag Lab debut.
+<!-- take: -->
+<!-- tier3:intro -->
 
 ## Tonight & tomorrow
 
-Friday is the soft launch — Nightshift at the Lexington is the easy late move; save your legs for Saturday.
+<!-- tier3:call -->
 
 - `Today 4pm` ⭐ **[Escape Halloween](https://on.fgtix.com/trk/Ni5m)** — NOS Events Center, San Bernardino · day party · [card ↗](https://arinazari.github.io/la-events/?e=fc02f613287a) — *Insomniac's Escape Halloween has Hawtin, Kraviz, Jamie Jones, Cloonee, DJ Tennis, Avalon Emerson and Capriati, plus AZYR, who's in your core rotation. San Bernardino is a trek and the hard-dance and dubstep stages are noise, but the house and techno payoff justifies the drive.*
 - `Today 11pm-5am` **[Nightshift After Hours](https://ra.co/events/2563561)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23 · [card ↗](https://arinazari.github.io/la-events/?e=c235499b495f) — *Night 4 of 5 in the Lexington after-hours run, with no lineup listed. If you go, pick the Halloween Saturday on 10/31 instead.*
@@ -45,7 +43,7 @@ Friday is the soft launch — Nightshift at the Lexington is the easy late move;
 ## Next two weeks
 
 ### Friday · October 30
-Nightshift After Hours at the Lexington from 11 is the move; keep it light before Saturday.
+<!-- tier3:blueprint 2026-10-30 -->
 
 **Electronic & dance**
 - `4pm` ⭐ **[Escape Halloween](https://on.fgtix.com/trk/Ni5m)** — NOS Events Center, San Bernardino · day party · [card ↗](https://arinazari.github.io/la-events/?e=fc02f613287a)
@@ -57,7 +55,7 @@ Nightshift After Hours at the Lexington from 11 is the move; keep it light befor
 - *Also:* [The Who's Tommy (Touring)](https://www.ticketmaster.com/the-whos-tommy-touring-los-angeles-california-10-30-2026/event/0B0064F6CD214975) (Hollywood Pantages Theatre)
 
 ### Saturday · October 31
-Pick one lane: Lights Down Low from 9, or hold out for Giegling at 11:59 — they overlap, so choose by how late you're going.
+<!-- tier3:blueprint 2026-10-31 -->
 
 **Electronic & dance**
 - `11:59pm` ⭐ **[Giegling in LA (The Halloween Special)](https://ra.co/events/2505104)** — TBA - Downtown Los Angeles, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=bd1727021461)  
@@ -118,7 +116,7 @@ Pick one lane: Lights Down Low from 9, or hold out for Giegling at 11:59 — the
 - `8pm` **[Kate Bollinger](https://dice.fm/event/6a8e4765fac99400013b29ce)** — 2220 Arts + Archives, Historic Filipinotown · $28.07 · [card ↗](https://arinazari.github.io/la-events/?e=f4692d91e567)
 
 ### Friday · November 6
-WORK from 11 is the night.
+<!-- tier3:blueprint 2026-11-06 -->
 
 **Electronic & dance**
 - `11pm-5am` **[WORK presents: Narciss, Masha Mar, & Marc Homer](https://ra.co/events/2525849)** — TBA - Los Angeles, Los Angeles · $25 b4 12 / $29-42 · [card ↗](https://arinazari.github.io/la-events/?e=912b65709d9c)  
@@ -136,7 +134,7 @@ WORK from 11 is the night.
 - `8pm` **[The Fantastic Fellinis (8:45pm)](https://ra.co/events/2564265)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=75ee7b97eba8)
 
 ### Saturday · November 7
-Mixmag Lab at 1720 from 9 — Sam Divine's L.A. debut, out by 2.
+<!-- tier3:blueprint 2026-11-07 -->
 
 **Electronic & dance**
 - `9pm-2am` ⭐ **[Mixmag Lab: Los Angeles ft. Sam Divine's 555 [L.A. Debut]](https://ra.co/events/2512684)** — 1720, Arts District · $28.75-40.25 · [card ↗](https://arinazari.github.io/la-events/?e=e8aa02f1a8f7)  
@@ -290,5 +288,4 @@ Mixmag Lab at 1720 from 9 — Sam Divine's L.A. debut, out by 2.
 - **[Coachella 2027](https://www.coachella.com/)** — 4/9–11 and 4/16–18 · Empire Polo Club, Indio CA · **lineup pending** — Advance GA already sold out (~$549–599); official lineup not yet announced. Industry trades (Hits Daily Double) rumor Tame Impala + Dua Lipa headlining with Fred again.. in the "Returning to the Desert" slot — unconfirmed, ~7 months out.
 
 ---
-> ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
 *⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 45d (102 events), posh 8d (51 events)*
