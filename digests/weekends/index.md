@@ -4,7 +4,7 @@
 |---|---|---|
 | [2026-10-30](2026-10-30.md) | 13 | Escape Halloween |
 | [2026-11-06](2026-11-06.md) | 16 | Mixmag Lab: Los Angeles ft. Sam Divine's 555 [L.A. Debut] |
-| [2026-11-13](2026-11-13.md) | 20 | Into The Woods presents Theo Parrish (All Night Long) |
+| [2026-11-13](2026-11-13.md) | 19 | Into The Woods presents Theo Parrish (All Night Long) |
 | [2026-11-20](2026-11-20.md) | 19 | Beacon of Light: Spacetime Continuum, Lovefingers, Felix The Dog |
 | [2026-11-27](2026-11-27.md) | 15 | Time Warp Los Angeles 2026 |
 | [2026-12-04](2026-12-04.md) | 19 | TUNNEL 5YR: Special Guest (Berghain), ROZA Terenzi, Dj Warning, James Axon, & OZA |

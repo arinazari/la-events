@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/29/2026 deterministically (no API). 146 candidates. Signals: big-venue 123, festival 20, tracked 4, editorial 1._
+_Generated 10/30/2026 deterministically (no API). 147 candidates. Signals: big-venue 123, festival 21, tracked 4, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -72,6 +72,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 2/6 | 3 | Classics : Painting in Notes | Terrace Theater - Long Beach Conve | festival | [link](https://www.ticketmaster.com/classics-painting-in-notes-long-beach-california-02-06-2027/event/0B0064279F502922) |
 | Sat 2/20 | 3 | Hellfest West 2027 | The Fox Theater - Pomona | festival | [link](https://www.ticketweb.com/event/hellfest-west-2027-the-fox-theater-tickets/15054963?REFERRAL_ID=tmfeed) |
 | Tue 2/23 | 3 | The Flaming Lips - 2 Day Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/the-flaming-lips-223-los-angeles-california-02-23-2027/event/09006557B75417C7) |
+| Sat 2/27 | 3 | Skyline Festival 2027 | Ace * Mission Studios | festival | [link](https://on.fgtix.com/trk/nlBW) |
 
 ## March 2027
 
