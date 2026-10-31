@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/30/2026 deterministically (no API). 147 candidates. Signals: big-venue 123, festival 21, tracked 4, editorial 1._
+_Generated 10/31/2026 deterministically (no API). 140 candidates. Signals: big-venue 118, festival 20, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -17,12 +17,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 1/30 | 5 | MAU P PRESENTS: GENERATION REBRAND (18 and Over) | BMO Stadium | tracked:Mau P, big-venue | [link](https://www.ticketmaster.com/mau-p-presents-generation-rebrand-los-angeles-california-01-30-2027/event/0A006550EE2DDD30) |
 
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Fri 12/4 | 4 | Angine de Poitrine | The Wiltern | editorial | [link](https://www.ticketmaster.com/angine-de-poitrine-los-angeles-california-12-04-2026/event/090064A7ABE2D617) |
-
 ## February 2027
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -34,7 +28,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/11 | 7 | Drumcode: Adam Beyer, Dreya V, Marco Faraone | Reframe Studios Indoors (Los Angel | tracked:Adam Beyer | [link](https://dice.fm/event/mxyk5l-drumcode-la-11th-dec-reframe-studios-indoors-los-angeles-tickets) |
-| Fri 12/4 | 4 | Grateful Shred: Holiday Homecoming - 2-DAY Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/grateful-shred-holiday-homecoming-2day-pass-los-angeles-california-12-04-2026/event/090064F4BA9B7F91) |
 
 ## January 2027
 
@@ -111,9 +104,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 12/4 | 4 | Whethan - WAREHOUSE.WAVS TOUR (360 SHOW) - Ages 18+ | Shrine Expo Hall | big-venue | [link](http://www.shrineauditorium.com/) |
-| Fri 12/4 | 4 | Whethan - WAREHOUSE.WAVS TOUR (360 SHOW) | Shrine Auditorium and Expo Hall | big-venue | [link](https://ra.co/events/2507538) |
-| Fri 12/4 | 4 | 102.7 KIIS FM's Jingle Ball Presented by Capital One | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/1027-kiis-fms-jingle-ball-presented-inglewood-california-12-04-2026/event/09006524E7B61513) |
 | Fri 12/11 | 4 | Brent Faiyaz | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 12/18 | 4 | Love Actually in Concert | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 
@@ -127,9 +117,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 12/4 | 3 | The Neighbourhood: THE WOURLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-neighbourhood-the-wourld-tour-inglewood-california-12-04-2026/event/09006443CD5C89D1) |
-| Fri 12/4 | 3 | TRIVIUM: CROWN IN THE GRAVE WORLD TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/trivium-crown-in-the-grave-world-inglewood-california-12-04-2026/event/0A0064E9DDF7CB1C) |
-| Fri 12/4 | 3 | KFROG'S CHRISTMAS THROWDOWN | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/kfrogs-christmas-throwdown-ontario-california-12-04-2026/event/09006506E331F419) |
 | Sat 12/5 | 3 | The Neighbourhood: THE WOURLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-neighbourhood-the-wourld-tour-inglewood-california-12-05-2026/event/0900645403D3F8BA) |
 | Sat 12/5 | 3 | Alicia Villarreal - Bendita Locura Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alicia-villarreal-bendita-locura-tour-2026-inglewood-california-12-05-2026/event/0A0064C91DB19A75) |
 | Sat 12/5 | 3 | Trans-Siberian Orchestra | Toyota Arena-CA | big-venue | [link](https://www.cbbankarena.com) |
@@ -271,6 +258,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Thu 4/22 | 2 | Carly Rae Jepsen: Day and Night Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/carly-rae-jepsen-day-and-night-inglewood-california-04-22-2027/event/0900653DD37AFC77) |
 | Sat 4/24 | 2 | Jo Koy: Koy Meets World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-inglewood-california-04-24-2027/event/09006528EC0BDF60) |
 | Sun 4/25 | 2 | Meshuggah: The Forty-Year Anomaly w/ Testament & Blood Inc | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/meshuggah-the-fortyyear-anomaly-w-testament-inglewood-california-04-25-2027/event/0A006555020897D7) |
+| Wed 4/28 | 2 | Cleo Sol - Gentlewoman Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/cleo-sol-gentlewoman-tour-inglewood-california-04-28-2027/event/0900653A07B378C4) |
 
 ## December 2026
 
