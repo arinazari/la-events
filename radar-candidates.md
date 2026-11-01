@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 10/31/2026 deterministically (no API). 140 candidates. Signals: big-venue 118, festival 20, tracked 4._
+_Generated 11/1/2026 deterministically (no API). 137 candidates. Signals: big-venue 115, festival 20, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -117,9 +117,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 12/5 | 3 | The Neighbourhood: THE WOURLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/the-neighbourhood-the-wourld-tour-inglewood-california-12-05-2026/event/0900645403D3F8BA) |
-| Sat 12/5 | 3 | Alicia Villarreal - Bendita Locura Tour 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/alicia-villarreal-bendita-locura-tour-2026-inglewood-california-12-05-2026/event/0A0064C91DB19A75) |
-| Sat 12/5 | 3 | Trans-Siberian Orchestra | Toyota Arena-CA | big-venue | [link](https://www.cbbankarena.com) |
 | Fri 12/11 | 3 | Marisela: La Dama de Hierro | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/marisela-la-dama-de-hierro-inglewood-california-12-11-2026/event/0A00645BE3CDB957) |
 | Fri 12/11 | 3 | Pepe Aguilar (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 12/12 | 3 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597291/red-bull-home-ground-world-finals-2026-tickets) |
@@ -191,7 +188,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 12/5 | 2 | Matt Rife | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZzjw) |
 | Tue 12/8 | 2 | Victoria Monét: Frequency Of Love Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/victoria-monet-frequency-of-love-tour-inglewood-california-12-08-2026/event/0A006528B4649609) |
 | Wed 12/9 | 2 | Gipsy Kings featuring Nicolas Reyes - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
@@ -309,3 +305,4 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Thu 4/1 | 0 | Dancing with the Stars: Live! - 2027 Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-live-2027-anaheim-california-04-01-2027/event/0900653E9B4AA1E1) |
 | Sun 4/18 | 0 | Nickelback: Everything Under The Sun Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/nickelback-everything-under-the-sun-tour-anaheim-california-04-18-2027/event/09006546BC85E784) |
+| Thu 4/29 | 0 | Damascus Road Tour with Josiah Queen | Honda Center | big-venue | [link](https://www.ticketmaster.com/damascus-road-tour-with-josiah-queen-anaheim-california-04-29-2027/event/09006524914A5FA8) |

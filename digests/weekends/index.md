@@ -2,7 +2,6 @@
 
 | Weekend (Fri) | Events | Top pick |
 |---|---|---|
-| [2026-10-30](2026-10-30.md) | 13 | Escape Halloween |
 | [2026-11-06](2026-11-06.md) | 16 | Mixmag Lab: Los Angeles ft. Sam Divine's 555 [L.A. Debut] |
 | [2026-11-13](2026-11-13.md) | 19 | Into The Woods presents Theo Parrish (All Night Long) |
 | [2026-11-20](2026-11-20.md) | 19 | Beacon of Light: Spacetime Continuum, Lovefingers, Felix The Dog |
@@ -18,3 +17,4 @@
 | [2027-01-29](2027-01-29.md) | 19 | TeeDee |
 | [2027-02-05](2027-02-05.md) | 19 | Hot Since 82 |
 | [2027-02-12](2027-02-12.md) | 16 | Aleks Syntek |
+| [2027-02-19](2027-02-19.md) | 16 | Carlita |
