@@ -50455,12 +50455,12 @@
     "486dad3eb2ab": {
       "tier": "solid",
       "lane": "other",
-      "adjust": 1,
-      "why": "This is a Grammy Museum sit-down talk, not a Boys Noize set. It's worth it for a fan of the Berlin electro veteran, but it isn't a night out.",
+      "adjust": 0,
+      "why": "A sit-down talk at the Grammy Museum, not a Boys Noize set, so it doesn't belong with the club nights. Fine for a fan, and he's a strong-tier artist for you, but it isn't a dance floor.",
       "confidence": "med",
-      "judged_at": "2026-10-31T12:22:53",
+      "judged_at": "2026-11-02T13:56:22",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 9
     },
     "12fd365fc1fa": {
       "tier": "great",
@@ -50510,11 +50510,11 @@
     "484e992f14f3": {
       "tier": "must-see",
       "adjust": 3,
-      "why": "Masha Mar (core rotation) and Dave Aju (deep Circus Company minimal house, played Fabric and Panorama Bar), plus SONNS and Goddollars, 10am to 4am and mostly free. This is the deepest bill in the batch.",
+      "why": "Rhonda and In Between throw a day-into-night album release at a TBA warehouse. It has Dave Aju and Masha Mar, both core rotation for you, plus SONNS and Goddollars on house and disco, and it's free with an RSVP. This is the one to build the weekend around.",
       "confidence": "high",
-      "judged_at": "2026-10-31T12:22:53",
+      "judged_at": "2026-11-02T13:56:22",
       "input_version": 2,
-      "score_at_judge": 11
+      "score_at_judge": 14
     },
     "30359c92ba50": {
       "tier": "solid",
@@ -50629,20 +50629,20 @@
       "tier": "solid",
       "lane": "club:mainstream",
       "adjust": -1,
-      "why": "Snakehips are UK funky-house/R&B crossover. Fun, but a Hollywood club night rather than a deep-house night.",
+      "why": "Snakehips make funky R&B-flavored dance-pop. This is a Hollywood big-club night, not the house you follow, so it's a filler option.",
       "confidence": "med",
-      "judged_at": "2026-11-01T13:18:09",
+      "judged_at": "2026-11-02T13:56:22",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "16168799294a": {
       "tier": "skip",
       "adjust": -2,
-      "why": "Big Freedia bounce with a queer-oriented Bitch Planet party billing. Wrong sound and it hits the queer-event penalty.",
-      "confidence": "high",
-      "judged_at": "2026-11-01T13:18:09",
+      "why": "Barbazon's Bitch Planet is a queer-oriented bounce and club party led by Big Freedia. That's the stated penalty, and it isn't house or techno.",
+      "confidence": "med",
+      "judged_at": "2026-11-02T13:56:22",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 9
     },
     "479b122a66c2": {
       "tier": "solid",
@@ -50747,12 +50747,12 @@
     },
     "5eb7889acb9e": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "Bag Raiders, Uffie and CSS are a mid-2000s bloghouse nostalgia bill, fun but not current club programming.",
+      "adjust": 0,
+      "why": "The 10-year D.A.N.C.E. anniversary has Bag Raiders, Uffie and CSS, a mid-2000s indie-sleaze nostalgia bill. It's a fun, cheap warehouse night, but it's not your lane's core.",
       "confidence": "med",
-      "judged_at": "2026-11-01T13:18:09",
+      "judged_at": "2026-11-02T13:56:22",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 10
     },
     "be5d188a1ca2": {
       "tier": "solid",
@@ -51004,13 +51004,13 @@
       "score_at_judge": 6
     },
     "0d4212d79d34": {
-      "tier": "solid",
-      "adjust": 0,
-      "why": "Open-to-close single-DJ format is a plus. The '240 KM/H' branding signals harder sounds and I can't verify Adrian Mills, so I'm holding it at solid.",
-      "confidence": "low",
-      "judged_at": "2026-11-01T13:18:09",
+      "tier": "skip",
+      "adjust": -2,
+      "why": "The listing frames this as eurodance, hardstyle and hard techno. You penalize hard-dance as the main draw, so the all-night billing doesn't rescue it.",
+      "confidence": "med",
+      "judged_at": "2026-11-02T13:56:22",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "ae4e3750f391": {
       "tier": "solid",
@@ -51117,6 +51117,34 @@
       "why": "Free TBA DIY bill that mixes hard-dance, psytrance, dnb and dubstep with some house; too scattered and mostly off-lane.",
       "confidence": "low",
       "judged_at": "2026-11-01T13:18:09",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "8544fcbb0199": {
+      "tier": "skip",
+      "lane": "other",
+      "adjust": -3,
+      "why": "This is an NFL Network viewing guide scraped in as an event, with no lineup, so it isn't real.",
+      "confidence": "high",
+      "judged_at": "2026-11-02T13:56:22",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "c9980e509b07": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "A free techno and electro night at Cybercade with names I can't gauge. Low risk and close to home, but nothing says it's more than a decent local bill.",
+      "confidence": "low",
+      "judged_at": "2026-11-02T13:56:22",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "19450def4e6f": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Acid, italo disco and house for seven hours at a DTLA listening bar, free. The format and room are a good match for you, though I can't tell how big a name Demi Riquisimo is.",
+      "confidence": "low",
+      "judged_at": "2026-11-02T13:56:22",
       "input_version": 2,
       "score_at_judge": 7
     }

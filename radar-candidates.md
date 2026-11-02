@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/1/2026 deterministically (no API). 137 candidates. Signals: big-venue 115, festival 20, tracked 4._
+_Generated 11/2/2026 deterministically (no API). 135 candidates. Signals: big-venue 114, festival 19, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -79,7 +79,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 12/18 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-18-2026/event/0B00648CEFEE57B8) |
 | Sat 12/19 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-19-2026/event/0B00648CEFEF57BB) |
-| Sun 12/6 | 1 | Modi: Big Deal Comedy Festival | The Wiltern | festival | [link](https://www.ticketmaster.com/modi-big-deal-comedy-festival-los-angeles-california-12-06-2026/event/0900652AE3A9D236) |
 | Sun 12/20 | 1 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-20-2026/event/0B00648CEFF257C5) |
 
 ## March 2027
@@ -183,6 +182,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 4/23 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-23-2027/event/0B006528E5B15ED4) |
 | Fri 4/23 | 3 | Yuri & Lucero - ENTRE AMIGAS TOUR | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/yuri-lucero-entre-amigas-tour-ontario-california-04-23-2027/event/0900650ED430DA8E) |
 | Sat 4/24 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-24-2027/event/0B006528E9AB6118) |
+| Fri 4/30 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-30-2027/event/0B00652EB5754AEC) |
 
 ## December 2026
 
@@ -260,8 +260,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 12/6 | 1 | Adrian Uribe: 50 y Pico Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/adrian-uribe-50-y-pico-tour-inglewood-california-12-06-2026/event/0A0064F6C4A3A0B9) |
-| Sun 12/6 | 1 | Matt Rife | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZzp7) |
 | Sun 12/13 | 1 | Rose Bowl Flea Market Sunday, December 13, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-december-13-2026-tickets-1977732048797) |
 
 ## February 2027
