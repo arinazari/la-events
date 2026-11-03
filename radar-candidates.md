@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/2/2026 deterministically (no API). 135 candidates. Signals: big-venue 114, festival 19, tracked 4._
+_Generated 11/3/2026 deterministically (no API). 142 candidates. Signals: big-venue 121, festival 19, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -112,6 +112,12 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 4/2 | 4 | Dancing with the Stars: Live! - 2027 Tour | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-live-2027-los-angeles-california-04-02-2027/event/2C00654197E40B25) |
 
+## May 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 5/1 | 4 | Def Leppard and Goo Goo Dolls   | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/def-leppard-and-goo-goo-dolls-hollywood-california-05-01-2027/event/0B0065410242AA13) |
+
 ## December 2026
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -156,6 +162,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
 | Fri 2/12 | 3 | Jorge Medina | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jorge-medina-ontario-california-02-12-2027/event/0900651BED2C1C79) |
 | Sat 2/13 | 3 | Los Tucanes De Tijuana | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/los-tucanes-de-tijuana-inglewood-california-02-13-2027/event/090064DEC0F49512) |
+| Fri 2/19 | 3 | Conjunto Primavera | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/conjunto-primavera-inglewood-california-02-19-2027/event/0A00655D2D08C3AC) |
 | Sat 2/20 | 3 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-20-2027/event/0A006521AE4654FC) |
 | Fri 2/26 | 3 | Morat YEM World Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/morat-yem-world-tour-2027-inglewood-california-02-26-2027/event/090064AFF1A0DF67) |
 | Fri 2/26 | 3 | Joe - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -174,6 +181,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Thu 4/1 | 3 | HANS ZIMMER LIVE | Crypto.com Arena | big-venue | [link](https://www.axs.com/events/1590917/hans-zimmer-live-tickets) |
+| Fri 4/2 | 3 | Full Throttle Rock featuring Queensryche, Warrant and Quie | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 4/3 | 3 | FINAL FANTASY 40th Anniversary | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1621573/final-fantasy-40th-anniversary-tickets) |
 | Sat 4/3 | 3 | Distant Worlds: Music from Final Fantasy | Shrine Auditorium-CA | big-venue | [link](http://www.shrineauditorium.com/) |
 | Sat 4/10 | 3 | Jay Wheeler - La Voz Favorita Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/jay-wheeler-la-voz-favorita-tour-inglewood-california-04-10-2027/event/0A00654405517B6A) |
@@ -183,6 +191,13 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 4/23 | 3 | Yuri & Lucero - ENTRE AMIGAS TOUR | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/yuri-lucero-entre-amigas-tour-ontario-california-04-23-2027/event/0900650ED430DA8E) |
 | Sat 4/24 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-24-2027/event/0B006528E9AB6118) |
 | Fri 4/30 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-30-2027/event/0B00652EB5754AEC) |
+
+## May 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 5/1 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-05-01-2027/event/0B00652EB5864AF8) |
+| Sat 5/1 | 3 | Ha*Ash | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 
 ## December 2026
 
@@ -247,8 +262,10 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 4/3 | 2 | We Them One's Comedy Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/we-them-ones-comedy-tour-ontario-california-04-03-2027/event/090065612296692D) |
 | Tue 4/6 | 2 | Man?? - La Residencia - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 4/8 | 2 | Man?? - La Residencia - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Sat 4/10 | 2 | We Them One's Comedy Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/we-them-ones-comedy-tour-inglewood-california-04-10-2027/event/09006561B8BB8658) |
 | Sun 4/11 | 2 | Man?? - La Residencia - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 4/18 | 2 | Fonseca - Antes Que El Tiempo Se Vaya Tour - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74Q4) |
 | Thu 4/22 | 2 | Carly Rae Jepsen: Day and Night Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/carly-rae-jepsen-day-and-night-inglewood-california-04-22-2027/event/0900653DD37AFC77) |
