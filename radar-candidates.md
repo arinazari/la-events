@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/3/2026 deterministically (no API). 142 candidates. Signals: big-venue 121, festival 19, tracked 4._
+_Generated 11/4/2026 deterministically (no API). 145 candidates. Signals: big-venue 124, festival 19, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -172,9 +172,10 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 3/5 | 3 | The Love of Soul Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/the-love-of-soul-tour-ontario-california-03-05-2027/event/09006538BF19D600) |
+| Fri 3/5 | 3 | Fantasia, Anthony Hamilton, & October London: The Love of  | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/the-love-of-soul-tour-ontario-california-03-05-2027/event/09006538BF19D600) |
 | Fri 3/5 | 3 | 2hollis: The Pirouette Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/2hollis-the-pirouette-tour-inglewood-california-03-05-2027/event/09006554C41482E5) |
 | Sat 3/6 | 3 | Freestyle Explosion | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/freestyle-explosion-inglewood-california-03-06-2027/event/0A00653EBBF9FC1B) |
+| Sat 3/13 | 3 | BIGBANG | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bigbang-inglewood-california-03-13-2027/event/0A00655ED2B19A8C) |
 
 ## April 2027
 
@@ -203,7 +204,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 12/8 | 2 | Victoria Monét: Frequency Of Love Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/victoria-monet-frequency-of-love-tour-inglewood-california-12-08-2026/event/0A006528B4649609) |
 | Wed 12/9 | 2 | Gipsy Kings featuring Nicolas Reyes - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
 | Thu 12/10 | 2 | The Game Awards | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
@@ -224,6 +224,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 1/2 | 2 | Derek Hough Dance For The Holidays | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/derek-hough-dance-for-the-holidays-inglewood-california-01-02-2027/event/0A00655EE548ACB2) |
 | Tue 1/5 | 2 | Styx | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 1/6 | 2 | Styx | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Tue 1/12 | 2 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-12-2027/event/0900649DE7C663B2) |
@@ -272,6 +273,13 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 4/24 | 2 | Jo Koy: Koy Meets World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-inglewood-california-04-24-2027/event/09006528EC0BDF60) |
 | Sun 4/25 | 2 | Meshuggah: The Forty-Year Anomaly w/ Testament & Blood Inc | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/meshuggah-the-fortyyear-anomaly-w-testament-inglewood-california-04-25-2027/event/0A006555020897D7) |
 | Wed 4/28 | 2 | Cleo Sol - Gentlewoman Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/cleo-sol-gentlewoman-tour-inglewood-california-04-28-2027/event/0900653A07B378C4) |
+
+## May 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sun 5/2 | 2 | Queens of The Stone Age - PERFECTH WORLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/queens-of-the-stone-age-perfecth-inglewood-california-05-02-2027/event/0900655402A265F4) |
+| Sun 5/2 | 2 | Ha*Ash - No Me Hablen de Amor | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/haash-no-me-hablen-de-amor-inglewood-california-05-02-2027/event/0A00652FC2E6A548) |
 
 ## December 2026
 
