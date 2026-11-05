@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/4/2026 deterministically (no API). 145 candidates. Signals: big-venue 124, festival 19, tracked 4._
+_Generated 11/5/2026 deterministically (no API). 146 candidates. Signals: big-venue 125, festival 19, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -111,6 +111,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 4/2 | 4 | Dancing with the Stars: Live! - 2027 Tour | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-live-2027-los-angeles-california-04-02-2027/event/2C00654197E40B25) |
+| Sat 4/10 | 4 | Los Tigres del Norte | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 
 ## May 2027
 
@@ -157,6 +158,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 2/5 | 3 | Conjunto Primavera, Banda Machos, Montez de Durango | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/noche-de-leyendas-ontario-california-02-05-2027/event/09006536E34FE13E) |
+| Fri 2/5 | 3 | OMNOM | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1633701/omnom-tickets) |
 | Sat 2/6 | 3 | DRAIN | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1598806/drain-tickets) |
 | Sat 2/6 | 3 | KENSHI YONEZU 2026-2027 WORLD TOUR / GHOST | Kia Forum | big-venue | [link](https://www.ticketmaster.com/kenshi-yonezu-20262027-world-tour-ghost-inglewood-california-02-06-2027/event/0900653B09D0F7B1) |
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
@@ -204,7 +206,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 12/9 | 2 | Gipsy Kings featuring Nicolas Reyes - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
 | Thu 12/10 | 2 | The Game Awards | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
