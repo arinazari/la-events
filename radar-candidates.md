@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/5/2026 deterministically (no API). 146 candidates. Signals: big-venue 125, festival 19, tracked 4._
+_Generated 11/6/2026 deterministically (no API). 145 candidates. Signals: big-venue 124, festival 19, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -118,6 +118,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 5/1 | 4 | Def Leppard and Goo Goo Dolls   | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/def-leppard-and-goo-goo-dolls-hollywood-california-05-01-2027/event/0B0065410242AA13) |
+| Tue 5/4 | 4 | LOLA YOUNG - Everything Begins | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lola-young-everything-begins-los-angeles-california-05-04-2027/event/09006542913F8147) |
 
 ## December 2026
 
@@ -206,8 +207,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 12/10 | 2 | Triumph: The Rock & Roll Machine Reloaded Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/triumph-the-rock-roll-machine-reloaded-inglewood-california-12-10-2026/event/090065149FC06F66) |
-| Thu 12/10 | 2 | The Game Awards | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
 | Sat 12/12 | 2 | Big Boy's Comedy Fiesta - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA7EvM) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
