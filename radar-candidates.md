@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/6/2026 deterministically (no API). 145 candidates. Signals: big-venue 124, festival 19, tracked 4._
+_Generated 11/7/2026 deterministically (no API). 143 candidates. Signals: big-venue 122, festival 20, tracked 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -27,7 +27,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 12/11 | 7 | Drumcode: Adam Beyer, Dreya V, Marco Faraone | Reframe Studios Indoors (Los Angel | tracked:Adam Beyer | [link](https://dice.fm/event/mxyk5l-drumcode-la-11th-dec-reframe-studios-indoors-los-angeles-tickets) |
+| Wed 12/16 | 4 | Minaret Jazz Festival: Pan Afrikan Peoples Arkestra | 2220 Arts + Archives | festival | [link](https://dice.fm/event/6aee6d3b30383e0001f71de0) |
 
 ## January 2027
 
@@ -103,7 +103,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 12/11 | 4 | Brent Faiyaz | Crypto.com Arena | big-venue | [link](https://www.cryptoarena.com/) |
 | Fri 12/18 | 4 | Love Actually in Concert | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 
 ## April 2027
@@ -124,8 +123,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 12/11 | 3 | Marisela: La Dama de Hierro | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/marisela-la-dama-de-hierro-inglewood-california-12-11-2026/event/0A00645BE3CDB957) |
-| Fri 12/11 | 3 | Pepe Aguilar (21+ Event) | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sat 12/12 | 3 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597291/red-bull-home-ground-world-finals-2026-tickets) |
 | Sat 12/12 | 3 | Los Gemelos de Sinaloa: The Gemeliza Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/los-gemelos-de-sinaloa-the-gemeliza-inglewood-california-12-12-2026/event/0A006523CE04D208) |
 | Sat 12/12 | 3 | KROQ Almost Acoustic Christmas | Kia Forum | big-venue | [link](https://www.ticketmaster.com/kroq-almost-acoustic-christmas-inglewood-california-12-12-2026/event/0900655BD381EF41) |
@@ -207,7 +204,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 12/11 | 2 | Jo Koy: Koy Meets World Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-ontario-california-12-11-2026/event/090064E8E083D207) |
 | Sat 12/12 | 2 | Big Boy's Comedy Fiesta - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA7EvM) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
 | Sun 12/13 | 2 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597468/red-bull-home-ground-world-finals-2026-tickets) |
@@ -273,6 +269,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 4/24 | 2 | Jo Koy: Koy Meets World Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/jo-koy-koy-meets-world-tour-inglewood-california-04-24-2027/event/09006528EC0BDF60) |
 | Sun 4/25 | 2 | Meshuggah: The Forty-Year Anomaly w/ Testament & Blood Inc | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/meshuggah-the-fortyyear-anomaly-w-testament-inglewood-california-04-25-2027/event/0A006555020897D7) |
 | Wed 4/28 | 2 | Cleo Sol - Gentlewoman Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/cleo-sol-gentlewoman-tour-inglewood-california-04-28-2027/event/0900653A07B378C4) |
+| Thu 4/29 | 2 | FEID - FERXXO - THE GREEN STAR Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/feid-ferxxo-the-green-star-tour-inglewood-california-04-29-2027/event/09006563CCD6DA6F) |
 
 ## May 2027
 
@@ -328,4 +325,5 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Thu 4/1 | 0 | Dancing with the Stars: Live! - 2027 Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/dancing-with-the-stars-live-2027-anaheim-california-04-01-2027/event/0900653E9B4AA1E1) |
 | Sun 4/18 | 0 | Nickelback: Everything Under The Sun Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/nickelback-everything-under-the-sun-tour-anaheim-california-04-18-2027/event/09006546BC85E784) |
+| Sun 4/25 | 0 | FEID - FERXXO - THE GREEN STAR Tour 2027 | Honda Center | big-venue | [link](https://www.ticketmaster.com/feid-ferxxo-the-green-star-tour-anaheim-california-04-25-2027/event/09006563CA7AD7D6) |
 | Thu 4/29 | 0 | Damascus Road Tour with Josiah Queen | Honda Center | big-venue | [link](https://www.ticketmaster.com/damascus-road-tour-with-josiah-queen-anaheim-california-04-29-2027/event/09006524914A5FA8) |
