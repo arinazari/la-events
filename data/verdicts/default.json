@@ -50883,14 +50883,14 @@
       "score_at_judge": 6
     },
     "9216a402133f": {
-      "tier": "solid",
-      "lane": "club:day",
-      "adjust": 0,
-      "why": "Diplo-hosted run club at the LA River: more of a daytime social than a DJ set. Diplo is in your rotation, so it's a fun curiosity, not a plan-around.",
-      "confidence": "low",
-      "judged_at": "2026-11-01T13:18:09",
+      "tier": "skip",
+      "lane": "other",
+      "adjust": -2,
+      "why": "A group run along the LA River, not a DJ night; Diplo's name inflated the electronic score.",
+      "confidence": "high",
+      "judged_at": "2026-11-08T13:15:32",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "60cfc4cfe528": {
       "tier": "great",
@@ -51531,6 +51531,277 @@
       "why": "Single-DJ 'all night long' groove night in DTLA, which matches your open-to-close boost. Michael Fam is unfamiliar and the venue is TBA, so check it before committing.",
       "confidence": "low",
       "judged_at": "2026-11-07T13:13:28",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "936ad75336b1": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "TBA downtown night with agraybé's groove-forward house selections; cheap, close to home, and the techno tag is only partly right.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a54196bae60e": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "A 10pm-6am TBA warehouse night with no lineup listed and a DnB tag next to tech-house; the free RSVP makes it low-risk.",
+      "confidence": "low",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "e52e2fadeef3": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "A free Friday house and disco night billed as Rhythms N Grooves, which is the groove-and-disco lane. It is a small room with unknown DJs, so the lift is modest.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "9ddfc616a9f1": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Tagged hard-techno and hard-dance, which is explicitly off-lane, and the lineup is unknown.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "b143f991bdc9": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "An outdoor daytime house and techno open air on a Saturday. The setting suits you, but the venue is TBA and the lineup is unfamiliar, with trance and breaks mixed in.",
+      "confidence": "low",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "f2869b36218b": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Dor Danino is co-signed by Solomun and Dixon and plays disco-tinged melodic house, which fits the Innervisions-adjacent taste. Sound is a real room and $25 is fair.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "4522f2f95af8": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "The scene notes place Panic Room in the queer underground (Rob Aquino, Shane Thomas), which the profile penalizes hard. Silver Lake proximity doesn't change that.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "b626d7c5506c": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "MELT is a TBA overnight run to 8am with Sky Rivers, a deep-vinyl veteran, on the bill. It is a proper afterhours with a cheap $15 ticket.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "74039685633c": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "'High octane house anthems' at Catch One has no named DJ, so it reads as a generic big-room night. Free with RSVP before 11pm makes it a fallback.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a833109cbadf": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "No lineup and a TBA DTLA location; only the late Friday slot backs it up, so there's nothing to build a night around yet.",
+      "confidence": "low",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "8d69fb20a09d": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Two names I can't place at a TBA downtown spot; a late Friday club night that's worth a look if the venue reveal is good.",
+      "confidence": "low",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a1af4dd981c0": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Night 4 of a recurring Lexington afters run with no lineup posted; a fallback late stop, not a destination.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "7c9b5d3f3324": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Cazwell's apron party at a NoHo bar is a queer-pop-camp night, which is off-brief, and it's a long haul from home for a $12 bar set.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a524a7beef50": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Techno bill with free RSVP before 11 at a Melrose house. Low risk, but I can't gauge the three names.",
+      "confidence": "low",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "5ffcfdaf0f83": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Tech-house is a loved genre and it's free before 11 at Academy. Hall-scale and no headliner billed, so it reads as mainstream fun, not a pick.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "7ab1bd04a42f": {
+      "tier": "solid",
+      "adjust": 2,
+      "why": "Afro house, disco and UK garage for 4.5 hours is a groove-leaning night that fits the taste, but Andre Power's draw is unproven here.",
+      "confidence": "low",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "3a99acaf5ef4": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Free house and disco bill at Club Tee Gee in Atwater, a short hop from home. Strong value for a Saturday, though the four names are unknown.",
+      "confidence": "low",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "cfe71093fed0": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Baauer and umru are trap and bass, which this brief penalizes. Star Eyes (jungle, garage, Fabric credit) and the 11pm-5am TBA format keep it from being buried.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "4d874f91d64b": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Techno overnight (11pm-6am) at a TBA location with a live set from Luigi Tozzi. It's the warehouse format you like, and the best of this batch.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "40d5557c443e": {
+      "tier": "great",
+      "adjust": 3,
+      "why": "Patrice Bäumel and Armen Miran under the 6th St Bridge: a TBA-location, late-night techno/progressive set with real European names. This is the pick of the batch.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "075c37861aa9": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "11pm-8am with a Kompakt guest b2b Amir Javasoul. Ray Kash and the IYKYK crew make it a real open-to-close underground night at $15.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e84da5e66d23": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "O'flynn plays house, UK garage, breaks and techno at Sound, a good-sized room. It's a legit selector with a European feel.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "434f9e1b0a1f": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Andy C is a drum & bass legend and a strong Spotify match, but it's outside the house/techno spine. Worth catching if you're in the mood for it.",
+      "confidence": "high",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "7e09082d04a4": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Tech-house night at Academy with free RSVP. No billed lineup, so it's a fun but unproven Friday.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "04c39448483f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free-RSVP local techno bill at High Tide with Wire One and freakhorse. It's an early-start underground night, but the names are unknown.",
+      "confidence": "low",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "afb7c964058a": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Twice-monthly disco party at Gold Diggers, close to home. It's groove-friendly but has no billed DJ, so it's a casual option.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "bed7580705b0": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Recurring after-hours at The Lexington, night 5 of the run, with no lineup listed. Fine as a late fallback.",
+      "confidence": "low",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "38c99b6581ba": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Roz is a latin house show at The Novo. It's a seated-style hall concert more than a club night, so it's off the groove lane.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "ef98e55c36c0": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Dublab's Jungle Gym is a jungle/DnB night at the Airliner. It's a good local scene, but it's off the house/techno lane.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "8f4b57409991": {
+      "tier": "solid",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "'House and Hits' signals open-format party energy with no real DJ billing. The house tag flatters it.",
+      "confidence": "med",
+      "judged_at": "2026-11-08T13:15:32",
       "input_version": 2,
       "score_at_judge": 7
     }

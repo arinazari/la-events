@@ -1,15 +1,9 @@
 # Radar candidates — on the radar
 
-_Generated 11/7/2026 deterministically (no API). 143 candidates. Signals: big-venue 122, festival 20, tracked 3._
+_Generated 11/8/2026 deterministically (no API). 138 candidates. Signals: big-venue 117, festival 20, tracked 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 12/12 | 5 | JOHN SUMMIT - CTRL ESCAPE TOUR | Los Angeles Memorial Coliseum | tracked:John Summit, big-venue | [link](https://www.ticketmaster.com/john-summit-ctrl-escape-tour-los-angeles-california-12-12-2026/event/0A0064FFC2CDF6B7) |
 
 ## January 2027
 
@@ -123,9 +117,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 12/12 | 3 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597291/red-bull-home-ground-world-finals-2026-tickets) |
-| Sat 12/12 | 3 | Los Gemelos de Sinaloa: The Gemeliza Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/los-gemelos-de-sinaloa-the-gemeliza-inglewood-california-12-12-2026/event/0A006523CE04D208) |
-| Sat 12/12 | 3 | KROQ Almost Acoustic Christmas | Kia Forum | big-venue | [link](https://www.ticketmaster.com/kroq-almost-acoustic-christmas-inglewood-california-12-12-2026/event/0900655BD381EF41) |
 | Sun 12/13 | 3 | Armenian Music Awards | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Thu 12/17 | 3 | Cece Winans | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
@@ -204,7 +195,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 12/12 | 2 | Big Boy's Comedy Fiesta - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA7EvM) |
 | Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
 | Sun 12/13 | 2 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597468/red-bull-home-ground-world-finals-2026-tickets) |
 | Sun 12/13 | 2 | Lea Salonga - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74uP) |
