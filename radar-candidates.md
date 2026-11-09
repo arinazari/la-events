@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/8/2026 deterministically (no API). 138 candidates. Signals: big-venue 117, festival 20, tracked 2._
+_Generated 11/9/2026 deterministically (no API). 135 candidates. Signals: big-venue 114, festival 20, tracked 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -22,6 +22,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Wed 12/16 | 4 | Minaret Jazz Festival: Pan Afrikan Peoples Arkestra | 2220 Arts + Archives | festival | [link](https://dice.fm/event/6aee6d3b30383e0001f71de0) |
+| Thu 12/31 | 4 | Get It Together New Year's Eve 2026 - Oscar P, Coflo, Seep | Commonality Collective | festival | [link](https://ra.co/events/2572827) |
 
 ## January 2027
 
@@ -81,12 +82,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 3/26 | 1 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-anaheim-california-03-26-2027/event/0900654BE0A3A30A) |
 
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 12/13 | 0 | Slackfest West | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/slackfest-west-anaheim-california-12-13-2026/event/09006506EF9C1651) |
-
 ## January 2027
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -117,7 +112,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 12/13 | 3 | Armenian Music Awards | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Thu 12/17 | 3 | Cece Winans | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
 | Sat 12/19 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-19-2026/event/090064BBE48FEE25) |
@@ -167,6 +161,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 3/5 | 3 | 2hollis: The Pirouette Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/2hollis-the-pirouette-tour-inglewood-california-03-05-2027/event/09006554C41482E5) |
 | Sat 3/6 | 3 | Freestyle Explosion | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/freestyle-explosion-inglewood-california-03-06-2027/event/0A00653EBBF9FC1B) |
 | Sat 3/13 | 3 | BIGBANG | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bigbang-inglewood-california-03-13-2027/event/0A00655ED2B19A8C) |
+| Sat 3/20 | 3 | Grupo Cañaveral & Los Hermanos Flores | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-canaveral-los-hermanos-flores-inglewood-california-03-20-2027/event/0A006532A1D27C43) |
 
 ## April 2027
 
@@ -195,9 +190,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 12/13 | 2 | Grupo Duelo - GRAVEDAD TOUR 2026 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-duelo-gravedad-tour-2026-inglewood-california-12-13-2026/event/0A006458AE83B298) |
-| Sun 12/13 | 2 | Red Bull Home Ground World Finals 2026 | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1597468/red-bull-home-ground-world-finals-2026-tickets) |
-| Sun 12/13 | 2 | Lea Salonga - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AA74uP) |
 | Mon 12/14 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-14-2026/event/090064B49319A5BE) |
 | Mon 12/14 | 2 | Creedmas - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZIfF) |
 | Wed 12/16 | 2 | TYLA - THE A*POP WORLD TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/tyla-the-apop-world-tour-inglewood-california-12-16-2026/event/0A0064E99D9E6DC8) |
@@ -267,12 +259,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sun 5/2 | 2 | Queens of The Stone Age - PERFECTH WORLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/queens-of-the-stone-age-perfecth-inglewood-california-05-02-2027/event/0900655402A265F4) |
 | Sun 5/2 | 2 | Ha*Ash - No Me Hablen de Amor | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/haash-no-me-hablen-de-amor-inglewood-california-05-02-2027/event/0A00652FC2E6A548) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 12/13 | 1 | Rose Bowl Flea Market Sunday, December 13, 2026 | Rose Bowl Stadium | big-venue | [link](https://www.eventbrite.com/e/rose-bowl-flea-market-sunday-december-13-2026-tickets-1977732048797) |
+| Fri 5/7 | 2 | Franco Escamilla - "El Juicio" Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/franco-escamilla-el-juicio-tour-ontario-california-05-07-2027/event/0900652F048122D5) |
 
 ## February 2027
 
