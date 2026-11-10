@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/9/2026 deterministically (no API). 135 candidates. Signals: big-venue 114, festival 20, tracked 2._
+_Generated 11/10/2026 deterministically (no API). 133 candidates. Signals: big-venue 112, festival 20, tracked 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -160,7 +160,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 3/5 | 3 | Fantasia, Anthony Hamilton, & October London: The Love of  | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/the-love-of-soul-tour-ontario-california-03-05-2027/event/09006538BF19D600) |
 | Fri 3/5 | 3 | 2hollis: The Pirouette Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/2hollis-the-pirouette-tour-inglewood-california-03-05-2027/event/09006554C41482E5) |
 | Sat 3/6 | 3 | Freestyle Explosion | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/freestyle-explosion-inglewood-california-03-06-2027/event/0A00653EBBF9FC1B) |
-| Sat 3/13 | 3 | BIGBANG | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bigbang-inglewood-california-03-13-2027/event/0A00655ED2B19A8C) |
+| Sat 3/13 | 3 | Bigbang 2027 World Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bigbang-inglewood-california-03-13-2027/event/0A00655ED2B19A8C) |
 | Sat 3/20 | 3 | Grupo Cañaveral & Los Hermanos Flores | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-canaveral-los-hermanos-flores-inglewood-california-03-20-2027/event/0A006532A1D27C43) |
 
 ## April 2027
@@ -190,8 +190,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Mon 12/14 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-14-2026/event/090064B49319A5BE) |
-| Mon 12/14 | 2 | Creedmas - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAZIfF) |
 | Wed 12/16 | 2 | TYLA - THE A*POP WORLD TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/tyla-the-apop-world-tour-inglewood-california-12-16-2026/event/0A0064E99D9E6DC8) |
 | Wed 12/16 | 2 | Wang Leehom - The Best Place II World Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/wang-leehom-the-best-place-ii-inglewood-california-12-16-2026/event/09006515BC62BB28) |
 | Sun 12/20 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-20-2026/event/090064BBE49DEE4D) |
