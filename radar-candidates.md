@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/10/2026 deterministically (no API). 133 candidates. Signals: big-venue 112, festival 20, tracked 2._
+_Generated 11/11/2026 deterministically (no API). 136 candidates. Signals: big-venue 115, festival 20, tracked 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -93,6 +93,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 12/18 | 4 | Love Actually in Concert | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
+
+## February 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Fri 2/19 | 4 | Karan Aujla | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/karan-aujla-los-angeles-california-02-19-2027/event/2C00652AF5740D18) |
 
 ## April 2027
 
@@ -250,6 +256,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sun 4/25 | 2 | Meshuggah: The Forty-Year Anomaly w/ Testament & Blood Inc | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/meshuggah-the-fortyyear-anomaly-w-testament-inglewood-california-04-25-2027/event/0A006555020897D7) |
 | Wed 4/28 | 2 | Cleo Sol - Gentlewoman Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/cleo-sol-gentlewoman-tour-inglewood-california-04-28-2027/event/0900653A07B378C4) |
 | Thu 4/29 | 2 | FEID - FERXXO - THE GREEN STAR Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/feid-ferxxo-the-green-star-tour-inglewood-california-04-29-2027/event/09006563CCD6DA6F) |
+| Fri 4/30 | 2 | NURSE JOHN: AGAINST MEDICAL ADVICE: READMITTED | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/nurse-john-against-medical-advice-readmitted-inglewood-california-04-30-2027/event/0A006564B76585AF) |
 
 ## May 2027
 
@@ -302,3 +309,9 @@ _Review → fold keepers into `festivals.yaml`._
 | Sun 4/18 | 0 | Nickelback: Everything Under The Sun Tour | Honda Center | big-venue | [link](https://www.ticketmaster.com/nickelback-everything-under-the-sun-tour-anaheim-california-04-18-2027/event/09006546BC85E784) |
 | Sun 4/25 | 0 | FEID - FERXXO - THE GREEN STAR Tour 2027 | Honda Center | big-venue | [link](https://www.ticketmaster.com/feid-ferxxo-the-green-star-tour-anaheim-california-04-25-2027/event/09006563CA7AD7D6) |
 | Thu 4/29 | 0 | Damascus Road Tour with Josiah Queen | Honda Center | big-venue | [link](https://www.ticketmaster.com/damascus-road-tour-with-josiah-queen-anaheim-california-04-29-2027/event/09006524914A5FA8) |
+
+## May 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sun 5/9 | 0 | Marc Anthony: THE LAST DANCE | Honda Center | big-venue | [link](https://www.ticketmaster.com/marc-anthony-the-last-dance-anaheim-california-05-09-2027/event/0900654DCE83C7D3) |

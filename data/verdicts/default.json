@@ -48682,12 +48682,12 @@
     },
     "99b3c7d33792": {
       "tier": "great",
-      "adjust": 2,
-      "why": "Dekmantel Soundsystem touring format at The Bridge is taste-maker European house/techno; the closest thing to a fabric-style night this weekend.",
-      "confidence": "med",
-      "judged_at": "2026-10-17T12:12:29",
+      "adjust": 3,
+      "why": "Dekmantel Soundsystem is the Amsterdam taste-maker house/techno format, rarely seen in LA, and it's an RA pick near home. Best bet on Saturday 11/14.",
+      "confidence": "high",
+      "judged_at": "2026-11-11T13:23:36",
       "input_version": 2,
-      "score_at_judge": 10
+      "score_at_judge": 12
     },
     "4ecd0fcd718a": {
       "tier": "great",
@@ -51889,12 +51889,58 @@
     },
     "ea77e713446c": {
       "tier": "must-see",
+      "lane": "club:underground",
       "adjust": 3,
-      "why": "DJ Harvey on Thanksgiving Eve at Catch One, 6pm-4am, with Heidi Lawden (his longtime tour collaborator) and Masha Mar (core rotation). The one night this window to build plans around.",
+      "why": "DJ Harvey, tracked, in a 6pm-4am open-format marathon on Thanksgiving Eve. Heidi Lawden (his tour muse) and Masha Mar, who's in your core rotation, are on the same bill. It's the night to build plans around.",
       "confidence": "high",
-      "judged_at": "2026-11-10T13:19:01",
+      "judged_at": "2026-11-11T13:23:36",
       "input_version": 2,
-      "score_at_judge": 12
+      "score_at_judge": 15
+    },
+    "3583d4330bd8": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Generic house night at a Venice speakeasy with no lineup posted; fine if you're on the Westside, nothing to plan around.",
+      "confidence": "med",
+      "judged_at": "2026-11-11T13:23:36",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "33ab10f21c09": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Colleen 'Cosmo' Murphy is a real Balearic/disco-lore selector, and Classic Album Sundays' listening-room approach fits the vinyl-groove side of your taste. The 11pm start looks like a scrape artifact for a 'breakfast' party, so check the time.",
+      "confidence": "med",
+      "judged_at": "2026-11-11T13:23:36",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "8d15e76a70d9": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Big Softy plus locals at the Naud St. warehouse space. Close to home and electronic, but I can't gauge the draw from the bill.",
+      "confidence": "low",
+      "judged_at": "2026-11-11T13:23:36",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "ffd69260e8f3": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "Garbled scrape: a 'Sports Night Wednesday' title on a Saturday with a junk lineup (Garage, City, 214). Not a trustworthy listing.",
+      "confidence": "med",
+      "judged_at": "2026-11-11T13:23:36",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "ceb5d4df87e8": {
+      "tier": "skip",
+      "adjust": -3,
+      "why": "The title is a utility bill-pay spam page, not an event.",
+      "confidence": "high",
+      "judged_at": "2026-11-11T13:23:36",
+      "input_version": 2,
+      "score_at_judge": 6
     }
   }
 }
