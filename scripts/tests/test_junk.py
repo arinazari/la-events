@@ -36,6 +36,13 @@ def test_junk_insurance_brand_plus_action_title():
     assert r is not None, "Allstate policy-cancel spam must be junk"
 
 
+def test_junk_utility_bill_pay_titles():
+    # RA-sourced telecom/utility bill-pay wave, 2026-11-11 (real titles).
+    for title in ("AT&T Account Bill Pay Online: Portal Login & Billing Management",
+                  "Ameren Account Sign In Bill Pay - Manage & Pay Your Electric Bill"):
+        assert P.is_junk_event(_ev(title)) is not None, f"{title!r} must be junk"
+
+
 def test_junk_airline_hotline_title():
     # Airline-hotline wave shape, 2026-07-14 (~100 judged skip by event-editor).
     r = P.is_junk_event(_ev("Lufthansa Airlines Cancellation Policy — Refund Support Number +1-855-738-4113"))

@@ -116,7 +116,9 @@ _JUNK_TRAVEL_ACTION = re.compile(
 # Insurance / fintech brand + an account-service action word.
 _JUNK_FIN_BRAND = re.compile(
     r"(?i)\b(insurance|state\s+farm|allstate|geico|progressive\s+insurance|"
-    r"coinbase|robinhood|quickbooks|paypal|venmo|norton|mcafee|antivirus)\b")
+    r"coinbase|robinhood|quickbooks|paypal|venmo|norton|mcafee|antivirus|"
+    # telecom/utility bill-pay wave (RA, 2026-11-11: "AT&T Account Bill Pay Online", "Ameren …")
+    r"at&t|verizon|t-mobile|comcast|xfinity|ameren|pg&e|con\s+edison|socal\s+edison|duke\s+energy)\b")
 _JUNK_FIN_ACTION = re.compile(
     r"(?i)\b(customer\s+service|log\s?-?in|sign\s?-?in|bill\s+pay|billing|"
     r"cancel(?:lation)?s?|policy|grace\s+period|claims?|refunds?|credentials?|"
