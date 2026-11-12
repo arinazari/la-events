@@ -1,94 +1,91 @@
-# LA Events — 2026-11-11
-*Digest regenerated Wed 11/11 — picks updated.*
+# LA Events — 2026-11-12
+*Digest regenerated Thu 11/12 — picks updated.*
 
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
-*Checked Wed 11/11 · no new or changed events since the last pull*
+*Updated Thu 11/12 · 201 new · 53 updated since the last pull · 🆕 new · ↻ updated*
 
-<!-- take: Theo Parrish all night Friday, Liebing for five hours Saturday, Dekmantel free on Sunday: clear the whole weekend. -->
-This is a heavy weekend that crests early. Friday has Theo Parrish open-to-close for Into The Woods, while Aurora Halal b2b Laurel Halo and Navid Izadi's all-day release party compete for the same night. Saturday is stacked deeper still with Chris Liebing's 5-hour OBSERVE anniversary, Dekmantel Soundsystem at The Bridge and the start of Sneak's Birthday Beats. If you can only do one Saturday, take Liebing, because Dekmantel plays free at Bar Franca on Sunday anyway. Time Warp on 11/27 is the big-ticket call of the month.
+<!-- take: Theo Parrish all night Friday, Liebing for five hours Saturday — the underground gets its big weekend. -->
+Deep, warehouse-heavy stretch: almost everything that matters is at a TBA address, so keep RA open. Friday is the collision — Navid Izadi's free day-into-night release party, Theo Parrish all night, and a sold-out Halal b2b Halo; if you can only do one, it's Theo, and you can bank a few hours at the Ayande party first. Saturday splits between OBSERVE's 24th with a five-hour Liebing set and Sneak's Chicago-house birthday weekender, and Thanksgiving Eve with DJ Harvey at Catch One is the one to lock in now while it's still $10.
 
 ## Tonight & tomorrow
 
-Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherwise rest up. Tomorrow's Theo Parrish talk is a nice warm-up for Friday's all-nighter.
+Tonight's a soft one — the Theo Parrish talk is a nice warm-up for Friday, not a night out; save your legs for tomorrow.
 
-- `Today 8pm-2am` **[Off Record & 14th Door present agraybé, Mehran, and wav.function](https://ra.co/events/2574036)** — TBA - DTLA, DTLA · $8.05-25 · [card ↗](https://arinazari.github.io/la-events/?e=936ad75336b1) — *TBA downtown night with agraybé's groove-forward house selections; cheap, close to home, and the techno tag is only partly right.*
-- `Today 11pm` **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2576574)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=ed3678e6bc2e)
-- `Today 9pm-2am` **[Vertical: Oliver Koletzki, Niko Schwind](https://www.instagram.com/verticaldtla/reel/DfRUxWMCvLv/)** — Jungle Hollywood (Los Angeles), Hollywood · free w/rsvp · [card ↗](https://arinazari.github.io/la-events/?e=834b9f9e907c)
-- `Tomorrow 7:30pm-10pm` **[Theo Parrish In Conversation](https://ra.co/events/2559486)** — Solotech Studios, Los Angeles · $11.50-17.25 · [card ↗](https://arinazari.github.io/la-events/?e=95ac2a36475a) — *Theo Parrish is tracked and rarely in LA, but this is billed as an in-conversation talk, not a set, so it's a curiosity rather than a dance night; check for a DJ portion.*
-- `Tomorrow 9:30pm-2:30am` **[Orsay, Charliee, G L'e P, Jmz, Shafa](https://shotgun.live/en/events/dizka-x-danza)** — 7627 Sunset Boulevard (Los Angeles) · day party · $32-35 · [card ↗](https://arinazari.github.io/la-events/?e=daef5fd572d7)
-- `Tomorrow 8pm` **[The Wyldewood Green](https://ra.co/events/2564271)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=b02ad012479a)
+- `Today 7:30pm-10pm` **[Theo Parrish In Conversation](https://ra.co/events/2559486)** — Solotech Studios, Los Angeles · $11.50-17.25 · [card ↗](https://arinazari.github.io/la-events/?e=95ac2a36475a) — *Theo Parrish is tracked and rarely in LA, but this is billed as an in-conversation talk, not a set, so it's a curiosity rather than a dance night; check for a DJ portion.*
+- `Today 11pm-5am` **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2576577)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=ee3a8572478f) — *No lineup posted for night 1 of a five-night Lexington afters run; fine late-night tech-house fallback, but nothing to plan around.*
+- `Today 9:30pm-2:30am` **[Orsay, Charliee, G L'e P, Jmz, Shafa](https://shotgun.live/en/events/dizka-x-danza)** — 7627 Sunset Boulevard (Los Angeles) · day party · $32-35 · [card ↗](https://arinazari.github.io/la-events/?e=daef5fd572d7)
+- `Tomorrow 10am-4am` ⭐ **[Navid Izadi - Ayande, Album Release Party: Dave Aju, Masha Mar, SONNS, Goddollars, Paradise, Stacy Christine, Chase Aldridge](https://ra.co/events/2569904)** — TBA, Los Angeles · free w/rsvp b4 11pm / $11.50-28.75 · [card ↗](https://arinazari.github.io/la-events/?e=484e992f14f3) — *Rhonda and In Between throw a day-into-night album release at a TBA warehouse. It has Dave Aju and Masha Mar, both core rotation for you, plus SONNS and Goddollars on house and disco, and it's free with an RSVP. This is the one to build the weekend around.*
+- `Tomorrow 10pm-5am` ⭐ **[Into The Woods presents Theo Parrish (All Night Long)](https://ra.co/events/2563485)** — TBA, Los Angeles · $23-46 · [card ↗](https://arinazari.github.io/la-events/?e=603336ffeb8b) — *Theo Parrish playing all night long in LA is rare, and it's a tracked artist doing exactly the long-form soulful set you'd build a Saturday around. Location is TBA.*
+- `Tomorrow 10pm-4am` **[CSW - Aurora Halal b2b Laurel Halo All Night [SOLD OUT]](https://ra.co/events/2559598)** — TBA - Downtown, DTLA · $16.50-38.55 · [card ↗](https://arinazari.github.io/la-events/?e=65c5284d5f0b) — *Laurel Halo b2b Aurora Halal all night in a TBA downtown room is the most interesting booking of the night. It's sold out, so you'd need a resale ticket or a waitlist spot.*
 
 ## Don't miss
 
-- `Fri 11/13` **[Navid Izadi - Ayande, Album Release Party: Dave Aju, Masha Mar, SONNS, Goddollars, Paradise, Stacy Christine, Chase Aldridge](https://ra.co/events/2569904)** — TBA, Los Angeles · free w/rsvp b4 11pm / $11.50-28.75 · *🎟 tiered pricing — buy early* · [card ↗](https://arinazari.github.io/la-events/?e=484e992f14f3)  
-  A family reunion for the Rhonda and In Between crowd, with Dave Aju on an 18-hour bill that's free before 11pm. Drop in early and you can still make Theo later. Venue TBA. <!-- tier3:why 484e992f14f3 -->
-- `Fri 11/13` **[I THINK YOU SHOULD DANCE!](https://ra.co/events/2580285)** — Gold Diggers, East Hollywood · $9.69 · [card ↗](https://arinazari.github.io/la-events/?e=6e686c1f449a)  
-  A $10 Gold Diggers dance night ten minutes from home, but no lineup is posted. Treat it as a pre-game or a fallback, not the plan. <!-- tier3:why 6e686c1f449a -->
 - `Sat 11/14` **[Sneak's Birthday Beats 2026: Derrick Carter, DJ Sneak, DJ Heather, H-Foundation, Hector Moralez, J-Dub, Juliet Mendoza, Masha Mar, Ian Llorens, Stacy Christine, Tom Carle, Your Unkle Magik](https://ra.co/events/2499458)** — TBA, Los Angeles · $30 1 day / $50-90 2 days · *📍 location TBA — watch for the drop* · [card ↗](https://arinazari.github.io/la-events/?e=4ecd0fcd718a)  
-  Derrick Carter and DJ Sneak head a two-day Chicago-house marathon. That much jackin' royalty on one bill is rare. Grab the 2-day pass and pace yourself. Location TBA. <!-- tier3:why 4ecd0fcd718a -->
+  DJ Sneak's birthday weekender with Derrick Carter and DJ Heather — real Chicago-house depth, plus Masha Mar from your rotation; $50 gets you both days. <!-- tier3:why 4ecd0fcd718a -->
+- `Sat 11/21` **[The Buckhenries](https://ra.co/events/2558830)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=f1975e377cb4)  
+  A left-field pick: a cheap rock bill at the Redwood, the DTLA pirate bar — good for an early beer before a downtown night, not a destination. <!-- tier3:why f1975e377cb4 -->
+- `Wed 11/25` **[Thanksgiving Eve with DJ Harvey on the Burnin' Chancla Soundsystem (A Rhondavous Gratitude Gala)](https://ra.co/events/2526459)** — Catch One, Mid-City · $10 b4 1030 / $15 · *🎟 tiered pricing — buy early* · [card ↗](https://arinazari.github.io/la-events/?e=ea77e713446c)  
+  Harvey on his own Burnin' Chancla rig, Rhonda's crowd, Catch One, Thanksgiving Eve — $10 before 10:30, so get there early. <!-- tier3:why ea77e713446c -->
 - `Fri 11/27` **[Time Warp Los Angeles 2026](https://ra.co/events/2512911)** — Ace*Mission Studios, Los Angeles · $180+ · [card ↗](https://arinazari.github.io/la-events/?e=e04d22c5b5d3)  
-  Klock, Blawan, Hawtin and Gerd Janson anchor the closest thing LA gets to a real European techno weekend. $180+ hurts, but it's the one to budget for. <!-- tier3:why e04d22c5b5d3 -->
+  The closest LA gets to a proper European techno weekend — Klock, Hawtin and Gerd Janson in one building. Pricey at $180+, but the bill earns it. <!-- tier3:why e04d22c5b5d3 -->
 - `Sat 11/28` **[Channel Tres](https://www.axs.com/events/1428029/channel-tres-tickets)** — The Novo, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=9d7693796c03)  
-  Channel Tres is on your rotation, and he's Compton baritone over Detroit-leaning house. A Saturday at the Novo is a fun, low-risk night. <!-- tier3:why 9d7693796c03 -->
+  Compton's baritone over Detroit-leaning house — he's in your Spotify rotation, and the Novo is the right size for it. <!-- tier3:why 9d7693796c03 -->
 - `Fri 12/4` **[102.7 KIIS FM's Jingle Ball Presented by Capital One](https://www.ticketmaster.com/1027-kiis-fms-jingle-ball-presented-inglewood-california-12-04-2026/event/09006524E7B61513)** — Intuit Dome, Inglewood · [card ↗](https://arinazari.github.io/la-events/?e=423855c65a48)  
-  This one is way off-lane: an arena pop mega-bill headlined by Olivia Rodrigo. It's only here because it's the biggest pop night of the season. <!-- tier3:why 423855c65a48 -->
+  Way outside the lane: the annual pop radio mega-bill with Olivia Rodrigo at the top. Worth it only if an arena pop night is ever on the table. <!-- tier3:why 423855c65a48 -->
 
 ## What changed
 
 
 **New to the slate**
-- `Thu 11/19` 🆕 **[BOOST at LA](https://ra.co/events/2581919)** — Los Globos, Silver Lake · [card ↗](https://arinazari.github.io/la-events/?e=a9f111c218f1)
-- `Sat 11/21` 🆕 **[UKIYO LA RIVER SESSIONS](https://ra.co/events/2582121)** — TBA - LA RIVER SESH (FROGTOWN), Frogtown · day party · [card ↗](https://arinazari.github.io/la-events/?e=0117195bff88)
+- `Wed 11/18` 🆕 **[Moon Darling Record Release Show](https://dice.fm/event/6af234a1cc47980001de364e)** — El Cid (Los Angeles), Silver Lake · free · [card ↗](https://arinazari.github.io/la-events/?e=ceffa59c7571)
+- `Thu 11/19` 🆕 **[Boost: Cazi, CJ, Miko, Kingping](https://linktr.ee/technoagency)** — Los Globos (Los Angeles), Silver Lake · $23-29.90 · [card ↗](https://arinazari.github.io/la-events/?e=9d7176fc1d68)
+- `Fri 11/20` 🆕 **[BANKSGIVING MUSIC FEST](https://posh.vip/e/banksgiving-music-fest-1)** — Hotel Ziggy on Sunset, West Hollywood · day party · free · [card ↗](https://arinazari.github.io/la-events/?e=c71b89ec5535)
+- `Sun 11/22` 🆕 **[Baddies Night Part 3 18+ Hosted By DJ SMOKE ONE](https://posh.vip/e/nov-22)** — Los Globos, Silver Lake · free · [card ↗](https://arinazari.github.io/la-events/?e=8a9773029713)
+- `Tue 11/24` 🆕 **[Atlas Engine](https://app.opendate.io/e/atlas-engine-fire-affair-mad-bad-world-november-24-2026-798166)** — Permanent Records Roadhouse, Cypress Park · $10 ADVANCE $15 DOS · [card ↗](https://arinazari.github.io/la-events/?e=7165921920e0)
+- `Sun 11/29` 🆕 **[Devyn Crimson](https://app.opendate.io/e/devyn-crimson-lucky-horse-red-voice-memo-november-29-2026-798197)** — Permanent Records Roadhouse, Cypress Park · $10 · [card ↗](https://arinazari.github.io/la-events/?e=dfed075a405b)
+- `Thu 12/3` 🆕 **[Night Bass All Stars](https://dice.fm/partner/tickets/event/ryekgq-night-bass-the-final-show-3rd-dec-sound-nightclub-los-angeles-tickets?lng=en-US)** — Sound Nightclub (Los Angeles), Hollywood · $40 · [card ↗](https://arinazari.github.io/la-events/?e=43121b27757d)
+- `Thu 12/10` 🆕 **[Change The Beat: Maxinne, Sydney Blu, Dani Ashley](https://laylo.com/changethebeat/CTBLA)** — Sound Nightclub (Los Angeles), Hollywood · $17 · [card ↗](https://arinazari.github.io/la-events/?e=0d188222501f)
+- *…plus 2 more*
 
 **Updated**
-- `Mon 11/23` **[Fred Eaglesmith](https://dice.fm/event/6a209864524c94000152d548)** — Zebulon, Frogtown · $62.32 · ↻ updated (start) · [card ↗](https://arinazari.github.io/la-events/?e=79b1bf5be22f)
-- `Thu 11/26` **[THANKSGIVING IS ABOUT TO GET LOUD!    TECHNOGIVING IS TAKING OVE](https://www.eventbrite.com/e/thanksgiving-is-about-to-get-loud-technogiving-is-taking-ove-tickets-2004271784862)** — Banana Bay Restaurant, Rowland Heights · free · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=e2216daa1925)
+- `Thu 11/12` (+8 more dates) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2576580)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=b300133f265e) — *Night 3 of 3 of a bar-scale DTLA afters run with no lineup announced. Walkable and late, but nothing here to build a night around.*
 
 ## Next two weeks
-
-### Wednesday · November 11
-
-**Electronic & dance**
-- `8pm-2am` **[Off Record & 14th Door present agraybé, Mehran, and wav.function](https://ra.co/events/2574036)** — TBA - DTLA, DTLA · $8.05-25 · [card ↗](https://arinazari.github.io/la-events/?e=936ad75336b1) — *TBA downtown night with agraybé's groove-forward house selections; cheap, close to home, and the techno tag is only partly right.*
-- `11pm` (Wed 11/11 +8 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2576574)** — The Lexington, DTLA · afters · [card ↗](https://arinazari.github.io/la-events/?e=ed3678e6bc2e)
-- `9pm-2am` **[Vertical: Oliver Koletzki, Niko Schwind](https://www.instagram.com/verticaldtla/reel/DfRUxWMCvLv/)** — Jungle Hollywood (Los Angeles), Hollywood · free w/rsvp · [card ↗](https://arinazari.github.io/la-events/?e=834b9f9e907c)
-
-**Live music**
-- `8:30pm` (Wed 11/11 + Wed 11/18) **[Luke Strand & Friends](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=16fbd16dcbe0)
-
-- *Also:* [The Who's Tommy (Touring)](https://www.ticketmaster.com/the-whos-tommy-touring-los-angeles-california-11-14-2026/event/0B0064F6CD7949F1) (Hollywood Pantages Theatre)
 
 ### Thursday · November 12
 
 **Electronic & dance**
 - `7:30pm-10pm` **[Theo Parrish In Conversation](https://ra.co/events/2559486)** — Solotech Studios, Los Angeles · $11.50-17.25 · [card ↗](https://arinazari.github.io/la-events/?e=95ac2a36475a)  
   A rare chance to hear Theo Parrish talk instead of play, and the format is intimate and cheap. Check whether music is part of it, but he is worth being in the room for either way.
+- `11pm-5am` (Thu 11/12 +8 more) **[NIGHTSHIFT AFTER HOURS](https://ra.co/events/2576580)** — The Lexington, DTLA · afters · free w/rsvp b4 1 / $23 · ↻ updated (price, start) · [card ↗](https://arinazari.github.io/la-events/?e=b300133f265e) — *Night 3 of 3 of a bar-scale DTLA afters run with no lineup announced. Walkable and late, but nothing here to build a night around.*
 - `9:30pm-2:30am` **[Orsay, Charliee, G L'e P, Jmz, Shafa](https://shotgun.live/en/events/dizka-x-danza)** — 7627 Sunset Boulevard (Los Angeles) · day party · $32-35 · [card ↗](https://arinazari.github.io/la-events/?e=daef5fd572d7)
 
 **Live music**
 - `8pm` **[The Wyldewood Green](https://ra.co/events/2564271)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=b02ad012479a)
 
+- *Also:* [The Who's Tommy (Touring)](https://www.ticketmaster.com/the-whos-tommy-touring-los-angeles-california-11-14-2026/event/0B0064F6CD7949F1) (Hollywood Pantages Theatre)
+
 ### Friday · November 13
-*The move: dinner at Pizzeria Bianco, then a late afternoon or evening at Navid Izadi's party (free before 11), then Theo Parrish all night from 10. Ask the concierge for the full plan.* <!-- tier3:blueprint 2026-11-13 -->
+*Night sketch:* dinner in Silver Lake (Pijja Palace or Night + Market Song), the Ayande release party from ~9 (free before 11 with RSVP), then on to Theo Parrish once the address drops, and stay until close. Concierge has the full plan.
 
 **Electronic & dance**
-- `10am-4am` ⭐ **[Navid Izadi - Ayande, Album Release Party: Dave Aju, Masha Mar, SONNS, Goddollars, Paradise, Stacy Christine, Chase Aldridge](https://ra.co/events/2569904)** — TBA, Los Angeles · free w/rsvp b4 11pm / $11.50-28.75 · [card ↗](https://arinazari.github.io/la-events/?e=484e992f14f3)
+- `10am-4am` ⭐ **[Navid Izadi - Ayande, Album Release Party: Dave Aju, Masha Mar, SONNS, Goddollars, Paradise, Stacy Christine, Chase Aldridge](https://ra.co/events/2569904)** — TBA, Los Angeles · free w/rsvp b4 11pm / $11.50-28.75 · [card ↗](https://arinazari.github.io/la-events/?e=484e992f14f3)  
+  Rhonda and In Between teaming up on an album release is about as close to a family reunion as this scene gets, and Dave Aju playing a free-ish 10am-to-4am marathon is the kind of deep booking you plan around. Venue is still TBA, so keep an eye out.
 - `10pm-5am` ⭐ **[Into The Woods presents Theo Parrish (All Night Long)](https://ra.co/events/2563485)** — TBA, Los Angeles · $23-46 · [card ↗](https://arinazari.github.io/la-events/?e=603336ffeb8b)  
   Theo Parrish open-to-close is the one to circle this month. His long sets are a whole journey of soul, jazz edits and warped house. Location is TBA, so watch RA for the drop.
-- `10pm-4am` **[CSW - Aurora Halal b2b Laurel Halo All Night](https://ra.co/events/2559598)** — TBA - Downtown, DTLA · $16.50-38.55 · [card ↗](https://arinazari.github.io/la-events/?e=988c2348ac7c)  
-  Two heads trading records all night in a TBA downtown room is the rare kind of booking you don't get twice. Laurel Halo's sets are unpredictable, which is the point. Expect more cerebral than banging.
+- `10pm-4am` **[CSW - Aurora Halal b2b Laurel Halo All Night [SOLD OUT]](https://ra.co/events/2559598)** — TBA - Downtown, DTLA · $16.50-38.55 · [card ↗](https://arinazari.github.io/la-events/?e=65c5284d5f0b)  
+  Two heads trading records all night in a TBA downtown room is the rare kind of booking you don't get twice. Laurel Halo's sets are unpredictable, which is the point. It's sold out, so only matters if you can find a ticket.
 - `10pm-1:30am` **[Noizu](https://www.tixr.com/groups/timenightclub/events/noizu-205721)** — Time Nightclub (Costa Mesa), Costa Mesa · big room · $25+ · [card ↗](https://arinazari.github.io/la-events/?e=6ae52304c414)  
   Noizu's tech-house is genuinely well-made — 'Summer 91' wasn't a fluke — but this is a routine Costa Mesa club date, not a special booking, and it's a real trek from Silver Lake.
 - `10pm-2am` **[Slipper Clutch Patio: sylknet, E95](https://posh.vip/e/slipper-clutch-patio)** — Slipper Clutch (Los Angeles), DTLA · day party · free · [card ↗](https://arinazari.github.io/la-events/?e=3d1463d30ce7) — *Free patio house set downtown with local names; an easy drop-in, not a destination.*
-- `5am-3pm` **[Kariwood Morning Afters](https://posh.vip/e/friday-morning-afters-1)** — 1140 E 11th St (Los Angeles) · afters · free w/rsvp / $12+ · [card ↗](https://arinazari.github.io/la-events/?e=db3332cee50d) — *Free-RSVP morning afters with deep/afro house, but no lineup named and a 5am-3pm window; fine if you're already up, not a plan-around.*
 
 **Live music**
-- `10:30pm` **[I THINK YOU SHOULD DANCE!](https://ra.co/events/2580285)** — Gold Diggers, East Hollywood · $9.69 · [card ↗](https://arinazari.github.io/la-events/?e=6e686c1f449a)
+- `8pm` **[Erik Yarosh](https://ra.co/events/2553074)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=ac85d2ed05c0)
 
 - *Also:* [MARVIN - The Marvin Gaye Musical](https://www.ticketmaster.com/marvin-the-marvin-gaye-musical-redondo-beach-california-11-13-2026/event/090064B20C1909BC) (Redondo Beach Performing Arts Center)
 
 ### Saturday · November 14
-*The move: San Laurel downtown at 8, then Dekmantel at The Bridge from 9, then OBSERVE for Liebing's 5-hour set from 11 or midnight. Both are DTLA, so it's an easy hop.* <!-- tier3:blueprint 2026-11-14 -->
+*Night sketch:* Dekmantel Soundsystem at the Bridge from 9, then cross downtown to OBSERVE for Liebing's five hours from ~midnight. Or do a Sneak's day session first if you've got the stamina.
 
 **Electronic & dance**
 - `11pm-6am` ⭐ **[OBSERVE 24 YEAR ANNIVERSARY // Chris Liebing [5hr Set] // Truncate // OKTAFORM (Visuals)](https://ra.co/events/2515135)** — TBA - DTLA, DTLA · $35 b4 12 / $52-63 · [card ↗](https://arinazari.github.io/la-events/?e=1973e2ff27d8)  
@@ -140,14 +137,18 @@ Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherw
 ### Wednesday · November 18
 
 **Electronic & dance**
-- `11pm` **[RITUAL](https://ra.co/events/2579659)** — TBA, Los Angeles · [card ↗](https://arinazari.github.io/la-events/?e=46ce661659d6)
-- `8pm-12am` **[Omnom](https://www.tixr.com/groups/upandupfestival/events/monster-energy-up-up-festival-presents-omnom-209500)** — Yost Theater (Santa Ana), Santa Ana · big room · $38-47 · [card ↗](https://arinazari.github.io/la-events/?e=474f56778a3c)
+- `11pm` **[Wednesday Ritual](https://ra.co/events/2579659)** — TBA, Los Angeles · $12.74 · [card ↗](https://arinazari.github.io/la-events/?e=d452c9facadd)
+- `10pm-2am` 🆕 **[Moon Darling Record Release Show](https://dice.fm/event/6af234a1cc47980001de364e)** — El Cid (Los Angeles), Silver Lake · free · [card ↗](https://arinazari.github.io/la-events/?e=ceffa59c7571)
+
+**Live music**
+- `8:30pm` (Wed 11/18 + Wed 11/25) **[Luke Strand & Friends](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=087184be27c5)
 
 ### Thursday · November 19
 
 **Electronic & dance**
+- `11pm-3am` 🆕 **[Boost: Cazi, CJ, Miko, Kingping](https://linktr.ee/technoagency)** — Los Globos (Los Angeles), Silver Lake · $23-29.90 · [card ↗](https://arinazari.github.io/la-events/?e=9d7176fc1d68)  
+  Boost club night at Los Globos in Silver Lake, lineup Cazi, CJ, Miko and Kingping, mostly house, techno and trance.
 - `10pm-2am` **[Minty Boi Presents: Memphis LK in Los Angeles](https://dice.fm/event/wwk35p-minty-boi-presents-memphis-lk-in-los-angeles-19th-nov-el-cid-los-angeles-tickets)** — El Cid (Los Angeles), Silver Lake · $27 · [card ↗](https://arinazari.github.io/la-events/?e=e4923179d88d)
-- `11pm` 🆕 **[BOOST at LA](https://ra.co/events/2581919)** — Los Globos, Silver Lake · [card ↗](https://arinazari.github.io/la-events/?e=a9f111c218f1)
 
 **Live music**
 - `8pm` **[Zsela](https://dice.fm/event/6ac94f25c5cdbb0001b9c8c5)** — 2220 Arts + Archives, Historic Filipinotown · $22.46 · [card ↗](https://arinazari.github.io/la-events/?e=9837866e9343)
@@ -155,7 +156,7 @@ Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherw
 - *Also:* [Spotlight: aja monet +](https://www.universe.com/events/spotlight-aja-monet-tickets-N75GHC?ref=ticketmaster) (Grammy Museum LA Live)
 
 ### Friday · November 20
-*The move: Bar Siesta in Silver Lake, then Tom & Collins at Sound in Hollywood from 10. Grotto downtown runs till 5 if you want afters.* <!-- tier3:blueprint 2026-11-20 -->
+*Night sketch:* cheap warm-up at The One Hundred at the Airliner (Juliet Mendoza), then Grotto downtown for the dub-techno late shift.
 
 **Electronic & dance**
 - `9pm-2am` **[The One Hundred: Juliet Mendoza, SAMO\, Yazmina](https://ra.co/events/2558818)** — The Airliner, Lincoln Heights · $5.50-17.25 · [card ↗](https://arinazari.github.io/la-events/?e=ff9ed93ab7ac)  
@@ -164,16 +165,15 @@ Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherw
   Grotto is a dub techno and minimal night with a four-name local bill and a TBA DTLA location. Deep and slow-burning, so go for the room and the sound system rather than a headliner.
 - `Fri:11pm-Sun:11am` **[Adrian Reyes, BB Shaine, David Castellani (live), Fizch, FJAAK, Lindsey Herbert, Luigi Tozzi (live), The Lady Machine](https://ra.co/events/2526746)** — TBA - Los Angeles, Los Angeles · $90-120 · [card ↗](https://arinazari.github.io/la-events/?e=a0243895811b)  
   A Friday-to-Sunday-morning techno marathon with FJAAK live and a deep bench behind them. It's the hardest-edged option in this batch, so it suits you if you want to go loud and long rather than groovy.
-- `10pm-2am` **[Tom & Collins, Dor Danino, Reza](https://dice.fm/event/6dkay8-tom-collins-20th-nov-sound-nightclub-los-angeles-tickets)** — Sound Nightclub (Los Angeles), Hollywood · $25 · [card ↗](https://arinazari.github.io/la-events/?e=f2869b36218b)  
-  Tom & Collins at Sound is a proper house-heads Friday in a small room. Support names are unknown to me, so it rides on the headliners.
 - `Fri:5pm-Sun:2am` **[Dreamstate Socal 2026](https://dreamstate.frontgatetickets.com/?utm_source=Promoters&utm_medium=19hz&utm_campaign=19hz)** — TBA (Socal), Los Angeles · big room · $170+ · [card ↗](https://arinazari.github.io/la-events/?e=0805854dd8f8)  
   Trance is mostly outside the lane, but this is the genre's biggest annual SoCal gathering, and Artbat and Enrico Sangiuliano's melodic-techno sets are a real reason to go beyond nostalgia for Above & Beyond and Ferry Corsten.
+- `8pm` 🆕 **[BANKSGIVING MUSIC FEST](https://posh.vip/e/banksgiving-music-fest-1)** — Hotel Ziggy on Sunset, West Hollywood · day party · free · [card ↗](https://arinazari.github.io/la-events/?e=c71b89ec5535)
 
 **Live music**
 - `9:15pm` **[Funky Fridays @ The Dresden](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=d9135af3a3a8)
 
 ### Saturday · November 21
-*The move: Spacetime Continuum and Lovefingers at Beacon of Light from 10, then slide to Cinthie's all-nighter for Midnight Lovers after midnight.* <!-- tier3:blueprint 2026-11-21 -->
+*Night sketch:* El Cid's Dopamine early (free before 10), then Beacon of Light for Spacetime Continuum, or Cinthie all night at Midnight Lovers if you want vinyl house until 5.
 
 **Electronic & dance**
 - `10pm-6am` ⭐ **[Beacon of Light: Spacetime Continuum, Lovefingers, Felix The Dog](https://ra.co/events/2560915)** — Better Tomorrow, Los Angeles · $20-40.25 · [card ↗](https://arinazari.github.io/la-events/?e=424be80dd356)  
@@ -183,7 +183,7 @@ Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherw
 - `9:30pm-2am` **[Dopamine: A Feel Good House & Disco Party](https://dice.fm/event/6ab6bb881c269100013a3e74)** — El Cid (Los Angeles), Silver Lake · free w/rsvp b4 10pm / $14 · [card ↗](https://arinazari.github.io/la-events/?e=2df5e879ef76)  
   No lineup posted, so this is a bet on the concept: a house-and-disco night at El Cid, ten minutes from home. Free before 10 with RSVP, so the downside is a couple of drinks.
 - `8pm` **[Gather: Marques Wyatt & Jeremy Sole](https://www.facebook.com/events/1139295758434629/)** — Retreat Center At The Institute Of Mentalphysics (Joshua Tree) · $31+ · [card ↗](https://arinazari.github.io/la-events/?e=646dcd55467b) — *Marques Wyatt and KCRW's Jeremy Sole, a vinyl-minded pairing, at a Joshua Tree retreat. It's a real draw, but the trip is a weekend commitment.*
-- `3pm` 🆕 **[UKIYO LA RIVER SESSIONS](https://ra.co/events/2582121)** — TBA - LA RIVER SESH (FROGTOWN), Frogtown · day party · [card ↗](https://arinazari.github.io/la-events/?e=0117195bff88)
+- `3pm` **[UKIYO LA RIVER SESSIONS](https://ra.co/events/2582121)** — TBA - LA RIVER SESH (FROGTOWN), Frogtown · day party · [card ↗](https://arinazari.github.io/la-events/?e=0117195bff88)
 
 **Live music**
 - `8pm` **[The Buckhenries](https://ra.co/events/2558830)** — The Redwood Bar And Grill, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=f1975e377cb4)
@@ -194,7 +194,7 @@ Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherw
 
 **Electronic & dance**
 - `6pm-12am` **[Sunday Sessions La (Vinyl Only) Open Air: Funky Ruben, Mungo Sound Machine](https://ra.co/events/2543421)** — TBA, Los Angeles · day party · free b4 7pm / $23-34 · [card ↗](https://arinazari.github.io/la-events/?e=db8bb6c57126)
-- `4pm-10pm` **[WORK Weekender Day 3: BB Shaine, David Castellani [LIVE], & FJAAK](https://ra.co/events/2537315)** — TBA - Los Angeles, Los Angeles · day party · $20 b4 12 / $25-38 · [card ↗](https://arinazari.github.io/la-events/?e=ba5a9ecea93b)
+- `10pm` 🆕 **[Baddies Night Part 3 18+ Hosted By DJ SMOKE ONE](https://posh.vip/e/nov-22)** — Los Globos, Silver Lake · free · [card ↗](https://arinazari.github.io/la-events/?e=8a9773029713)
 
 **Live music**
 - `12pm` **[Corona Capital](https://on.fgtix.com/trk/xtgnc)** — Autódromo Hermanos Rodríguez - Redirect, Temple City · [card ↗](https://arinazari.github.io/la-events/?e=503aafa271ba)
@@ -211,8 +211,12 @@ Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherw
 **Live music**
 - `6pm` **[Details coming soon...](http://roadhouse.permanentrecordsla.com/)** — Permanent Records Roadhouse, Cypress Park · $ · [card ↗](https://arinazari.github.io/la-events/?e=b8566f62b98b)
 - `8pm` **[Fleischer’s THE NARROW MARGIN + Abbas Kiarostami’s TICKETS](https://dice.fm/event/6ae2b3e41975e100018e59d3)** — 2220 Arts + Archives, Historic Filipinotown · $15.00 · [card ↗](https://arinazari.github.io/la-events/?e=94b71775d88f)
+- `6pm` 🆕 **[Atlas Engine](https://app.opendate.io/e/atlas-engine-fire-affair-mad-bad-world-november-24-2026-798166)** — Permanent Records Roadhouse, Cypress Park · $10 ADVANCE $15 DOS · [card ↗](https://arinazari.github.io/la-events/?e=7165921920e0)
 
-- *Also:* [VLSF & KCRW PRESENTS - Always You record release, Jimmy Cicero, Lou Rebecca. DJs Marci & Sedona](https://dice.fm/event/6ad95f42e5eaa500018b9229) (Gold Diggers)
+### Wednesday · November 25
+
+**Electronic & dance**
+- `6pm-4am` ⭐ **[Thanksgiving Eve with DJ Harvey on the Burnin' Chancla Soundsystem (A Rhondavous Gratitude Gala)](https://ra.co/events/2526459)** — Catch One, Mid-City · $10 b4 1030 / $15 · [card ↗](https://arinazari.github.io/la-events/?e=ea77e713446c)
 
 ## Weekends ahead
 
@@ -237,10 +241,16 @@ Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherw
 - `Fri 12/11` **[Electric Ave](https://www.facebook.com/events/1620287836489624/)** — Los Globos (Los Angeles), Silver Lake · 21+ · [card ↗](https://arinazari.github.io/la-events/?e=dafff6c3dc81)
 - *…plus 17 more that weekend — full list: [weekend digest](weekends/2026-12-11.md)*
 
+### Weekend of Fri 12/18
+- `Thu 12/17` **[Obscene (Goth / Industrial / EBM / Darkwave)](https://ra.co/events/2348305)** — The Slipper Clutch, DTLA · free · [card ↗](https://arinazari.github.io/la-events/?e=d0aaa93d0745)
+- `Thu 12/17` **[KFM](http://roadhouse.permanentrecordsla.com/)** — Permanent Records Roadhouse, Cypress Park · $10 · [card ↗](https://arinazari.github.io/la-events/?e=e5ed1e7ea630)
+- `Thu 12/17` 🆕 **[Tommy Pelter](https://app.opendate.io/e/tommy-peltier-foot-ox-iji-december-17-2026-797063)** — Permanent Records Roadhouse, Cypress Park · $10 ADVANCE $15 DOS · [card ↗](https://arinazari.github.io/la-events/?e=9d773f0e5c89)
+- `Thu 12/17` **[Details coming soon...](http://roadhouse.permanentrecordsla.com/)** — Permanent Records Roadhouse, Cypress Park · $ · [card ↗](https://arinazari.github.io/la-events/?e=498eea7776ce)
+- *…plus 2 more that weekend — full list: [weekend digest](weekends/2026-12-18.md)*
+
 ## On the marquee
 
 *Movies live here (and on the site's marquee page): runs opening this stretch, then the one-night screenings worth a seat.*
-- `Wed 11/11` **[Grindhouse](/purchase/4360?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens tonight · 3 nights thru Sat 12/5* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=d4f63a3e84a6) <!-- tier3:gloss d4f63a3e84a6 -->
 - `Fri 11/13` **[Paper Tiger 35mm](https://ticketing.uswest.veezi.com/purchase/4266?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 7 nights thru Thu 11/19* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=91c34625793f) <!-- tier3:gloss 91c34625793f -->
 - `Fri 11/13` **[Lady Terminator](https://ticketing.uswest.veezi.com/purchase/4258?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sat 11/14* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=ba83c167d08b) <!-- tier3:gloss ba83c167d08b -->
 - `Fri 11/13` **[Wicker](https://vidiotsfoundation.org/showtimes/wicker-11-13-26-430-pm/)** — *opens · 4 nights thru Wed 11/18* · Vidiots · [card ↗](https://arinazari.github.io/la-events/?e=4af14e003b67) <!-- tier3:gloss 4af14e003b67 -->
@@ -248,28 +258,29 @@ Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherw
 - `Fri 11/13` **[Once Upon a Time in... Hollywood](https://ticketing.uswest.veezi.com/purchase/5094?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 4 nights thru Sat 11/28* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=5b92ce75a92f) <!-- tier3:gloss 5b92ce75a92f -->
 - `Sat 11/14` **[The Westerner](https://ticketing.uswest.veezi.com/purchase/4260?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww)** — *opens · 2 nights thru Sun 11/15* · Vista Theater · [card ↗](https://arinazari.github.io/la-events/?e=55e06ab39c94) <!-- tier3:gloss 55e06ab39c94 -->
 - `Sat 11/14` **[Ratatouille](https://ticketing.uswest.veezi.com/purchase/5098?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 2 nights thru Sun 11/15* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=e343fadbcbcd) <!-- tier3:gloss e343fadbcbcd -->
+- `Sat 11/14` **[The Last Picture Show (Director's Cut)](https://ticketing.uswest.veezi.com/purchase/5100?siteToken=fmtswb0qqbym3de6c4bbsqj89m)** — *opens · 6 nights thru Thu 11/19* · New Beverly Cinema · [card ↗](https://arinazari.github.io/la-events/?e=7a28758e7b6e) <!-- tier3:gloss 7a28758e7b6e -->
 
 ## Around town
 
 *Notable around the city — not ranked to taste; here so you stay apprised.*
-- `Wed 11/11` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-11-2026/event/090064C3CC0645B7)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=5cfd176b0544) <!-- tier3:gloss 5cfd176b0544 -->
-- `Fri 11/13` **[Bees Trees & Water Music Festival](https://ra.co/events/2553982)** — TBA - ON Website · Los Angeles  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=bb95937b9d17) <!-- tier3:gloss bb95937b9d17 -->
-- `Fri 11/13` **[SLAYER: Reign In Blood 40th Anniversary 2026](https://www.ticketmaster.com/slayer-reign-in-blood-40th-anniversary-inglewood-california-11-13-2026/event/09006491FCE11F4B)** — Kia Forum · Inglewood  ·  *big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=e9d3eb24c356) <!-- tier3:gloss e9d3eb24c356 -->
+- `Thu 11/12` **[KCRW Presents Bonobo: Distance in Static Live North American Tour](https://www.ticketmaster.com/bonobo-distance-in-static-live-north-los-angeles-california-11-12-2026/event/090064C3CC0A45C4)** — The Wiltern · Koreatown  ·  *Bonobo* · [card ↗](https://arinazari.github.io/la-events/?e=cf6cd35ddcc5) <!-- tier3:gloss cf6cd35ddcc5 -->
+- `Fri 11/13` **[18+ FRIDAY USC VS UCLA AUTUMN  FEST FREE](https://posh.vip/e/18-friday-usc-vs-ucla-autumn-fest-free)** — los globos · Silver Lake  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=c5f17f8ccd13) <!-- tier3:gloss c5f17f8ccd13 -->
+- `Fri 11/13` **[Eli Brown, Shay De Castro, Lily Ardalan](https://ra.co/events/2553982)** — TBA - ON Website · Los Angeles  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=4927662ab3e9) <!-- tier3:gloss 4927662ab3e9 -->
+- `Sat 11/14` **[Santa Monica Block Fest Vol Ix: Sommer Ray, Matt Steffanina, Anaya, The Botanist, Devin Lucien, Tiedye, Izy and Twee, Superwavy, Hamooudie, Krazy](https://posh.vip/e/santa-monica-block-fest-vol-ix-free-music-and-food-festival)** — All Three Blocks Of Third Street Promenade Santa Monica (Los Angeles) · Santa Monica  ·  *festival, civic* · [card ↗](https://arinazari.github.io/la-events/?e=b187822a5b7a) <!-- tier3:gloss b187822a5b7a -->
 - `Wed 11/18` **[Elliott Brothers' COMEDY BLOCK PARTY Hosted by Chris Spencer](https://www.ticketmaster.com/elliott-brothers-comedy-block-party-hosted-inglewood-california-11-18-2026/event/0B00654C9BF53CBD)** — The Miracle Theater · Inglewood  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=2cc7eeb6107f) <!-- tier3:gloss 2cc7eeb6107f -->
 - `Fri 11/20` **[WORK Weekender Day 1: Fadi Mohem, Fizch, & Lindsey Herbert](https://ra.co/events/2537227)** — TBA - Los Angeles · Los Angeles  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=8ed43da5edb4) <!-- tier3:gloss 8ed43da5edb4 -->
 - `Fri 11/20` **[BOYNEXTDOOR](https://www.peacocktheater.com/)** — Peacock Theater - LA · DTLA  ·  *big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=2311e0626b38) <!-- tier3:gloss 2311e0626b38 -->
 - `Sat 11/21` **[WORK Weekender Day 2: Adrian Reyes, Luigi Tozzi [Live], & The Lady Machine](https://ra.co/events/2537247)** — TBA - Los Angeles · Los Angeles  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=4d874f91d64b) <!-- tier3:gloss 4d874f91d64b -->
-- `Sat 11/21` **[KATSEYE: THE WILDWORLD TOUR](https://www.ticketmaster.com/katseye-the-wildworld-tour-los-angeles-california-11-21-2026/event/2C0064ABC62217BE)** — Crypto.com Arena · DTLA  ·  *big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=a85719c06750) <!-- tier3:gloss a85719c06750 -->
-- `Sat 11/21` **[El Fantasma](https://www.peacocktheater.com/)** — Peacock Theater - LA · DTLA  ·  *big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=c31b630cc3c1) <!-- tier3:gloss c31b630cc3c1 -->
-- `Sat 11/21` **[Steve Lacy: Oh yeah? Tour](https://www.ticketmaster.com/steve-lacy-oh-yeah-tour-hollywood-california-11-21-2026/event/0B00650521CA821D)** — Hollywood Bowl · Hollywood  ·  *big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=270d32204f84) <!-- tier3:gloss 270d32204f84 -->
 - `Sun 11/22` **[El Tri - 21 & Over](https://yaamava.com/yaamava-theater)** — Yaamava Resort & Casino at San Manuel · Highland  ·  *editorial, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=0d979c907ddb) <!-- tier3:gloss 0d979c907ddb -->
 - `Sun 11/22` **[Three Days Grace - Alienation Tour ](https://www.ticketmaster.com/three-days-grace-alienation-tour-inglewood-california-11-22-2026/event/09006365AFE0EDC0)** — Intuit Dome · Inglewood  ·  *festival, big-venue* · [card ↗](https://arinazari.github.io/la-events/?e=a275d78b3f74) <!-- tier3:gloss a275d78b3f74 -->
+- `Sun 11/22` **[WORK Weekender Day 3: BB Shaine, David Castellani [LIVE], & FJAAK](https://ra.co/events/2537315)** — TBA - Los Angeles · Los Angeles  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=ba5a9ecea93b) <!-- tier3:gloss ba5a9ecea93b -->
+- `Wed 11/25` **[Surface DIY 12hr Thanksgiving Marathon](https://ra.co/events/2505280)** — TBA · Los Angeles  ·  *civic* · [card ↗](https://arinazari.github.io/la-events/?e=e91d4f8c797f) <!-- tier3:gloss e91d4f8c797f -->
 
 ## On the radar
 
 
 **December 2026**
-- `Wed 12/16` **[Minaret Jazz Festival: Pan Afrikan Peoples Arkestra](https://dice.fm/event/6aee6d3b30383e0001f71de0)** — 2220 Arts + Archives · Historic Filipinotown  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=7fcd701aba75) <!-- tier3:gloss 7fcd701aba75 -->
+- `Fri 12/18` **[Pacific Festival Ballet - The Nutcracker](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-18-2026/event/0B00648CEFEE57B8)** — Fred Kavli Theatre- B of A Performing Arts Center,Thousand Oaks · Thousand Oaks  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=8e3f592e5b15) <!-- tier3:gloss 8e3f592e5b15 -->
 - `Wed 12/30` **[Temper Festival 2026: Crankdat, Distinct Motive, G Jones, Jordnmoody B2B Snuffy, Levity B2B Richard Finger, Mary Droppinz, Whethan, Zeds Dead, Julia Cooper, Madam X, Mgna Crrrta, Ninajirachi, Sara Landry, Sees00000, Starjunk 95, Tiffany Day, Zorza, Bad Girl Bailey, Connor Q, Gaszia, Hellgnar, Jovella, Kurei, Neumonic, Ramonpang](https://events.leapevents.com/event/led-presents-temper-festival/tag/laylo-presale)** — Petco Park (San Diego) · San Diego  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=a9b4ca54c804) <!-- tier3:gloss a9b4ca54c804 -->
 - `Thu 12/31` **[Get It Together New Year's Eve 2026 - Oscar P, Coflo, Seeps](https://ra.co/events/2572827)** — Commonality Collective · Los Angeles  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=5955f9fe8e2c) <!-- tier3:gloss 5955f9fe8e2c -->
 - `Thu 12/31` **[Hollywood Blvd Block Party NYE 2027 LA](https://ra.co/events/2500017)** — Jameson's Irish Pub · Los Angeles  ·  *festival* · [card ↗](https://arinazari.github.io/la-events/?e=2f84a537d64b) <!-- tier3:gloss 2f84a537d64b -->
@@ -298,6 +309,5 @@ Tonight is a quiet weeknight: agraybé downtown for $8 if you're itching, otherw
 - **[Coachella 2027](https://www.coachella.com/)** — 4/9–11 and 4/16–18 · Empire Polo Club, Indio CA · **lineup pending** — Advance GA already sold out (~$549–599); official lineup not yet announced. Industry trades (Hits Daily Double) rumor Tame Impala + Dua Lipa headlining with Fred again.. in the "Returning to the Desert" slot — unconfirmed, ~7 months out.
 
 ---
-> ⚠️ **Posh token expired — re-capture it.** Posh events are missing from this digest until you refresh `POSH_TOKEN` (the `x-jwt-token` on a logged-in posh.vip request).
-*⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 73d (75 events)*
-*Coverage: Gmail "Events" label skipped (connector unavailable this run); webfetch venues + editorial roundups not layered in. Eventbrite timed out on the main pull, recovered on retry. 2 RA spam listings (bill-pay SEO) filtered.*
+*⚠️ Stale sources (not refreshed — these events may be out of date): webfetch 74d (74 events)*
+*Coverage: Gmail "Events" label skipped (connector unavailable this run); webfetch venues + editorial roundups not layered in. Beatport returned 0 events. Friend Spotify sync: 2 of 3 connected profiles 502'd (kept last good layer).*

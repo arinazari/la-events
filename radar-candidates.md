@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/11/2026 deterministically (no API). 136 candidates. Signals: big-venue 115, festival 20, tracked 2._
+_Generated 11/12/2026 deterministically (no API). 133 candidates. Signals: big-venue 113, festival 19, tracked 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -21,7 +21,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 12/16 | 4 | Minaret Jazz Festival: Pan Afrikan Peoples Arkestra | 2220 Arts + Archives | festival | [link](https://dice.fm/event/6aee6d3b30383e0001f71de0) |
 | Thu 12/31 | 4 | Get It Together New Year's Eve 2026 - Oscar P, Coflo, Seep | Commonality Collective | festival | [link](https://ra.co/events/2572827) |
 
 ## January 2027
@@ -196,8 +195,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 12/16 | 2 | TYLA - THE A*POP WORLD TOUR | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/tyla-the-apop-world-tour-inglewood-california-12-16-2026/event/0A0064E99D9E6DC8) |
-| Wed 12/16 | 2 | Wang Leehom - The Best Place II World Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/wang-leehom-the-best-place-ii-inglewood-california-12-16-2026/event/09006515BC62BB28) |
 | Sun 12/20 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-20-2026/event/090064BBE49DEE4D) |
 | Tue 12/22 | 2 | Pentatonix: Christmas in the City Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/pentatonix-christmas-in-the-city-tour-inglewood-california-12-22-2026/event/09006504E828CC6A) |
 | Thu 12/31 | 2 | Flo Rida - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
