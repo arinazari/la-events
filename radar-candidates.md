@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/12/2026 deterministically (no API). 133 candidates. Signals: big-venue 113, festival 19, tracked 2._
+_Generated 11/13/2026 deterministically (no API). 134 candidates. Signals: big-venue 113, festival 19, tracked 2, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -10,6 +10,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 1/30 | 5 | MAU P PRESENTS: GENERATION REBRAND (18 and Over) | BMO Stadium | tracked:Mau P, big-venue | [link](https://www.ticketmaster.com/mau-p-presents-generation-rebrand-los-angeles-california-01-30-2027/event/0A006550EE2DDD30) |
+
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Tue 12/22 | 3 | A Country Christmas | Pershing Square | editorial | [link](https://holidayicerinkdowntownla.com/) |
 
 ## February 2027
 
@@ -111,13 +117,13 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 5/1 | 4 | Def Leppard and Goo Goo Dolls   | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/def-leppard-and-goo-goo-dolls-hollywood-california-05-01-2027/event/0B0065410242AA13) |
+| Mon 5/3 | 4 | Sam Fender: North America Tour '27 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/sam-fender-north-america-tour-27-los-angeles-california-05-03-2027/event/0900656AEBAC19FB) |
 | Tue 5/4 | 4 | LOLA YOUNG - Everything Begins | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lola-young-everything-begins-los-angeles-california-05-04-2027/event/09006542913F8147) |
 
 ## December 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Thu 12/17 | 3 | Cece Winans | Peacock Theater - LA | big-venue | [link](https://www.peacocktheater.com/) |
 | Fri 12/18 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-18-2026/event/090064BBE484EE0D) |
 | Sat 12/19 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-19-2026/event/090064BBE48FEE25) |
 | Sat 12/19 | 3 | Stevie Wonder Songs in The Key of Life Performances 50th A | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/stevie-wonder-songs-in-the-key-inglewood-california-12-19-2026/event/09006524823041CB) |
