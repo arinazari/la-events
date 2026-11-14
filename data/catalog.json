@@ -121,7 +121,8 @@
     },
     "image": "https://s1.ticketm.net/dam/a/5d7/496f5e34-2df0-4c83-ad26-06a07f2775d7_SOURCE",
     "editorial_mentions": [
-      "LAist"
+      "LAist",
+      "Time Out"
     ]
   },
   {
@@ -1155,7 +1156,10 @@
       "near_home": true
     },
     "image": "https://s1.ticketm.net/dam/a/492/6d94c22c-be24-4391-bb8e-a4cb94e06492_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-    "lineup_genre": "Rock"
+    "lineup_genre": "Rock",
+    "editorial_mentions": [
+      "DiscoverLA"
+    ]
   },
   {
     "title": "The Sugarhill Gang",
@@ -1202,7 +1206,7 @@
     ]
   },
   {
-    "title": "Chris Smither (Saturday Show)",
+    "title": "Chris Smither opener Peter Mulvey –Saturday Show–",
     "date": "2026-11-14",
     "start": "20:00",
     "venue": "McCabe's Guitar Shop",
@@ -1237,7 +1241,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -1508,6 +1512,10 @@
     "updated_at": "2026-10-01",
     "changed_fields": [
       "start"
+    ],
+    "editorial_mentions": [
+      "DiscoverLA",
+      "UncoverLA"
     ]
   },
   {
@@ -1606,7 +1614,8 @@
       "lineup"
     ],
     "editorial_mentions": [
-      "UncoverLA"
+      "UncoverLA",
+      "Time Out"
     ]
   },
   {
@@ -1708,7 +1717,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "The Who's Tommy (Touring)",
@@ -1755,7 +1767,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "LAist",
+      "Time Out"
+    ]
   },
   {
     "title": "TOArts presents Jane Monheit sings Cole Porter",
@@ -2528,7 +2544,9 @@
         "outdoor"
       ],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "dtla",
       "near_home": true
     },
@@ -2745,7 +2763,8 @@
       "start"
     ],
     "editorial_mentions": [
-      "LAist"
+      "LAist",
+      "DiscoverLA"
     ]
   },
   {
@@ -2766,7 +2785,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1192646821%2F1069705083393%2F1%2Foriginal.20260904-020438?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=b0a515b98126467c4b3fd9ed47452438",
     "url": "https://www.eventbrite.com/e/puro-rockero-bajo-las-estrellas-tickets-1999737356264",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -3855,7 +3874,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -3985,7 +4006,7 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Support: Codd Dubz",
     "price": "$19.95",
     "ra_pick": false,
     "afterhours": true,
@@ -5653,7 +5674,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     }
@@ -7433,6 +7456,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": null,
@@ -8097,7 +8121,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "Chase Walker"
+      "CHASE WALKER"
     ],
     "links": [
       {
@@ -8111,7 +8135,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -8125,7 +8149,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "\"Drum Week\" Presents: Jonathan Pinson Boom Clap Expansion",
@@ -8135,7 +8163,7 @@
     "neighborhood": "Westchester",
     "category": "live_music",
     "lineup": [
-      "Jonathan Pinson"
+      "Jonathan Pinson Boom Clap Expansion"
     ],
     "links": [
       {
@@ -8146,10 +8174,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "Jonathan Pinson’s Boom Clap Expansion is the latest evolution of drummer, composer and bandleader Jonathan Pinson’s visionary ensemble.Blending modern jazz, groove and fearless improvisation, the group delivers an immersive performance shaped by musical storytelling.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -8162,10 +8190,14 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "title": "Grateful Brunch",
+    "title": "GRATEFUL BRUNCH (11/14)",
     "date": "2026-11-14",
     "start": "11:00",
     "venue": "The Venice West",
@@ -8184,7 +8216,7 @@
     "detail": "Grateful Dead brunch session.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -8195,7 +8227,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Charity & Food Drive ft. Margot Sinclair w/ Eternal Wave & Lockwood",
@@ -8221,7 +8257,7 @@
     "detail": "Benefit show with a food drive.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -8232,7 +8268,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Live on Sunset",
@@ -8259,7 +8299,8 @@
     "price": null,
     "editorial_mentions": [
       "LAist",
-      "UncoverLA"
+      "UncoverLA",
+      "Time Out"
     ],
     "first_seen": "2026-11-13",
     "last_seen": "2026-11-13",
@@ -8296,7 +8337,8 @@
     "detail": "Two-day pop-up art fair with 200+ local makers, 10 AM-4 PM. Free.",
     "price": null,
     "editorial_mentions": [
-      "We Like LA"
+      "We Like LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-13",
     "last_seen": "2026-11-13",
@@ -9057,6 +9099,607 @@
     }
   },
   {
+    "title": "Cj Hendry: Flower Shop",
+    "date": "2026-11-14",
+    "start": "10:00",
+    "venue": "6 Rose Ave.",
+    "neighborhood": "Venice",
+    "category": "art",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://flowershop.art/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Cj Hendry's Flower Shop installation/pop-up runs daily 10am-6pm through Sat 11/21; free to visit, felt/fabric flowers $10 each (tenth free), first-come first-served.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "Time Out",
+      "LAist",
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "pop-up",
+        "free"
+      ],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "The Hunger Games: Sunrise on the Reaping Cornucopia Immersive Experience",
+    "date": "2026-11-14",
+    "start": "10:00",
+    "venue": "AMC Plaza, Westfield Century City",
+    "neighborhood": "Century City",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.westfield.com/en/united-states/centurycity/events/the-hunger-games-sunrise-on-the-reaping-cornucopia-immersive-experience/140186"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Immersive Hunger Games pop-up at Westfield Century City (10250 Santa Monica Blvd.), 10am-10pm daily, running Tue 11/10 through Sun 11/22.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "pop-up"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "2026 Japanese Food Expo in LA",
+    "date": "2026-11-14",
+    "start": "11:00",
+    "venue": "Ovation Hollywood (5th Floor)",
+    "neighborhood": "Hollywood",
+    "category": "food-drink",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.eventbrite.com/e/2026-japanese-food-expo-in-la-tickets-2001405223901"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Japanese food expo with taiko performances, Fri 11/13-Sat 11/14; Saturday sessions at 11am-1:30pm, 2:30-5pm and 6-8:30pm; $50 for 21+.",
+    "price": "$50",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "We Like LA",
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "21+"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Happy Night Market: Anime Edition",
+    "date": "2026-11-14",
+    "start": null,
+    "venue": "TAWA Gateway",
+    "neighborhood": null,
+    "category": "market",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.eventbrite.com/e/happy-night-market-anime-edition-nov-13-15-tickets-2000664695962"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Anime-themed night market running Fri 11/13 through Sun 11/15 with free admission and parking.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "Canto de Todes: A Performance and Conversation with Dorian Wood",
+    "date": "2026-11-14",
+    "start": "18:30",
+    "venue": "Getty Center (Harold M. Williams Auditorium)",
+    "neighborhood": "Brentwood",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "Dorian Wood"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.getty.edu/calendar/canto-de-todes-a-performance-and-conversation-with-dorian-wood/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Dorian Wood performance and conversation with Dr. Laura Gutierrez at the Getty Center; free with reservation, with an immersive version of the second movement earlier that day in the Central Garden.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "We Like LA",
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Polk Audio x Sofar: For One Night Only",
+    "date": "2026-11-14",
+    "start": "20:00",
+    "venue": "Secret DTLA location (revealed 36 hours before)",
+    "neighborhood": "DTLA",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.sofarsounds.com/events/67517"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Sofar Sounds secret show with three unannounced musicians plus a DJ set and Polk Audio merch giveaways; doors 7:30pm, show 8pm.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "title": "National Theatre Live: The Importance of Being Earnest (screening)",
+    "date": "2026-11-14",
+    "start": "19:00",
+    "venue": "The Wallis, 9390 N. Santa Monica Blvd.",
+    "neighborhood": "Beverly Hills",
+    "category": "film",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://thewallis.org/show-details/screening-the-importance-of-being-earnest"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Filmed-live National Theatre Live screening of The Importance of Being Earnest at The Wallis; tickets from $27.50.",
+    "price": "$27.5",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "LAist"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "film",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Bardfly Theatre Co.: The Importance of Being Earnest",
+    "date": "2026-11-14",
+    "start": null,
+    "venue": "L.A. Arboretum",
+    "neighborhood": "Arcadia",
+    "category": "theater",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.bardflytheatreco.com/shows.html"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Bardfly Theatre Co.'s last live performance of The Importance of Being Earnest at the L.A. Arboretum (time and price not listed in the roundup).",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "LAist"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "stage",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "title": "A Holiday Wonderland Special",
+    "date": "2026-11-14",
+    "start": null,
+    "venue": "Bob Baker Marionette Theater",
+    "neighborhood": "Highland Park",
+    "category": "theater",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.bobbakermarionettetheater.com/holiday-wonderland-special"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Bob Baker Marionette Theater's holiday puppet show runs 11/14/2026 through 1/17/2027.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "DiscoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "stage",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Pershing Square Holiday Ice Skating Rink",
+    "date": "2026-11-14",
+    "start": null,
+    "venue": "Pershing Square",
+    "neighborhood": "DTLA",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://holidayicerinkdowntownla.com/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Seasonal outdoor holiday ice rink at Pershing Square, open 11/12/2026 through 1/3/2027.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "DiscoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "title": "NightTales",
+    "date": "2026-11-14",
+    "start": null,
+    "venue": "Natural History Museum",
+    "neighborhood": "Exposition Park",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.timeout.com/los-angeles/things-to-do/nighttales"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "NightTales after-dark experience at the Natural History Museum, running 11/12/2026 through 1/10/2027 (check the museum for which nights).",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "Time Out",
+      "DiscoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Tinker Bell's Neverland in Los Angeles",
+    "date": "2026-11-14",
+    "start": null,
+    "venue": "South Coast Botanic Garden",
+    "neighborhood": "Palos Verdes South Bay",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://tinkerbellsneverland.com/los-angeles/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Tinker Bell-themed garden experience that opened Fri 11/13 and runs through 1/3/2027; tickets from $34.33.",
+    "price": "$34.33",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "Santa Anita Show Jumping 2026",
+    "date": "2026-11-14",
+    "start": null,
+    "venue": "Santa Anita Park, 285 W. Huntington Dr.",
+    "neighborhood": "Arcadia",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.santaanitaequestrian.com/tickets"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Show-jumping series running Wed 11/11 through Sun 11/22, with the Longines FEI Jumping World Cup L.A. on Sat 11/21.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "title": "The Apothecary Diaries Autograph Signing with Kaiji Tang",
+    "date": "2026-11-14",
+    "start": "11:00",
+    "venue": "The Loop at Westfield Topanga (Topanga Social)",
+    "neighborhood": "Canoga Park",
+    "category": "community",
+    "genre": null,
+    "lineup": [
+      "Kaiji Tang"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://discovertheloop.com/"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Voice actor Kaiji Tang signs 11am-1pm; free wristband with $35+ of eligible merchandise purchased 11/11-11/14, first come first served.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "PHILIP SAYCE",
+    "date": "2026-11-14",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "PHILIP SAYCE"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270378"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "BRYAN HEAD - DRUMS; SAM BOLLE - BASS; PHILIP SAYCE - BURNING; GUITAR/VOCALS",
+    "price": "$45",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
     "title": "Water for Elephants (Touring)",
     "date": "2026-11-15",
     "start": "18:30",
@@ -9590,7 +10233,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -9610,7 +10253,7 @@
     ]
   },
   {
-    "title": "Chris Smither (Sunday Show)",
+    "title": "Chris Smither opener Peter Mulvey –Sunday Show–",
     "date": "2026-11-15",
     "start": "20:00",
     "venue": "McCabe's Guitar Shop",
@@ -9645,7 +10288,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -10297,7 +10940,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/lissie-204123",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-09-04",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -10893,7 +11536,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out"
+    ]
   },
   {
     "title": "Silverlake Flea",
@@ -12005,7 +12651,7 @@
   {
     "title": "Major League DJz, Dr. Chaii, Guy B.",
     "date": "2026-11-15",
-    "start": "6pm-11pm",
+    "start": "18:00",
     "venue": "613 Imperial St",
     "neighborhood": "Los Angeles",
     "category": "electronic",
@@ -12024,7 +12670,7 @@
     "organizers": null,
     "detail": "South Africa’s internationally acclaimed Afro House duo at ORIGIN in Los Angeles.",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197219917%2F139732991620%2F1%2Foriginal.20261103-234620?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=c7be8d5295d42b062c9c3c623898c9e7",
-    "price": "$35.37-58.95",
+    "price": "$35.37",
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-05",
@@ -12536,6 +13182,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -13341,7 +13988,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "Toledo"
+      "THE TOLEDO SHOW"
     ],
     "links": [
       {
@@ -13355,7 +14002,7 @@
     "detail": "Long-running Sunday-night burlesque-soul residency.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -13371,7 +14018,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Kate McGarry/Keith Ganz Quartet with Clarence Penn and Jonathan Richards",
@@ -13395,14 +14046,15 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "Grammy™ nominees Kate McGarry and long time partner Keith Ganz make a rare LA appearance with an all star band. Known for their sparkling reinventions of both jazz and iconic singer songwriter repertoire. Downbeat gave their last album 4 stars calling it “Radical and lustrous”",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
-        "jazz"
+        "jazz",
+        "folk"
       ],
       "setting": [
         "listening-bar"
@@ -13411,7 +14063,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Jackalope Pasadena indie craft market",
@@ -13758,24 +14414,248 @@
     }
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/origin-presents-major-league-djz-tickets-2004330253744",
-    "title": "ORIGIN Presents Major League DJz",
+    "title": "Paul R. Williams: Architect for Living (exhibition opening)",
     "date": "2026-11-15",
-    "start": "2026-11-15T18:00:00-08:00",
-    "end": "2026-11-15T23:00:00-08:00",
-    "venue": "613 Imperial St",
-    "neighborhood": "Los Angeles",
-    "address": "613 Imperial Street, Los Angeles, CA 90021",
-    "lat": null,
-    "lng": null,
-    "category": "electronic",
-    "price_min": "35.37",
-    "detail": "South Africa’s internationally acclaimed Afro House duo at ORIGIN in Los Angeles.",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197468032%2F2988654663549%2F1%2Foriginal.20261106-233814?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=1ddacbb48d451938a0ed30726471c4bd",
-    "url": "https://www.eventbrite.com/e/origin-presents-major-league-djz-tickets-2004330253744",
+    "start": null,
+    "venue": "LACMA",
+    "neighborhood": "Miracle Mile",
+    "category": "art",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.lacma.org/art/exhibition/paul-r-williams-architect-living"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "LACMA exhibition on architect Paul R. Williams opens 11/15/2026 and runs through 5/31/2027.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "Time Out",
+      "DiscoverLA"
+    ],
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Los Angeles Metropolitan Opera at Central Library",
+    "date": "2026-11-15",
+    "start": "14:00",
+    "venue": "Mark Taper Forum at Central Library",
+    "neighborhood": "DTLA",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.lapl.org/events/los-angeles-metropolitan-opera-presents-finale-act-i"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Free Los Angeles Metropolitan Opera performance at the Central Library, 2-4pm.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "title": "Self-Care Yoga at CAAM",
+    "date": "2026-11-15",
+    "start": "12:00",
+    "venue": "California African American Museum",
+    "neighborhood": "Exposition Park",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://caamuseum.org/programs/talks-and-workshops/self-care-yoga-and-sound-bath-november-2026"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Free self-care yoga and sound bath session at CAAM, noon-2pm; bring your own mat.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "dtla",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Rams Game Day Fan Experience at Pawn Shop L.A.",
+    "date": "2026-11-15",
+    "start": "11:00",
+    "venue": "Pawn Shop L.A., 5901 Melrose Ave.",
+    "neighborhood": "Hollywood",
+    "category": "community",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.pawnshopla.com/sports-calendar-los-angeles-pawn-shop-melrose"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Free outdoor Rams vs. Cardinals fan event from 11am (kickoff 1:05pm) with an ESPN L.A. Radio broadcast, Rams Legends, mascot Rampage and Rams Cheerleaders; food and drinks separate.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "Lance Bass Reads 'The Legend of Mrs. Claws' at Barnes & Noble",
+    "date": "2026-11-15",
+    "start": "12:00",
+    "venue": "Barnes & Noble at The Grove, 189 The Grove Dr.",
+    "neighborhood": "Beverly Grove",
+    "category": "community",
+    "genre": null,
+    "lineup": [
+      "Lance Bass"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://www.eventbrite.com/e/lance-bass-reads-the-legend-of-mrs-claws-at-bn-the-grove-tickets-2002320755280"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Lance Bass book reading noon-2pm (check-in 11am); ticket required and includes a book, no walk-ins.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "LOS ANGELES JAZZ QUARTET",
+    "date": "2026-11-15",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "LOS ANGELES JAZZ QUARTET"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270379"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "CHUCK MANNING - SAXOPHONE; LARRY KOONSE - GUITAR; DAREK OLES - Up Right BASS; JASON HARNELL - DRUMS",
+    "price": "$20",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Gary Numan, Tremours",
@@ -13926,6 +14806,9 @@
     "updated_at": "2026-10-28",
     "changed_fields": [
       "status"
+    ],
+    "editorial_mentions": [
+      "LAist"
     ]
   },
   {
@@ -14887,7 +15770,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -14901,7 +15784,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "25th Annual Christmas at The Grove: Tree Lighting Celebration",
@@ -14939,6 +15826,48 @@
       "scale": null,
       "vibe": [],
       "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "JOEY NAVARRO LATIN FUNK BAND",
+    "date": "2026-11-16",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "JOEY NAVARRO LATIN FUNK BAND"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270380"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Brandon Fields - Saxophone; Joey De Leon - Percussion; Fred Schreuders - Guitar/Vocals; Rene Camacho Bass; Chris Trujillo - Drums; Joey Navarro - Keys",
+    "price": "$20",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul",
+        "latin"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -15868,6 +16797,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -16560,7 +17490,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "The No Chasers"
+      "THE NO CHASERS"
     ],
     "links": [
       {
@@ -16574,7 +17504,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -16588,10 +17518,14 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "title": "\"Tuesday Happenings\" hosted by Sasha Berliner",
+    "title": "“Tuesday Happenings”: Hosted by Sasha Berliner with Adam Hersh, Brandon Rose & Gary Novak",
     "date": "2026-11-17",
     "start": "19:30",
     "venue": "Sam First",
@@ -16612,14 +17546,15 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "House-band set 7:30 PM, open jam session 9:30 PM.",
-    "price": null,
+    "detail": "Sasha Berliner's critically acclaimed albums, have established her as a bold voice in modern jazz, known for blending genres, political themes and experimental textures. House band performs one set at 7:30 PM followed by a jam session at 9:30 PM.",
+    "price": "$22.4",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
-        "jazz"
+        "jazz",
+        "experimental"
       ],
       "setting": [
         "listening-bar"
@@ -16628,7 +17563,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Chad & JT Go Deep (early show)",
@@ -16656,7 +17595,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "organizers": null,
     "genre": null,
     "ra_pick": false,
@@ -16710,6 +17649,89 @@
         "free"
       ],
       "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "James Cahill: The Beverly Hills Housewife (book talk with David Ulin)",
+    "date": "2026-11-17",
+    "start": "19:15",
+    "venue": "Book Soup, 8818 Sunset Blvd.",
+    "neighborhood": "West Hollywood",
+    "category": "community",
+    "genre": null,
+    "lineup": [
+      "James Cahill",
+      "David Ulin"
+    ],
+    "links": [
+      {
+        "source": "editorial",
+        "url": "https://booksoup.com/event/2026-11-17/james-cahill"
+      }
+    ],
+    "sources": [
+      "editorial"
+    ],
+    "organizers": null,
+    "detail": "Free author talk: James Cahill discusses The Beverly Hills Housewife in conversation with David Ulin.",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "editorial_mentions": [
+      "LAist"
+    ],
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "sunset",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "BUZZ WIZARDS",
+    "date": "2026-11-17",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "BUZZ WIZARDS"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270381"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "STEVE FERRONE - DRUMS; TOSHI YANAGI - GUITAR; FRED KRON - KEYS; JORGEN CARLSSON - BASS; MINI CARLSSON - VOCALS",
+    "price": "$25",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -19036,7 +20058,7 @@
     "detail": "Live-band karaoke.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -19050,10 +20072,14 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "title": "College Night at Sam First: UCLA dir. Clayton Cameron & USC dir. Jon Hatamiya",
+    "title": "College Night at Sam First: UCLA dir. by Clayton Cameron & USC dir. Jon Hatamiya",
     "date": "2026-11-18",
     "start": "19:30",
     "venue": "Sam First",
@@ -19072,10 +20098,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "College Night is a program aimed at giving young musicians valuable performance experience, a chance to network with future colleagues on other campuses, and exposure to the wider Sam First family of artists and audiences.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -19088,7 +20114,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Asa Anderson w/ Sarah Christine, Brooklyn Rae and Milo Gonzalez",
@@ -19115,7 +20145,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -19126,7 +20156,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "VOICE CRACK: GLEEKS: THE REBOOT",
@@ -19163,6 +20197,45 @@
       "scale": null,
       "vibe": [],
       "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "RUGGIERO QUARTET",
+    "date": "2026-11-18",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "RUGGIERO QUARTET"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270382"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "BOB REYNOLDS - Saxophone; ANDREW RENFROE - Guitar; MIKE GURROLA - UpRight BASS; CHARLES RUGGIERO - Drums",
+    "price": "$20",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -21168,6 +22241,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "residency"
       ],
       "region": null,
@@ -21214,6 +22288,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free",
         "free-rsvp"
       ],
@@ -21949,7 +23024,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "Juketox"
+      "JUKETOX"
     ],
     "links": [
       {
@@ -21963,7 +23038,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21977,10 +23052,14 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "title": "KCRW Presents \"Third Thursdays\" with Camille Kerani",
+    "title": "KCRW Presents: \"Third Thursdays\" with Camille Kerani with Isaiah Harwood, Jermaine Paul, Myles Martin & Nicolaus Gelin",
     "date": "2026-11-19",
     "start": "19:30",
     "venue": "Sam First",
@@ -22002,10 +23081,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "Having recently completed the recording of her debut Album We Channel From the Source Executively produced by South African Pianist & Composer Nduduzo Makhathini; Kerani, accompanied by her quintet, invites the listeners to unite in sound, as she channels from the source.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -22018,7 +23097,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Venice Western Line Dancing",
@@ -22040,7 +23123,7 @@
     "detail": "Line-dancing night.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -22051,7 +23134,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "DTLA Tree Lighting Ceremony",
@@ -22206,6 +23293,45 @@
       "scale": "room",
       "vibe": [],
       "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "BOB REYNOLDS GROUP",
+    "date": "2026-11-19",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "BOB REYNOLDS GROUP"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270391"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Bob Reynolds - saxophone; Ruslan Sirota - keys; Janek Gwizdala - bass; Gene Coye – drums",
+    "price": "$25",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -22542,7 +23668,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -23843,7 +24969,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/jammy-buffet-204889",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -24763,7 +25889,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -25314,7 +26442,7 @@
   {
     "title": "Los Angeles: BORGORE + Friends @ The Vermont Hollywood [18+]",
     "date": "2026-11-20",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -25336,7 +26464,7 @@
     ],
     "organizers": "Wasted",
     "detail": "BORGORE takes over The Vermont Hollywood on Friday, November 20 w/ PYKY B2B BADKLAAT! And we're not done yet. More surprises TBA",
-    "price": "$23.56-45.55",
+    "price": "$25.38",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-10-23",
@@ -27624,7 +28752,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "Western Revenge"
+      "WESTERN REVENGE"
     ],
     "links": [
       {
@@ -27638,7 +28766,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27652,17 +28780,21 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "title": "Ben Williams Trio (live recording)",
+    "title": "Ben Williams Trio (Live Recording) with Adam Hersh & John Davis",
     "date": "2026-11-20",
     "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "live_music",
     "lineup": [
-      "Ben Williams",
+      "Ben Williams Trio",
       "Adam Hersh",
       "John Davis"
     ],
@@ -27675,10 +28807,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Live album recording; two sets (approx. 7:30 and 9:30 PM).",
-    "price": null,
+    "detail": "Ben Williams is renowned for his soulful bass lines, innovative compositions, and his work with Pat Metheny, Herbie Hancock, David Sanborn, Robert Glasper, Kamasi Washington & Dianne Reeves. Joins Williams and his exciting new trio for a live recording for Sam First Records!",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27691,7 +28823,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Grace Bones presents House of Chic",
@@ -27900,24 +29036,45 @@
     }
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/los-angeles-borgore-friends-the-vermont-hollywood-18-tickets-2003632031342",
-    "title": "Los Angeles: BORGORE + Friends @ The Vermont Hollywood [18+]",
+    "title": "DAVE WECKL - OZ NOY & BRIAN CHARETTE",
     "date": "2026-11-20",
-    "start": "2026-11-20T21:00:00-08:00",
-    "end": "2026-11-21T02:00:00-08:00",
-    "venue": "The Vermont Hollywood",
-    "neighborhood": "Los Angeles",
-    "address": "1020 North Vermont Avenue, Los Angeles, CA 90029",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "25.38",
-    "detail": "BORGORE takes over The Vermont Hollywood on Friday, November 20 w/ PYKY B2B BADKLAAT! And we're not done yet. More surprises TBA",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196152302%2F2801934272511%2F1%2Foriginal.20261020-013924?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.504&fp-y=0.523&s=7b6bd3aaeba20cad433d103acb9a0a3d",
-    "url": "https://www.eventbrite.com/e/los-angeles-borgore-friends-the-vermont-hollywood-18-tickets-2003632031342",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "Dave Weckl",
+      "Oz Noy",
+      "Brian Charette"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270305"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Dave Weckl - Drums; Oz Noy - Guitar; Brian Cherette - Hammond B3",
+    "price": "$70",
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -28722,7 +29879,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -31505,6 +32662,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": null,
@@ -32012,7 +33170,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -33618,7 +34778,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "Smokestack Lightning"
+      "SMOKESTACK LIGHTNING"
     ],
     "links": [
       {
@@ -33632,7 +34792,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -33646,17 +34806,21 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "title": "Ben Williams Trio (live recording)",
+    "title": "Ben Williams Trio (Live Recording) with Adam Hersh & John Davis",
     "date": "2026-11-21",
     "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "live_music",
     "lineup": [
-      "Ben Williams",
+      "Ben Williams Trio",
       "Adam Hersh",
       "John Davis"
     ],
@@ -33669,10 +34833,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Live album recording; two sets (approx. 7:30 and 9:30 PM).",
-    "price": null,
+    "detail": "Ben Williams is renowned for his soulful bass lines, innovative compositions, and his work with Pat Metheny, Herbie Hancock, David Sanborn, Robert Glasper, Kamasi Washington & Dianne Reeves. Joins Williams and his exciting new trio for a live recording for Sam First Records!",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -33685,10 +34849,14 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "title": "Grateful Brunch",
+    "title": "GRATEFUL BRUNCH (11/21)",
     "date": "2026-11-21",
     "start": "11:00",
     "venue": "The Venice West",
@@ -33707,7 +34875,7 @@
     "detail": "Grateful Dead brunch session.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -33718,7 +34886,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Dirty Honey",
@@ -33742,7 +34914,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -33753,7 +34925,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Nick2Nite",
@@ -33777,7 +34953,7 @@
     "detail": "Late-night set.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -33788,7 +34964,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "DJ Guari",
@@ -34125,24 +35305,45 @@
     }
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/puro-rockero-bajo-las-estrellas-tickets-1999737356264",
-    "title": "PURO ROCKERO ' BAJO LAS ESTRELLAS '",
+    "title": "DAVE WECKL - OZ NOY & BRIAN CHARETTE",
     "date": "2026-11-21",
-    "start": "2026-11-21T19:00:00-08:00",
-    "end": "2026-11-22T01:00:00-08:00",
-    "venue": "Pico Rivera Sports Arena",
-    "neighborhood": "Pico Rivera",
-    "address": "11003 Sports Arena Drive, Pico Rivera, CA 90601",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "17.85",
-    "detail": "THE BIGGEST ROCK EN ESPAÑOL EXPERIENCE IN SoCal + Ska, 80s, & Cumbia..",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195550692%2F1069705083393%2F1%2Foriginal.20261011-161202?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.507&fp-y=0.519&s=417cf016df2635909deb30430506a9f6",
-    "url": "https://www.eventbrite.com/e/puro-rockero-bajo-las-estrellas-tickets-1999737356264",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "Dave Weckl",
+      "Oz Noy",
+      "Brian Charette"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270307"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Dave Weckl - Drums; Oz Noy - Guitar; Brian Cherette - Hammond B3",
+    "price": "$70",
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Corona Capital",
@@ -34673,7 +35874,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -37016,6 +38217,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -37270,7 +38472,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "Toledo"
+      "THE TOLEDO SHOW"
     ],
     "links": [
       {
@@ -37284,7 +38486,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -37298,7 +38500,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Live Jazz LA Presents: The Wait & See Tour",
@@ -37320,7 +38526,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -37333,7 +38539,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Wicker",
@@ -37455,6 +38665,45 @@
         "free"
       ],
       "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "PAUL PERESS GROUP",
+    "date": "2026-11-22",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "PAUL PERESS GROUP"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270392"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "TOSHI YANAGI - GUITAR; MITCH FORMAN - KEYS; JACOB SCESNEY - SAXOPHONE; PAUL PERESS - DRUMS",
+    "price": "$25",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -38278,6 +39527,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -38857,7 +40107,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "The No Chasers"
+      "THE NO CHASERS"
     ],
     "links": [
       {
@@ -38871,7 +40121,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38885,7 +40135,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Sarah Hanahan Quartet with Julius Rodriguez, Jermaine Paul & Kyle Poole",
@@ -38895,7 +40149,7 @@
     "neighborhood": "Westchester",
     "category": "live_music",
     "lineup": [
-      "Sarah Hanahan",
+      "Sarah Hanahan Quartet",
       "Julius Rodriguez",
       "Jermaine Paul",
       "Kyle Poole"
@@ -38909,10 +40163,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "Led by acclaimed alto saxophonist, composer, and bandleader Sarah Hanahan, the Sarah Hanahan Quartet brings a powerful, soulful approach to contemporary jazz, rooted in the traditions of swing and bebop while embracing a bold, modern sensibility.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38925,7 +40179,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "CERES SUPPER EP: 001 [CONSTELLATION]",
@@ -39049,6 +40307,45 @@
       ],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "title": "LYLE WORKMAN",
+    "date": "2026-11-24",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "LYLE WORKMAN"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/271281"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "LYLE WORKMAN - GUITAR; MATT ROHDE - KEYS; DEREK FRANK - BASS; JOE TRAVERS - DRUMS",
+    "price": "$20",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
     }
   },
   {
@@ -39861,6 +41158,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location",
         "21+"
       ],
@@ -40898,7 +42196,7 @@
   {
     "title": "Cielo Du Soir Takeover: Miguel Migs, Colette, Robinho, Ricardo Torres, Danny B, Guy B, Minime, Lostculture",
     "date": "2026-11-25",
-    "start": "2026-11-25T22:00:00-08:00",
+    "start": "21:00",
     "venue": "Jungle Hollywood",
     "neighborhood": "Hollywood",
     "category": "general",
@@ -40933,7 +42231,7 @@
     "organizers": null,
     "detail": "Coco & Friends and Cielo Du Sol present Miguel Migs, Colette, Robinho and Ricardo Torres on Thanksgiving Eve at Jungle Hollywood.",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197387702%2F24428251094%2F1%2Foriginal.20261105-223308?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.616&fp-y=0.492&s=8e5302b349467edf775cf18da20e74d1",
-    "price": "free w/rsvp b4 11pm / $17+",
+    "price": "$24.58",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-11-06",
@@ -40947,10 +42245,7 @@
         "club"
       ],
       "scale": null,
-      "vibe": [
-        "free",
-        "free-rsvp"
-      ],
+      "vibe": [],
       "region": "hollywood",
       "near_home": false
     },
@@ -41268,7 +42563,7 @@
     "detail": "Live-band karaoke.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41282,7 +42577,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Sarah Hanahan Quartet with Julius Rodriguez, Jermaine Paul & Kyle Poole",
@@ -41292,7 +42591,7 @@
     "neighborhood": "Westchester",
     "category": "live_music",
     "lineup": [
-      "Sarah Hanahan",
+      "Sarah Hanahan Quartet",
       "Julius Rodriguez",
       "Jermaine Paul",
       "Kyle Poole"
@@ -41306,10 +42605,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "Led by acclaimed alto saxophonist, composer, and bandleader Sarah Hanahan, the Sarah Hanahan Quartet brings a powerful, soulful approach to contemporary jazz, rooted in the traditions of swing and bebop while embracing a bold, modern sensibility.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41322,27 +42621,50 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/clinic-annual-thanksgiving-eve-tickets-2004078853800",
-    "title": "Clinic: Annual Thanksgiving Eve",
+    "title": "BLANCO DIABLO",
     "date": "2026-11-25",
-    "start": "2026-11-25T21:00:00-08:00",
-    "end": "2026-11-26T02:00:00-08:00",
-    "venue": "Jungle Hollywood",
-    "neighborhood": "Los Angeles",
-    "address": "1640 North Cahuenga Boulevard, Los Angeles, CA 90028",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "24.58",
-    "detail": "Clinic Wednesdays Annual Thanksgiving Eve",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197386094%2F473461263511%2F1%2Foriginal.20261105-220916?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=03dbeb4c2a225a8f95e8cc2414eba15d",
-    "url": "https://www.eventbrite.com/e/clinic-annual-thanksgiving-eve-tickets-2004078853800",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "BLANCO DIABLO"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/271282"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "Brandon Colman - Keys; Dave Binney - Saxophone; Andy Sanesi - Drums; Brian Swartz - Trumpet; Jamie Kime - Guitar; Frank Fontaine - Saxophone; Dave Goodwin - Bass; Joey De Leon - Percussions",
+    "price": "$20",
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “THIRSTY THURSDAYS” @ Hamburger Mary's Long Beach",
@@ -41667,6 +42989,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free",
         "free-rsvp"
       ],
@@ -41721,6 +43044,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -41788,7 +43112,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41802,7 +43126,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "A Killer's Confession",
@@ -42828,6 +44156,7 @@
       ],
       "scale": "hall",
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": "far",
@@ -43523,6 +44852,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -44109,7 +45439,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-02",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -44971,7 +46301,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -44984,7 +46314,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Celso Salim",
@@ -44994,7 +46328,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "Celso Salim"
+      "CELSO SALIM"
     ],
     "links": [
       {
@@ -45008,7 +46342,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45022,7 +46356,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Devin Daniels/Julien Knowles Quartet with Jermaine Paul & Christian Euman",
@@ -45046,10 +46384,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "Standing together as two of the most undeniable voices emerging from Los Angeles’ creative music landscape, the classmates-turned-collaborators join forces to co-lead a project entitled \"Now Then,\" aiming to pay homage to this music’s rich history while simultaneously ushering in a new generation.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45062,7 +46400,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Twisted Gypsy: Fleetwood Mac Reimagined",
@@ -45086,7 +46428,7 @@
     "detail": "Fleetwood Mac tribute.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -45099,7 +46441,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Dead By Midnight",
@@ -45123,7 +46469,7 @@
     "detail": "Late-night show.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -45134,7 +46480,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Wildwood",
@@ -45423,24 +46773,45 @@
     }
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/itai-x-cello-joe-elixart-nevada-city-a-special-sound-connections-pop-up-tickets-2004205581847",
-    "title": "ITAI x Cello Joe @ Elixart Nevada City - A Special Sound Connections Pop-Up",
+    "title": "LUIS CONTE",
     "date": "2026-11-27",
-    "start": "2026-11-27T21:00:00-08:00",
-    "end": "2026-12-11T00:00:00-08:00",
-    "venue": "Elixart",
-    "neighborhood": "Nevada City",
-    "address": "203 York Street, Nevada City, CA 95959",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "17.79",
-    "detail": "Black Friday - November 27th @ Elixart. A LIVE Music meets Ecstatic Dance experience. with ITAI & Cello Joe",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197052559%2F1372215194213%2F1%2Foriginal.20261102-025647?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=de9c2b44a28dfd86dab5a647932c8d40",
-    "url": "https://www.eventbrite.com/e/itai-x-cello-joe-elixart-nevada-city-a-special-sound-connections-pop-up-tickets-2004205581847",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "LUIS CONTE"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/271283"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "ALBERTO SALAS - KEYS; NANDO PEREZ - VOCALS; DAVID URQUIDI - SAXOPHONE; LEIDER CHAPOTIN - TRUMPET; EDDIE RESTO - BASSSS; KEVIN RICARD - PERCUSSION; LUIS CONTE - PERC & LEADER; TRADITIONAL CUBAN JAZZ.",
+    "price": "$40",
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -46424,7 +47795,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "eastside",
       "near_home": false
     },
@@ -47537,7 +48910,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "far",
       "near_home": false
     },
@@ -47962,6 +49337,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": null,
@@ -48055,7 +49431,9 @@
       "genre": [],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "21+"
+      ],
       "region": null,
       "near_home": false
     }
@@ -48527,6 +49905,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "all-night-set",
         "b2b"
       ],
@@ -48653,6 +50032,7 @@
       ],
       "scale": "hall",
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -49234,7 +50614,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49247,7 +50627,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Hemmens Band",
@@ -49257,7 +50641,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "Hemmens Band"
+      "HEMMENS BAND"
     ],
     "links": [
       {
@@ -49271,7 +50655,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49285,7 +50669,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Devin Daniels/Julien Knowles Quartet with Jermaine Paul & Christian Euman",
@@ -49309,10 +50697,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "Standing together as two of the most undeniable voices emerging from Los Angeles’ creative music landscape, the classmates-turned-collaborators join forces to co-lead a project entitled \"Now Then,\" aiming to pay homage to this music’s rich history while simultaneously ushering in a new generation.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49325,10 +50713,14 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "title": "Grateful Brunch",
+    "title": "GRATEFUL BRUNCH (11/28)",
     "date": "2026-11-28",
     "start": "11:00",
     "venue": "The Venice West",
@@ -49347,7 +50739,7 @@
     "detail": "Grateful Dead brunch session.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -49358,7 +50750,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Tribute to Buena Vista Social Club by Arsenio Rodriguez Project",
@@ -49368,7 +50764,7 @@
     "neighborhood": "Venice",
     "category": "live_music",
     "lineup": [
-      "Arsenio Rodriguez Project"
+      "Arsenio Rodríguez Project"
     ],
     "links": [
       {
@@ -49382,7 +50778,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -49395,7 +50791,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "body wave: DJ Lloyd, DJ Kerry, Tavish DJ b2b Xica Soul",
@@ -49440,6 +50840,47 @@
         "tba-location"
       ],
       "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "title": "Don Randi & Quest",
+    "date": "2026-11-28",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "Don Randi & Quest"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/270394"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "The Baked Potato's Original Jazz Master; Don Randi On Keyboards; Jonathan Dresel On Drums; Jerry Watts Jr. On Bass; Jon De Patie On Guitar; Peter Korpela On Perc.; ALLSTAR Contemporary Jazz",
+    "price": "$25",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -49697,7 +51138,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -50895,6 +52336,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -51116,7 +52558,7 @@
     "neighborhood": "Santa Monica",
     "category": "live_music",
     "lineup": [
-      "Toledo"
+      "THE TOLEDO SHOW"
     ],
     "links": [
       {
@@ -51130,7 +52572,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -51144,7 +52586,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Salsa & Vinyls Brunch",
@@ -51166,7 +52612,7 @@
     "detail": "Salsa DJ brunch.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -51178,6 +52624,49 @@
       "scale": "bar",
       "vibe": [],
       "region": "westside",
+      "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "CLAYTON CAMERON COLLECTIVE",
+    "date": "2026-11-29",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "CLAYTON CAMERON COLLECTIVE"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/271284"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "featuring:; GRANT GEISSMAN - Guitar; JACOB SCESNEY - Saxophone; ANDY LANGHAM - Keys; BRANDON ROSE - Bass; CLAYTON CAMERON - Drums & Brushes",
+    "price": "$20",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -51582,7 +53071,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -51595,6 +53084,49 @@
       "scale": "bar",
       "vibe": [],
       "region": "westside",
+      "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "YaYENNINGS ELECTRIC BAND",
+    "date": "2026-11-30",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "YaYENNINGS ELECTRIC BAND"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/271285"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "YaYENNINGS - Trumpet from Snarky Puppy; Julius Rodriguez-keys; Brian Hargrove-keys; Greg Clark Jr.-drums; Jermaine Paul-bass",
+    "price": "$20",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -52425,6 +53957,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -52550,7 +54083,7 @@
     }
   },
   {
-    "title": "Janis Siegel album release \"The Art Of Vocalese\"",
+    "title": "Janis Siegel album release \"The Art Of Vocalese\" with John diMartino, Darek Oles & Clayton Cameron",
     "date": "2026-12-01",
     "start": "19:30",
     "venue": "Sam First",
@@ -52571,10 +54104,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Album release; two sets (approx. 7:30 and 9:30 PM).",
-    "price": null,
+    "detail": "GRAMMY-winning vocalist and original Manhattan Transfer member Janis Siegel celebrates The Art of Vocalese, her 16th solo album and first major project following the group’s farewell. Joined by pianist and arranger John Di Martino, Siegel honors the rich tradition of vocalese.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -52587,6 +54120,52 @@
       "vibe": [
         "album-release"
       ],
+      "region": "westside",
+      "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "THE NO CHASERS",
+    "date": "2026-12-01",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE NO CHASERS"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146242"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
       "region": "westside",
       "near_home": false
     }
@@ -53656,7 +55235,7 @@
     }
   },
   {
-    "title": "Tristan Cappel's \"North Star\"",
+    "title": "Tristan Cappel's \"North Star\" with Sasha Berliner, Adam Hersh, Marlon Martinez & Efajemue Etoroma, Jr.",
     "date": "2026-12-02",
     "start": "19:30",
     "venue": "Sam First",
@@ -53667,7 +55246,7 @@
       "Sasha Berliner",
       "Adam Hersh",
       "Marlon Martinez",
-      "Efajemue Etoroma Jr."
+      "Efajemue Etoroma, Jr."
     ],
     "links": [
       {
@@ -53678,10 +55257,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "Tristan Cappel presents his second album \"North Star\" with a superstar ensemble. Join them to hear a collection of singable melodies and memorable compositions.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53694,27 +55273,91 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "Clinic ft. Noyze Komplaynt",
+    "date": "2026-12-02",
+    "start": "21:00",
+    "venue": "Jungle Hollywood",
+    "neighborhood": "Hollywood",
+    "category": "general",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/clinic-ft-noyze-komplaynt-tickets-2004817251367"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
+    "detail": "Clinic Wednesdays welcomes Noyze Komplaynt",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197924814%2F473461263511%2F1%2Foriginal.20261113-154720?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=56c12ac7bf11b197e5d7babc1a2b4630",
+    "price": "free",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
     }
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/clinic-ft-noyze-komplaynt-tickets-2004817251367",
-    "title": "Clinic ft. Noyze Komplaynt",
+    "title": "COME SING WITH the BAND - Live Band Karaoke",
     "date": "2026-12-02",
-    "start": "2026-12-02T21:00:00-08:00",
-    "end": "2026-12-03T02:00:00-08:00",
-    "venue": "Jungle Hollywood",
-    "neighborhood": "Los Angeles",
-    "address": "1640 North Cahuenga Boulevard, Los Angeles, CA 90028",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "0.0",
-    "detail": "Clinic Wednesdays welcomes Noyze Komplaynt",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197924814%2F473461263511%2F1%2Foriginal.20261113-154720?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=56c12ac7bf11b197e5d7babc1a2b4630",
-    "url": "https://www.eventbrite.com/e/clinic-ft-noyze-komplaynt-tickets-2004817251367",
+    "start": "21:00",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146247"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Randall King",
@@ -53859,7 +55502,7 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -55755,7 +57398,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -55767,6 +57410,50 @@
       "scale": "hall",
       "vibe": [],
       "region": "hollywood",
+      "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "SENSUAL SANTA",
+    "date": "2026-12-03",
+    "start": "21:00",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146123"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
       "near_home": false
     }
   },
@@ -56833,7 +58520,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -57146,7 +58835,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -58161,6 +59850,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": null,
@@ -58645,6 +60335,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free",
         "free-rsvp",
         "18+"
@@ -59083,6 +60774,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "album-release"
       ],
       "region": null,
@@ -59309,7 +61001,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -59322,17 +61014,21 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "title": "Peter Bernstein & Graham Dechter Quintet",
+    "title": "Peter Bernstein & Graham Dechter Quintet with Graham Dechter, Jacob Mann, Alex Frank & Ryan Shaw",
     "date": "2026-12-04",
     "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "live_music",
     "lineup": [
-      "Peter Bernstein",
+      "Peter Bernstein & Graham Dechter Quintet",
       "Graham Dechter",
       "Jacob Mann",
       "Alex Frank",
@@ -59347,10 +61043,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "Guitarists Peter Bernstein and Graham Dechter unite two generations of distinctive jazz voices. Joined by Jacob Mann, Alex Frank, and Ryan Shaw, the ensemble brings together deep tradition, masterful musicianship, and dynamic interplay for an exciting evening of jazz.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -59363,7 +61059,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Slayyyter Night - Album Release Party w/DJ French",
@@ -60615,7 +62315,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -61109,7 +62809,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -61362,7 +63064,7 @@
   {
     "title": "WINTER FANTASY (18+/LA)",
     "date": "2026-12-05",
-    "start": "8pm-2am",
+    "start": "20:00",
     "venue": "The Compound By Dirt Dog (Commerce)",
     "neighborhood": "Commerce",
     "category": "electronic",
@@ -61384,7 +63086,7 @@
     ],
     "organizers": "Plur Eventz",
     "detail": "❄️✨ WINTER FANTASY — Saturday 12/5/ 2026 18+ 9pm-2am Ft NIGHTSTALKER in LA ✨❄️ Prepare yourself for a night of EDM, Lights & Holiday energy.",
-    "price": "$12.51-23.18",
+    "price": "$12.51",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-09-26",
@@ -62370,6 +64072,7 @@
       ],
       "scale": "room",
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": "dtla",
@@ -63297,14 +65000,14 @@
     }
   },
   {
-    "title": "Peter Bernstein/Graham Dechter Quintet - 2nd set KJAZZ broadcast",
+    "title": "Peter Bernstein/Graham Dechter Quintet w/ Graham Dechter, Jacob Mann, Alex Frank & Ryan Shaw - 2nd set KJAZZ Broadcast!",
     "date": "2026-12-05",
     "start": "19:30",
     "venue": "Sam First",
     "neighborhood": "Westchester",
     "category": "live_music",
     "lineup": [
-      "Peter Bernstein",
+      "Peter Bernstein/Graham Dechter Quintet",
       "Graham Dechter",
       "Jacob Mann",
       "Alex Frank",
@@ -63319,10 +65022,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Second set broadcast live on KJAZZ.",
-    "price": null,
+    "detail": "Guitarists Peter Bernstein and Graham Dechter unite two generations of distinctive jazz voices. Joined by Jacob Mann, Alex Frank, and Ryan Shaw, the ensemble brings together deep tradition, masterful musicianship, and dynamic interplay for an exciting evening of jazz.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -63335,7 +65038,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Jumping Jack Flash: The Rolling Stones Tribute",
@@ -63359,7 +65066,7 @@
     "detail": "Rolling Stones tribute.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -63372,7 +65079,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Bondage Music Label Showcase: Pornbugs, VALENCE, Fabri Es, Frankie Dixon",
@@ -63455,24 +65166,45 @@
     }
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/winter-fantasy-2026-tickets-2000902684793",
-    "title": "WINTER FANTASY 2026",
+    "title": "Alligator Beach ’New Orleans Funk Party’",
     "date": "2026-12-05",
-    "start": "2026-12-05T20:00:00-08:00",
-    "end": "2026-12-06T02:00:00-08:00",
-    "venue": "The Compound by Dirt Dog",
-    "neighborhood": "Commerce",
-    "address": "2909 Supply Avenue, Commerce, CA 90040",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "12.51",
-    "detail": "Saturday Dec. 5th 2026 18+ 8pm-2am Ft NIGHTSTALKER from EDC Las Vegas with 6 Dj's Bass House Techno Vendors located at The Compound LA.",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196815371%2F238995691457%2F1%2Foriginal.20261028-231358?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=8fdd1b5e7552d46918b9ebc50b1017f4",
-    "url": "https://www.eventbrite.com/e/winter-fantasy-2026-tickets-2000902684793",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "Alligator Beach"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146253"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "The Nutcracker",
@@ -64268,7 +66000,7 @@
     "url": "https://www.mccabes.com/product/gill-landry-opener-kiki-cavazos/",
     "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "other",
       "genre": [],
@@ -65636,6 +67368,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -65786,10 +67519,56 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "THE TOLEDO SHOW",
+    "date": "2026-12-06",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE TOLEDO SHOW"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146171"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
       "setting": [
         "bar"
       ],
@@ -66611,7 +68390,7 @@
     }
   },
   {
-    "title": "\"Tuesday Happenings\" hosted by Gerald Clayton",
+    "title": "“Tuesday Happenings”: Hosted by Gerald Clayton",
     "date": "2026-12-08",
     "start": "19:30",
     "venue": "Sam First",
@@ -66629,10 +68408,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "House-band set 7:30 PM, jam session 9:30-11 PM.",
-    "price": null,
+    "detail": "\"Tuesday Happenings\" is a weekly series curated by 7x GRAMMY-nominated pianist/composer Gerald Clayton. House band performs one set at 7:30pm followed by a jam session from 9:30-11pm.",
+    "price": "$22.4",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66640,6 +68419,52 @@
       ],
       "setting": [
         "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "THE NO CHASERS",
+    "date": "2026-12-08",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE NO CHASERS"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146243"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -67630,7 +69455,7 @@
     }
   },
   {
-    "title": "College Night at Sam First: USC dir. Katie Thiroux & CalArts dir. Vardan Ovsepian",
+    "title": "College Night at Sam First: USC dir. by Katie Thiroux  &  CalArts dir. by Vardan Ovsepian",
     "date": "2026-12-09",
     "start": "19:30",
     "venue": "Sam First",
@@ -67649,10 +69474,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": "Two sets (approx. 7:30 and 9:30 PM); doors 6 PM.",
-    "price": null,
+    "detail": "College Night is a program aimed at giving young musicians valuable performance experience, a chance to network with future colleagues on other campuses, and exposure to the wider Sam First family of artists and audiences.",
+    "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -67665,7 +69490,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "9Million & Graham Hunt, AZ Power",
@@ -67703,6 +69532,46 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "title": "COME SING WITH the BAND - Live Band Karaoke",
+    "date": "2026-12-09",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146248"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -67758,7 +69627,7 @@
     "category": "live_music",
     "genre": "Live Music",
     "lineup": [
-      "Harbour",
+      "HARBOUR",
       "The Silkies"
     ],
     "links": [
@@ -67789,7 +69658,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69386,7 +71255,7 @@
     "neighborhood": "Hollywood",
     "category": "electronic",
     "lineup": [
-      "Frost Children"
+      "FROST CHILDREN"
     ],
     "links": [
       {
@@ -69400,7 +71269,7 @@
     "detail": "Billed as the Afterlife afterparty.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -69413,7 +71282,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "A Love Supreme Electric Plays Coltrane and Sharrock",
@@ -69437,7 +71310,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69450,7 +71323,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Early Dog, Leafblower, Telesoniq",
@@ -69488,6 +71365,46 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "title": "7 A DREAMSCAPE",
+    "date": "2026-12-10",
+    "start": "21:00",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/141223"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -69923,7 +71840,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -70024,7 +71941,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -71935,7 +73852,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -71979,7 +73898,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -72022,7 +73943,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     }
@@ -72064,6 +73987,7 @@
       ],
       "scale": "hall",
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": "far",
@@ -72108,7 +74032,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     }
@@ -72488,7 +74414,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -72503,27 +74429,57 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/daft-disko-portland-or-tickets-1995670537299",
-    "title": "Daft Disko: Portland, OR",
+    "title": "\"Chick's Tunes: The Music of Chick Corea\" with Eric Scott Reed, Ralph Moore, Luca Alemanno & Marcello Carelli",
     "date": "2026-12-11",
-    "start": "2026-12-11T21:00:00-08:00",
-    "end": "2026-12-12",
-    "venue": "The Get Down",
-    "neighborhood": "Portland",
-    "address": "680 SE 6th Ave., Portland, OR 97214",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "13.33",
-    "detail": "Daft Disko returns to Portland!",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187593506%2F290918113901%2F1%2Foriginal.20260624-203547?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.987&fp-y=0.632&s=8c3bb42709776a2fa90a84666ac1d40a",
-    "url": "https://www.eventbrite.com/e/daft-disko-portland-or-tickets-1995670537299",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "Eric Scott Reed",
+      "Ralph Moore",
+      "Luca Alemanno",
+      "Marcello Carelli"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.samfirstbar.com/events/chicks-tunes-the-music-of-chick-corea-with-eric-scott-reed-ralph-moore-luca-alemanno-marcello-carelli"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "\"Chick’s Tunes\" is a heartfelt tribute to Chick Corea, emphasizing swing and the blues. Featuring tenor saxophonist Ralph Moore, Eric Scott Reed’s quartet revisits Corea’s compositions with reverence and passion, honoring his legacy while highlighting a new generation’s voices.",
+    "price": "$16.8",
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "tribute"
+      ],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -72994,7 +74950,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -74891,7 +76847,7 @@
       ],
       "scale": null,
       "vibe": [
-        "day-party"
+        "afterhours"
       ],
       "region": "hollywood",
       "near_home": false
@@ -76233,7 +78189,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -76248,7 +78204,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Birth-Tay Par-Tay",
@@ -76270,7 +78230,7 @@
     "detail": "Late-night party.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -76281,7 +78241,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Cult Classics Cinema Presents DREAMGIRLS",
@@ -76395,6 +78359,83 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "title": "Electrik Seoul: K-pop x EDM",
+    "date": "2026-12-12",
+    "start": null,
+    "venue": "Avalon Hollywood",
+    "neighborhood": "Hollywood",
+    "category": "multi",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://avalonhollywood.com/event/electrik-seoul-k-pop-x-edm-upcoming-edm-shows-nightlife-concerts-events-tonight-tomorrow-2026-dec-12-best-nightclub-near-me-hollywood-los-angeles/"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "title": "7 A DREAMSCAPE",
+    "date": "2026-12-12",
+    "start": "14:00",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/141230"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -76856,12 +78897,12 @@
   {
     "title": "Rose Bowl Flea Market Sunday, December 13, 2026",
     "date": "2026-12-13",
-    "start": "2026-12-13T05:00:00-08:00",
+    "start": "09:00",
     "venue": "Rose Bowl Stadium",
     "neighborhood": "Pasadena",
     "category": "general",
     "genre": null,
-    "lineup": null,
+    "lineup": [],
     "links": [
       {
         "source": "eventbrite",
@@ -76893,7 +78934,7 @@
       "region": "valley",
       "near_home": false
     },
-    "updated_at": "2026-11-13",
+    "updated_at": "2026-11-14",
     "changed_fields": [
       "start"
     ]
@@ -77326,7 +79367,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/fayuca-206466",
     "detail": "Live music.",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -78216,7 +80257,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -78229,7 +80270,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "The Mastersons & Friends",
@@ -78267,6 +80312,48 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "title": "THE TOLEDO SHOW",
+    "date": "2026-12-13",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE TOLEDO SHOW"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146172"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -78642,6 +80729,46 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "title": "ALL-STAR JAM SESSION BENEFIT",
+    "date": "2026-12-14",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146238"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -79194,7 +81321,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -79205,7 +81332,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "K-Pop Holiday Skate",
@@ -79241,6 +81372,48 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "title": "THE NO CHASERS",
+    "date": "2026-12-15",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE NO CHASERS"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146244"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -79820,7 +81993,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "far",
       "near_home": false
     },
@@ -79994,6 +82169,46 @@
         "18+"
       ],
       "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "title": "COME SING WITH the BAND - Live Band Karaoke",
+    "date": "2026-12-16",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146249"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
       "near_home": false
     }
   },
@@ -80359,17 +82574,28 @@
     ]
   },
   {
-    "source": "webfetch",
     "title": "Disney's The Lion King",
     "date": "2026-12-17",
     "start": null,
     "venue": "Hollywood Pantages",
     "neighborhood": "Hollywood",
-    "lineup": [],
     "category": "theater",
-    "price": null,
-    "url": "https://www.ticketmaster.com/disney-presents-the-lion-king-touring-tickets/artist/820969?venueId=90160",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.ticketmaster.com/disney-presents-the-lion-king-touring-tickets/artist/820969?venueId=90160"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
     "detail": "Engagement runs Dec 17, 2026-Feb 13, 2027.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-08-23",
     "last_seen": "2026-08-23",
     "tags": {
@@ -81828,7 +84054,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 18)",
     "date": "2026-12-18",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -82272,11 +84498,14 @@
       "type": "club",
       "genre": [
         "deep-house",
+        "melodic",
         "progressive"
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -82798,7 +85027,7 @@
       "webfetch"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Support: Airglo | Nightstalker | Skanka",
     "price": "$23+",
     "ra_pick": false,
     "afterhours": true,
@@ -83105,7 +85334,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -83148,7 +85379,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     }
@@ -83388,20 +85621,47 @@
     }
   },
   {
-    "source": "squarespace",
     "title": "Late Night Brunch ‍  ‍ (EP release show)   Uncle  Nova     7:00 pm    $10    Adv",
     "date": "2026-12-18",
     "start": "19:00",
     "venue": "The Smell",
     "neighborhood": "DTLA",
-    "lineup": [],
     "category": "live_music",
-    "price": null,
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "squarespace",
+        "url": "https://www.thesmell.org/events/friday-december-18-2026"
+      }
+    ],
+    "sources": [
+      "squarespace"
+    ],
+    "organizers": null,
+    "detail": "Late Night Brunch ‍ ‍ (EP release show) Uncle Nova 7:00 pm $10 Advance tickets available here.",
     "image": "https://images.squarespace-cdn.com/content/v1/651ce2ca967f580a448e4d46/1794636605507-VLAPCRHGM0AJWHJMOPA1/ISIMG-904506.jpeg",
-    "url": "https://www.thesmell.org/events/friday-december-18-2026",
-    "detail": "Late Night Brunch ‍  ‍ (EP release show)   Uncle  Nova     7:00 pm    $10    Advance tickets available    here   .",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk",
+        "experimental"
+      ],
+      "setting": [
+        "diy"
+      ],
+      "scale": "room",
+      "vibe": [
+        "album-release"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -84008,7 +86268,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/petty-or-not-a-tribute-to-tom-petty-the-heartbreakers-199223",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -84052,7 +86312,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 19)",
     "date": "2026-12-19",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -84338,7 +86598,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "eastside",
       "near_home": false
     },
@@ -84559,7 +86821,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "eastside",
       "near_home": false
     },
@@ -85411,7 +87675,9 @@
         "club"
       ],
       "scale": "hall",
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "hollywood",
       "near_home": false
     },
@@ -86975,6 +89241,48 @@
     }
   },
   {
+    "title": "THE TOLEDO SHOW",
+    "date": "2026-12-20",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE TOLEDO SHOW"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146173"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
     "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
     "date": "2026-12-23",
     "start": "19:30",
@@ -87314,6 +89622,46 @@
       "type": "live-music",
       "genre": [
         "jazz"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "COME SING WITH the BAND - Live Band Karaoke",
+    "date": "2026-12-23",
+    "start": "21:00",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146251"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
       ],
       "setting": [
         "bar"
@@ -87896,7 +90244,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -87909,7 +90257,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "World Ballet Company: The Nutcracker with a Live Orchestra ",
@@ -87954,6 +90306,46 @@
     },
     "image": "https://s1.ticketm.net/dam/a/71a/a73afb87-2be1-4938-8af0-6df9bd9e271a_SOURCE",
     "lineup_genre": "Dance"
+  },
+  {
+    "title": "ALL-STAR JAM SESSION BENEFIT",
+    "date": "2026-12-28",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146240"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "The Book of Mormon (Touring)",
@@ -88147,10 +90539,56 @@
     "detail": "Allman Brothers revival.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "THE NO CHASERS",
+    "date": "2026-12-29",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE NO CHASERS"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146246"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
       "setting": [
         "bar"
       ],
@@ -88587,6 +91025,46 @@
       "type": "live-music",
       "genre": [
         "jazz",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "COME SING WITH the BAND - Live Band Karaoke",
+    "date": "2026-12-30",
+    "start": "21:00",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146252"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
         "funk-soul"
       ],
       "setting": [
@@ -89875,7 +92353,9 @@
       ],
       "setting": [],
       "scale": "room",
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "dtla",
       "near_home": true
     },
@@ -90515,6 +92995,48 @@
     }
   },
   {
+    "title": "THE NO CHASERS",
+    "date": "2026-12-31",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE NO CHASERS"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146998"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
     "title": "The Book of Mormon (Touring)",
     "date": "2027-01-01",
     "start": "19:30",
@@ -91102,7 +93624,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -91185,7 +93709,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     }
@@ -91340,7 +93866,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/steely-dead-198443",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -93519,11 +96045,55 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
         "folk"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "HARVELLE'S PRESENTS",
+    "date": "2027-01-07",
+    "start": "21:00",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146672"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
       ],
       "setting": [
         "bar"
@@ -94525,7 +97095,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -94538,7 +97108,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Seth David (18 and Over)",
@@ -95790,7 +98364,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -95805,7 +98379,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Team Showcase - Season 13",
@@ -96354,7 +98932,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -96367,6 +98945,49 @@
       "scale": "bar",
       "vibe": [],
       "region": "westside",
+      "near_home": false
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
+  },
+  {
+    "title": "EXCURSION",
+    "date": "2026-11-23",
+    "start": null,
+    "venue": "The Baked Potato",
+    "neighborhood": "Studio City",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "EXCURSION"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://thebakedpotato.thundertix.com/events/271280"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": "PETER DENEFF - KEYS; VIK MOMJIAN - BASS; DAVID LIBMAN - DRUMS; BRUCE BABAD - SAX/FLUTE",
+    "price": "$25",
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
       "near_home": false
     }
   },
@@ -96663,7 +99284,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
-        "day-party"
+        "afterhours"
       ],
       "region": "far",
       "near_home": false
@@ -96699,6 +99320,48 @@
       "type": "live-music",
       "genre": [
         "jazz",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "THE TOLEDO SHOW",
+    "date": "2026-12-27",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE TOLEDO SHOW"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146174"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
         "funk-soul"
       ],
       "setting": [
@@ -97937,7 +100600,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -97952,27 +100615,49 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/divorced-dad-rock-night-club-decades-tickets-1994296303930",
     "title": "Divorced Dad Rock Night | Club Decades",
     "date": "2027-01-15",
-    "start": "2027-01-15T22:00:00-08:00",
-    "end": "2027-01-16T02:00:00-08:00",
+    "start": "22:00",
     "venue": "Boardner's by La Belle",
     "neighborhood": "Los Angeles",
-    "address": "1652 North Cherokee Avenue, Los Angeles, CA 90028",
-    "lat": null,
-    "lng": null,
     "category": "electronic",
-    "price_min": "18.91",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/divorced-dad-rock-night-club-decades-tickets-1994296303930"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
     "detail": "Divorced Dad Rock Night",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189062397%2F137015436972%2F1%2Foriginal.20260717-102650?w=940&auto=format%2Ccompress&q=75&sharp=10&s=0ab2fb89ab438d44382990b7ecc01292",
-    "url": "https://www.eventbrite.com/e/divorced-dad-rock-night-club-decades-tickets-1994296303930",
+    "price": "$18.91",
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
   },
   {
     "title": "SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour",
@@ -98380,7 +101065,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -98395,7 +101080,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour",
@@ -100104,7 +102793,7 @@
   {
     "title": "Yung Bae, Paulina Shafir, Owen Jackson",
     "date": "2027-01-22",
-    "start": "10pm-2am",
+    "start": "22:00",
     "venue": "613 Imperial St",
     "neighborhood": "Los Angeles",
     "category": "general",
@@ -100123,7 +102812,7 @@
     "organizers": null,
     "detail": "Yung Bae brings the disco, funk and city pop to ORIGIN Los Angeles.",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196403024%2F139732991620%2F1%2Foriginal.20261022-215435?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=e7b02b0d77b859ac45af143e4c3eb935",
-    "price": "$29.48-88.43",
+    "price": "$29.48",
     "ra_pick": false,
     "afterhours": true,
     "first_seen": "2026-10-25",
@@ -100377,10 +103066,10 @@
     "sources": [
       "webfetch"
     ],
-    "detail": null,
+    "detail": "Support: NINA J | WOOK LOGIK | LYON",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -100393,27 +103082,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
-  },
-  {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/origin-presents-yung-bae-tickets-2002311837607",
-    "title": "ORIGIN Presents Yung Bae",
-    "date": "2027-01-22",
-    "start": "2027-01-22T22:00:00-08:00",
-    "end": "2027-01-23T02:00:00-08:00",
-    "venue": "613 Imperial St",
-    "neighborhood": "Los Angeles",
-    "address": "613 Imperial Street, Los Angeles, CA 90021",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "29.48",
-    "detail": "Yung Bae brings the disco, funk and city pop to ORIGIN Los Angeles.",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196403024%2F139732991620%2F1%2Foriginal.20261022-215435?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=e7b02b0d77b859ac45af143e4c3eb935",
-    "url": "https://www.eventbrite.com/e/origin-presents-yung-bae-tickets-2002311837607",
-    "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -100974,7 +103647,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -101816,7 +104491,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "club",
       "genre": [
@@ -101829,7 +104504,11 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour",
@@ -102676,7 +105355,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -105807,7 +108486,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -105820,7 +108499,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Madds Buckley",
@@ -106372,6 +109055,48 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "title": "THE NO CHASERS",
+    "date": "2026-12-22",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [
+      "THE NO CHASERS"
+    ],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146245"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -107967,7 +110692,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-26",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -108490,7 +111215,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -108503,7 +111228,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Disney Presents The Lion King (Touring)",
@@ -109300,24 +112029,42 @@
     }
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/david-bowie-birthday-night-club-decades-tickets-1993657853307",
     "title": "David Bowie Birthday Night | Club Decades",
     "date": "2027-01-08",
-    "start": "2027-01-08T22:00:00-08:00",
-    "end": "2027-01-09T02:00:00-08:00",
+    "start": "22:00",
     "venue": "Boardner's by La Belle",
     "neighborhood": "Los Angeles",
-    "address": "1652 North Cherokee Avenue, Los Angeles, CA 90028",
-    "lat": null,
-    "lng": null,
     "category": "electronic",
-    "price_min": "18.91",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "eventbrite",
+        "url": "https://www.eventbrite.com/e/david-bowie-birthday-night-club-decades-tickets-1993657853307"
+      }
+    ],
+    "sources": [
+      "eventbrite"
+    ],
+    "organizers": null,
     "detail": "David Bowie Birthday Night",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1188597637%2F137015436972%2F1%2Foriginal.20260710-084447?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.934&fp-y=0.493&s=da20e48f2e11d7bc8c8fcf5102520190",
-    "url": "https://www.eventbrite.com/e/david-bowie-birthday-night-club-decades-tickets-1993657853307",
+    "price": "$18.91",
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-14"
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
   },
   {
     "title": "Disney Presents The Lion King (Touring)",
@@ -110446,7 +113193,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -110459,7 +113206,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Disney Presents The Lion King (Touring)",
@@ -112005,7 +114756,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -112018,7 +114769,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "The Music of The Doors with Peace Frog",
@@ -112042,7 +114797,7 @@
     "detail": "Doors tribute.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -112055,7 +114810,11 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Disney Presents The Lion King (Touring)",
@@ -113212,7 +115971,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -113225,7 +115984,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "MARK MACKAY Live Album Release",
@@ -114297,17 +117060,28 @@
     }
   },
   {
-    "source": "webfetch",
     "title": "The Bodyguard",
     "date": "2027-03-02",
     "start": null,
     "venue": "Hollywood Pantages",
     "neighborhood": "Hollywood",
-    "lineup": [],
     "category": "theater",
-    "price": null,
-    "url": "https://www.broadwayinhollywood.com/buy/seasonpackages",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://www.broadwayinhollywood.com/buy/seasonpackages"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
     "detail": "Engagement runs Mar 2-7, 2027.",
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
     "first_seen": "2026-08-23",
     "last_seen": "2026-08-23",
     "tags": {
@@ -114739,7 +117513,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -115006,7 +117780,7 @@
     "first_seen": "2026-11-13",
     "last_seen": "2026-11-14",
     "tags": {
-      "type": "stage",
+      "type": "workshop",
       "genre": [],
       "setting": [
         "theater"
@@ -116499,7 +119273,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -116512,7 +119286,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "EDC Mexico",
@@ -118363,7 +121141,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -118374,7 +121152,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "A Swingin' Jazz Affair (Matt Forbes, Jesse Goddard, David Moscoe Trio)",
@@ -119580,7 +122362,7 @@
     "detail": "Low Cut Connie frontman, solo.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -119593,7 +122375,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Mike Love",
@@ -119617,7 +122403,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -119628,7 +122414,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Fink",
@@ -121354,7 +124144,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-14",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -121365,7 +124155,11 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "The Best of Doo Wop Platinum Edition",
@@ -127253,6 +130047,86 @@
         "18+"
       ],
       "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "title": "DREW LAWRENCE PRESENTS",
+    "date": "2026-12-07",
+    "start": "18:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/145164"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "title": "ALL-STAR JAM SESSION BENEFIT",
+    "date": "2026-12-07",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146237"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
       "near_home": false
     }
   },
@@ -136526,6 +139400,46 @@
     "changed_fields": [
       "lineup"
     ]
+  },
+  {
+    "title": "ALL-STAR JAM SESSION BENEFIT",
+    "date": "2026-12-21",
+    "start": "21:30",
+    "venue": "Harvelle's",
+    "neighborhood": "Santa Monica",
+    "category": "live_music",
+    "genre": null,
+    "lineup": [],
+    "links": [
+      {
+        "source": "webfetch",
+        "url": "https://santamonica.harvelles.com/events/146239"
+      }
+    ],
+    "sources": [
+      "webfetch"
+    ],
+    "organizers": null,
+    "detail": null,
+    "price": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "first_seen": "2026-11-14",
+    "last_seen": "2026-11-14",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "funk-soul"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "DIIV",
