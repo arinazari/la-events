@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/14/2026 deterministically (no API). 135 candidates. Signals: big-venue 113, festival 20, tracked 2, editorial 1._
+_Generated 11/15/2026 deterministically (no API). 131 candidates. Signals: big-venue 110, festival 19, tracked 2, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -77,7 +77,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sat 12/19 | 2 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-19-2026/event/0B00648CEFEF57BB) |
 | Sun 12/20 | 1 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-20-2026/event/0B00648CEFF257C5) |
 
 ## March 2027
@@ -116,14 +115,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Mon 5/3 | 4 | Sam Fender: North America Tour '27 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/sam-fender-north-america-tour-27-los-angeles-california-05-03-2027/event/0900656AEBAC19FB) |
 | Tue 5/4 | 4 | LOLA YOUNG - Everything Begins | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lola-young-everything-begins-los-angeles-california-05-04-2027/event/09006542913F8147) |
 | Sat 5/8 | 4 | Madness | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/madness-hollywood-california-05-08-2027/event/0B00656CE05262ED) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sat 12/19 | 3 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-19-2026/event/090064BBE48FEE25) |
-| Sat 12/19 | 3 | Stevie Wonder Songs in The Key of Life Performances 50th A | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/stevie-wonder-songs-in-the-key-inglewood-california-12-19-2026/event/09006524823041CB) |
-| Sat 12/19 | 3 | Mike Sherm | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/mike-sherm-inglewood-california-12-19-2026/event/0A006535A88C8A26) |
 
 ## January 2027
 
