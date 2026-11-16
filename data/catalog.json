@@ -356,7 +356,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-23",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -1112,7 +1112,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -1142,7 +1142,11 @@
     "lineup": [
       "Nicole Scherzinger",
       "Jason Mraz",
-      "American Authors"
+      "Mark Ambor",
+      "Jamie Miller",
+      "American Authors",
+      "Kenedi Anderson",
+      "JYT"
     ],
     "links": [
       {
@@ -1153,23 +1157,29 @@
     "sources": [
       "editorial"
     ],
-    "detail": "Free tree lighting hosted by Lance Bass with live performances, Cirque du Soleil's 'O', drone show, fireworks and Santa.",
-    "price": null,
+    "detail": "Free tree lighting with performances by Nicole Scherzinger, Jason Mraz, Mark Ambor, Jamie Miller, Cirque du Soleil's \"O,\" American Authors, Kenedi Anderson and JYT.",
+    "price": "Free",
     "editorial_mentions": [
       "LAist",
       "UncoverLA"
     ],
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-13",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "other",
       "genre": [],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "free"
+      ],
       "region": null,
       "near_home": false
-    }
+    },
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "JOEY NAVARRO LATIN FUNK BAND",
@@ -1293,6 +1303,39 @@
       ],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Cj Hendry: Flower Shop",
+    "date": "2026-11-16",
+    "start": null,
+    "venue": "Rose Room, 6 Rose Ave.",
+    "neighborhood": "Venice",
+    "lineup": [
+      "Cj Hendry"
+    ],
+    "category": "community",
+    "price": "Free",
+    "image": null,
+    "url": "https://flowershop.art/",
+    "detail": "Free Cj Hendry art pop-up selling felt flowers (from $10); runs through Sat 11/21.",
+    "editorial_mentions": [
+      "LAist"
+    ],
+    "first_seen": "2026-11-16",
+    "last_seen": "2026-11-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "pop-up",
+        "free"
+      ],
+      "region": "westside",
+      "near_home": false
     }
   },
   {
@@ -1507,7 +1550,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -1570,7 +1613,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -2900,7 +2944,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -2939,7 +2983,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -2984,7 +3028,7 @@
     "detail": "Sasha Berliner's critically acclaimed albums, have established her as a bold voice in modern jazz, known for blending genres, political themes and experimental textures. House band performs one set at 7:30 PM followed by a jam session at 9:30 PM.",
     "price": "$22.4",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -3030,7 +3074,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "organizers": null,
     "genre": null,
     "ra_pick": false,
@@ -3776,7 +3820,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -3986,7 +4031,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/fet-ish-workshop-nov2026",
     "detail": "WORKSHOP | $25 | 18+ | Fet-ish is a 5 week course on kink, bdsm, and fetish taught by Grace Vee, a Pro Domme of 8 years. The full course will cover everything from safety and protocol, to safe play and building a scene including demonstrations and hands on exercises.   July 8th - Intro to Kink & Ter",
     "first_seen": "2026-08-11",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -5547,7 +5592,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -5582,7 +5627,7 @@
     "detail": "Live-band karaoke.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -5625,7 +5670,7 @@
     "detail": "College Night is a program aimed at giving young musicians valuable performance experience, a chance to network with future colleagues on other campuses, and exposure to the wider Sam First family of artists and audiences.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -5669,7 +5714,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -6515,7 +6560,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -8577,7 +8623,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -8615,7 +8661,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -8652,7 +8698,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -8698,7 +8744,7 @@
     "detail": "Having recently completed the recording of her debut Album We Channel From the Source Executively produced by South African Pianist & Composer Nduduzo Makhathini; Kerani, accompanied by her quintet, invites the listeners to unite in sound, as she channels from the source.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -8737,7 +8783,7 @@
     "detail": "Line-dancing night.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -8996,17 +9042,20 @@
     "start": "18:00",
     "venue": "Los Angeles Union Station (Ticket Concourse)",
     "neighborhood": "DTLA",
-    "lineup": [],
+    "lineup": [
+      "Mariachi Ausente",
+      "Lizzy & the Triggermen"
+    ],
     "category": "community",
     "price": "Free",
     "image": null,
     "url": "https://unionstationla.com/happenings/11th-annual-tree-lighting-ceremony-2026/",
-    "detail": "Union Station's 11th annual tree lighting ceremony in the Ticket Concourse, 6-8pm; free.",
+    "detail": "Free tree lighting 6-8pm hosted by Charles Phoenix, with Mariachi Ausente, Lizzy & the Triggermen, stilt walkers and Santa.",
     "editorial_mentions": [
       "We Like LA"
     ],
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "other",
       "genre": [],
@@ -9017,7 +9066,13 @@
       ],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Batman Returns",
@@ -9513,7 +9568,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -9902,7 +9957,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -10817,7 +10873,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/jammy-buffet-204889",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "other",
       "genre": [],
@@ -14499,7 +14555,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -14542,7 +14598,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -14585,7 +14641,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -14623,7 +14679,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -14667,7 +14723,7 @@
     "detail": "Ben Williams is renowned for his soulful bass lines, innovative compositions, and his work with Pat Metheny, Herbie Hancock, David Sanborn, Robert Glasper, Kamasi Washington & Dianne Reeves. Joins Williams and his exciting new trio for a live recording for Sam First Records!",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -15026,7 +15082,7 @@
     "url": "https://www.thecircleoc.com/upcoming-events/hangover-last-call",
     "detail": "3AM PARTIES PRESENTS THE HANGOVER: LAST CALL! One last night before Thanksgiving break. This is the one you don't wanna miss",
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -15039,7 +15095,13 @@
       "vibe": [],
       "region": "far",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "FRNDSGVNG On Oxford",
@@ -16125,7 +16187,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -16543,7 +16605,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -20897,7 +20960,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -20935,7 +20998,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -20979,7 +21042,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21020,7 +21083,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21058,7 +21121,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21102,7 +21165,7 @@
     "detail": "Ben Williams is renowned for his soulful bass lines, innovative compositions, and his work with Pat Metheny, Herbie Hancock, David Sanborn, Robert Glasper, Kamasi Washington & Dianne Reeves. Joins Williams and his exciting new trio for a live recording for Sam First Records!",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21141,7 +21204,7 @@
     "detail": "Grateful Dead brunch session.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -21180,7 +21243,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -21219,7 +21282,7 @@
     "detail": "Late-night set.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -21879,7 +21942,7 @@
       "We Like LA"
     ],
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "other",
       "genre": [],
@@ -21892,7 +21955,13 @@
       ],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "source": "editorial",
@@ -21911,7 +21980,7 @@
       "We Like LA"
     ],
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "other",
       "genre": [],
@@ -21922,7 +21991,13 @@
       ],
       "region": "valley",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "source": "editorial",
@@ -22639,7 +22714,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -22751,7 +22826,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -24128,7 +24204,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -25156,7 +25233,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -25196,7 +25273,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -25237,7 +25314,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -25275,7 +25352,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -25315,7 +25392,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -25591,17 +25668,19 @@
     "start": "11:00",
     "venue": "Memorial Park Bandshell",
     "neighborhood": "Old Pasadena",
-    "lineup": [],
+    "lineup": [
+      "Spaghetti Cumbia"
+    ],
     "category": "community",
     "price": "Free",
     "image": null,
     "url": "https://www.pasadenadoodahparade.info/",
-    "detail": "Pasadena Doo Dah's Love-In at the Memorial Park Bandshell, 11am to sunset; free.",
+    "detail": "Free Doo Dah gathering 11am-sunset, headlined by Spaghetti Cumbia plus local acts.",
     "editorial_mentions": [
       "We Like LA"
     ],
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "other",
       "genre": [],
@@ -25613,7 +25692,13 @@
       ],
       "region": null,
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Infinite Flow 11/22",
@@ -25695,6 +25780,36 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Best Friends Super Adoption",
+    "date": "2026-11-22",
+    "start": null,
+    "venue": "Rose Bowl Stadium",
+    "neighborhood": "Pasadena",
+    "lineup": [],
+    "category": "community",
+    "price": "Free",
+    "image": null,
+    "url": "https://bestfriends.org/los-angeles/pet-super-adoption",
+    "detail": "Free pet adoption event; RSVP for a free tote. Runs Nov 21-22.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-16",
+    "last_seen": "2026-11-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": "arena",
+      "vibe": [
+        "free"
+      ],
+      "region": "valley",
+      "near_home": false
     }
   },
   {
@@ -25827,7 +25942,10 @@
       "near_home": true
     },
     "image": "https://s1.ticketm.net/dam/a/668/8ce31376-d3ab-43ce-869b-dcc3a8749668_SOURCE",
-    "lineup_genre": "Rock"
+    "lineup_genre": "Rock",
+    "editorial_mentions": [
+      "We Like LA"
+    ]
   },
   {
     "title": "Los Tucanes de Tijuana (21+)",
@@ -25950,7 +26068,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -26104,7 +26222,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -27002,7 +27121,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -27040,7 +27159,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27080,7 +27199,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27117,7 +27236,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27162,7 +27281,7 @@
     "detail": "Led by acclaimed alto saxophonist, composer, and bandleader Sarah Hanahan, the Sarah Hanahan Quartet brings a powerful, soulful approach to contemporary jazz, rooted in the traditions of swing and bebop while embracing a bold, modern sensibility.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27699,7 +27818,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -28669,7 +28789,7 @@
   {
     "title": "Orange County: DION TIMMER — Midnight Gravy @ The Circle OC [18+]",
     "date": "2026-11-25",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -29579,7 +29699,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -29614,7 +29734,7 @@
     "detail": "Live-band karaoke.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -29659,7 +29779,7 @@
     "detail": "Led by acclaimed alto saxophonist, composer, and bandleader Sarah Hanahan, the Sarah Hanahan Quartet brings a powerful, soulful approach to contemporary jazz, rooted in the traditions of swing and bebop while embracing a bold, modern sensibility.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -30499,7 +30619,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -30534,7 +30654,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -31015,7 +31135,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -33428,7 +33549,10 @@
       "vibe": [],
       "region": null,
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "Discover LA"
+    ]
   },
   {
     "title": "Club Penguin Rave w/ Melissa Brooks, Treekat, Maymungsucks",
@@ -33660,7 +33784,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -33701,7 +33825,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -33741,7 +33865,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -33776,7 +33900,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -33817,7 +33941,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -33862,7 +33986,7 @@
     "detail": "Standing together as two of the most undeniable voices emerging from Los Angeles’ creative music landscape, the classmates-turned-collaborators join forces to co-lead a project entitled \"Now Then,\" aiming to pay homage to this music’s rich history while simultaneously ushering in a new generation.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -33903,7 +34027,7 @@
     "detail": "Fleetwood Mac tribute.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -33944,7 +34068,7 @@
     "detail": "Late-night show.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -34830,7 +34954,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -38025,7 +38150,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -38063,7 +38188,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -38103,7 +38228,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38143,7 +38268,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38182,7 +38307,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38223,7 +38348,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38268,7 +38393,7 @@
     "detail": "Standing together as two of the most undeniable voices emerging from Los Angeles’ creative music landscape, the classmates-turned-collaborators join forces to co-lead a project entitled \"Now Then,\" aiming to pay homage to this music’s rich history while simultaneously ushering in a new generation.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38307,7 +38432,7 @@
     "detail": "Grateful Dead brunch session.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -38346,7 +38471,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -38753,7 +38878,7 @@
     "url": "https://www.thecircleoc.com/upcoming-events/thanksgiving-holiday-weekend-bash",
     "detail": "Thanksgiving is for family… but SATURDAY NIGHT IS FOR PARTYING! Get ready for an EPIC holiday weekend at THE CIRCLE OC with an incredible DJ lineup!",
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -38766,7 +38891,13 @@
       "vibe": [],
       "region": "far",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "Coca-Cola Flow Fest",
@@ -38865,7 +38996,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -39025,7 +39157,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -39634,7 +39766,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -40305,7 +40438,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -40347,7 +40480,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40387,7 +40520,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -40428,7 +40561,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40465,7 +40598,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40505,7 +40638,7 @@
     "detail": "Salsa DJ brunch.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40839,6 +40972,37 @@
       "vibe": [],
       "region": "eastside",
       "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Hollywood Christmas Parade",
+    "date": "2026-11-29",
+    "start": "18:00",
+    "venue": "Hollywood Blvd at Orange Dr",
+    "neighborhood": "Hollywood",
+    "lineup": [],
+    "category": "community",
+    "price": "Free",
+    "image": null,
+    "url": "https://thehollywoodchristmasparade.org/",
+    "detail": "Free parade starting on Hollywood Blvd at Orange Dr, east to Vine, then down to Sunset.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-16",
+    "last_seen": "2026-11-16",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "sunset",
+        "free"
+      ],
+      "region": "hollywood",
+      "near_home": false
     }
   },
   {
@@ -41242,7 +41406,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41371,7 +41535,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41475,7 +41639,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -42204,7 +42369,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -42244,7 +42409,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -42284,7 +42449,7 @@
     "detail": "GRAMMY-winning vocalist and original Manhattan Transfer member Janis Siegel celebrates The Art of Vocalese, her 16th solo album and first major project following the group’s farewell. Joined by pianist and arranger John Di Martino, Siegel honors the rich tradition of vocalese.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -42438,7 +42603,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -43398,7 +43564,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43440,7 +43606,7 @@
     "detail": "Tristan Cappel presents his second album \"North Star\" with a superstar ensemble. Join them to hear a collection of singable melodies and memorable compositions.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43682,7 +43848,7 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43906,7 +44072,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -45470,7 +45637,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -45509,7 +45676,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45549,7 +45716,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -45572,7 +45739,9 @@
     "venue": "Avalon Hollywood",
     "neighborhood": "Hollywood",
     "category": "electronic",
-    "lineup": [],
+    "lineup": [
+      "Dispatch"
+    ],
     "links": [
       {
         "source": "webfetch",
@@ -45585,7 +45754,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -46295,7 +46464,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -47061,7 +47231,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -49117,7 +49287,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -49158,7 +49328,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49198,7 +49368,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -49235,7 +49405,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -49280,7 +49450,7 @@
     "detail": "Guitarists Peter Bernstein and Graham Dechter unite two generations of distinctive jazz voices. Joined by Jacob Mann, Alex Frank, and Ryan Shaw, the ensemble brings together deep tradition, masterful musicianship, and dynamic interplay for an exciting evening of jazz.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -50145,7 +50315,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -50552,7 +50723,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -50983,7 +51154,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/fraxiommusicshow-9-9-26",
     "detail": "MUSIC | $15 | ALL AGES | Fraxiom brings The Adventures in Question to Junior High. Chicago hyperpop and rap, half of Food House, out on the road behind the debut album The Adventures of Jester Jackalope. Local support from mood killer and DJ PuppyWuppy. Doors at 7 PM, all ages, everybody welcome.   ",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53137,7 +53308,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -53175,7 +53346,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53217,7 +53388,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53259,7 +53430,7 @@
     "detail": "Guitarists Peter Bernstein and Graham Dechter unite two generations of distinctive jazz voices. Joined by Jacob Mann, Alex Frank, and Ryan Shaw, the ensemble brings together deep tradition, masterful musicianship, and dynamic interplay for an exciting evening of jazz.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53300,7 +53471,7 @@
     "detail": "Rolling Stones tribute.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -53835,7 +54006,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -54276,7 +54448,7 @@
     "url": "https://www.mccabes.com/product/gill-landry-opener-kiki-cavazos/",
     "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "other",
       "genre": [],
@@ -55254,7 +55426,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -55682,7 +55855,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -55722,7 +55895,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -55762,7 +55935,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -55801,7 +55974,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -55969,7 +56142,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -56656,7 +56829,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -56693,7 +56866,7 @@
     "detail": "\"Tuesday Happenings\" is a weekly series curated by 7x GRAMMY-nominated pianist/composer Gerald Clayton. House band performs one set at 7:30pm followed by a jam session from 9:30-11pm.",
     "price": "$22.4",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -56769,6 +56942,36 @@
     "detail": "Scarlet Bandit    Scissorkiss    Boys Lie      8:30 pm    $15    Advance tickets available    here   .",
     "first_seen": "2026-11-15",
     "last_seen": "2026-11-15",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk",
+        "experimental"
+      ],
+      "setting": [
+        "diy"
+      ],
+      "scale": "room",
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "squarespace",
+    "title": "Pablo House presents…      Scarlet Bandit    Scissorkiss    Boys Lie      8:30 p",
+    "date": "2026-12-08",
+    "start": "20:30",
+    "venue": "The Smell",
+    "neighborhood": "DTLA",
+    "lineup": [],
+    "category": "live_music",
+    "price": null,
+    "image": "https://images.squarespace-cdn.com/content/v1/651ce2ca967f580a448e4d46/1794714344812-WG0OS5Y3AYZ9GHKMZ0DP/ISIMG-844434.jpeg",
+    "url": "https://www.thesmell.org/events/tuesday-december-8-2026",
+    "detail": "Pablo House presents…      Scarlet Bandit    Scissorkiss    Boys Lie      8:30 pm    $15    Advance tickets available    here   .",
+    "first_seen": "2026-11-16",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57749,7 +57952,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57789,7 +57992,7 @@
     "detail": "College Night is a program aimed at giving young musicians valuable performance experience, a chance to network with future colleagues on other campuses, and exposure to the wider Sam First family of artists and audiences.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57970,7 +58173,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -59505,7 +59708,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -59546,7 +59749,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -59581,7 +59784,7 @@
     "detail": "Billed as the Afterlife afterparty.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -59622,7 +59825,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -60152,7 +60355,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -60253,7 +60456,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -62652,7 +62855,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -62692,7 +62895,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -62729,7 +62932,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -62779,7 +62982,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -63382,7 +63585,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65993,7 +66196,7 @@
   {
     "title": "Epic: Winter Wonderland w/Chant, Levtation, Tree Haus, Meirlin",
     "date": "2026-12-12",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -66512,7 +66715,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -66550,7 +66753,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -66590,7 +66793,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66627,7 +66830,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66668,7 +66871,7 @@
     "detail": "Late-night party.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -66823,7 +67026,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "other",
       "genre": [],
@@ -66927,7 +67130,7 @@
     "url": "https://www.samfirstbar.com/events/chicks-tunes-the-music-of-chick-corea-with-eric-scott-reed-ralph-moore-luca-alemanno-marcello-carelli-2",
     "detail": "Doors 6:00 PM; music around 7:30 PM and 9:30 PM. Tribute to Chick Corea's music (second night).",
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66942,7 +67145,13 @@
       ],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "DragonForce: Inhuman Rampage 20th Anniversary",
@@ -67873,7 +68082,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/fayuca-206466",
     "detail": "Live music.",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -68585,7 +68794,8 @@
       "near_home": true
     },
     "editorial_mentions": [
-      "Time Out"
+      "Time Out",
+      "Time Out LA"
     ]
   },
   {
@@ -68689,7 +68899,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -68729,7 +68939,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -68766,7 +68976,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69396,7 +69606,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-19",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69831,7 +70041,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69869,7 +70079,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -69957,6 +70167,37 @@
       ],
       "setting": [
         "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "webfetch",
+    "title": "\"Tuesday Happenings\": Hosted by Gerald Clayton",
+    "date": "2026-12-15",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "lineup": [
+      "Gerald Clayton"
+    ],
+    "category": "live_music",
+    "price": null,
+    "image": null,
+    "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-gerald-clayton-79",
+    "detail": "House band 7:30 PM, jam session 9:30-11 PM.",
+    "first_seen": "2026-11-16",
+    "last_seen": "2026-11-16",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
       ],
       "scale": "bar",
       "vibe": [],
@@ -70660,7 +70901,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -70702,7 +70943,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -71970,7 +72211,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -71999,7 +72240,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-dec17-chelsie",
     "detail": "GUEST ARTIST WORKSHOP | $35 | AGES 16+ | Join resident Clay Artist, Chelsie Rivera, for this hands-on beginner ceramic workshop. Students will learn how to build altars!  Great for those who are looking for access to ceramics, clay friends, or sharpening your skill set! No experience necessary. No r",
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -72012,7 +72253,13 @@
       ],
       "region": "valley",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "NUTCRACKER! Magical Christmas Ballet",
@@ -72628,7 +72875,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 18)",
     "date": "2026-12-18",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -74104,7 +74351,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -74217,7 +74464,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -74959,7 +75206,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/petty-or-not-a-tribute-to-tom-petty-the-heartbreakers-199223",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -75003,7 +75250,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 19)",
     "date": "2026-12-19",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -76866,7 +77113,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -76904,7 +77151,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -76924,7 +77171,7 @@
   {
     "title": "WASTED: FUNTCASE",
     "date": "2026-12-19",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -77944,7 +78191,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -77985,7 +78232,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -78148,7 +78395,10 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "editorial_mentions": [
+      "Time Out LA"
+    ]
   },
   {
     "title": "Silverlake Flea",
@@ -78520,7 +78770,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79108,7 +79358,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79147,7 +79397,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -79351,7 +79601,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1798603200000",
     "detail": null,
     "first_seen": "2026-08-31",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79405,7 +79655,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -79442,7 +79692,7 @@
     "detail": "Allman Brothers revival.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -79923,7 +80173,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -81897,7 +82147,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -82784,7 +83034,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/steely-dead-198443",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -84967,7 +85217,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -86017,7 +86267,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -87286,7 +87536,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -87854,7 +88104,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -88241,7 +88491,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -88456,7 +88706,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-14",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -89526,7 +89776,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -90037,7 +90287,7 @@
     "detail": "Sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -92041,7 +92291,7 @@
     "detail": "Support: NINA J | WOOK LOGIK | LYON",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -93461,7 +93711,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "club",
       "genre": [
@@ -94325,7 +94575,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -97460,7 +97710,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -97724,7 +97974,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -97837,7 +98087,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1797998400000",
     "detail": null,
     "first_seen": "2026-08-24",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -97980,7 +98230,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -99666,7 +99916,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-26",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -100189,7 +100439,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -100441,7 +100691,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -100512,7 +100762,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1799208000000",
     "detail": null,
     "first_seen": "2026-09-07",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -101189,7 +101439,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-23",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -101352,7 +101602,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-28",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -102205,7 +102455,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -102505,7 +102755,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -103768,7 +104018,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -103809,7 +104059,7 @@
     "detail": "Doors tribute.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -105024,7 +105274,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -105501,7 +105751,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -106390,7 +106640,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -106566,7 +106816,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -106790,7 +107040,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -108326,7 +108576,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -110237,7 +110487,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -110403,7 +110653,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -111458,7 +111708,7 @@
     "detail": "Low Cut Connie frontman, solo.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -111499,7 +111749,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -112118,7 +112368,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -113240,7 +113490,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -116707,6 +116957,35 @@
     }
   },
   {
+    "source": "ics",
+    "title": "MILK CRATE MIC",
+    "date": "2027-03-16",
+    "start": "20:00",
+    "venue": "Maui Sugar Mill Saloon",
+    "neighborhood": "Tarzana",
+    "lineup": [],
+    "category": "live_music",
+    "price": null,
+    "url": "https://tockify.com/sugarmillsaloon/detail/1721/1805252400000",
+    "detail": "",
+    "first_seen": "2026-11-16",
+    "last_seen": "2026-11-16",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "blues",
+        "rock"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
     "title": "Twilight In Concert",
     "date": "2027-03-18",
     "start": "19:00",
@@ -119172,7 +119451,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-15",
+    "last_seen": "2026-11-16",
     "tags": {
       "type": "live-music",
       "genre": [],

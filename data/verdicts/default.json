@@ -52499,13 +52499,13 @@
       "score_at_judge": 10
     },
     "a35645a885f8": {
-      "tier": "great",
-      "adjust": 1,
-      "why": "Rick Wilhite is a Detroit house elder from the Moodymann/Theo Parrish circle, and SEEPS (strong affinity) adds NYC disco-house. The venue is TBA, so it's a small gamble.",
-      "confidence": "med",
-      "judged_at": "2026-11-14T13:23:36",
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "Rick Wilhite is Detroit deep-house royalty in the Moodymann/Theo Parrish circle, a rare LA booking, with SEEPS (a Spotify strong) on a TBA late-night bill. Build the Saturday around it.",
+      "confidence": "high",
+      "judged_at": "2026-11-16T13:16:59",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 10
     },
     "c9505e7363e5": {
       "tier": "great",
@@ -52895,6 +52895,54 @@
       "judged_at": "2026-11-15T13:17:51",
       "input_version": 2,
       "score_at_judge": 4
+    },
+    "b314b7665214": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "TBA DTLA warehouse with a real techno bill: Aundreja is a rising hard-techno/trance name, John Bryars plays acid/electro, and Katie Rex brings dark hardgroove. It leans harder than your groove sweet spot, but it's a legit underground night.",
+      "confidence": "med",
+      "judged_at": "2026-11-16T13:16:59",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "6d986d65d6aa": {
+      "tier": "solid",
+      "lane": "club:afters",
+      "adjust": -1,
+      "why": "Free DTLA afters with no lineup listed. It's fine for a late-night wander but there's nothing to vet.",
+      "confidence": "low",
+      "judged_at": "2026-11-16T13:16:59",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "f9d0c0b72940": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Free secret-location hard techno billed as a girls night out, with no lineup. Hard techno isn't quite the groove lane, and the billing suggests a party night more than a selector night.",
+      "confidence": "low",
+      "judged_at": "2026-11-16T13:16:59",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "22866c0ed8c8": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "18+ Plur Eventz holiday EDM in Commerce, headlined by Nightstalker. That's the production-over-selection rave format you avoid, and it's far from home.",
+      "confidence": "med",
+      "judged_at": "2026-11-16T13:16:59",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "6d6a0fd76d23": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "Slayyyter album-release night with DJ French is a pop/queer-leaning party at a small bar, not a house or techno night. The score read 'electronic' off the DJ billing.",
+      "confidence": "med",
+      "judged_at": "2026-11-16T13:16:59",
+      "input_version": 2,
+      "score_at_judge": 6
     }
   }
 }

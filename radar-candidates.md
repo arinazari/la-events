@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/15/2026 deterministically (no API). 131 candidates. Signals: big-venue 110, festival 19, tracked 2, editorial 1._
+_Generated 11/16/2026 deterministically (no API). 131 candidates. Signals: big-venue 111, festival 18, tracked 2, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -72,17 +72,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 3/19 | 3 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | The Wiltern | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-los-angeles-california-03-19-2027/event/0900654CF004D2A7) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Sun 12/20 | 1 | Pacific Festival Ballet - The Nutcracker | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-the-nutcracker-thousand-oaks-california-12-20-2026/event/0B00648CEFF257C5) |
-
-## March 2027
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Sat 3/6 | 1 | Happy Daps Fest - Day 1 | The Observatory | festival | [link](https://www.ticketmaster.com/happy-daps-fest-day-1-santa-ana-california-03-06-2027/event/09006564DF5A0FF1) |
 | Fri 3/26 | 1 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-anaheim-california-03-26-2027/event/0900654BE0A3A30A) |
 | Sun 3/7 | 0 | Happy Daps Fest - 2 Day Pass | The Observatory | festival | [link](https://www.ticketmaster.com/happy-daps-fest-day-2-santa-ana-california-03-07-2027/event/09006564DFBF10C7) |
@@ -183,12 +172,13 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 5/1 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-05-01-2027/event/0B00652EB5864AF8) |
 | Sat 5/1 | 3 | Ha*Ash | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Fri 5/14 | 3 | KCRW Presents Panchiko  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-panchiko-inglewood-california-05-14-2027/event/090065579B59B57F) |
+| Sat 5/15 | 3 | TINASHE | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1664424/tinashe-tickets) |
 
 ## December 2026
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Sun 12/20 | 2 | Gracie Abrams: The Look at My Life Tour presented by Capit | Kia Forum | big-venue | [link](https://www.ticketmaster.com/gracie-abrams-the-look-at-my-inglewood-california-12-20-2026/event/090064BBE49DEE4D) |
 | Tue 12/22 | 2 | Pentatonix: Christmas in the City Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/pentatonix-christmas-in-the-city-tour-inglewood-california-12-22-2026/event/09006504E828CC6A) |
 | Thu 12/31 | 2 | Flo Rida - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 
