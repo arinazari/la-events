@@ -1,9 +1,9 @@
 [
  {
-  "title": "LA CASITA Pop Up  In L.A. Thanksgivings Eve Live On Stage Abdul Bunny",
-  "date": "2026-11-25",
-  "start": "21:00",
-  "venue": "TBA (drops after RSVP/approval)",
+  "title": "Last Call Sundays",
+  "date": "2026-11-22",
+  "start": "22:00",
+  "venue": "The Association",
   "neighborhood": null,
   "category": "party",
   "genre": null,
@@ -11,20 +11,20 @@
   "links": [
    {
     "source": "posh",
-    "url": "https://posh.vip/e/la-casita-wed-25-thanksgivings-eve-live-on-stage-abdul-bunny"
+    "url": "https://posh.vip/e/last-call-sundays-2026-11-23-10-0"
    }
   ],
   "sources": [
    "posh"
   ],
-  "organizers": "oc latin party",
+  "organizers": "ONDEMAND EVENTS",
   "detail": null,
-  "image": "https://images.posh.vip/originals/6aefe0733939373720fd7d10",
-  "price": "$15",
+  "image": "https://images.posh.vip/originals/6afb7346a9ed517d95626d52",
+  "price": "free",
   "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
+  "afterhours": true,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
   "tags": {
    "type": "club",
    "genre": [
@@ -33,46 +33,57 @@
    "setting": [],
    "scale": null,
    "vibe": [
-    "pop-up",
-    "tba-location"
+    "free"
    ],
    "region": null,
    "near_home": false
   },
-  "score": 3,
-  "rating": 2,
+  "score": 4,
+  "rating": 3,
   "reasons": [
-   "+3 party (high interest)"
+   "+3 party (high interest)",
+   "+1 afterhours / late start"
   ],
-  "iso_date": "2026-11-25",
-  "id": "d89d88eec42a"
+  "iso_date": "2026-11-22",
+  "id": "667e4055b758"
  },
  {
-  "title": "The Asphalt Jungle on 35mm",
-  "date": "2026-11-29",
-  "start": "16:00",
-  "venue": "Vidiots",
-  "neighborhood": "Eagle Rock",
+  "title": "Paper Tiger 35mm",
+  "date": "2026-11-23",
+  "start": "19:30",
+  "venue": "Vista Theater",
+  "neighborhood": "Los Feliz",
   "category": "film",
   "genre": null,
   "lineup": [],
   "links": [
    {
-    "source": "vidiots",
-    "url": "https://vidiotsfoundation.org/showtimes/the-asphalt-jungle-11-29-26-400-pm/"
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4368?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "12pm"
+   },
+   {
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4375?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "3:30pm"
+   },
+   {
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4376?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "7:30pm"
    }
   ],
   "sources": [
-   "vidiots"
+   "vista"
   ],
   "organizers": null,
-  "detail": null,
-  "image": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/249/2026/10/19125934/8xsUnT0P2fJWQv9jGDhs3i9Zx2l.jpg",
+  "detail": "35MM",
+  "image": "https://ticketing.uswest.veezi.com/Media/Poster?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww&code=0000003512",
   "price": null,
   "ra_pick": false,
   "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
   "tags": {
    "type": "film",
    "genre": [
@@ -83,86 +94,1084 @@
    ],
    "scale": null,
    "vibe": [
-    "analog-film",
-    "matinee"
+    "analog-film"
    ],
    "region": "eastside",
    "near_home": true
   },
-  "score": 3,
-  "rating": 2,
+  "score": 4,
+  "rating": 3,
   "reasons": [
    "+1 film (low interest)",
+   "+1 venue you love",
    "+1 loved film format (35mm)",
    "+1 close to home"
   ],
-  "iso_date": "2026-11-29",
-  "id": "a6ee8bee4653"
+  "iso_date": "2026-11-23",
+  "id": "009b83e4b8e6"
  },
  {
-  "source": "editorial",
-  "title": "Hollywood Christmas Parade",
-  "date": "2026-11-29",
-  "start": "18:00",
-  "venue": "Hollywood Blvd at Orange Dr",
-  "neighborhood": "Hollywood",
+  "title": "Paper Tiger 35mm",
+  "date": "2026-11-24",
+  "start": "19:30",
+  "venue": "Vista Theater",
+  "neighborhood": "Los Feliz",
+  "category": "film",
+  "genre": null,
   "lineup": [],
-  "category": "community",
-  "price": "Free",
-  "image": null,
-  "url": "https://thehollywoodchristmasparade.org/",
-  "detail": "Free parade starting on Hollywood Blvd at Orange Dr, east to Vine, then down to Sunset.",
-  "editorial_mentions": [
-   "We Like LA"
+  "links": [
+   {
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4369?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "12pm"
+   },
+   {
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4365?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "2pm"
+   },
+   {
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4377?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "3:30pm"
+   },
+   {
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4378?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "7:30pm"
+   }
   ],
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
+  "sources": [
+   "vista"
+  ],
+  "organizers": null,
+  "detail": "35MM",
+  "image": "https://ticketing.uswest.veezi.com/Media/Poster?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww&code=0000003512",
+  "price": null,
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
   "tags": {
-   "type": "other",
-   "genre": [],
+   "type": "film",
+   "genre": [
+    "rep/arthouse"
+   ],
+   "setting": [
+    "cinema"
+   ],
+   "scale": null,
+   "vibe": [
+    "analog-film"
+   ],
+   "region": "eastside",
+   "near_home": true
+  },
+  "score": 4,
+  "rating": 3,
+  "reasons": [
+   "+1 film (low interest)",
+   "+1 venue you love",
+   "+1 loved film format (35mm)",
+   "+1 close to home"
+  ],
+  "iso_date": "2026-11-24",
+  "id": "6eefcb2e40b8"
+ },
+ {
+  "title": "Paper Tiger 35mm",
+  "date": "2026-11-25",
+  "start": "17:00",
+  "venue": "Vista Theater",
+  "neighborhood": "Los Feliz",
+  "category": "film",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4370?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "1pm"
+   },
+   {
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4355?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "2pm"
+   },
+   {
+    "source": "vista",
+    "url": "https://ticketing.uswest.veezi.com/purchase/4383?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww",
+    "label": "5pm"
+   }
+  ],
+  "sources": [
+   "vista"
+  ],
+  "organizers": null,
+  "detail": "35MM",
+  "image": "https://ticketing.uswest.veezi.com/Media/Poster?siteToken=20xhpa3yt2hhkwt4zjvfcwsaww&code=0000003512",
+  "price": null,
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "film",
+   "genre": [
+    "rep/arthouse"
+   ],
+   "setting": [
+    "cinema"
+   ],
+   "scale": null,
+   "vibe": [
+    "analog-film"
+   ],
+   "region": "eastside",
+   "near_home": true
+  },
+  "score": 4,
+  "rating": 3,
+  "reasons": [
+   "+1 film (low interest)",
+   "+1 venue you love",
+   "+1 loved film format (35mm)",
+   "+1 close to home"
+  ],
+  "iso_date": "2026-11-25",
+  "id": "4902a259fda5"
+ },
+ {
+  "title": "Recollect Underground: Thanksgiving After Party",
+  "date": "2026-11-26",
+  "start": "23:00",
+  "venue": "TBA",
+  "neighborhood": "Los Angeles",
+  "category": "electronic",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "ra",
+    "url": "https://ra.co/events/2586778"
+   }
+  ],
+  "sources": [
+   "ra"
+  ],
+  "organizers": null,
+  "detail": null,
+  "price": null,
+  "ra_pick": false,
+  "afterhours": true,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
    "setting": [],
    "scale": null,
    "vibe": [
-    "sunset",
+    "tba-location"
+   ],
+   "region": null,
+   "near_home": false
+  },
+  "score": 4,
+  "rating": 3,
+  "reasons": [
+   "+3 electronic (high interest)",
+   "+1 afterhours / late start"
+  ],
+  "iso_date": "2026-11-26",
+  "id": "c5c5307bbcad"
+ },
+ {
+  "title": "A Real Nigga Holiday",
+  "date": "2026-11-27",
+  "start": "18:00",
+  "venue": "3846 Wellington Rd",
+  "neighborhood": null,
+  "category": "party",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "posh",
+    "url": "https://posh.vip/e/a-real-nigga-holiday"
+   }
+  ],
+  "sources": [
+   "posh"
+  ],
+  "organizers": "Novemeber Ent.",
+  "detail": null,
+  "image": "https://images.posh.vip/originals/6afc09b3fb17918fdedd241b",
+  "price": "free",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
+   "setting": [],
+   "scale": null,
+   "vibe": [
     "free"
    ],
+   "region": null,
+   "near_home": false
+  },
+  "score": 4,
+  "rating": 3,
+  "reasons": [
+   "+3 party (high interest)",
+   "+1 Friday/Saturday night"
+  ],
+  "iso_date": "2026-11-27",
+  "id": "d7ac8d1ddc0f"
+ },
+ {
+  "title": "Friendsgiving Shabbat | Beverly Hills 🍂🍷",
+  "date": "2026-11-27",
+  "start": "19:00",
+  "venue": "Beverly Hills",
+  "neighborhood": "Beverly Hills",
+  "category": "party",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "posh",
+    "url": "https://posh.vip/e/friendsgiving-shabbat-beverly-hills-"
+   }
+  ],
+  "sources": [
+   "posh"
+  ],
+  "organizers": "Groovy Jew",
+  "detail": null,
+  "image": "https://images.posh.vip/originals/6afbcf7a0637d5accc6a0ae6",
+  "price": "$35.46",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
+   "setting": [],
+   "scale": null,
+   "vibe": [],
+   "region": "westside",
+   "near_home": false
+  },
+  "score": 4,
+  "rating": 3,
+  "reasons": [
+   "+3 party (high interest)",
+   "+1 Friday/Saturday night"
+  ],
+  "iso_date": "2026-11-27",
+  "id": "0c29e70e094e"
+ },
+ {
+  "title": "Babe Ruthless",
+  "date": "2026-12-02",
+  "start": null,
+  "venue": "Permanent Records Roadhouse",
+  "neighborhood": "Cypress Park",
+  "category": "live_music",
+  "genre": null,
+  "lineup": [
+   "Babe Ruthless",
+   "Bed Bug Guru",
+   "Ultrabed"
+  ],
+  "links": [
+   {
+    "source": "roadhouse",
+    "url": "http://roadhouse.permanentrecordsla.com/"
+   }
+  ],
+  "sources": [
+   "roadhouse"
+  ],
+  "organizers": null,
+  "detail": null,
+  "price": "$",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "live-music",
+   "genre": [
+    "punk",
+    "rock"
+   ],
+   "setting": [
+    "bar"
+   ],
+   "scale": "bar",
+   "vibe": [],
+   "region": "eastside",
+   "near_home": true
+  },
+  "score": 4,
+  "rating": 3,
+  "reasons": [
+   "+3 live music (high interest)",
+   "+1 close to home"
+  ],
+  "iso_date": "2026-12-02",
+  "id": "693687e0bc5a"
+ },
+ {
+  "title": "A Night with Annie Hardy, Biz Strother, & Delilah Wood",
+  "date": "2026-12-19",
+  "start": "18:00",
+  "venue": "The Virgil",
+  "neighborhood": "East Hollywood",
+  "category": "music",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "dice",
+    "url": "https://dice.fm/event/6afbb64c350fc60001a6d7a8"
+   }
+  ],
+  "sources": [
+   "dice"
+  ],
+  "organizers": null,
+  "detail": null,
+  "image": "https://dice-media.imgix.net/attachments/2026-11-17/3fea1587-a2c6-472e-a4dd-f6a5b7922b5b.jpg?rect=0%2C374%2C768%2C768",
+  "price": "$11.18",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "live-music",
+   "genre": [],
+   "setting": [
+    "bar"
+   ],
+   "scale": "bar",
+   "vibe": [],
+   "region": "eastside",
+   "near_home": true
+  },
+  "score": 4,
+  "rating": 3,
+  "reasons": [
+   "+2 music (medium interest)",
+   "+1 Friday/Saturday night",
+   "+1 close to home"
+  ],
+  "iso_date": "2026-12-19",
+  "id": "a7ef20d62a75"
+ },
+ {
+  "title": "QUETOPIA XII\nHappy Hour Edition",
+  "date": "2026-11-17",
+  "start": "17:00",
+  "venue": "Prank Bar",
+  "neighborhood": null,
+  "category": "party",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "posh",
+    "url": "https://posh.vip/e/quetopia-xiia-happy-hour-edition"
+   }
+  ],
+  "sources": [
+   "posh"
+  ],
+  "organizers": "Darnell Holcomb",
+  "detail": null,
+  "image": "https://images.posh.vip/originals/6ade376667398402e378a2f3",
+  "price": "$17.28",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
+   "setting": [],
+   "scale": null,
+   "vibe": [],
+   "region": null,
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+3 party (high interest)"
+  ],
+  "iso_date": "2026-11-17",
+  "id": "8597f797d823"
+ },
+ {
+  "title": "UNDER THE INFLUENCE “Bowling Edition”",
+  "date": "2026-11-18",
+  "start": "20:00",
+  "venue": "TBA (drops after RSVP/approval)",
+  "neighborhood": null,
+  "category": "party",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "posh",
+    "url": "https://posh.vip/e/under-the-influence-bowling-edition"
+   }
+  ],
+  "sources": [
+   "posh"
+  ],
+  "organizers": "Like Minded Crowd",
+  "detail": null,
+  "image": "https://images.posh.vip/originals/6afb816c1e3bbe88c813d5bd",
+  "price": "free",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
+   "setting": [],
+   "scale": null,
+   "vibe": [
+    "tba-location",
+    "free"
+   ],
+   "region": null,
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+3 party (high interest)"
+  ],
+  "iso_date": "2026-11-18",
+  "id": "acc2e02e4b24"
+ },
+ {
+  "title": "Breakroom '96",
+  "date": "2026-11-19",
+  "start": "21:00",
+  "venue": "Break Room 86",
+  "neighborhood": null,
+  "category": "party",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "posh",
+    "url": "https://posh.vip/e/breakroom-96-3"
+   }
+  ],
+  "sources": [
+   "posh"
+  ],
+  "organizers": "Allovus",
+  "detail": null,
+  "image": "https://images.posh.vip/originals/6afb54d314c69c4c6568592b",
+  "price": "free",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
+   "setting": [],
+   "scale": null,
+   "vibe": [
+    "free"
+   ],
+   "region": null,
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+3 party (high interest)"
+  ],
+  "iso_date": "2026-11-19",
+  "id": "ae5617574494"
+ },
+ {
+  "title": "Project Hail Mary: Live in Concert",
+  "date": "2026-11-20",
+  "venue": "Dolby Theatre",
+  "neighborhood": "Hollywood",
+  "category": "film",
+  "genre": "film with live orchestra",
+  "lineup": [],
+  "links": [
+   {
+    "source": "editorial",
+    "url": "https://www.timeout.com/los-angeles/things-to-do/things-to-do-in-los-angeles-the-weeks-best-events"
+   }
+  ],
+  "sources": [
+   "editorial"
+  ],
+  "detail": "The film screened with its score performed live by a full orchestra.",
+  "editorial_mentions": [
+   "Time Out LA"
+  ],
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "film",
+   "genre": [],
+   "setting": [],
+   "scale": "hall",
+   "vibe": [],
    "region": "hollywood",
    "near_home": false
   },
   "score": 3,
   "rating": 2,
   "reasons": [
-   "+1 community (low interest)",
-   "+1 rooftop / vinyl / groove",
-   "+1 editorial mention (We Like LA)"
+   "+1 film (low interest)",
+   "+1 Friday/Saturday night",
+   "+1 editorial mention (Time Out LA)"
   ],
-  "iso_date": "2026-11-29",
-  "id": "e4c6a40611dc"
+  "iso_date": "2026-11-20",
+  "id": "ff9a8b4f849b"
  },
  {
-  "source": "webfetch",
-  "title": "\"Tuesday Happenings\": Hosted by Gerald Clayton",
-  "date": "2026-12-15",
-  "start": "19:30",
-  "venue": "Sam First",
-  "neighborhood": "Westchester",
+  "title": "SOFT ANIMALS",
+  "date": "2026-11-22",
+  "start": "15:00",
+  "venue": "Only the Wild Ones",
+  "neighborhood": "Los Angeles",
+  "category": "electronic",
+  "genre": null,
   "lineup": [
-   "Gerald Clayton"
+   "Federico Daiup"
   ],
+  "links": [
+   {
+    "source": "ra",
+    "url": "https://ra.co/events/2586776"
+   }
+  ],
+  "sources": [
+   "ra"
+  ],
+  "organizers": null,
+  "detail": null,
+  "price": null,
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
+   "setting": [
+    "listening-bar"
+   ],
+   "scale": "bar",
+   "vibe": [
+    "day-party"
+   ],
+   "region": null,
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+3 electronic (high interest)"
+  ],
+  "iso_date": "2026-11-22",
+  "id": "120e2ab74f04"
+ },
+ {
+  "title": "Partea Darty - LA",
+  "date": "2026-11-22",
+  "start": "14:00",
+  "venue": "360 E 2nd St",
+  "neighborhood": null,
+  "category": "party",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "posh",
+    "url": "https://posh.vip/e/partea-darty-la-2"
+   }
+  ],
+  "sources": [
+   "posh"
+  ],
+  "organizers": "Ohynot Studios",
+  "detail": null,
+  "image": "https://images.posh.vip/originals/6afbacc56e3df44f7988c175",
+  "price": "free",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
+   "setting": [],
+   "scale": null,
+   "vibe": [
+    "day-party",
+    "free"
+   ],
+   "region": null,
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+3 party (high interest)"
+  ],
+  "iso_date": "2026-11-22",
+  "id": "58fbc5c63747"
+ },
+ {
+  "title": "Museo Feat Xiorro and Shay De Castro",
+  "date": "2026-11-25",
+  "start": "8pm-3am",
+  "venue": "TBA (Santa Ana)",
+  "neighborhood": "Santa Ana",
+  "category": "electronic",
+  "genre": "techno, hardgroove",
+  "lineup": [],
+  "links": [
+   {
+    "source": "19hz",
+    "url": "https://ra.co/events/2573625"
+   }
+  ],
+  "sources": [
+   "19hz"
+  ],
+  "organizers": "MUSEO",
+  "detail": null,
+  "price": "$23",
+  "ra_pick": false,
+  "afterhours": true,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "techno"
+   ],
+   "setting": [],
+   "scale": null,
+   "vibe": [
+    "tba-location"
+   ],
+   "region": "far",
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+3 electronic (high interest)",
+   "+1 afterhours / late start",
+   "+1 on-taste genre (techno)",
+   "-2 far from LA"
+  ],
+  "iso_date": "2026-11-25",
+  "id": "31f432d6632a"
+ },
+ {
+  "title": "626 FRIENDSGIVING PARTY",
+  "date": "2026-11-25",
+  "start": "21:00",
+  "venue": "BLUSH",
+  "neighborhood": null,
+  "category": "party",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "posh",
+    "url": "https://posh.vip/e/626-friendsgiving-party"
+   }
+  ],
+  "sources": [
+   "posh"
+  ],
+  "organizers": "KORA LA",
+  "detail": null,
+  "image": "https://images.posh.vip/originals/6af36c6914d52913f1496cbd",
+  "price": "free",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
+   "setting": [],
+   "scale": null,
+   "vibe": [
+    "free"
+   ],
+   "region": null,
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+3 party (high interest)"
+  ],
+  "iso_date": "2026-11-25",
+  "id": "4f965ca118e4"
+ },
+ {
+  "title": "A Honky Tonk Holiday with Elizabeth Bowersox and Jackie Straw",
+  "date": "2026-11-28",
+  "start": "19:00",
+  "venue": "The Mint",
+  "neighborhood": "Mid-City",
+  "category": "music",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "dice",
+    "url": "https://dice.fm/event/6afb5775e57d3e0001a5c4db"
+   }
+  ],
+  "sources": [
+   "dice"
+  ],
+  "organizers": null,
+  "detail": null,
+  "image": "https://dice-media.imgix.net/attachments/2026-11-16/f07dbab9-3fd0-4d49-a49a-733fef1b23e5.jpg?rect=0%2C0%2C1080%2C1080",
+  "price": "$18.54",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "live-music",
+   "genre": [
+    "jazz",
+    "blues"
+   ],
+   "setting": [
+    "bar"
+   ],
+   "scale": "bar",
+   "vibe": [],
+   "region": "hollywood",
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+2 music (medium interest)",
+   "+1 Friday/Saturday night"
+  ],
+  "iso_date": "2026-11-28",
+  "id": "83f73f56279a"
+ },
+ {
+  "title": "D3VISION - SlumGod & Dunk'n One",
+  "date": "2026-11-29",
+  "start": "9pm-1am",
+  "venue": "The Melrose House (Los Angeles)",
+  "neighborhood": null,
+  "category": "electronic",
+  "genre": "industrial, goth, darkwave, EBM, 80s",
+  "lineup": [],
+  "links": [
+   {
+    "source": "19hz",
+    "url": "https://www.instagram.com/clubd3vision/reel/Dfichb3O5_C/"
+   }
+  ],
+  "sources": [
+   "19hz"
+  ],
+  "organizers": null,
+  "detail": null,
+  "price": "free",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "electronic"
+   ],
+   "setting": [],
+   "scale": null,
+   "vibe": [
+    "free"
+   ],
+   "region": null,
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+3 electronic (high interest)"
+  ],
+  "iso_date": "2026-11-29",
+  "id": "aa74b6aca986"
+ },
+ {
+  "title": "Devon Ross & Friends",
+  "date": "2026-12-02",
+  "start": "20:00",
+  "venue": "Zebulon",
+  "neighborhood": "Frogtown",
+  "category": "music",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "dice",
+    "url": "https://dice.fm/event/6afa85c0f8e0850001322a6b"
+   }
+  ],
+  "sources": [
+   "dice"
+  ],
+  "organizers": null,
+  "detail": null,
+  "image": "https://dice-media.imgix.net/attachments/2026-11-16/729e209e-7072-4d46-9325-1a5d73594861.jpg?rect=0%2C48%2C1440%2C1440",
+  "price": null,
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "live-music",
+   "genre": [],
+   "setting": [
+    "bar"
+   ],
+   "scale": "room",
+   "vibe": [],
+   "region": "eastside",
+   "near_home": true
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+2 music (medium interest)",
+   "+1 close to home"
+  ],
+  "iso_date": "2026-12-02",
+  "id": "cf2215f4dba5"
+ },
+ {
+  "title": "Ravefurrest x Impact! Los Angeles",
+  "date": "2026-12-05",
+  "start": "21:00",
+  "venue": "Catch One",
+  "neighborhood": "Mid-City",
+  "category": "music",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "dice",
+    "url": "https://dice.fm/event/6afb547200401a00018164a9"
+   }
+  ],
+  "sources": [
+   "dice"
+  ],
+  "organizers": null,
+  "detail": null,
+  "image": "https://dice-media.imgix.net/attachments/2026-11-16/803cc6a5-d559-4b09-810e-be4c7c6e849d.jpg?rect=0%2C0%2C2580%2C2580",
+  "price": "$26.01",
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "live-music",
+   "genre": [],
+   "setting": [
+    "club"
+   ],
+   "scale": "room",
+   "vibe": [],
+   "region": "hollywood",
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+2 music (medium interest)",
+   "+1 Friday/Saturday night"
+  ],
+  "iso_date": "2026-12-05",
+  "id": "7cd64354bbe6"
+ },
+ {
+  "title": "nimino",
+  "date": "2026-12-18",
+  "start": "22:00",
+  "venue": "Reframe Studios Indoors",
+  "neighborhood": "Los Angeles",
+  "category": "music",
+  "genre": null,
+  "lineup": [
+   "nimino"
+  ],
+  "links": [
+   {
+    "source": "goldenvoice",
+    "url": "https://www.axs.com/events/1705129/nimino-tickets"
+   }
+  ],
+  "sources": [
+   "goldenvoice"
+  ],
+  "organizers": null,
+  "detail": null,
+  "image": "https://images.discovery-prod.axs.com/2026/11/nimino-tickets_12-18-26_18_6afb7a9622a0d.jpg",
+  "price": null,
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "live-music",
+   "genre": [],
+   "setting": [],
+   "scale": null,
+   "vibe": [],
+   "region": null,
+   "near_home": false
+  },
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+2 music (medium interest)",
+   "+1 Friday/Saturday night"
+  ],
+  "iso_date": "2026-12-18",
+  "id": "13be177190c6"
+ },
+ {
+  "source": "ics",
+  "title": "MILK CRATE MIC",
+  "date": "2026-12-22",
+  "start": "20:00",
+  "venue": "Maui Sugar Mill Saloon",
+  "neighborhood": "Tarzana",
+  "lineup": [],
   "category": "live_music",
   "price": null,
-  "image": null,
-  "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-gerald-clayton-79",
-  "detail": "House band 7:30 PM, jam session 9:30-11 PM.",
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
+  "url": "https://tockify.com/sugarmillsaloon/detail/1721/1797998400000",
+  "detail": null,
+  "first_seen": "2026-08-24",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "live-music",
+   "genre": [
+    "blues",
+    "rock"
+   ],
+   "setting": [
+    "bar"
+   ],
+   "scale": "bar",
+   "vibe": [],
+   "region": "valley",
+   "near_home": false
+  },
+  "links": [
+   {
+    "source": "ics",
+    "url": "https://tockify.com/sugarmillsaloon/detail/1721/1797998400000"
+   }
+  ],
+  "sources": [
+   "ics"
+  ],
+  "organizers": null,
+  "genre": null,
+  "ra_pick": false,
+  "afterhours": false,
+  "score": 3,
+  "rating": 2,
+  "reasons": [
+   "+3 live music (high interest)"
+  ],
+  "iso_date": "2026-12-22",
+  "id": "9b6fa1518bc4"
+ },
+ {
+  "title": "Gordon Goodwin’s Big Phat Band: CHRISTMAS!",
+  "date": "2026-12-22",
+  "start": "17:30",
+  "venue": "Vibrato Grill Jazz",
+  "neighborhood": "Bel Air",
+  "category": "live_music",
+  "genre": null,
+  "lineup": [],
+  "links": [
+   {
+    "source": "squarespace",
+    "url": "https://www.vibratogrilljazz.com/music/gordon-goodwins-big-phat-band-christmas"
+   }
+  ],
+  "sources": [
+   "squarespace"
+  ],
+  "organizers": null,
+  "detail": "Gordon Goodwin’s Big Phat Band brings powerhouse swing and holiday magic, featuring Wayne Bergeron and Vangie Gunn-Goodwin  Shows: 6:30pm & 9pm   Reserve Now",
+  "image": "https://static1.squarespace.com/static/5f8c8fac18720a0179e319eb/5f94932eb0954566e631a85b/6ae933b5af64047be2d6422b/1793668136110/",
+  "price": null,
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-13",
+  "last_seen": "2026-11-17",
   "tags": {
    "type": "live-music",
    "genre": [
     "jazz"
    ],
    "setting": [
-    "listening-bar"
+    "bar"
    ],
    "scale": "bar",
    "vibe": [],
@@ -174,174 +1183,69 @@
   "reasons": [
    "+3 live music (high interest)"
   ],
-  "iso_date": "2026-12-15",
-  "id": "67fc503cbcb2"
+  "iso_date": "2026-12-22",
+  "id": "1baa2d8f8cc7"
  },
  {
-  "title": "Silverlake Flea",
-  "date": "2026-12-20",
-  "start": "10:00",
-  "venue": "4561 W Colorado Blvd (Atwater Village)",
-  "neighborhood": "Atwater Village",
-  "category": "flea",
-  "genre": null,
+  "title": "A Country Christmas",
+  "date": "2026-12-22",
+  "start": null,
+  "venue": "Pershing Square",
+  "neighborhood": "DTLA",
+  "category": "community",
   "lineup": [],
   "links": [
    {
-    "source": "recurring",
-    "url": "https://www.silverlakeflea.com/"
+    "source": "editorial",
+    "url": "https://holidayicerinkdowntownla.com/"
    }
   ],
   "sources": [
-   "recurring"
+   "editorial"
   ],
-  "organizers": null,
-  "detail": "Fri 10am–3:30pm · Sat 8:30am–3:30pm · Sun 9:30am–3:30pm · Indie vintage/vinyl/handmade; free entrance + parking. RELOCATED mid-2026 from Micheltorena to Atwater — verify post-move hours on first surfacing.",
+  "detail": "Themed skate night at the Pershing Square holiday rink.",
   "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
+  "editorial_mentions": [
+   "DiscoverLA"
+  ],
+  "first_seen": "2026-11-13",
+  "last_seen": "2026-11-13",
   "tags": {
-   "type": "market",
+   "type": "other",
    "genre": [],
-   "setting": [],
+   "setting": [
+    "outdoor"
+   ],
    "scale": null,
    "vibe": [],
-   "region": "eastside",
-   "near_home": true
-  },
-  "score": 3,
-  "rating": 2,
-  "reasons": [
-   "+1 flea (low interest)",
-   "+1 rooftop / vinyl / groove",
-   "+1 close to home"
-  ],
-  "iso_date": "2026-12-20",
-  "id": "7cdbaf6ccb1e"
- },
- {
-  "title": "How Coyote Stole Christmas (18+)",
-  "date": "2026-12-21",
-  "start": "20:00",
-  "venue": "The Regent Theater",
-  "neighborhood": "DTLA",
-  "category": "Music",
-  "genre": "Hip-Hop/Rap",
-  "lineup_genre": "Hip-Hop/Rap",
-  "lineup": [
-   "Coyote"
-  ],
-  "links": [
-   {
-    "source": "ticketmaster",
-    "url": "https://www.ticketmaster.com/how-coyote-stole-christmas-18-los-angeles-california-12-21-2026/event/0900655B8ED6547B"
-   }
-  ],
-  "sources": [
-   "ticketmaster"
-  ],
-  "organizers": null,
-  "detail": "Doors:7pm Show:8pm 18+ only",
-  "image": "https://s1.ticketm.net/dam/e/da1/7032b4b1-ddf7-48c9-8b10-839182e88da1_SOURCE",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-04",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "live-music",
-   "genre": [
-    "hip-hop"
-   ],
-   "setting": [
-    "theater"
-   ],
-   "scale": "room",
-   "vibe": [
-    "18+"
-   ],
    "region": "dtla",
    "near_home": true
   },
   "score": 3,
   "rating": 2,
   "reasons": [
-   "+2 music (medium interest)",
-   "+1 close to home"
+   "+1 community (low interest)",
+   "+1 close to home",
+   "+1 editorial mention (DiscoverLA)"
   ],
-  "iso_date": "2026-12-21",
-  "id": "612c9d887e36"
+  "iso_date": "2026-12-22",
+  "id": "c49dca4b932e"
  },
  {
-  "title": "Romance Nocturno with Thee Almighty Majestics & Erendira Izguerra",
-  "date": "2026-12-21",
-  "start": "19:00",
-  "venue": "The Echo",
-  "neighborhood": "Echo Park",
-  "category": "Music",
-  "genre": "Latin",
-  "lineup": [
-   "Romance Nocturno",
-   "Thee Almighty Majestics",
-   "Erendira Izguerra"
-  ],
-  "links": [
-   {
-    "source": "ticketmaster",
-    "url": "https://www.ticketmaster.com/romance-nocturno-with-thee-almighty-majestics-los-angeles-california-12-21-2026/event/090065654041D487"
-   }
-  ],
-  "sources": [
-   "ticketmaster"
-  ],
-  "organizers": null,
-  "detail": "Keep up to date with all our upcoming events by visiting The Echo's social media and website. @theechola theecho.com",
-  "image": "https://s1.ticketm.net/dam/c/f50/96fa13be-e395-429b-8558-a51bb9054f50_105951_TABLET_LANDSCAPE_LARGE_16_9.jpg",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-07",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "live-music",
-   "genre": [
-    "latin"
-   ],
-   "setting": [],
-   "scale": "room",
-   "vibe": [],
-   "region": "eastside",
-   "near_home": true
-  },
-  "lineup_genre": "Latin",
-  "updated_at": "2026-11-10",
-  "changed_fields": [
-   "lineup"
-  ],
-  "score": 3,
-  "rating": 2,
-  "reasons": [
-   "+2 music (medium interest)",
-   "+1 close to home"
-  ],
-  "iso_date": "2026-12-21",
-  "id": "220b2796ff12"
- },
- {
-  "title": "ALL-STAR JAM SESSION BENEFIT",
-  "date": "2026-12-21",
+  "title": "THE NO CHASERS",
+  "date": "2026-12-22",
   "start": "21:30",
   "venue": "Harvelle's",
   "neighborhood": "Santa Monica",
   "category": "live_music",
   "genre": null,
-  "lineup": [],
+  "lineup": [
+   "The No Chasers"
+  ],
   "links": [
    {
     "source": "webfetch",
-    "url": "https://santamonica.harvelles.com/events/146239"
+    "url": "https://santamonica.harvelles.com/events/146245"
    }
   ],
   "sources": [
@@ -373,498 +1277,212 @@
   "reasons": [
    "+3 live music (high interest)"
   ],
-  "iso_date": "2026-12-21",
-  "id": "29fc9905cd77"
+  "iso_date": "2026-12-22",
+  "id": "dc688aca1d15"
  },
  {
-  "source": "editorial",
-  "title": "Cj Hendry: Flower Shop",
-  "date": "2026-11-16",
-  "start": null,
-  "venue": "Rose Room, 6 Rose Ave.",
-  "neighborhood": "Venice",
-  "lineup": [
-   "Cj Hendry"
-  ],
-  "category": "community",
-  "price": "Free",
-  "image": null,
-  "url": "https://flowershop.art/",
-  "detail": "Free Cj Hendry art pop-up selling felt flowers (from $10); runs through Sat 11/21.",
-  "editorial_mentions": [
-   "LAist"
-  ],
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "other",
-   "genre": [],
-   "setting": [],
-   "scale": null,
-   "vibe": [
-    "pop-up",
-    "free"
-   ],
-   "region": "westside",
-   "near_home": false
-  },
-  "score": 2,
-  "rating": 2,
-  "reasons": [
-   "+1 community (low interest)",
-   "+1 editorial mention (LAist)"
-  ],
-  "iso_date": "2026-11-16",
-  "id": "2e69cbcf9982"
- },
- {
-  "title": "PURO ROCKERO ' BAJO LAS ESTRELLAS '",
-  "date": "2026-11-21",
-  "start": "19:00",
-  "venue": "Pico Rivera Sports Arena",
-  "neighborhood": "Pico Rivera",
-  "category": "general",
+  "title": "An Evening with DANNA",
+  "date": "2026-11-17",
+  "start": "20:30",
+  "venue": "Fonda Theatre",
+  "neighborhood": "Hollywood",
+  "category": "music",
   "genre": null,
-  "lineup": [],
+  "lineup": [
+   "An Evening with DANNA"
+  ],
   "links": [
    {
-    "source": "eventbrite",
-    "url": "https://www.eventbrite.com/e/puro-rockero-bajo-las-estrellas-tickets-1999737356264"
+    "source": "goldenvoice",
+    "url": "https://www.axs.com/events/1580327/danna-tickets"
+   },
+   {
+    "source": "venue",
+    "url": "https://www.fondatheatre.com/"
+   },
+   {
+    "source": "goldenvoice",
+    "url": "https://www.axs.com/events/1580327/an-evening-with-danna-tickets"
+   },
+   {
+    "source": "ticketmaster",
+    "url": "https://www.ticketmaster.com/event/Z7r9jZ1AAvO4x"
    }
   ],
   "sources": [
-   "eventbrite"
+   "goldenvoice",
+   "ticketmaster"
   ],
   "organizers": null,
-  "detail": "THE BIGGEST ROCK EN ESPAÑOL EXPERIENCE IN SoCal + Ska, 80s, & Cumbia..",
-  "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1195550692%2F1069705083393%2F1%2Foriginal.20261011-161202?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.507&fp-y=0.519&s=417cf016df2635909deb30430506a9f6",
-  "price": "$17.85",
+  "detail": null,
+  "image": "https://images.discovery-prod.axs.com/2026/08/danna-tickets_11-17-26_86_6a95ac9c00591.jpg",
+  "price": null,
   "ra_pick": false,
   "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
+  "first_seen": "2026-09-01",
+  "last_seen": "2026-11-17",
   "tags": {
    "type": "live-music",
-   "genre": [
-    "rock",
-    "latin"
-   ],
-   "setting": [],
-   "scale": null,
-   "vibe": [],
-   "region": "far",
-   "near_home": false
-  },
-  "score": 2,
-  "rating": 2,
-  "reasons": [
-   "+1 general (low interest)",
-   "+1 Friday/Saturday night"
-  ],
-  "iso_date": "2026-11-21",
-  "id": "3b41b04ef180"
- },
- {
-  "source": "editorial",
-  "title": "Best Friends Super Adoption",
-  "date": "2026-11-22",
-  "start": null,
-  "venue": "Rose Bowl Stadium",
-  "neighborhood": "Pasadena",
-  "lineup": [],
-  "category": "community",
-  "price": "Free",
-  "image": null,
-  "url": "https://bestfriends.org/los-angeles/pet-super-adoption",
-  "detail": "Free pet adoption event; RSVP for a free tote. Runs Nov 21-22.",
-  "editorial_mentions": [
-   "We Like LA"
-  ],
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "other",
-   "genre": [],
-   "setting": [],
-   "scale": "arena",
-   "vibe": [
-    "free"
-   ],
-   "region": "valley",
-   "near_home": false
-  },
-  "score": 2,
-  "rating": 2,
-  "reasons": [
-   "+1 community (low interest)",
-   "+1 editorial mention (We Like LA)"
-  ],
-  "iso_date": "2026-11-22",
-  "id": "3a0b6b4276c2"
- },
- {
-  "title": "Skabashed! the Paranoias, Natalia Inez, Los SKAllejeros, + MORE",
-  "date": "2026-11-25",
-  "start": "19:30",
-  "venue": "The Regent Theater",
-  "neighborhood": "DTLA",
-  "category": "general",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "eventbrite",
-    "url": "https://www.eventbrite.com/e/skabashed-the-paranoias-natalia-inez-los-skallejeros-more-tickets-2004879753312"
-   }
-  ],
-  "sources": [
-   "eventbrite"
-  ],
-  "organizers": null,
-  "detail": "Evoekore Media Presents: Skabashed! the Paranoias, Natalia Inez, Los SKAllejeros, + MORE",
-  "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198054259%2F2996376129086%2F1%2Foriginal.20261116-073432?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.484&fp-y=0.46&s=26e2e162e8faed3350c0f9be57b2ee6c",
-  "price": "free",
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "other",
    "genre": [],
    "setting": [
     "theater"
    ],
    "scale": "room",
-   "vibe": [
-    "free"
+   "vibe": [],
+   "region": "hollywood",
+   "near_home": false
+  },
+  "updated_at": "2026-11-10",
+  "changed_fields": [
+   "start"
+  ],
+  "score": 2,
+  "rating": 2,
+  "reasons": [
+   "+2 music (medium interest)"
+  ],
+  "iso_date": "2026-11-17",
+  "id": "d4be766c9b02"
+ },
+ {
+  "title": "iHEARTWUBZ - Dubstep Meets Swag!",
+  "date": "2026-11-20",
+  "start": "22:00",
+  "venue": "Catch One",
+  "neighborhood": "Mid-City",
+  "category": "music",
+  "genre": "dubstep, bass music, riddim, melodic dubstep",
+  "lineup": [],
+  "links": [
+   {
+    "source": "dice",
+    "url": "https://dice.fm/event/6ad12479b4413e000158d218"
+   },
+   {
+    "source": "ra",
+    "url": "https://ra.co/events/2586745"
+   }
+  ],
+  "sources": [
+   "dice",
+   "19hz",
+   "ra"
+  ],
+  "organizers": "Pauz",
+  "detail": null,
+  "image": "https://dice-media.imgix.net/attachments/2026-10-15/8642ff9e-a90a-4f2b-a8bf-7e166ce50d00.jpg?rect=0%2C63%2C1218%2C1218",
+  "price": "free w/rsvp b4 11:30pm / $14-26",
+  "ra_pick": false,
+  "afterhours": true,
+  "first_seen": "2026-10-16",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "club",
+   "genre": [
+    "melodic",
+    "dubstep",
+    "bass"
    ],
+   "setting": [
+    "club"
+   ],
+   "scale": "room",
+   "vibe": [
+    "free",
+    "free-rsvp"
+   ],
+   "region": "hollywood",
+   "near_home": false
+  },
+  "updated_at": "2026-10-23",
+  "changed_fields": [
+   "price"
+  ],
+  "score": 2,
+  "rating": 2,
+  "reasons": [
+   "+2 music (medium interest)",
+   "+1 afterhours / late start",
+   "+1 Friday/Saturday night",
+   "-2 dubstep"
+  ],
+  "iso_date": "2026-11-20",
+  "id": "5d7d741c49ba"
+ },
+ {
+  "title": "Celebrating the Music of Obsession",
+  "date": "2026-11-30",
+  "start": "19:30",
+  "venue": "Grammy Museum LA Live",
+  "neighborhood": "DTLA",
+  "category": "Film",
+  "genre": "Music",
+  "lineup_genre": "Music",
+  "lineup": [
+   "Rock Burwell"
+  ],
+  "links": [
+   {
+    "source": "ticketmaster",
+    "url": "https://www.universe.com/events/celebrating-the-music-of-obsession-tickets-DKW6N1?ref=ticketmaster"
+   }
+  ],
+  "sources": [
+   "ticketmaster"
+  ],
+  "organizers": null,
+  "detail": null,
+  "image": "https://images.universe.com/a4792d21-5c83-4ec2-92f2-cf2de41f7b4b/-/format/jpeg/-/scale_crop/1024x576/center/-/progressive/yes/-/inline/yes/",
+  "price": null,
+  "ra_pick": false,
+  "afterhours": false,
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
+  "tags": {
+   "type": "film",
+   "genre": [],
+   "setting": [
+    "gallery"
+   ],
+   "scale": null,
+   "vibe": [],
    "region": "dtla",
    "near_home": true
   },
   "score": 2,
   "rating": 2,
   "reasons": [
-   "+1 general (low interest)",
-   "+1 close to home"
-  ],
-  "iso_date": "2026-11-25",
-  "id": "03a3c996e38f"
- },
- {
-  "title": "Fatherland",
-  "date": "2026-11-29",
-  "start": "12:45",
-  "venue": "Vidiots",
-  "neighborhood": "Eagle Rock",
-  "category": "film",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "vidiots",
-    "url": "https://vidiotsfoundation.org/showtimes/fatherland-11-29-26-1245-pm/"
-   }
-  ],
-  "sources": [
-   "vidiots"
-  ],
-  "organizers": null,
-  "detail": null,
-  "image": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/249/2026/11/13114752/FATHERLAND_KEY-ART_EN-US_DIGI_GRID_Now-Playing.jpg",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "film",
-   "genre": [
-    "rep/arthouse"
-   ],
-   "setting": [
-    "cinema"
-   ],
-   "scale": null,
-   "vibe": [
-    "matinee"
-   ],
-   "region": "eastside",
-   "near_home": true
-  },
-  "score": 2,
-  "rating": 2,
-  "reasons": [
    "+1 film (low interest)",
    "+1 close to home"
   ],
-  "iso_date": "2026-11-29",
-  "id": "24ba302ee9b1"
+  "iso_date": "2026-11-30",
+  "id": "365f13373a4c"
  },
  {
-  "title": "Frozen",
-  "date": "2026-11-29",
-  "start": "13:00",
-  "venue": "Vidiots",
-  "neighborhood": "Eagle Rock",
-  "category": "film",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "vidiots",
-    "url": "https://vidiotsfoundation.org/showtimes/frozen-11-29-26-100-pm/"
-   }
-  ],
-  "sources": [
-   "vidiots"
-  ],
-  "organizers": null,
-  "detail": null,
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "film",
-   "genre": [
-    "rep/arthouse"
-   ],
-   "setting": [
-    "cinema"
-   ],
-   "scale": null,
-   "vibe": [
-    "matinee"
-   ],
-   "region": "eastside",
-   "near_home": true
-  },
-  "score": 2,
-  "rating": 2,
-  "reasons": [
-   "+1 film (low interest)",
-   "+1 close to home"
-  ],
-  "iso_date": "2026-11-29",
-  "id": "d6be8e3147ce"
- },
- {
-  "title": "Wildwood",
-  "date": "2026-11-29",
-  "start": "15:15",
-  "venue": "Vidiots",
-  "neighborhood": "Eagle Rock",
-  "category": "film",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "vidiots",
-    "url": "https://vidiotsfoundation.org/showtimes/wildwood-11-29-26-315-pm/"
-   }
-  ],
-  "sources": [
-   "vidiots"
-  ],
-  "organizers": null,
-  "detail": null,
-  "image": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/249/2026/10/26115042/MV5BN2JjOGQ1OGMtZmUwYS00YmQ2LTllNzQtZjU2YjY1NzM2NzJjXkEyXkFqcGc%40._V1_-scaled.jpg",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "film",
-   "genre": [
-    "rep/arthouse"
-   ],
-   "setting": [
-    "cinema"
-   ],
-   "scale": null,
-   "vibe": [
-    "matinee"
-   ],
-   "region": "eastside",
-   "near_home": true
-  },
-  "score": 2,
-  "rating": 2,
-  "reasons": [
-   "+1 film (low interest)",
-   "+1 close to home"
-  ],
-  "iso_date": "2026-11-29",
-  "id": "6f42583ab5f7"
- },
- {
-  "title": "You Can See Everything",
-  "date": "2026-11-29",
-  "start": "18:30",
-  "venue": "Vidiots",
-  "neighborhood": "Eagle Rock",
-  "category": "film",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "vidiots",
-    "url": "https://vidiotsfoundation.org/showtimes/you-can-see-everything-11-29-26-630-pm/"
-   }
-  ],
-  "sources": [
-   "vidiots"
-  ],
-  "organizers": null,
-  "detail": null,
-  "image": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/249/2026/11/04135304/V8_404_DIGITAL-FINAL_2025x3000_V4-scaled.jpg",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "film",
-   "genre": [
-    "rep/arthouse"
-   ],
-   "setting": [
-    "cinema"
-   ],
-   "scale": null,
-   "vibe": [],
-   "region": "eastside",
-   "near_home": true
-  },
-  "score": 2,
-  "rating": 2,
-  "reasons": [
-   "+1 film (low interest)",
-   "+1 close to home"
-  ],
-  "iso_date": "2026-11-29",
-  "id": "b7fddf6b0527"
- },
- {
-  "title": "The Twilight Saga: New Moon",
-  "date": "2026-11-29",
-  "start": "19:00",
-  "venue": "Vidiots",
-  "neighborhood": "Eagle Rock",
-  "category": "film",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "vidiots",
-    "url": "https://vidiotsfoundation.org/showtimes/the-twilight-saga-new-moon-11-29-26-700-pm/"
-   }
-  ],
-  "sources": [
-   "vidiots"
-  ],
-  "organizers": null,
-  "detail": null,
-  "image": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/249/2026/10/19125001/k2qTooPlHffgNABNWxeJdGMglPK-scaled.jpg",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "film",
-   "genre": [
-    "rep/arthouse"
-   ],
-   "setting": [
-    "cinema"
-   ],
-   "scale": null,
-   "vibe": [],
-   "region": "eastside",
-   "near_home": true
-  },
-  "score": 2,
-  "rating": 2,
-  "reasons": [
-   "+1 film (low interest)",
-   "+1 close to home"
-  ],
-  "iso_date": "2026-11-29",
-  "id": "a7d5b3ed6b68"
- },
- {
-  "title": "Atwater Village Farmers Market",
-  "date": "2026-12-20",
-  "start": "10:00",
-  "venue": "3528 Larga Ave (Atwater Village)",
-  "neighborhood": "Atwater Village",
-  "category": "market",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "recurring",
-    "url": "https://www.seela.org/atwater-village"
-   }
-  ],
-  "sources": [
-   "recurring"
-  ],
-  "organizers": null,
-  "detail": "Sun 10am–2pm · Eastside, close to home.",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "market",
-   "genre": [],
-   "setting": [],
-   "scale": null,
-   "vibe": [],
-   "region": "eastside",
-   "near_home": true
-  },
-  "score": 2,
-  "rating": 2,
-  "reasons": [
-   "+1 market (low interest)",
-   "+1 close to home"
-  ],
-  "iso_date": "2026-12-20",
-  "id": "008d563f48bf"
- },
- {
-  "title": "Once Upon a Time in... Hollywood",
-  "date": "2026-11-16",
+  "title": "Dune",
+  "date": "2026-11-30",
   "start": "19:30",
-  "venue": "New Beverly Cinema",
-  "neighborhood": "Fairfax",
+  "venue": "Vidiots",
+  "neighborhood": "Eagle Rock",
   "category": "film",
   "genre": null,
   "lineup": [],
   "links": [
    {
-    "source": "newbev",
-    "url": "/purchase/5103?siteToken=fmtswb0qqbym3de6c4bbsqj89m",
-    "label": "7:30pm"
+    "source": "vidiots",
+    "url": "https://vidiotsfoundation.org/showtimes/dune-11-30-26-730-pm/"
    }
   ],
   "sources": [
-   "newbev"
+   "vidiots"
   ],
   "organizers": null,
   "detail": null,
-  "image": "https://ticketing.uswest.veezi.com/Media/Poster?siteToken=fmtswb0qqbym3de6c4bbsqj89m&code=0000000512",
   "price": null,
   "ra_pick": false,
   "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
+  "first_seen": "2026-11-17",
+  "last_seen": "2026-11-17",
   "tags": {
    "type": "film",
    "genre": [
@@ -875,246 +1493,16 @@
    ],
    "scale": null,
    "vibe": [],
-   "region": "hollywood",
-   "near_home": false
+   "region": "eastside",
+   "near_home": true
   },
-  "score": 1,
-  "rating": 1,
+  "score": 2,
+  "rating": 2,
   "reasons": [
-   "+1 film (low interest)"
+   "+1 film (low interest)",
+   "+1 close to home"
   ],
-  "iso_date": "2026-11-16",
-  "id": "62d028200715"
- },
- {
-  "title": "Once Upon a Time in... Hollywood",
-  "date": "2026-11-17",
-  "start": "19:30",
-  "venue": "New Beverly Cinema",
-  "neighborhood": "Fairfax",
-  "category": "film",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "newbev",
-    "url": "/purchase/5105?siteToken=fmtswb0qqbym3de6c4bbsqj89m",
-    "label": "7:30pm"
-   }
-  ],
-  "sources": [
-   "newbev"
-  ],
-  "organizers": null,
-  "detail": null,
-  "image": "https://ticketing.uswest.veezi.com/Media/Poster?siteToken=fmtswb0qqbym3de6c4bbsqj89m&code=0000000512",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "film",
-   "genre": [
-    "rep/arthouse"
-   ],
-   "setting": [
-    "cinema"
-   ],
-   "scale": null,
-   "vibe": [],
-   "region": "hollywood",
-   "near_home": false
-  },
-  "score": 1,
-  "rating": 1,
-  "reasons": [
-   "+1 film (low interest)"
-  ],
-  "iso_date": "2026-11-17",
-  "id": "e093767a77eb"
- },
- {
-  "title": "Batman Returns",
-  "date": "2026-11-18",
-  "start": "19:30",
-  "venue": "New Beverly Cinema",
-  "neighborhood": "Fairfax",
-  "category": "film",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "newbev",
-    "url": "/purchase/5128?siteToken=fmtswb0qqbym3de6c4bbsqj89m",
-    "label": "7:30pm"
-   }
-  ],
-  "sources": [
-   "newbev"
-  ],
-  "organizers": null,
-  "detail": null,
-  "image": "https://ticketing.uswest.veezi.com/Media/Poster?siteToken=fmtswb0qqbym3de6c4bbsqj89m&code=0000000236",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "film",
-   "genre": [
-    "rep/arthouse"
-   ],
-   "setting": [
-    "cinema"
-   ],
-   "scale": null,
-   "vibe": [],
-   "region": "hollywood",
-   "near_home": false
-  },
-  "score": 1,
-  "rating": 1,
-  "reasons": [
-   "+1 film (low interest)"
-  ],
-  "iso_date": "2026-11-18",
-  "id": "9c5fa95178f1"
- },
- {
-  "title": "Batman Returns",
-  "date": "2026-11-19",
-  "start": "19:30",
-  "venue": "New Beverly Cinema",
-  "neighborhood": "Fairfax",
-  "category": "film",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "newbev",
-    "url": "/purchase/5130?siteToken=fmtswb0qqbym3de6c4bbsqj89m",
-    "label": "7:30pm"
-   }
-  ],
-  "sources": [
-   "newbev"
-  ],
-  "organizers": null,
-  "detail": null,
-  "image": "https://ticketing.uswest.veezi.com/Media/Poster?siteToken=fmtswb0qqbym3de6c4bbsqj89m&code=0000000236",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "film",
-   "genre": [
-    "rep/arthouse"
-   ],
-   "setting": [
-    "cinema"
-   ],
-   "scale": null,
-   "vibe": [],
-   "region": "hollywood",
-   "near_home": false
-  },
-  "score": 1,
-  "rating": 1,
-  "reasons": [
-   "+1 film (low interest)"
-  ],
-  "iso_date": "2026-11-19",
-  "id": "4a0905cd95e2"
- },
- {
-  "title": "The Residency - Sound Connections - Vol. 51 - “Anchor” - Mendeleyev x ITAI",
-  "date": "2026-12-03",
-  "start": "20:00",
-  "venue": "Zula Den",
-  "neighborhood": "Los Angeles",
-  "category": "general",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "eventbrite",
-    "url": "https://www.eventbrite.com/e/the-residency-sound-connections-vol-51-anchor-mendeleyev-x-itai-tickets-2004872604931"
-   }
-  ],
-  "sources": [
-   "eventbrite"
-  ],
-  "organizers": null,
-  "detail": "Thursday - December 3rd @ The Zula Den - Mendeleyev x ITAI for a LIVE, improvised music & dance experience.",
-  "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198052477%2F1372215194213%2F1%2Foriginal.20261116-061642?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=5daffc4e0e479e41144faa8767486c97",
-  "price": "$33.77",
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "other",
-   "genre": [],
-   "setting": [],
-   "scale": null,
-   "vibe": [
-    "residency"
-   ],
-   "region": null,
-   "near_home": false
-  },
-  "score": 1,
-  "rating": 1,
-  "reasons": [
-   "+1 general (low interest)"
-  ],
-  "iso_date": "2026-12-03",
-  "id": "dbc847a89b2b"
- },
- {
-  "title": "Melrose Trading Post",
-  "date": "2026-12-20",
-  "start": "10:00",
-  "venue": "Fairfax High, 7850 Melrose Ave",
-  "neighborhood": "Fairfax",
-  "category": "flea",
-  "genre": null,
-  "lineup": [],
-  "links": [
-   {
-    "source": "recurring",
-    "url": "https://melrosetradingpost.org/"
-   }
-  ],
-  "sources": [
-   "recurring"
-  ],
-  "organizers": null,
-  "detail": "Sun 10am–4pm · Vintage / design / home goods flea.",
-  "price": null,
-  "ra_pick": false,
-  "afterhours": false,
-  "first_seen": "2026-11-16",
-  "last_seen": "2026-11-16",
-  "tags": {
-   "type": "market",
-   "genre": [],
-   "setting": [],
-   "scale": null,
-   "vibe": [],
-   "region": "hollywood",
-   "near_home": false
-  },
-  "score": 1,
-  "rating": 1,
-  "reasons": [
-   "+1 flea (low interest)"
-  ],
-  "iso_date": "2026-12-20",
-  "id": "649bcbb2ba9f"
+  "iso_date": "2026-11-30",
+  "id": "4b674484a881"
  }
 ]

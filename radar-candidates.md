@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/16/2026 deterministically (no API). 131 candidates. Signals: big-venue 111, festival 18, tracked 2, editorial 1._
+_Generated 11/17/2026 deterministically (no API). 137 candidates. Signals: big-venue 117, festival 18, tracked 2, editorial 1._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -147,6 +147,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 3/5 | 3 | Fantasia, Anthony Hamilton, & October London: The Love of  | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/the-love-of-soul-tour-ontario-california-03-05-2027/event/09006538BF19D600) |
 | Fri 3/5 | 3 | 2hollis: The Pirouette Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/2hollis-the-pirouette-tour-inglewood-california-03-05-2027/event/09006554C41482E5) |
 | Sat 3/6 | 3 | Freestyle Explosion | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/freestyle-explosion-inglewood-california-03-06-2027/event/0A00653EBBF9FC1B) |
+| Sat 3/6 | 3 | Intocable: Texicano Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/intocable-texicano-tour-2027-inglewood-california-03-06-2027/event/0900656BD17DF748) |
 | Sat 3/13 | 3 | Bigbang 2027 World Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bigbang-inglewood-california-03-13-2027/event/0A00655ED2B19A8C) |
 | Sat 3/20 | 3 | Grupo Cañaveral & Los Hermanos Flores | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-canaveral-los-hermanos-flores-inglewood-california-03-20-2027/event/0A006532A1D27C43) |
 
@@ -173,6 +174,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 5/1 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-05-01-2027/event/0B00652EB5864AF8) |
 | Sat 5/1 | 3 | Ha*Ash | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 5/14 | 3 | KCRW Presents Panchiko  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-panchiko-inglewood-california-05-14-2027/event/090065579B59B57F) |
+| Fri 5/14 | 3 | Interpol - North America Tour 2027 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/interpol-north-america-tour-2027-los-angeles-california-05-14-2027/event/0A00656DD13BEDB6) |
 | Sat 5/15 | 3 | TINASHE | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1664424/tinashe-tickets) |
 
 ## December 2026
@@ -219,6 +221,8 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Mon 3/1 | 2 | Westlife 25 - The Anniversary North American Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/westlife-25-the-anniversary-north-american-inglewood-california-03-01-2027/event/0A00656ADC0EABE4) |
+| Fri 3/5 | 2 | Tim Allen - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Sun 3/7 | 2 | Elevation Worship & Steven Furtick | Kia Forum | big-venue | [link](https://www.ticketmaster.com/elevation-worship-steven-furtick-inglewood-california-03-07-2027/event/09006528E7F4DAA3) |
 
 ## April 2027
@@ -244,7 +248,9 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sun 5/2 | 2 | Queens of The Stone Age - PERFECTH WORLD TOUR | Kia Forum | big-venue | [link](https://www.ticketmaster.com/queens-of-the-stone-age-perfecth-inglewood-california-05-02-2027/event/0900655402A265F4) |
 | Sun 5/2 | 2 | Ha*Ash - No Me Hablen de Amor | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/haash-no-me-hablen-de-amor-inglewood-california-05-02-2027/event/0A00652FC2E6A548) |
+| Tue 5/4 | 2 | Tesla (21+) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 5/7 | 2 | Franco Escamilla - "El Juicio" Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/franco-escamilla-el-juicio-tour-ontario-california-05-07-2027/event/0900652F048122D5) |
+| Sun 5/16 | 2 | TINASHE - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1666247/tinashe-2nd-night-added-tickets) |
 
 ## February 2027
 
