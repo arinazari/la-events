@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/17/2026 deterministically (no API). 137 candidates. Signals: big-venue 117, festival 18, tracked 2, editorial 1._
+_Generated 11/18/2026 deterministically (no API). 144 candidates. Signals: big-venue 118, festival 25, tracked 2._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -10,12 +10,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 1/30 | 5 | MAU P PRESENTS: GENERATION REBRAND (18 and Over) | BMO Stadium | tracked:Mau P, big-venue | [link](https://www.ticketmaster.com/mau-p-presents-generation-rebrand-los-angeles-california-01-30-2027/event/0A006550EE2DDD30) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Tue 12/22 | 3 | A Country Christmas | Pershing Square | editorial | [link](https://holidayicerinkdowntownla.com/) |
 
 ## February 2027
 
@@ -41,6 +35,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 2/27 | 4 | 2 DAY PASS - LEVEL UP AT HOLLYWOOD PALLADIUM | Hollywood Palladium | festival | [link](https://www.ticketmaster.com/level-up-at-hollywood-palladium-hollywood-california-02-27-2027/event/0900653031A6AE16) |
+
+## April 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 4/10 | 4 | Basscon presents Lil Texas | Hollywood Palladium | festival | [link](https://www.ticketmaster.com/basscon-presents-lil-texas-hollywood-california-04-10-2027/event/0900656F3F114F8A) |
 
 ## December 2026
 
@@ -72,8 +72,34 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 3/19 | 3 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | The Wiltern | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-los-angeles-california-03-19-2027/event/0900654CF004D2A7) |
+
+## May 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 5/8 | 2 | Kristin Key: Curveball Comedy Festival | Plaza Theatre | festival | [link](https://www.ticketmaster.com/kristin-key-curveball-comedy-festival-palm-springs-california-05-08-2027/event/0A00656D9C228E82) |
+| Fri 5/14 | 2 | Tig Notaro: Curveball Comedy Festival | Plaza Theatre | festival | [link](https://www.ticketmaster.com/tig-notaro-curveball-comedy-festival-palm-springs-california-05-14-2027/event/0A00656BF723526D) |
+| Sat 5/15 | 2 | Joel Kim Booster: Curveball Comedy Festival | Plaza Theatre | festival | [link](https://www.ticketmaster.com/joel-kim-booster-curveball-comedy-festival-palm-springs-california-05-15-2027/event/0A00656BF14347F6) |
+| Sat 5/15 | 2 | Bob The Drag Queen: Curveball Comedy Festival | Plaza Theatre | festival | [link](https://www.ticketmaster.com/bob-the-drag-queen-curveball-comedy-palm-springs-california-05-15-2027/event/0A00656BD28E0EC3) |
+
+## March 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
 | Sat 3/6 | 1 | Happy Daps Fest - Day 1 | The Observatory | festival | [link](https://www.ticketmaster.com/happy-daps-fest-day-1-santa-ana-california-03-06-2027/event/09006564DF5A0FF1) |
 | Fri 3/26 | 1 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-anaheim-california-03-26-2027/event/0900654BE0A3A30A) |
+
+## May 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Thu 5/13 | 1 | Gayme Show: Curveball Comedy Festival | Plaza Theatre | festival | [link](https://www.ticketmaster.com/gayme-show-curveball-comedy-festival-palm-springs-california-05-13-2027/event/0A00656BCD3DF9B9) |
+| Sun 5/16 | 1 | Jonathan Van Ness: Curveball Comedy Festival | Plaza Theatre | festival | [link](https://www.ticketmaster.com/jonathan-van-ness-curveball-comedy-festival-palm-springs-california-05-16-2027/event/0A00656BFA6C5707) |
+
+## March 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
 | Sun 3/7 | 0 | Happy Daps Fest - 2 Day Pass | The Observatory | festival | [link](https://www.ticketmaster.com/happy-daps-fest-day-2-santa-ana-california-03-07-2027/event/09006564DFBF10C7) |
 
 ## January 2027
@@ -181,7 +207,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Tue 12/22 | 2 | Pentatonix: Christmas in the City Tour  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/pentatonix-christmas-in-the-city-tour-inglewood-california-12-22-2026/event/09006504E828CC6A) |
 | Thu 12/31 | 2 | Flo Rida - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 
 ## January 2027
@@ -229,6 +254,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Thu 4/1 | 2 | The Xscape Room Tour | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/the-xscape-room-tour-inglewood-california-04-01-2027/event/0A006570972A3784) |
 | Sat 4/3 | 2 | We Them One's Comedy Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/we-them-ones-comedy-tour-ontario-california-04-03-2027/event/090065612296692D) |
 | Tue 4/6 | 2 | Man?? - La Residencia - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 4/8 | 2 | Man?? - La Residencia - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
@@ -274,6 +300,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 4/2 | 1 | HANS ZIMMER LIVE - THE NEXT LEVEL | Honda Center | big-venue | [link](https://www.axs.com/events/1615242/hans-zimmer-tickets) |
+
+## May 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 5/1 | 1 | Jhené Aiko Presents: Ark to Agartha - A Westside Whimsy Ex | Honda Center | big-venue | [link](https://www.ticketmaster.com/jhene-aiko-presents-ark-to-agartha-anaheim-california-05-01-2027/event/0900656CC740F0BE) |
 
 ## February 2027
 
