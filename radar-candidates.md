@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/18/2026 deterministically (no API). 144 candidates. Signals: big-venue 118, festival 25, tracked 2._
+_Generated 11/19/2026 deterministically (no API). 146 candidates. Signals: big-venue 119, festival 25, tracked 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -16,6 +16,12 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 2/5 | 8 | Hot Since 82 | Reframe Studios Indoors (Los Angel | tracked:Hot Since 82 | [link](https://dice.fm/event/7d5ea9-hot-since-82-5th-feb-reframe-studios-indoors-los-angeles-tickets) |
+
+## January 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 1/2 | 7 | Dixon / Maceo Plex / Mano Le Tough | East End Studios - Mission Campus | tracked:Dixon | [link](https://ra.co/events/2589101) |
 
 ## December 2026
 
@@ -277,6 +283,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Tue 5/4 | 2 | Tesla (21+) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 5/7 | 2 | Franco Escamilla - "El Juicio" Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/franco-escamilla-el-juicio-tour-ontario-california-05-07-2027/event/0900652F048122D5) |
 | Sun 5/16 | 2 | TINASHE - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1666247/tinashe-2nd-night-added-tickets) |
+| Tue 5/18 | 2 | TINASHE - 3rd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1674932/tinashe-3rd-night-added-tickets) |
 
 ## February 2027
 
