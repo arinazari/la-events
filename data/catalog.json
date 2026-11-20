@@ -729,7 +729,8 @@
     },
     "editorial_mentions": [
       "Time Out",
-      "Time Out LA"
+      "Time Out LA",
+      "LAist"
     ]
   },
   {
@@ -1464,7 +1465,8 @@
       "lineup"
     ],
     "editorial_mentions": [
-      "Discover LA"
+      "Discover LA",
+      "Time Out"
     ]
   },
   {
@@ -2052,6 +2054,10 @@
     "updated_at": "2026-10-21",
     "changed_fields": [
       "lineup"
+    ],
+    "editorial_mentions": [
+      "LAist",
+      "Discover LA"
     ]
   },
   {
@@ -6542,7 +6548,8 @@
     ],
     "detail": "The film screened with its score performed live by a full orchestra.",
     "editorial_mentions": [
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-17",
     "last_seen": "2026-11-17",
@@ -6902,7 +6909,8 @@
     "editorial_mentions": [
       "Discover LA",
       "Discover Los Angeles",
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-18",
     "last_seen": "2026-11-18",
@@ -7501,6 +7509,730 @@
       ],
       "region": "dtla",
       "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Kim Theory",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "The Smell",
+    "neighborhood": null,
+    "lineup": [
+      "Kim Theory"
+    ],
+    "category": "live_music",
+    "price": null,
+    "url": "https://www.thesmell.org/events/friday-november-20-2026",
+    "detail": "LAist music pick, Friday.",
+    "editorial_mentions": [
+      "LAist"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "punk",
+        "experimental"
+      ],
+      "setting": [
+        "diy"
+      ],
+      "scale": "room",
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Lungs",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Huron Station Playhouse",
+    "neighborhood": "East Los Angeles",
+    "lineup": [
+      "Zoe Lister-Jones",
+      "Ashley Zuckerman"
+    ],
+    "category": "theater",
+    "price": "from $25",
+    "url": "https://huronstation.org/",
+    "detail": "Run through Sun Dec 6; with Zoe Lister-Jones and Ashley Zuckerman.",
+    "editorial_mentions": [
+      "LAist"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "stage",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "The Muppet Christmas Carol",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "El Capitan Theatre",
+    "neighborhood": "Hollywood",
+    "lineup": [],
+    "category": "film",
+    "price": "$23",
+    "url": "https://elcapitantheatre.com/showings/the-muppet-christmas-carol",
+    "detail": "Fri-Sun Nov 20-22; director Brian Henson Q&A after the Friday showing.",
+    "editorial_mentions": [
+      "LAist"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "film",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "q&a"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Paul McCarthy's Chocolate Factory",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Performance Art Museum",
+    "neighborhood": "Chinatown",
+    "lineup": [],
+    "category": "art",
+    "price": null,
+    "url": "https://www.timeout.com/los-angeles/art/paul-mccarthys-chocolate-factory",
+    "detail": "Nov 20-Dec 26; collectible chocolates $200.",
+    "editorial_mentions": [
+      "Time Out"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "L.A. Zoo Lights",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Los Angeles Zoo",
+    "neighborhood": "Griffith Park",
+    "lineup": [],
+    "category": "community",
+    "price": "from $25",
+    "url": "https://lazoo.org/plan-your-visit/special-experiences/zoolights/",
+    "detail": "Opens Nov 20, most nights through Jan 10, 2027.",
+    "editorial_mentions": [
+      "Time Out",
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Los Angeles Auto Show",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Los Angeles Convention Center",
+    "neighborhood": "DTLA",
+    "lineup": [],
+    "category": "community",
+    "price": "$25",
+    "url": "https://laautoshow.com/",
+    "detail": "Nov 20-29.",
+    "editorial_mentions": [
+      "Time Out",
+      "We Like LA",
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Cj Hendry's Flower Shop",
+    "date": "2026-11-20",
+    "start": "10:00",
+    "venue": "6 Rose Ave.",
+    "neighborhood": "Venice",
+    "lineup": [],
+    "category": "art",
+    "price": "$10",
+    "url": "https://flowershop.art/",
+    "detail": "Pop-up through Sat Nov 21, daily 10am-6pm; $10 per fabric flower, tenth free.",
+    "editorial_mentions": [
+      "Time Out",
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "pop-up"
+      ],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "The Egyptian Book of the Dead",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Getty Villa",
+    "neighborhood": "Pacific Palisades",
+    "lineup": [],
+    "category": "art",
+    "price": null,
+    "url": "https://www.timeout.com/los-angeles/things-to-do/the-egyptian-book-of-the-dead",
+    "detail": "Exhibition closes Nov 30.",
+    "editorial_mentions": [
+      "Time Out"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Spider Pavilion",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Natural History Museum",
+    "neighborhood": "Exposition Park",
+    "lineup": [],
+    "category": "community",
+    "price": null,
+    "url": "https://www.timeout.com/los-angeles/things-to-do/spider-pavilion",
+    "detail": "Closes Dec 6.",
+    "editorial_mentions": [
+      "Time Out"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Santa Monica Pier Swiss Winter Village",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Santa Monica Pier",
+    "neighborhood": "Santa Monica",
+    "lineup": [],
+    "category": "market",
+    "price": null,
+    "url": "https://www.timeout.com/los-angeles/things-to-do/santa-monica-pier-swiss-winter-village",
+    "detail": "Through Jan 3, 2027; about 30 food chalets, marketplace, ice rink.",
+    "editorial_mentions": [
+      "Time Out"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Holiday Ice Rink Pershing Square",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Pershing Square",
+    "neighborhood": "DTLA",
+    "lineup": [],
+    "category": "community",
+    "price": null,
+    "url": "https://www.timeout.com/los-angeles/things-to-do/holiday-ice-rink-pershing-square",
+    "detail": "Through Jan 3, 2027.",
+    "editorial_mentions": [
+      "Time Out"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Frost on 5th",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Fifth St. & Arizona Ave.",
+    "neighborhood": "Santa Monica",
+    "lineup": [],
+    "category": "community",
+    "price": "$24",
+    "url": "https://www.timeout.com/los-angeles/things-to-do/ice-at-santa-monica-1",
+    "detail": "Outdoor rink through Jan 18, 2027; hourlong slot incl. skates.",
+    "editorial_mentions": [
+      "Time Out"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Hospital of Emotions: After Dark",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Former St. Vincent Medical Center",
+    "neighborhood": "Westlake",
+    "lineup": [],
+    "category": "art",
+    "price": null,
+    "url": "https://www.timeout.com/los-angeles/things-to-do/hospital-of-emotions",
+    "detail": "Late-night edition, through Jan 2, 2027.",
+    "editorial_mentions": [
+      "Time Out"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "NightTales",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Natural History Museum",
+    "neighborhood": "Exposition Park",
+    "lineup": [],
+    "category": "community",
+    "price": null,
+    "url": "https://www.timeout.com/los-angeles/things-to-do/nighttales",
+    "detail": "Through Jan 10, 2027.",
+    "editorial_mentions": [
+      "Time Out"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Secret Walls & Friends Exhibition",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Secret Walls Studios",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "art",
+    "price": "free",
+    "url": "https://www.eventbrite.com/o/secret-walls-3184198448",
+    "detail": "Friday free exhibition with about 100 artists (venue per UncoverLA's Battle League listing).",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Murmur Music House x ROW DTLA: Sunset Sessions",
+    "date": "2026-11-20",
+    "start": "16:30",
+    "venue": "ROW DTLA (Building 2 rooftop)",
+    "neighborhood": "DTLA",
+    "lineup": [
+      "Murmur Music House"
+    ],
+    "category": "live_music",
+    "price": "$35",
+    "url": "https://luma.com/iqw3rjkw",
+    "detail": "Sessions 4:30-6:30pm and 7:30-9:30pm; 21+, currently waitlisted.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "rooftop"
+      ],
+      "scale": null,
+      "vibe": [
+        "sunset",
+        "21+"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Tinker Bell's Neverland",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "South Coast Botanic Garden",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "community",
+    "price": "from $34.33",
+    "url": "https://tinkerbellsneverland.com/los-angeles/",
+    "detail": "Through Jan 3, 2027.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "outdoor"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "American Rag Cie Archive Sale",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "American Rag Cie, 150 S. La Brea Ave.",
+    "neighborhood": "Hancock Park",
+    "lineup": [],
+    "category": "market",
+    "price": null,
+    "url": "https://uncoverla.com/2026/11/18/best-los-angeles-events-november-2026/",
+    "detail": "Fri-Sun Nov 20-22; deals from $3.",
+    "editorial_mentions": [
+      "We Like LA",
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Evil Cooks' Taco Omakase",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Grand Central Market (Airbnb Experiences Counter)",
+    "neighborhood": null,
+    "lineup": [
+      "Alex Garcia"
+    ],
+    "category": "food-drink",
+    "price": "$55",
+    "url": "https://www.airbnb.com/e/grandcentralmarket",
+    "detail": "Nov 20-21; one-hour seating with chef Alex Garcia.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "A Drunk Christmas Carol",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "The Hotel Cafe",
+    "neighborhood": "Hollywood",
+    "lineup": [],
+    "category": "theater",
+    "price": null,
+    "url": "https://drunkchristmas.com/",
+    "detail": "Run Nov 18-Jan 3, 2027; performance times vary.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "stage",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "A Night of Poe: Immersive Cocktail Experience",
+    "date": "2026-11-20",
+    "start": "18:00",
+    "venue": "Hudson Theatres",
+    "neighborhood": "Hollywood",
+    "lineup": [],
+    "category": "theater",
+    "price": null,
+    "url": "https://feverup.com/m/755161",
+    "detail": "Fri Nov 20 6-10pm; Sat Nov 21 10am-10pm.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "stage",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "DUNE: The Experience",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "330 S. Alameda St.",
+    "neighborhood": "Arts District",
+    "lineup": [],
+    "category": "art",
+    "price": null,
+    "url": "https://dunetheexperience.com/",
+    "detail": "Opens Nov 20; runs through the holiday season with dates into January 2027.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "The Hunger Games: Sunrise on the Reaping Cornucopia Immersive Experience",
+    "date": "2026-11-20",
+    "start": "10:00",
+    "venue": "AMC Plaza, Westfield Century City",
+    "neighborhood": "Century City",
+    "lineup": [],
+    "category": "community",
+    "price": null,
+    "url": "https://www.westfield.com/en/united-states/centurycity/events/the-hunger-games-sunrise-on-the-reaping-cornucopia-immersive-experience/140186",
+    "detail": "Through Sun Nov 22, 10am-10pm.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Santa Anita Show Jumping 2026",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Santa Anita Park",
+    "neighborhood": "Arcadia",
+    "lineup": [
+      "Richard Vogel",
+      "Kent Farrington",
+      "McLain Ward",
+      "Laura Kraut"
+    ],
+    "category": "sports",
+    "price": null,
+    "url": "https://www.santaanitaequestrian.com/tickets",
+    "detail": "Through Sun Nov 22; $400,000 Longines FEI Jumping World Cup L.A. on Sat Nov 21.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Rooftop Cinema Club Hollywood",
+    "date": "2026-11-20",
+    "start": null,
+    "venue": "Rooftop at Madame Tussauds Hollywood",
+    "neighborhood": "Hollywood",
+    "lineup": [],
+    "category": "film",
+    "price": null,
+    "url": "https://rooftopcinemaclub.com/us/los-angeles/hollywood/screenings",
+    "detail": "New Hollywood location opened Nov 18; screening hours vary by day.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "film",
+      "genre": [],
+      "setting": [
+        "rooftop"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
     }
   },
   {
@@ -15503,7 +16235,8 @@
     "detail": "One-day artisan holiday pop-up with about 50 vendors.",
     "editorial_mentions": [
       "Time Out LA",
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-19",
     "last_seen": "2026-11-19",
@@ -15535,7 +16268,8 @@
     "detail": "Holiday weekend festival: pop-up marketplace on Pier Plaza (Sat 10am-4pm), Ferris wheel, concerts, Santa events.",
     "editorial_mentions": [
       "Time Out LA",
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-19",
     "last_seen": "2026-11-19",
@@ -15567,7 +16301,8 @@
     "editorial_mentions": [
       "We Like LA",
       "Time Out LA",
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-19",
     "last_seen": "2026-11-19",
@@ -15936,6 +16671,270 @@
       "scale": null,
       "vibe": [],
       "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Venice Oceanarium Moby-Dick Reading",
+    "date": "2026-11-21",
+    "start": "06:30",
+    "venue": "Venice Breakwater (Windward Ave. & the sand)",
+    "neighborhood": "Venice",
+    "lineup": [],
+    "category": "community",
+    "price": "free",
+    "url": "https://www.veniceoceanarium.org/",
+    "detail": "Annual marathon reading on the beach, Sat-Sun Nov 21-22, 6:30am-5:30pm each day.",
+    "editorial_mentions": [
+      "LAist",
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Has the Myth Been Shattered",
+    "date": "2026-11-21",
+    "start": null,
+    "venue": "The Broad",
+    "neighborhood": "DTLA",
+    "lineup": [],
+    "category": "art",
+    "price": "free",
+    "url": "https://www.thebroad.org/art/collection-exhibitions/has-myth-been-shattered",
+    "detail": "Free exhibition opening Nov 21; end date given as Apr 4, 2027 (Time Out) / Apr 7, 2027 (Discover LA).",
+    "editorial_mentions": [
+      "Time Out",
+      "Discover LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Felipe Baeza: Anima",
+    "date": "2026-11-21",
+    "start": null,
+    "venue": "Hammer Museum",
+    "neighborhood": null,
+    "lineup": [],
+    "category": "art",
+    "price": null,
+    "url": "https://hammer.ucla.edu/exhibitions/2026/felipe-baeza-anima",
+    "detail": "Opens Nov 21, through Apr 4, 2027; first monographic museum show, 40+ works.",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Candide (LA Opera)",
+    "date": "2026-11-21",
+    "start": null,
+    "venue": "Dorothy Chandler Pavilion",
+    "neighborhood": "DTLA",
+    "lineup": [
+      "Scott Bakula",
+      "Patti LuPone"
+    ],
+    "category": "theater",
+    "price": null,
+    "url": "https://www.laopera.org/performances/2026-27/candide",
+    "detail": "Nov 21-Dec 13; with Scott Bakula and Patti LuPone.",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "stage",
+      "genre": [
+        "opera"
+      ],
+      "setting": [],
+      "scale": "hall",
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Holidays at Universal",
+    "date": "2026-11-21",
+    "start": null,
+    "venue": "Universal Studios Hollywood",
+    "neighborhood": "Hollywood",
+    "lineup": [],
+    "category": "community",
+    "price": null,
+    "url": "https://www.universalstudioshollywood.com/web/en/us/things-to-do/events-and-seasonal-activities/holidays-at-universal-studios-hollywood",
+    "detail": "Nov 21-Jan 3, 2027.",
+    "editorial_mentions": [
+      "Discover LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Secret Walls Battle League L.A.",
+    "date": "2026-11-21",
+    "start": "18:00",
+    "venue": "Secret Walls Studios, 2272 Venice Blvd.",
+    "neighborhood": "West Adams",
+    "lineup": [],
+    "category": "art",
+    "price": null,
+    "url": "https://www.eventbrite.com/o/secret-walls-3184198448",
+    "detail": "20th anniversary launch, Sat & Sun Nov 21-22, 6-10pm; about 25 L.A. artists compete.",
+    "editorial_mentions": [
+      "We Like LA",
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "American Rag Cie $6 Per Pound Vintage Sale",
+    "date": "2026-11-21",
+    "start": "06:00",
+    "venue": "Commerce Warehouse, 2267 Yates Ave.",
+    "neighborhood": "Commerce",
+    "lineup": [],
+    "category": "market",
+    "price": "$6 per pound",
+    "url": "https://www.eventbrite.com/e/6-per-pound-vintage-sale-tickets-2004038310534",
+    "detail": "Sat Nov 21, 6-11am warehouse sale.",
+    "editorial_mentions": [
+      "We Like LA",
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [
+        "warehouse"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "eastside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Holiday Market at Mandarin Plaza",
+    "date": "2026-11-21",
+    "start": "11:00",
+    "venue": "Mandarin Plaza, 970 N. Broadway",
+    "neighborhood": "Chinatown",
+    "lineup": [],
+    "category": "market",
+    "price": "free",
+    "url": "https://www.welikela.com/things-to-do-this-weekend-in-los-angeles-11-20-2026-to-11-22-2026/",
+    "detail": "Sat Nov 21, 11am-4pm; about 30 independent vendors.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Cosmic Interventions: Star Party",
+    "date": "2026-11-21",
+    "start": "20:00",
+    "venue": "The Roof West at PUBLIC, 8300 Sunset Blvd.",
+    "neighborhood": "West Hollywood",
+    "lineup": [],
+    "category": "community",
+    "price": null,
+    "url": "https://uncoverla.com/2026/11/18/best-los-angeles-events-november-2026/",
+    "detail": "Sat Nov 21, 8pm; stargazing with live jazz.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "sunset"
+      ],
+      "region": "hollywood",
       "near_home": false
     }
   },
@@ -16822,7 +17821,10 @@
       "vibe": [],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "editorial_mentions": [
+      "LAist"
+    ]
   },
   {
     "source": "webfetch",
@@ -20530,6 +21532,119 @@
       "scale": "bar",
       "vibe": [],
       "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Enchanted Forest of Light",
+    "date": "2026-11-22",
+    "start": "17:30",
+    "venue": "Descanso Gardens",
+    "neighborhood": "La Canada Flintridge",
+    "lineup": [],
+    "category": "art",
+    "price": null,
+    "url": "https://www.descansogardens.org/events-and-activities/enchanted/",
+    "detail": "Opens Nov 22, runs through Jan 9, 2027; timed entry from 5:30pm.",
+    "editorial_mentions": [
+      "Time Out",
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "art",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Lise Davidsen Holiday Concert",
+    "date": "2026-11-22",
+    "start": "19:30",
+    "venue": "BroadStage",
+    "neighborhood": "Santa Monica",
+    "lineup": [
+      "Lise Davidsen"
+    ],
+    "category": "live_music",
+    "price": null,
+    "url": "https://broadstage.org/tickets-shows/calendar/celebrity-opera-lise-davidsen-holiday-concert/",
+    "detail": "Celebrity Opera series.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "De La Nonna Dinner Series",
+    "date": "2026-11-22",
+    "start": null,
+    "venue": "De La Nonna",
+    "neighborhood": "Arts District",
+    "lineup": [],
+    "category": "food-drink",
+    "price": "$75",
+    "url": "https://resy.com/cities/los-angeles-ca/venues/de-la-nonna",
+    "detail": "Nov 22 dinner.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "ROLL CALL: Ventura Nights",
+    "date": "2026-11-22",
+    "start": "18:00",
+    "venue": "Skating Plus, 1720 Mesa Verde Ave.",
+    "neighborhood": "Ventura",
+    "lineup": [],
+    "category": "nightlife",
+    "price": null,
+    "url": "https://partiful.com/e/KAvLwGbxVV8FEIJqZSNj",
+    "detail": "Sun Nov 22, 6-9pm roller-skating night; rentals included.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "warehouse"
+      ],
+      "scale": "room",
+      "vibe": [],
+      "region": "far",
       "near_home": false
     }
   },
@@ -25614,6 +26729,42 @@
       "scale": "bar",
       "vibe": [],
       "region": "westside",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Zero Hour Comedy",
+    "date": "2026-11-25",
+    "start": null,
+    "venue": "Zero Lounge",
+    "neighborhood": "Hollywood",
+    "lineup": [
+      "Curtis Cook",
+      "Brandie Posey",
+      "Rick Wood",
+      "John Michael Bond"
+    ],
+    "category": "comedy",
+    "price": "free",
+    "url": "https://www.timeout.com/los-angeles/comedy/zero-hour-comedy",
+    "detail": "Free Wednesday-night stand-up through Dec 30, alongside 7-10pm happy hour.",
+    "editorial_mentions": [
+      "Time Out"
+    ],
+    "first_seen": "2026-11-20",
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "comedy",
+      "genre": [
+        "standup"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "hollywood",
       "near_home": false
     }
   },
@@ -62695,7 +63846,8 @@
     "tags": {
       "type": "live-music",
       "genre": [
-        "blues"
+        "blues",
+        "jazz"
       ],
       "setting": [
         "listening-bar"
@@ -63221,7 +64373,20 @@
     "price": null,
     "detail": null,
     "first_seen": "2026-11-20",
-    "last_seen": "2026-11-20"
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": "hall",
+      "vibe": [
+        "tribute"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -73311,7 +74476,22 @@
     "price": null,
     "detail": "Album release show for Golan's album \"Homecoming.\"",
     "first_seen": "2026-11-20",
-    "last_seen": "2026-11-20"
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [
+        "album-release"
+      ],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "NUTCRACKER! Magical Christmas Ballet",
@@ -105363,7 +106543,20 @@
     "price": "$32",
     "detail": "Listing says 'Sat Jan 8' but product page header says Fri, Jan 8th, 8:00 pm",
     "first_seen": "2026-11-20",
-    "last_seen": "2026-11-20"
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "folk"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Disney Presents The Lion King (Touring)",
@@ -112392,7 +113585,20 @@
     "price": null,
     "detail": null,
     "first_seen": "2026-11-20",
-    "last_seen": "2026-11-20"
+    "last_seen": "2026-11-20",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "folk"
+      ],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "EDC Mexico",
