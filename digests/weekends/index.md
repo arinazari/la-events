@@ -2,12 +2,12 @@
 
 | Weekend (Fri) | Events | Top pick |
 |---|---|---|
-| [2026-11-20](2026-11-20.md) | 16 | Beacon of Light: Spacetime Continuum, Lovefingers, Felix The Dog |
+| [2026-11-20](2026-11-20.md) | 18 | Beacon of Light: Spacetime Continuum, Lovefingers, Felix The Dog |
 | [2026-11-27](2026-11-27.md) | 16 | Time Warp Los Angeles 2026 |
 | [2026-12-04](2026-12-04.md) | 19 | TUNNEL 5YR: Special Guest (Berghain), ROZA Terenzi, Dj Warning, James Axon, & OZA |
 | [2026-12-11](2026-12-11.md) | 19 | Drumcode: Adam Beyer, Dreya V, Marco Faraone |
-| [2026-12-18](2026-12-18.md) | 20 | Daft Punk Night | Club Decades |
-| [2026-12-25](2026-12-25.md) | 17 | DJ Isaac |
+| [2026-12-18](2026-12-18.md) | 20 | Marten Horger w/ DJ Susan,Gold Lemonade, Dayze |
+| [2026-12-25](2026-12-25.md) | 18 | DJ Isaac |
 | [2027-01-01](2027-01-01.md) | 17 | Sidepiece |
 | [2027-01-08](2027-01-08.md) | 20 | Sasha & John Digweed |
 | [2027-01-15](2027-01-15.md) | 18 | Mutate: Pawlowski x Airod x Flash Gea |

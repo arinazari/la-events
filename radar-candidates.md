@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/19/2026 deterministically (no API). 146 candidates. Signals: big-venue 119, festival 25, tracked 3._
+_Generated 11/20/2026 deterministically (no API). 148 candidates. Signals: big-venue 121, festival 25, tracked 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -208,6 +208,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 5/14 | 3 | KCRW Presents Panchiko  | Kia Forum | big-venue | [link](https://www.ticketmaster.com/kcrw-presents-panchiko-inglewood-california-05-14-2027/event/090065579B59B57F) |
 | Fri 5/14 | 3 | Interpol - North America Tour 2027 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/interpol-north-america-tour-2027-los-angeles-california-05-14-2027/event/0A00656DD13BEDB6) |
 | Sat 5/15 | 3 | TINASHE | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1664424/tinashe-tickets) |
+| Tue 5/18 | 3 | Deftones - North American Tour 2027 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/deftones-north-american-tour-2027-hollywood-california-05-18-2027/event/0B006569EADF51F9) |
 
 ## December 2026
 
@@ -242,6 +243,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Tue 2/2 | 2 | Christine D'Clario - La Novia Tour  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/christine-dclario-la-novia-tour-inglewood-california-02-02-2027/event/0A006179983A3029) |
+| Thu 2/4 | 2 | WayV | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1695099/wayv-tickets) |
 | Thu 2/11 | 2 | La Arrolladora Banda El Limon (21+ Event) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 2/17 | 2 | Yuridia - 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 2/18 | 2 | PABLO ALBORAN - GLOBAL TOUR KM0 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pablo-alboran-global-tour-km0-inglewood-california-02-18-2027/event/0A0064CAC3AADDB8) |

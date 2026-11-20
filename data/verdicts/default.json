@@ -52626,12 +52626,12 @@
     },
     "39035ac78a21": {
       "tier": "great",
-      "adjust": 0,
-      "why": "Amal Nemer is a genuine groovy tech-house name (Moon Harbour, Glasgow Underground) at a free TBA-location Friday; RSVP-gated, so some friction.",
+      "adjust": 1,
+      "why": "Free-RSVP tech-house warehouse-style Friday with Amal Nemer (Moon Harbour, Glasgow Underground groove); TBA venue and an unknown-depth bill keep it from the top.",
       "confidence": "med",
-      "judged_at": "2026-11-15T13:17:51",
+      "judged_at": "2026-11-20T13:24:37",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "9f11d637fd5a": {
       "tier": "solid",
@@ -53191,14 +53191,14 @@
       "score_at_judge": 6
     },
     "4aacebd78f0c": {
-      "tier": "solid",
+      "tier": "great",
       "lane": "live-music",
-      "adjust": -1,
-      "why": "Icona Pop is a pop duo playing a small room, which gives the 'big name in a small venue' appeal. But it's a pop show with doors at 6:30, not an underground club night.",
+      "adjust": 0,
+      "why": "Icona Pop (\"I Love It\") in a 300-cap room is a real small-room booking. It's a live electropop show, not a warehouse night, so I moved it to live-music. The 6:30pm start leaves the night open.",
       "confidence": "med",
-      "judged_at": "2026-11-19T13:21:11",
+      "judged_at": "2026-11-20T13:24:37",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 10
     },
     "b17f6d95cbdb": {
       "tier": "great",
@@ -53244,6 +53244,160 @@
       "judged_at": "2026-11-19T13:21:11",
       "input_version": 2,
       "score_at_judge": 7
+    },
+    "671f2f0ec847": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Rooftop sunset session at ROW DTLA, which is the golden-hour setting you like. Murmur Music House is a small crew, so the draw is the setting more than the name.",
+      "confidence": "med",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "c649929d2309": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Leithauser and Rostam together is a real indie draw in an intimate DTLA room, and it's the best non-dance option tonight.",
+      "confidence": "med",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "37b0935a4659": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free late-night TBA DTLA party with no lineup listed. Fine as a fallback after midnight, but nothing to plan around.",
+      "confidence": "low",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "efd7dbd0a54e": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Oh, Mary! is a buzzy, well-reviewed touring comedy-play and a decent theater night, but off your core lane.",
+      "confidence": "med",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "86e845201fbc": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Archive sale at a fashion shop. It's a daytime errand more than an event, so include it only if there's room.",
+      "confidence": "med",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "563e1b7c7377": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Auto Show at the Convention Center. The editorial mentions inflated the score, and it's nowhere near your taste.",
+      "confidence": "high",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "5a2b4573371e": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Seasonal outdoor ice rink with no music angle. Background Around-town filler.",
+      "confidence": "high",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "7ca6386ff7a9": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Family holiday lights at the zoo, which is the kids/family programming you penalize.",
+      "confidence": "high",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "e92bdd20e3ee": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Genuine morning afters (5am-4pm) with deep and afro house, free with RSVP. Nobody is billed, so the draw is the room and the crowd.",
+      "confidence": "low",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "899e9c50ab19": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Pay-by-the-pound vintage warehouse sale. Fun dig if you're out east, but a low-interest market with no music angle.",
+      "confidence": "med",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "43ea08c3c5a5": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "A dawn Moby-Dick reading on the sand is charming, and the press likes it. The 'groove' keyword match is spurious, so it stays a curiosity.",
+      "confidence": "med",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 5
+    },
+    "12068c73e1e6": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free Chinatown holiday market close to home. Fine daytime wander, nothing to build a night around.",
+      "confidence": "med",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "0708b348f0a3": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Rooftop star party at PUBLIC. The setting is nice but there's no music or dance angle, so it's a pleasant filler.",
+      "confidence": "med",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "729b25180b87": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "TBA-location warehouse bill led by Things You Say, who's core in your rotation, with KNOX and BUCK/OFF on the house-to-tech-house side. Local-scene depth, not a marquee. The bill leans into the gay-nightlife circuit, so check the vibe.",
+      "confidence": "low",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 8
+    },
+    "740b08c76805": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "9am-2am TBA DTLA day-to-night techno special. It's close to home and the format suits you. No lineup is posted and the tags hint at dubstep/EDM bleed, so it needs a closer look.",
+      "confidence": "low",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "9dec2073ef6e": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Final date of the Atwater flea run, with vintage and vinyl on the menu. It's close to home and free to browse, a decent Friday morning detour.",
+      "confidence": "med",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "7d5dcce407a1": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -3,
+      "why": "A Club Decades Daft Punk tribute night is a tired nostalgia format with no real DJ billing. Daft Punk affinity doesn't rescue a themed party. It's mainstream, not underground.",
+      "confidence": "high",
+      "judged_at": "2026-11-20T13:24:37",
+      "input_version": 2,
+      "score_at_judge": 9
     }
   }
 }
