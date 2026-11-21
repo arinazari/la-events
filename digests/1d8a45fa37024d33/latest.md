@@ -1,15 +1,13 @@
 # LA Events — 2026-11-20
-*Digest regenerated Fri 11/20 — picks updated.*
-
 *Your week ahead, the weekends after, and what's on the radar — ranked for your taste · ⭐ = top pick*
 *Checked Fri 11/20 · no new or changed events since the last pull*
 
-<!-- take: Two all-nighters go head to head downtown tomorrow, and the holiday week behind them is stacked from Harvey to Time Warp. -->
-Tonight is the warm-up and tomorrow is the main event. Saturday puts Beacon of Light (Spacetime Continuum, Lovefingers, until 6am) against Cinthie's vinyl-only all-nighter downtown. If you can only do one, go to Beacon, because that bill almost never comes through LA and Cinthie will be back. Thanksgiving week is the strongest stretch on the calendar: DJ Harvey at Catch One on Wednesday, then Time Warp's three days and Solomun closing Hollywood Blvd on Saturday 11/28. Time Warp is the one to price now.
+<!-- take: -->
+<!-- tier3:intro -->
 
 ## Tonight & tomorrow
 
-Keep tonight light with the ROW DTLA rooftop at sunset or Juliet Mendoza at the Airliner for under $20, and save your legs for Beacon of Light tomorrow.
+<!-- tier3:call -->
 
 - `Today 9pm-2am` **[The One Hundred: Juliet Mendoza, SAMO\, Yazmina](https://ra.co/events/2558818)** — The Airliner, Lincoln Heights · $5.50-17.25 · [card ↗](https://arinazari.github.io/la-events/?e=ff9ed93ab7ac) — *Juliet Mendoza, a Defected Unsung Heroes alum, plays soulful and deep house, and she's in your Spotify. At the Airliner for $5-17 it's cheap, local and on your groove lane.*
 - `Today Fri:11pm-Sun:11am` **[Adrian Reyes, BB Shaine, David Castellani (live), Fizch, FJAAK, Lindsey Herbert, Luigi Tozzi (live), The Lady Machine](https://ra.co/events/2526746)** — TBA - Los Angeles, Los Angeles · $90-120 · [card ↗](https://arinazari.github.io/la-events/?e=a0243895811b) — *FJAAK live at a secret 6AM Group/Synthetik Minds warehouse running Friday 11pm to Sunday 11am — a real two-night techno event with Amelie Lens-style hard-techno overlap in your Spotify. Steep at $90-120 and harder than your usual groove.*
@@ -21,17 +19,17 @@ Keep tonight light with the ROW DTLA rooftop at sunset or Juliet Mendoza at the 
 ## Don't miss
 
 - `Fri 11/20` **[Murmur Music House x ROW DTLA: Sunset Sessions](https://luma.com/iqw3rjkw)** — ROW DTLA (Building 2 rooftop), DTLA · $35 · [card ↗](https://arinazari.github.io/la-events/?e=671f2f0ec847)  
-  Golden hour on a ROW DTLA rooftop with a small house crew. You go for the setting, not the names. It's waitlisted at $35, so get on the list now. <!-- tier3:why 671f2f0ec847 -->
+  Rooftop sunset session at ROW DTLA, which is the golden-hour setting you like. Murmur Music House is a small crew, so the draw is the setting more than the name. <!-- tier3:why 671f2f0ec847 -->
 - `Sat 11/21` **[Icona Pop](https://www.ticketmaster.com/icona-pop-los-angeles-california-11-21-2026/event/090064FB9DCD622C)** — The Moroccan Lounge, Arts District · $38 · [card ↗](https://arinazari.github.io/la-events/?e=4aacebd78f0c)  
-  Icona Pop in a 275-cap room is a fun one-off, and the 6:30 start leaves the whole night free for Beacon of Light after. <!-- tier3:why 4aacebd78f0c -->
+  Not a house night, but a hit-making duo in a Moroccan Lounge-sized room is a fun anomaly. It's an early 6:30 show, so you can still go out afterward. <!-- tier3:why 4aacebd78f0c -->
 - `Wed 11/25` **[Thanksgiving Eve with DJ Harvey on the Burnin' Chancla Soundsystem (A Rhondavous Gratitude Gala)](https://ra.co/events/2526459)** — Catch One, Mid-City · $10 b4 1030 / $15 · *🎟 tiered pricing — buy early* · [card ↗](https://arinazari.github.io/la-events/?e=ea77e713446c)  
-  Harvey on his own Burnin' Chancla rig at Catch One, with the Rhonda crew hosting, on the one Wednesday nobody works the next day. It's $10 before 10:30, so go early and catch the warm-up. <!-- tier3:why ea77e713446c -->
+  DJ Harvey bringing his own Burnin' Chancla rig to Catch One is the kind of night people are still talking about in January, and doing it on Thanksgiving Eve with the Rhonda crew feels right. Come early enough to catch the locals warm it up. <!-- tier3:why ea77e713446c -->
 - `Fri 11/27` **[Time Warp Los Angeles 2026](https://ra.co/events/2512911)** — Ace*Mission Studios, Los Angeles · $180+ · [card ↗](https://arinazari.github.io/la-events/?e=e04d22c5b5d3)  
-  Klock, Hawtin, Gerd Janson, Loco Dice and the Martinez Brothers over three days in a DTLA studio complex. $180+ is steep, but this is the closest LA gets to a European techno weekend. <!-- tier3:why e04d22c5b5d3 -->
+  Three days of Time Warp in a DTLA studio complex, with Klock, Hawtin, Gerd Janson, Loco Dice and the Martinez Brothers all on one bill. It's pricey at $180+, but it's the closest LA gets to a proper European techno weekend, and the Friday 2pm start suggests a long one. <!-- tier3:why e04d22c5b5d3 -->
 - `Sat 11/28` **[Channel Tres](https://www.axs.com/events/1428029/channel-tres-tickets)** — The Novo, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=9d7693796c03)  
-  That baritone over house-speed G-funk works better live than on record, and he's in your Spotify rotation. It's a good Saturday if Solomun's block party isn't your thing. <!-- tier3:why 9d7693796c03 -->
+  Channel Tres is as close as hip-hop gets to a deep house set, with that baritone over G-funk-by-way-of-Detroit grooves. A Saturday at the Novo is a good bet and he's on your Spotify rotation. <!-- tier3:why 9d7693796c03 -->
 - `Sat 12/12` **[Certified Groovers: Maher Daniel, Federico Daiup, Ian & Gilberto](https://ra.co/events/2576579)** — TBA - Downtown Los Angeles, DTLA · $25 · *📍 location TBA — watch for the drop* · [card ↗](https://arinazari.github.io/la-events/?e=a83a0a8734fa)  
-  An eight-hour overnighter at a secret DTLA spot from the Certified Groovers regulars, for $25. Long, patient sets are the point, so watch for the address drop. <!-- tier3:why a83a0a8734fa -->
+  Eight-hour secret-location DTLA overnighter from the Certified Groovers crew, with two of their regulars on the bill. It's the kind of long, patient room-building set you want a late night for. <!-- tier3:why a83a0a8734fa -->
 
 ## What changed
 
@@ -53,7 +51,7 @@ Keep tonight light with the ROW DTLA rooftop at sunset or Juliet Mendoza at the 
 ## Next two weeks
 
 ### Friday · November 20
-*Night sketch: Murmur's 4:30pm rooftop set at ROW DTLA, pizza at Pizzeria Bianco in the same complex around 7, then Juliet Mendoza at the Airliner from 9. Ask the concierge for the full plan.*
+<!-- tier3:blueprint 2026-11-20 -->
 
 **Electronic & dance**
 - `9pm-2am` **[The One Hundred: Juliet Mendoza, SAMO\, Yazmina](https://ra.co/events/2558818)** — The Airliner, Lincoln Heights · $5.50-17.25 · [card ↗](https://arinazari.github.io/la-events/?e=ff9ed93ab7ac)  
@@ -77,7 +75,7 @@ Keep tonight light with the ROW DTLA rooftop at sunset or Juliet Mendoza at the 
 - `10am` 🆕 **[Cj Hendry's Flower Shop](https://flowershop.art/)** — 6 Rose Ave., Venice · $10 · [card ↗](https://arinazari.github.io/la-events/?e=12d2d69863a1)
 
 ### Saturday · November 21
-*Night sketch: Icona Pop at the Moroccan Lounge at 6:30, a free rooftop drink at Broken Shaker's Higher Grooves until 11, then Beacon of Light from about 11 to close. Ask the concierge for the full plan.*
+<!-- tier3:blueprint 2026-11-21 -->
 
 **Electronic & dance**
 - `10pm-6am` ⭐ **[Beacon of Light: Spacetime Continuum, Lovefingers, Felix The Dog](https://ra.co/events/2560915)** — Better Tomorrow, Los Angeles · $20-40.25 · [card ↗](https://arinazari.github.io/la-events/?e=424be80dd356)  
@@ -150,7 +148,7 @@ Keep tonight light with the ROW DTLA rooftop at sunset or Juliet Mendoza at the 
 - `8:30pm` **[Billy T and the Fam](https://www.thedresden.com/events/)** — The Dresden, Los Feliz · No cover · [card ↗](https://arinazari.github.io/la-events/?e=8e13dc486a7a)
 
 ### Friday · November 27
-*Night sketch: Time Warp from mid-afternoon; if you still have legs at 11, Black Friday Afters with Blank Sense is free with RSVP before 1am.*
+<!-- tier3:blueprint 2026-11-27 -->
 
 **Electronic & dance**
 - `Fri:2pm-Sun:2am` ⭐ **[Time Warp Los Angeles 2026](https://ra.co/events/2512911)** — Ace*Mission Studios, Los Angeles · day party · $180+ · [card ↗](https://arinazari.github.io/la-events/?e=e04d22c5b5d3)
@@ -160,7 +158,7 @@ Keep tonight light with the ROW DTLA rooftop at sunset or Juliet Mendoza at the 
 - `8pm` **[BFF’s Forever   tearyeyes    Lucky Wife And Mother      8:00 pm    $10    Advanc](https://www.thesmell.org/events/friday-november-27-2026)** — The Smell, DTLA · [card ↗](https://arinazari.github.io/la-events/?e=b778b6d840df)
 
 ### Saturday · November 28
-*Night sketch: Solomun on Hollywood Blvd from 5 to 11, then pick one for the late shift: Channel Tres at the Novo if you leave early, or Borak b2b Ray Kash at Community Berlin until 6am.*
+<!-- tier3:blueprint 2026-11-28 -->
 
 **Electronic & dance**
 - `5pm-11pm` ⭐ **[Solomun](https://dice.fm/event/7dbax7-solomun-28th-nov-hollywood-blvd-los-angeles-tickets)** — Hollywood Blvd (Los Angeles), Hollywood · big room · $118 pre · [card ↗](https://arinazari.github.io/la-events/?e=4edb53aea20f)  
@@ -316,5 +314,3 @@ Keep tonight light with the ROW DTLA rooftop at sunset or Juliet Mendoza at the 
 **The watch-list** — *festivals worth planning around*
 - **[Coachella 2027](https://www.coachella.com/)** — 4/9–11 and 4/16–18 · Empire Polo Club, Indio CA · **lineup pending** — Advance GA already sold out (~$549–599); official lineup not yet announced. Industry trades (Hits Daily Double) rumor Tame Impala + Dua Lipa headlining with Fred again.. in the "Returning to the Desert" slot — unconfirmed, ~7 months out.
 
----
-*Sources this run: Eventbrite timed out on the first pull again and came back on a retry. Beatport returned 0 events. The Gmail "Events" label and the SMS inbox were skipped because neither was available in this session. Layered in with WebFetch: McCabe's, Harvelle's, Sam First, The Venice West and Avalon. The Dresden lists only undated weekly residencies, and Sam First's listing stops at 12/17. Editorial signals came from LAist, Time Out, We Like LA, Discover LA and UncoverLA; 6AM had no current picks post, and no outlet has published Thanksgiving-week picks yet. Two friends' Spotify syncs failed with a 502 for the second day running, so their feeds kept their last good music layer.*
