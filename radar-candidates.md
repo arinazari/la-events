@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/20/2026 deterministically (no API). 148 candidates. Signals: big-venue 121, festival 25, tracked 3._
+_Generated 11/21/2026 deterministically (no API). 152 candidates. Signals: big-venue 125, festival 25, tracked 3._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -209,6 +209,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 5/14 | 3 | Interpol - North America Tour 2027 | BMO Stadium | big-venue | [link](https://www.ticketmaster.com/interpol-north-america-tour-2027-los-angeles-california-05-14-2027/event/0A00656DD13BEDB6) |
 | Sat 5/15 | 3 | TINASHE | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1664424/tinashe-tickets) |
 | Tue 5/18 | 3 | Deftones - North American Tour 2027 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/deftones-north-american-tour-2027-hollywood-california-05-18-2027/event/0B006569EADF51F9) |
+| Wed 5/19 | 3 | Deftones - North American Tour 2027 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/deftones-north-american-tour-2027-hollywood-california-05-19-2027/event/0B006570CF044A26) |
 
 ## December 2026
 
@@ -248,6 +249,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Wed 2/17 | 2 | Yuridia - 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 2/18 | 2 | PABLO ALBORAN - GLOBAL TOUR KM0 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pablo-alboran-global-tour-km0-inglewood-california-02-18-2027/event/0A0064CAC3AADDB8) |
 | Sun 2/21 | 2 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-21-2027/event/0A006524AD56A71F) |
+| Tue 2/23 | 2 | Santana - 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 2/26 | 2 | The Basement Yard Live | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/the-basement-yard-live-inglewood-california-02-26-2027/event/0A0064C2CCB3BA66) |
 
 ## March 2027
@@ -286,6 +288,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 5/7 | 2 | Franco Escamilla - "El Juicio" Tour | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/franco-escamilla-el-juicio-tour-ontario-california-05-07-2027/event/0900652F048122D5) |
 | Sun 5/16 | 2 | TINASHE - 2nd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1666247/tinashe-2nd-night-added-tickets) |
 | Tue 5/18 | 2 | TINASHE - 3rd Night Added! | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1674932/tinashe-3rd-night-added-tickets) |
+| Wed 5/19 | 2 | Megadeth: Vaccination Of The Nations Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/megadeth-vaccination-of-the-nations-tour-inglewood-california-05-19-2027/event/09006567044C4559) |
 
 ## February 2027
 
@@ -315,6 +318,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 5/1 | 1 | Jhené Aiko Presents: Ark to Agartha - A Westside Whimsy Ex | Honda Center | big-venue | [link](https://www.ticketmaster.com/jhene-aiko-presents-ark-to-agartha-anaheim-california-05-01-2027/event/0900656CC740F0BE) |
+| Thu 5/20 | 1 | Calvin Harris - North America Tour | Honda Center (Anaheim) | big-venue | [link](https://www.ticketmaster.com/event/09006555CCBD0EA8) |
 
 ## February 2027
 
