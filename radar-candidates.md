@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/21/2026 deterministically (no API). 152 candidates. Signals: big-venue 125, festival 25, tracked 3._
+_Generated 11/22/2026 deterministically (no API). 154 candidates. Signals: big-venue 125, festival 26, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -16,6 +16,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 2/5 | 8 | Hot Since 82 | Reframe Studios Indoors (Los Angel | tracked:Hot Since 82 | [link](https://dice.fm/event/7d5ea9-hot-since-82-5th-feb-reframe-studios-indoors-los-angeles-tickets) |
+| Sat 2/20 | 8 | Patrick Topping | Sound Nightclub (Los Angeles) | tracked:Patrick Topping | [link](https://dice.fm/event/q23lmp-patrick-topping-20th-feb-sound-nightclub-los-angeles-tickets) |
 
 ## January 2027
 
@@ -41,6 +42,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 2/27 | 4 | 2 DAY PASS - LEVEL UP AT HOLLYWOOD PALLADIUM | Hollywood Palladium | festival | [link](https://www.ticketmaster.com/level-up-at-hollywood-palladium-hollywood-california-02-27-2027/event/0900653031A6AE16) |
+| Sat 2/27 | 4 | Skyline Festival 2027 | Ace * Mission Studios | festival | [link](https://on.fgtix.com/trk/nlBW) |
 
 ## April 2027
 
@@ -71,13 +73,18 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 2/6 | 3 | Classics : Painting in Notes | Terrace Theater - Long Beach Conve | festival | [link](https://www.ticketmaster.com/classics-painting-in-notes-long-beach-california-02-06-2027/event/0B0064279F502922) |
 | Sat 2/20 | 3 | Hellfest West 2027 | The Fox Theater - Pomona | festival | [link](https://www.ticketweb.com/event/hellfest-west-2027-the-fox-theater-tickets/15054963?REFERRAL_ID=tmfeed) |
 | Tue 2/23 | 3 | The Flaming Lips - 2 Day Pass | The Bellwether | festival | [link](https://www.ticketmaster.com/the-flaming-lips-223-los-angeles-california-02-23-2027/event/09006557B75417C7) |
-| Sat 2/27 | 3 | Skyline Festival 2027 | Ace * Mission Studios | festival | [link](https://on.fgtix.com/trk/nlBW) |
 
 ## March 2027
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 3/19 | 3 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | The Wiltern | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-los-angeles-california-03-19-2027/event/0900654CF004D2A7) |
+
+## December 2026
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Thu 12/31 | 2 | Trish Toledo | Riverside Municipal Auditorium | festival | [link](https://www.ticketmaster.com/trish-toledo-riverside-california-12-31-2026/event/0B00652B1A16A402) |
 
 ## May 2027
 
@@ -118,6 +125,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Fri 2/5 | 4 | Omnom w/ Mesto & Fenik | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1633701/omnom-tickets) |
 | Fri 2/19 | 4 | Karan Aujla | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/karan-aujla-los-angeles-california-02-19-2027/event/2C00652AF5740D18) |
 
 ## April 2027
@@ -160,7 +168,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Fri 2/5 | 3 | Conjunto Primavera, Banda Machos, Montez de Durango | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/noche-de-leyendas-ontario-california-02-05-2027/event/09006536E34FE13E) |
-| Fri 2/5 | 3 | OMNOM | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1633701/omnom-tickets) |
 | Sat 2/6 | 3 | DRAIN | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1598806/drain-tickets) |
 | Sat 2/6 | 3 | KENSHI YONEZU 2026-2027 WORLD TOUR / GHOST | Kia Forum | big-venue | [link](https://www.ticketmaster.com/kenshi-yonezu-20262027-world-tour-ghost-inglewood-california-02-06-2027/event/0900653B09D0F7B1) |
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |

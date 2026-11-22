@@ -53635,6 +53635,283 @@
       "judged_at": "2026-11-21T13:20:08",
       "input_version": 2,
       "score_at_judge": 7
+    },
+    "866245c3cac0": {
+      "tier": "skip",
+      "lane": "community",
+      "adjust": -1,
+      "why": "Convention-center car show over Thanksgiving weekend; nothing here pulls on a house-and-rep-cinema calendar.",
+      "confidence": "high",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "cabe0a34fbd8": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "No lineup, no venue, just a $4.55 electronic ticket; too blank to recommend over named rooms.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "12dfe5afa0ef": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free afters at a street address with no names attached; fine as a late fallback, not something to plan around.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "27b5a1deec12": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Last night of a 3-night Lexington after-hours run, unnamed lineup; a bar-scale late stop, so only one night should rank and this is the sibling.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "cd617883ec73": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "Warehouse party billed on a Buchecha headline plus a surprise guest. The warehouse setting helps, but I can't confirm Buchecha plays house or techno.",
+      "confidence": "low",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "9a85f81e6e8f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free TBA-location Saturday on Posh with no names; the secret-spot appeal is real but the information is thin.",
+      "confidence": "low",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "70e5993cd577": {
+      "tier": "skip",
+      "lane": "club:underground",
+      "adjust": -2,
+      "why": "Furry/anime emo-night rave in Commerce built on darksynth and bass; it only hits 'techno' by tag, and the vibe is wrong for this taste.",
+      "confidence": "high",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "02f87f3c62b5": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Unofficial Wooli afters, so dubstep, riddim and DnB, which is the bass-music lane to avoid; the TBA warehouse doesn't fix the sound.",
+      "confidence": "high",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e8b38037d62b": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "House bill at Sound with two names I can't place; a room-scale Hollywood club night that fits the lane but isn't special.",
+      "confidence": "low",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "d140de7c0f5f": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Small Silver Lake room within walking distance, free with RSVP, and a Latin underground femme-collective bill; the best low-stakes night in this batch.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "d7b0b6917543": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Zhu is a real draw, and a 10pm-3am house and downtempo set at a studio room is a better fit than his festival slots. This is night 2 of 2, so pick whichever night suits you.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "9273cb51347c": {
+      "tier": "great",
+      "adjust": 3,
+      "why": "Ø [Phase] is a long-running UK techno name. With Akua on a TBA-location 11pm-6am bill, this is the proper warehouse night of the slate.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "ef57494e71bf": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "18+ hard techno and hard-dance debut. It's close to home, but hard dance isn't the lane and the cheap ticket points to a younger rave crowd.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "f65daee839dc": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Small Earthdog Records crew on a TBA downtown bill. I can't gauge the names, so this is a coin-flip for a local-scene night.",
+      "confidence": "low",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "3ce071cfda62": {
+      "tier": "solid",
+      "lane": "club:mainstream",
+      "adjust": -1,
+      "why": "A film-studio holiday party at a hotel with no lineup listed. It reads as a brand mixer, not a club night, so it's not the underground lane the tags gave it.",
+      "confidence": "low",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "d7522602fa0b": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "The Hustle is a recurring first-and-third-Saturday disco night at Gold Diggers, close to home and in the groove and disco lane. It's a dependable low-risk Saturday.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "8e88fb8d1d95": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "The only things listed are a TBA DTLA venue, a 23:59 start and no lineup. There isn't enough to build a plan around.",
+      "confidence": "low",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "25dd85f29887": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Deorro at an outdoor Insomniac show at Grand Park. The branding is Botas y Rave, which leans Latin and regional Mexican crossover and away from the house lane. Big-room fun, but not a priority.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "5d38b8e4305f": {
+      "tier": "solid",
+      "adjust": 1,
+      "why": "A 7-11pm early holiday party at a hotel, with Francesca Cloud as the house-leaning name. It's pleasant and early, but not a destination.",
+      "confidence": "low",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "2e7d853555d7": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "The Dixon match is a false positive, because this is Frankie Dixon and not the tracked Dixon. It's a San Diego label showcase, so it isn't worth the drive.",
+      "confidence": "high",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "7ba218879d11": {
+      "tier": "solid",
+      "lane": "club:mainstream",
+      "adjust": -1,
+      "why": "Billed as pop tech house/EDM at Catch One; Hayla-led bill is a big-room-fun night, not a selector's night. Fine if you're out.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "d55be3ec1016": {
+      "tier": "great",
+      "lane": "club:underground",
+      "adjust": 2,
+      "why": "Guy J is a real progressive/melodic name (Lost & Found) in a 9pm-4am main-event slot, squarely your European-leaning, deeper lane. Not an afters.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "6faf4d65fd9f": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Afterlife branding and Syzy carry it, but Frost Children's DJ set is hyperpop/hardstyle-leaning chaos, which isn't the melodic Afterlife sound.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "ee21241f4482": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hardstyle night with no lineup; hard-dance as the main draw is a stated penalty. Close to home doesn't rescue it.",
+      "confidence": "high",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "820bdf278d3b": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Late-night tech house/jackin bill (Karsten Sollors, C:3, Dustn) at District 7 until 5am. Tech-house is your spine, and it's a proper room for it.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "b155dd2a9a57": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "Hard Rush is a hard-dance night; wrong lane regardless of the TBA-warehouse trappings.",
+      "confidence": "high",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a708e5bb3df4": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "'Club Decades' is a themed nostalgia night with no billed DJs; the techno tag is keyword noise.",
+      "confidence": "high",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "65e75f1fe231": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -2,
+      "why": "Cyberpunk-themed synthwave/dubstep/pop-EDM night with no lineup; bass-leaning and gimmicky, so off-taste.",
+      "confidence": "high",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "9c775b9707ce": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Christopher Lawrence is a trance veteran, and this is a trance-first Tranceformity night with a free-RSVP door. Worth it if you want trance; it's off your house core.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "f9f1b15fc6c3": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Final Sunday of the Smorgasburg run at ROW DTLA, an easy daytime food-market option close to home. It's the same market every week, so catch any Sunday.",
+      "confidence": "med",
+      "judged_at": "2026-11-22T13:19:51",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }
