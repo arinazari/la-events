@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/22/2026 deterministically (no API). 154 candidates. Signals: big-venue 125, festival 26, tracked 4._
+_Generated 11/23/2026 deterministically (no API). 155 candidates. Signals: big-venue 126, festival 26, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -144,6 +144,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Mon 5/3 | 4 | Sam Fender: North America Tour '27 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/sam-fender-north-america-tour-27-los-angeles-california-05-03-2027/event/0900656AEBAC19FB) |
 | Tue 5/4 | 4 | LOLA YOUNG - Everything Begins | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lola-young-everything-begins-los-angeles-california-05-04-2027/event/09006542913F8147) |
 | Sat 5/8 | 4 | Madness | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/madness-hollywood-california-05-08-2027/event/0B00656CE05262ED) |
+| Fri 5/21 | 4 | Jhené Aiko Presents: Ark to Agartha - A Westside Whimsy Ex | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/jhene-aiko-presents-ark-to-agartha-los-angeles-california-05-21-2027/event/2C00656DB3C11474) |
 
 ## January 2027
 

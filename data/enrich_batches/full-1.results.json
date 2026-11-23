@@ -1,0 +1,91 @@
+[
+ {
+  "id": "9273cb51347c",
+  "type": "club",
+  "subgenres": ["techno"],
+  "label_orbit": [],
+  "energy": "peak",
+  "setting": "warehouse",
+  "sounds_like": [],
+  "card": {"draw": 0, "rarity": 0, "lineup_depth": 1, "vibes": []},
+  "artist_notes": [],
+  "curator_note": "Location-TBA, 11pm-6am is the right shape for a proper late one, but I can't vouch for the lineup. It's a punt on the WORK crew and the format.",
+  "description": "WORK late-night electronic party at a to-be-announced LA venue, 11pm to 6am, with Akua, Ø [Phase] and Selective Response.",
+  "confidence": "low"
+ },
+ {
+  "id": "d55be3ec1016",
+  "type": "club",
+  "subgenres": ["progressive-house", "melodic-house"],
+  "label_orbit": ["Lost & Found", "Bedrock"],
+  "energy": "peak",
+  "setting": "club",
+  "sounds_like": ["Hernan Cattaneo", "Nick Warren"],
+  "card": {"draw": 2, "rarity": 0, "lineup_depth": 1, "vibes": []},
+  "artist_notes": [
+    {"name": "Guy J", "note": "Israeli progressive/melodic house producer and long-running Lost & Found label head; deep, slow-building sets in the Bedrock tradition."},
+    {"name": "Sahar Z", "note": "Israeli progressive/melodic house DJ in the same circle as Guy J; sets run long and hypnotic."}
+  ],
+  "curator_note": "Guy J is the draw. If you like sets that take an hour to build and then don't let go, this is it, and a 9pm-4am slot gives him room to stretch. Sahar Z is a natural pairing.",
+  "description": "Two Israeli progressive and melodic house DJs, Guy J and Sahar Z, at ORIGIN, 9pm to 4am.",
+  "confidence": "medium"
+ },
+ {
+  "id": "820bdf278d3b",
+  "type": "club",
+  "subgenres": ["tech-house"],
+  "label_orbit": [],
+  "energy": "peak",
+  "setting": "club",
+  "sounds_like": [],
+  "card": {"draw": 1, "rarity": 0, "lineup_depth": 1, "vibes": []},
+  "artist_notes": [],
+  "curator_note": "A local-leaning tech-house and jackin' night at District 7 that runs until 5am. Fine if you want a late dance without a big-ticket headliner.",
+  "description": "Putivuelta late-night tech-house party at District 7, 10pm to 5am, with Karsten Sollors, C:3, dustn, TOAD and Shane Thomas.",
+  "confidence": "low"
+ },
+ {
+  "id": "d7522602fa0b",
+  "type": "club",
+  "subgenres": ["disco", "house"],
+  "label_orbit": [],
+  "energy": "groove",
+  "setting": "club",
+  "sounds_like": [],
+  "card": {"draw": 0, "rarity": 0, "lineup_depth": 0, "vibes": []},
+  "artist_notes": [],
+  "curator_note": "Reliable first-and-third-Saturday disco and funk party at Gold Diggers, and the door has historically been cheap or free. It's an easy add-on to a bigger night more than a destination.",
+  "description": "Recurring disco and groove dance party at Gold Diggers in East Hollywood, first and third Saturdays, from 10:30pm.",
+  "confidence": "medium"
+ },
+ {
+  "id": "d7b0b6917543",
+  "type": "club",
+  "subgenres": ["house", "downtempo"],
+  "label_orbit": [],
+  "energy": "peak",
+  "setting": "club",
+  "sounds_like": ["Cassian", "Gryffin"],
+  "card": {"draw": 2, "rarity": 1, "lineup_depth": 0, "vibes": []},
+  "artist_notes": [
+    {"name": "Zhu", "note": "Moody, synthy house producer behind \"Faded\"; plays darker, nocturnal sets that sit between house and downtempo."}
+  ],
+  "curator_note": "Zhu in a club-sized room is more interesting than his festival slots, and this is the second date, so the first sold out. It's a headliner-only bill at $74+, so go for the one set.",
+  "description": "Zhu's second night at Reframe Studios Indoors, 10pm to 3am.",
+  "confidence": "medium"
+ },
+ {
+  "id": "5d38b8e4305f",
+  "type": "club",
+  "subgenres": ["house"],
+  "label_orbit": [],
+  "energy": "chill",
+  "setting": "hotel",
+  "sounds_like": [],
+  "card": {"draw": 0, "rarity": 0, "lineup_depth": 1, "vibes": []},
+  "artist_notes": [],
+  "curator_note": "An early 7-11pm holiday party at a WeHo hotel. It's a social night more than a serious dance one, and I couldn't verify the DJs. Skip unless you're already nearby.",
+  "description": "Early-evening holiday dance party at Hotel Ziggy in West Hollywood, 7 to 11pm, with Allie M, Chad Aroo, Francesca Cloud and L3XI.",
+  "confidence": "low"
+ }
+]
