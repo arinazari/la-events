@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/23/2026 deterministically (no API). 155 candidates. Signals: big-venue 126, festival 26, tracked 4._
+_Generated 11/24/2026 deterministically (no API). 164 candidates. Signals: big-venue 133, festival 28, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -78,6 +78,7 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
+| Sat 3/6 | 3 | Boots in the Park | SilverLakes Festival Grounds | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAAx-_) |
 | Fri 3/19 | 3 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | The Wiltern | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-los-angeles-california-03-19-2027/event/0900654CF004D2A7) |
 
 ## December 2026
@@ -94,6 +95,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 5/14 | 2 | Tig Notaro: Curveball Comedy Festival | Plaza Theatre | festival | [link](https://www.ticketmaster.com/tig-notaro-curveball-comedy-festival-palm-springs-california-05-14-2027/event/0A00656BF723526D) |
 | Sat 5/15 | 2 | Joel Kim Booster: Curveball Comedy Festival | Plaza Theatre | festival | [link](https://www.ticketmaster.com/joel-kim-booster-curveball-comedy-festival-palm-springs-california-05-15-2027/event/0A00656BF14347F6) |
 | Sat 5/15 | 2 | Bob The Drag Queen: Curveball Comedy Festival | Plaza Theatre | festival | [link](https://www.ticketmaster.com/bob-the-drag-queen-curveball-comedy-palm-springs-california-05-15-2027/event/0A00656BD28E0EC3) |
+| Sat 5/22 | 2 | Pacific Festival Ballet presents The Secret Garden | Fred Kavli Theatre- B of A Perform | festival | [link](https://www.ticketmaster.com/pacific-festival-ballet-presents-the-secret-thousand-oaks-california-05-22-2027/event/0B00651CE97684EB) |
 
 ## March 2027
 
@@ -145,6 +147,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Tue 5/4 | 4 | LOLA YOUNG - Everything Begins | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/lola-young-everything-begins-los-angeles-california-05-04-2027/event/09006542913F8147) |
 | Sat 5/8 | 4 | Madness | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/madness-hollywood-california-05-08-2027/event/0B00656CE05262ED) |
 | Fri 5/21 | 4 | Jhené Aiko Presents: Ark to Agartha - A Westside Whimsy Ex | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/jhene-aiko-presents-ark-to-agartha-los-angeles-california-05-21-2027/event/2C00656DB3C11474) |
+| Sat 5/22 | 4 | Jhené Aiko Presents: Ark to Agartha - A Westside Whimsy Ex | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/jhene-aiko-presents-ark-to-agartha-los-angeles-california-05-22-2027/event/2C006570ECFD1353) |
 
 ## January 2027
 
@@ -174,6 +177,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 2/12 | 3 | Don Omar "The Last King World Tour" | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/don-omar-the-last-king-world-inglewood-california-02-12-2027/event/090064D3C948DAD2) |
 | Fri 2/12 | 3 | Jorge Medina | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/jorge-medina-ontario-california-02-12-2027/event/0900651BED2C1C79) |
 | Sat 2/13 | 3 | Los Tucanes De Tijuana | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/los-tucanes-de-tijuana-inglewood-california-02-13-2027/event/090064DEC0F49512) |
+| Sat 2/13 | 3 | Diana Ross - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Fri 2/19 | 3 | Conjunto Primavera | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/conjunto-primavera-inglewood-california-02-19-2027/event/0A00655D2D08C3AC) |
 | Sat 2/20 | 3 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-20-2027/event/0A006521AE4654FC) |
 | Fri 2/26 | 3 | Morat YEM World Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/morat-yem-world-tour-2027-inglewood-california-02-26-2027/event/090064AFF1A0DF67) |
@@ -190,6 +194,8 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 3/6 | 3 | Intocable: Texicano Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/intocable-texicano-tour-2027-inglewood-california-03-06-2027/event/0900656BD17DF748) |
 | Sat 3/13 | 3 | Bigbang 2027 World Tour | SoFi Stadium | big-venue | [link](https://www.ticketmaster.com/bigbang-inglewood-california-03-13-2027/event/0A00655ED2B19A8C) |
 | Sat 3/20 | 3 | Grupo Cañaveral & Los Hermanos Flores | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/grupo-canaveral-los-hermanos-flores-inglewood-california-03-20-2027/event/0A006532A1D27C43) |
+| Fri 3/26 | 3 | Keith Sweat (21 and Over) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Fri 3/26 | 3 | Ramon Ayala " Historia De Un Final" | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/ramon-ayala-historia-de-un-final-ontario-california-03-26-2027/event/0900647FAF9A9CF5) |
 
 ## April 2027
 
@@ -206,6 +212,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Fri 4/23 | 3 | Yuri & Lucero - ENTRE AMIGAS TOUR | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/yuri-lucero-entre-amigas-tour-ontario-california-04-23-2027/event/0900650ED430DA8E) |
 | Sat 4/24 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-24-2027/event/0B006528E9AB6118) |
 | Fri 4/30 | 3 | Harry Styles: Together, Together | Rose Bowl | big-venue | [link](https://www.ticketmaster.com/harry-styles-together-together-pasadena-california-04-30-2027/event/0B00652EB5754AEC) |
+| Fri 4/30 | 3 | FEID - FERXXO - THE GREEN STAR Tour 2027 | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/feid-ferxxo-the-green-star-tour-inglewood-california-04-30-2027/event/090065699E2B75BE) |
 
 ## May 2027
 
@@ -218,6 +225,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 5/15 | 3 | TINASHE | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1664424/tinashe-tickets) |
 | Tue 5/18 | 3 | Deftones - North American Tour 2027 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/deftones-north-american-tour-2027-hollywood-california-05-18-2027/event/0B006569EADF51F9) |
 | Wed 5/19 | 3 | Deftones - North American Tour 2027 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/deftones-north-american-tour-2027-hollywood-california-05-19-2027/event/0B006570CF044A26) |
+| Sat 5/22 | 3 | Niall Horan: Dinner Party Live On Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/niall-horan-dinner-party-live-on-inglewood-california-05-22-2027/event/090064A700F6CCC2) |
 
 ## December 2026
 
@@ -254,6 +262,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Tue 2/2 | 2 | Christine D'Clario - La Novia Tour  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/christine-dclario-la-novia-tour-inglewood-california-02-02-2027/event/0A006179983A3029) |
 | Thu 2/4 | 2 | WayV | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1695099/wayv-tickets) |
 | Thu 2/11 | 2 | La Arrolladora Banda El Limon (21+ Event) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Sun 2/14 | 2 | Diana Ross - Ages 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 2/17 | 2 | Yuridia - 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 2/18 | 2 | PABLO ALBORAN - GLOBAL TOUR KM0 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pablo-alboran-global-tour-km0-inglewood-california-02-18-2027/event/0A0064CAC3AADDB8) |
 | Sun 2/21 | 2 | Yuridia - Cartas Sobre La Mesa Tour 2027 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/yuridia-cartas-sobre-la-mesa-tour-inglewood-california-02-21-2027/event/0A006524AD56A71F) |

@@ -53730,12 +53730,12 @@
     },
     "d7b0b6917543": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Zhu is a real draw, and a 10pm-3am house and downtempo set at a studio room is a better fit than his festival slots. This is night 2 of 2, so pick whichever night suits you.",
+      "adjust": 0,
+      "why": "Zhu's moody, nocturnal house sets suit a late indoor room. It's night 2 of 2, and the Saturday is the better night to go.",
       "confidence": "med",
-      "judged_at": "2026-11-22T13:19:51",
+      "judged_at": "2026-11-24T13:19:45",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 9
     },
     "9273cb51347c": {
       "tier": "great",
@@ -53794,12 +53794,12 @@
     },
     "25dd85f29887": {
       "tier": "solid",
-      "adjust": 0,
-      "why": "Deorro at an outdoor Insomniac show at Grand Park. The branding is Botas y Rave, which leans Latin and regional Mexican crossover and away from the house lane. Big-room fun, but not a priority.",
+      "adjust": -1,
+      "why": "Deorro's Botas Y Rave is big-room house with a regional Mexican crossover. It's a fun daytime Grand Park show but not the groove you're after.",
       "confidence": "med",
-      "judged_at": "2026-11-22T13:19:51",
+      "judged_at": "2026-11-24T13:19:45",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "5d38b8e4305f": {
       "tier": "solid",
@@ -53833,11 +53833,11 @@
       "tier": "great",
       "lane": "club:underground",
       "adjust": 2,
-      "why": "Guy J is a real progressive/melodic name (Lost & Found) in a 9pm-4am main-event slot, squarely your European-leaning, deeper lane. Not an afters.",
+      "why": "Guy J is a Lost & Found/Bedrock-tradition progressive head, and a 9pm-4am bill with Sahar Z gives him room to stretch. It's a proper European-style night, and the afters lane undersells it.",
       "confidence": "med",
-      "judged_at": "2026-11-22T13:19:51",
+      "judged_at": "2026-11-24T13:19:45",
       "input_version": 2,
-      "score_at_judge": 6
+      "score_at_judge": 8
     },
     "6faf4d65fd9f": {
       "tier": "solid",
@@ -54011,6 +54011,97 @@
       "judged_at": "2026-11-23T13:21:44",
       "input_version": 2,
       "score_at_judge": 6
+    },
+    "4e0a3f8c4971": {
+      "tier": "must-see",
+      "adjust": 3,
+      "why": "TBA-location closing party with Artur (all-wax deep house selector) and Enzo Muro, a Dialogue resident who co-runs the vinyl-only YouKnowWhat party. Vinyl, groove and a hidden location all point the same way.",
+      "confidence": "med",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "74bd5ff19a6f": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free secret-venue DTLA party with no lineup listed. The late start and hidden location fit the lane, but there's nothing to judge the music by.",
+      "confidence": "low",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "f666460d8925": {
+      "tier": "skip",
+      "lane": "club:mainstream",
+      "adjust": -3,
+      "why": "18+ Twerks Giving at Los Globos is a hip-hop/twerk open-format night with no real DJ billing, not a house night. The underground lane label is wrong.",
+      "confidence": "high",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "c63ab0b673d1": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Home Alone with a live orchestra at Disney Hall is a good family holiday event, but it's a kids/family format and off his taste. Fine if you want a seasonal outing.",
+      "confidence": "med",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "4fb340719611": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Music Center courtyard holiday anniversary event. It's a family seasonal event with nothing here for his taste.",
+      "confidence": "med",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "ff02ea93565e": {
+      "tier": "skip",
+      "adjust": -1,
+      "why": "Holiday ice rink festival at L.A. Live. It's family programming and not his lane.",
+      "confidence": "med",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "7162ee731448": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Techno night at Los Globos, walkable from home, but DJ Swerve is an unknown and Techno Agency is a promoter brand, not a draw.",
+      "confidence": "low",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "41e423da1139": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Free DTLA afters with no lineup and no sound named; a late-night fallback, not a plan.",
+      "confidence": "low",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "791db8b992a6": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Free TBA-location Friday with no lineup. Night 2 of a weekly, so it's a roll of the dice.",
+      "confidence": "low",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "86b0d4f3bbcf": {
+      "tier": "must-see",
+      "adjust": 2,
+      "why": "John Summit is in your core rotation and tracked, and this is a Coliseum-scale headline show. Night 1 of 2, and the Friday is the one to build plans around.",
+      "confidence": "high",
+      "judged_at": "2026-11-24T13:19:45",
+      "input_version": 2,
+      "score_at_judge": 8
     }
   }
 }
