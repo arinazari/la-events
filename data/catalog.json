@@ -774,7 +774,7 @@
   {
     "title": "SET w/Patrice Baumel & Arman Miran under the 6th Bridge in LA",
     "date": "2026-11-25",
-    "start": "9pm-3am",
+    "start": "2026-11-25T21:00:00-08:00",
     "venue": "TBA - Downtown LA",
     "neighborhood": "DTLA",
     "category": "electronic",
@@ -1293,7 +1293,7 @@
   {
     "title": "Orange County: DION TIMMER — Midnight Gravy @ The Circle OC [18+]",
     "date": "2026-11-25",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -1459,7 +1459,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-10-24",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -1849,7 +1849,7 @@
   {
     "title": "Los Angeles: ASN JAYBOOG — Live in Concert @ The Globe Theatre [18+]",
     "date": "2026-11-25",
-    "start": "21:00",
+    "start": "2026-11-25T21:00:00-08:00",
     "venue": "Globe Theatre Los Angeles",
     "neighborhood": "Los Angeles",
     "category": "general",
@@ -1902,7 +1902,7 @@
   {
     "title": "Cielo Du Soir Takeover: Miguel Migs, Colette, Robinho, Ricardo Torres, Danny B, Guy B, Minime, Lostculture",
     "date": "2026-11-25",
-    "start": "21:00",
+    "start": "2026-11-25T22:00:00-08:00",
     "venue": "Jungle Hollywood",
     "neighborhood": "Hollywood",
     "category": "general",
@@ -2251,7 +2251,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -2744,7 +2744,7 @@
   {
     "title": "Skabashed! the Paranoias, Natalia Inez, Los SKAllejeros, + MORE",
     "date": "2026-11-25",
-    "start": "19:30",
+    "start": "2026-11-25T19:30:00-08:00",
     "venue": "The Regent Theater",
     "neighborhood": "DTLA",
     "category": "general",
@@ -3553,7 +3553,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198404359%2F473461263511%2F1%2Foriginal.20261120-172343?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=9163652957d5523a6e092064b4984fa5",
     "url": "https://www.eventbrite.com/e/clinic-annual-thanksgiving-eve-tickets-2004078853800",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -3825,6 +3825,26 @@
       "region": null,
       "near_home": false
     }
+  },
+  {
+    "source": "eventbrite",
+    "id": "https://www.eventbrite.com/e/electric-jungle-tickets-2005169264247",
+    "title": "Electric Jungle",
+    "date": "2026-11-25",
+    "start": "2026-11-25T21:30:00-08:00",
+    "end": "2026-11-26T02:00:00-08:00",
+    "venue": "Yost Theater",
+    "neighborhood": "Santa Ana",
+    "address": "307 North Spurgeon Street, Santa Ana, CA 92701",
+    "lat": null,
+    "lng": null,
+    "category": "general",
+    "price_min": "17.35",
+    "detail": "House music all night",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189752851%2F1353655287983%2F1%2Foriginal.20260728-014628?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.516&fp-y=0.649&s=6ac0d694f69be0ccedab1ce88f9331dc",
+    "url": "https://www.eventbrite.com/e/electric-jungle-tickets-2005169264247",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
   },
   {
     "title": "Drag Show: “THIRSTY THURSDAYS” @ Hamburger Mary's Long Beach",
@@ -4120,12 +4140,12 @@
   {
     "title": "THANKSGIVING IS ABOUT TO GET LOUD!    TECHNOGIVING IS TAKING OVE",
     "date": "2026-11-26",
-    "start": "9pm-12am",
+    "start": "2026-11-26T21:00:00-08:00",
     "venue": "Banana Bay Restaurant",
     "neighborhood": "Rowland Heights",
     "category": "electronic",
     "genre": "techno, hard techno, hard dance",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -4251,7 +4271,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -4611,7 +4631,7 @@
   {
     "title": "RECOLLECT UNDERGROUND",
     "date": "2026-11-26",
-    "start": "23:00",
+    "start": "2026-11-26T23:00:00-08:00",
     "venue": "Los Angeles",
     "neighborhood": null,
     "category": "party",
@@ -5726,12 +5746,12 @@
   {
     "title": "Orange County: SLUSHII @ The Circle OC [18+]",
     "date": "2026-11-27",
-    "start": "9pm",
+    "start": "2026-11-27T21:00:00-08:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
     "genre": "future bass, trap, dubstep",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "19hz",
@@ -6366,7 +6386,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-10-17",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -6410,7 +6430,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-10-17",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -6428,12 +6448,12 @@
   {
     "title": "MUZIQUE Fridays / Kiss Kiss Bang Bang w/ DREW NUNEZ + SPECIAL GUEST DJS",
     "date": "2026-11-27",
-    "start": "10pm-2am",
+    "start": "2026-11-27T22:00:00-08:00",
     "venue": "Kiss Kiss Bang Bang",
     "neighborhood": "Koreatown",
     "category": "electronic",
     "genre": "disco, house, nu-disco",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -7699,7 +7719,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-12",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -7844,7 +7864,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -7885,7 +7905,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -7925,7 +7945,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -9193,7 +9213,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -9721,7 +9741,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197052559%2F1372215194213%2F1%2Foriginal.20261102-025647?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=de9c2b44a28dfd86dab5a647932c8d40",
     "url": "https://www.eventbrite.com/e/itai-x-cello-joe-elixart-nevada-city-a-special-sound-connections-pop-up-tickets-2004205581847",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -11752,7 +11772,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -12497,12 +12517,12 @@
   {
     "title": "Tania Cassette, Casa de Brujas, Sisters of Black Mountain @ Flyway Pomona",
     "date": "2026-11-28",
-    "start": "8pm-2am",
+    "start": "2026-11-28T20:00:00-08:00",
     "venue": "Flyway (Pomona)",
     "neighborhood": "Pomona",
     "category": "electronic",
     "genre": "synthpop, darkwave, post-punk",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "19hz",
@@ -12929,12 +12949,12 @@
   {
     "title": "WA$TED x TRINITY: KROWDEXX  @ Globe Theatre [18+]",
     "date": "2026-11-28",
-    "start": "9pm",
+    "start": "2026-11-28T20:00:00-08:00",
     "venue": "Globe Theatre (Los Angeles)",
     "neighborhood": "Los Angeles",
     "category": "electronic",
     "genre": "hardstyle",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "19hz",
@@ -13050,7 +13070,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-10-29",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -13532,7 +13552,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-05",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -13666,7 +13686,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-06",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -14072,7 +14092,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -14110,7 +14130,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -14150,7 +14170,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -14190,7 +14210,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -14804,7 +14824,7 @@
     "url": "https://www.thecircleoc.com/upcoming-events/thanksgiving-holiday-weekend-bash",
     "detail": "Thanksgiving is for family… but SATURDAY NIGHT IS FOR PARTYING! Get ready for an EPIC holiday weekend at THE CIRCLE OC with an incredible DJ lineup!",
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -15588,7 +15608,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -15624,7 +15644,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -16286,7 +16306,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198405759%2F473461263511%2F1%2Foriginal.20261120-174514?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=be81c33913e140fa678fa362b7ed5eb7",
     "url": "https://www.eventbrite.com/e/triibe-viibes-afrobeats-hollywood-saturdays-tickets-2005152779942",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -18481,7 +18501,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-12",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -18572,7 +18592,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -18614,7 +18634,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -18654,7 +18674,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -18695,7 +18715,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -20515,7 +20535,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -20723,7 +20743,7 @@
   {
     "title": "Elf The Musical (Touring)",
     "date": "2026-12-01",
-    "start": "19:30",
+    "start": "2026-12-01T19:30:00-08:00",
     "venue": "Hollywood Pantages Theatre",
     "neighborhood": "Hollywood",
     "category": "Arts & Theatre",
@@ -21281,7 +21301,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-06",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -21374,7 +21394,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -21414,7 +21434,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -22995,7 +23015,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -23081,7 +23101,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -25547,7 +25567,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -25586,7 +25606,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -25626,7 +25646,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -25730,12 +25750,12 @@
   {
     "title": "The Residency - Sound Connections - Vol. 51 - “Anchor” - Mendeleyev x ITAI",
     "date": "2026-12-03",
-    "start": "8pm-11pm",
+    "start": "2026-12-03T20:00:00-08:00",
     "venue": "Zula Den",
     "neighborhood": "Los Angeles",
     "category": "general",
     "genre": "house",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -26586,6 +26606,22 @@
       "region": null,
       "near_home": false
     }
+  },
+  {
+    "source": "squarespace",
+    "title": "Ghouls Of Today   Moe Ford  Dithering Kite     8:00 pm    $10    Advance tickets",
+    "date": "2026-12-03",
+    "start": "20:00",
+    "venue": "The Smell",
+    "neighborhood": "DTLA",
+    "lineup": [],
+    "category": "live_music",
+    "price": null,
+    "image": "https://images.squarespace-cdn.com/content/v1/651ce2ca967f580a448e4d46/1795578466159-XCKB7JE0JP3BT3R26PH2/ISIMG-845260.jpeg",
+    "url": "https://www.thesmell.org/events/thursday-december-3-2026-1",
+    "detail": "Ghouls Of Today   Moe Ford  Dithering Kite     8:00 pm    $10    Advance tickets available    here   .",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
   },
   {
     "title": "The Neighbourhood: THE WOURLD TOUR",
@@ -27617,12 +27653,12 @@
   {
     "title": "Far Far Away A Shrek Dance Party | Club Decades",
     "date": "2026-12-04",
-    "start": "10pm-2am",
+    "start": "2026-12-04T22:00:00-08:00",
     "venue": "Boardner's By La Belle (Los Angeles) (Los Angeles)",
     "neighborhood": "Los Angeles",
     "category": "electronic",
     "genre": "multigenre EDM",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "19hz",
@@ -28977,7 +29013,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-10-31",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -29442,12 +29478,12 @@
   {
     "title": "Los Angeles: HOW THE GRINCH STOLE RIDDIM @ Catwalk Club [18+]",
     "date": "2026-12-04",
-    "start": "9pm-2am",
+    "start": "2026-12-04T21:00:00-08:00",
     "venue": "The Catwalk Club",
     "neighborhood": "Los Angeles",
     "category": "electronic",
     "genre": "dubstep, bass music, riddim",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -29857,7 +29893,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-12",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -29882,12 +29918,12 @@
   {
     "title": "Indeed Indeed Presents: XL Middleton Album Release Party",
     "date": "2026-12-04",
-    "start": "21:00",
+    "start": "2026-12-04T21:00:00-08:00",
     "venue": "Hello Stranger",
     "neighborhood": "Los Angeles",
     "category": "general",
     "genre": null,
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -30030,7 +30066,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -30071,7 +30107,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -30111,7 +30147,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -30359,7 +30395,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -32765,7 +32801,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/fraxiommusicshow-9-9-26",
     "detail": "MUSIC | $15 | ALL AGES | Fraxiom brings The Adventures in Question to Junior High. Chicago hyperpop and rap, half of Food House, out on the road behind the debut album The Adventures of Jester Jackalope. Local support from mood killer and DJ PuppyWuppy. Doors at 7 PM, all ages, everybody welcome.   ",
     "first_seen": "2026-09-10",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -32820,7 +32856,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-15",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -34056,12 +34092,12 @@
   {
     "title": "WA$TED x TRINITY: OMAKS (LA DEBUT) @ 1720 Warehouse [18+]",
     "date": "2026-12-05",
-    "start": "9pm-2am",
+    "start": "2026-12-05T21:00:00-08:00",
     "venue": "1720",
     "neighborhood": "Arts District",
     "category": "electronic",
     "genre": "hard techno, hard bounce, hard dance, hardcore",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -34943,7 +34979,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -34981,7 +35017,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -35023,7 +35059,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -35826,7 +35862,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198405759%2F473461263511%2F1%2Foriginal.20261120-174514?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=be81c33913e140fa678fa362b7ed5eb7",
     "url": "https://www.eventbrite.com/e/triibe-viibes-afrobeats-hollywood-saturdays-tickets-2005154332586",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -35874,7 +35910,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196815371%2F238995691457%2F1%2Foriginal.20261028-231358?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=8fdd1b5e7552d46918b9ebc50b1017f4",
     "url": "https://www.eventbrite.com/e/winter-fantasy-2026-tickets-2000902684793",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -39089,7 +39125,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-12",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -39136,7 +39172,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -39176,7 +39212,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -39216,7 +39252,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40035,7 +40071,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-15",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40722,7 +40758,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40866,7 +40902,7 @@
     "url": "https://www.thesmell.org/events/tuesday-december-8-2026",
     "detail": "Pablo House presents…      Scarlet Bandit    Scissorkiss    Boys Lie      8:30 pm    $15    Advance tickets available    here   .",
     "first_seen": "2026-11-16",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -40953,7 +40989,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F932936673%2F188787412609%2F1%2Foriginal.20250111-005811?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=436b828981fe67032c3944671ea6f154",
     "url": "https://www.eventbrite.com/e/paris-at-night-house-tuesdays-at-the-iconic-keys-los-angeles-tickets-2005167599267",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -41953,7 +41989,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -42231,7 +42267,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -44057,7 +44093,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -44098,7 +44134,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -44433,6 +44469,26 @@
       "region": "hollywood",
       "near_home": false
     }
+  },
+  {
+    "source": "eventbrite",
+    "id": "https://www.eventbrite.com/e/the-residency-sound-connections-vol-52-tension-release-fermata-blaize-x-itai-tickets-2004937819991",
+    "title": "The Residency - Sound Connections - Vol. 52 - “Tension & Release” - Fermata Blaize x ITAI",
+    "date": "2026-12-10",
+    "start": "2026-12-10T20:00:00-08:00",
+    "end": "2026-12-10T23:00:00-08:00",
+    "venue": "Zula Den",
+    "neighborhood": "Los Angeles",
+    "address": "4011 West Jefferson Boulevard, Los Angeles, CA 90016",
+    "lat": null,
+    "lng": null,
+    "category": "general",
+    "price_min": "33.77",
+    "detail": "Thursday - December 10th @ The Zula Den - Fermata Blaize x ITAI for a LIVE, improvised music & dance experience.",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198663205%2F1372215194213%2F1%2Foriginal.20261125-060838?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=6045e387f2901879b037ab795ba2c39c",
+    "url": "https://www.eventbrite.com/e/the-residency-sound-connections-vol-52-tension-release-fermata-blaize-x-itai-tickets-2004937819991",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
   },
   {
     "title": "Strawberry Guy",
@@ -46855,12 +46911,12 @@
   {
     "title": "ORIGIN Presents Oliver Koletzki",
     "date": "2026-12-11",
-    "start": "10pm-3am",
+    "start": "2026-12-11T22:00:00-08:00",
     "venue": "613 Imperial St",
     "neighborhood": "Los Angeles",
     "category": "general",
     "genre": "progressive house, breaks, deep house",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -46900,12 +46956,12 @@
   {
     "title": "Blade Runner 2026 | Club Decades",
     "date": "2026-12-11",
-    "start": "10pm-2am",
+    "start": "2026-12-11T22:00:00-08:00",
     "venue": "Boardner's by La Belle",
     "neighborhood": "Los Angeles",
     "category": "electronic",
     "genre": "synthwave, darkwave, industrial, EBM, new wave, techno",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -46965,7 +47021,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-10-31",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -46987,7 +47043,7 @@
   {
     "title": "Orange County: SAMPLIFIRE w/ WARLORD @ The Circle OC [18+]",
     "date": "2026-12-11",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -47061,7 +47117,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-01",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -47340,7 +47396,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-12",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47387,7 +47443,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47427,7 +47483,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -47557,7 +47613,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -48303,7 +48359,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F871951139%2F248515732505%2F1%2Foriginal.20241010-215459?w=940&auto=format%2Ccompress&q=75&sharp=10&s=e834e6f43b19fadb0f9cff03842eef92",
     "url": "https://www.eventbrite.com/e/well-dressed-a-night-of-stand-up-comedy-live-jazz-tickets-2005110644915",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "comedy",
       "genre": [
@@ -48536,6 +48592,46 @@
       "region": "hollywood",
       "near_home": false
     }
+  },
+  {
+    "source": "eventbrite",
+    "id": "https://www.eventbrite.com/e/lgn-kiss-me-under-the-mistletoe-last-event-of-the-year-tickets-2005319351161",
+    "title": "LGN: Kiss Me Under the Mistletoe, last event of the year.",
+    "date": "2026-12-11",
+    "start": "2026-12-11T22:00:00-08:00",
+    "end": "2026-12-12",
+    "venue": "the melrose house",
+    "neighborhood": "Los Angeles",
+    "address": "4216 Melrose Avenue, Los Angeles, CA 90029",
+    "lat": null,
+    "lng": null,
+    "category": "general",
+    "price_min": "21.05",
+    "detail": "Join us for our last LGN of the year! Singles Mixer 10–11 PM, followed by your favorite goth, 80s, EBM & new wave hits. Dec 11th 10PM",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198577813%2F1059048556243%2F1%2Foriginal.20261124-010153?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.313&fp-y=0.289&s=17cdf7e9c51333e7ce580db8e56b4b1e",
+    "url": "https://www.eventbrite.com/e/lgn-kiss-me-under-the-mistletoe-last-event-of-the-year-tickets-2005319351161",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
+  },
+  {
+    "source": "eventbrite",
+    "id": "https://www.eventbrite.com/e/daft-disko-portland-or-tickets-1995670537299",
+    "title": "Daft Disko: Portland, OR",
+    "date": "2026-12-11",
+    "start": "2026-12-11T21:00:00-08:00",
+    "end": "2026-12-12",
+    "venue": "The Get Down",
+    "neighborhood": "Portland",
+    "address": "680 SE 6th Ave., Portland, OR 97214",
+    "lat": null,
+    "lng": null,
+    "category": "general",
+    "price_min": "13.33",
+    "detail": "Daft Disko returns to Portland!",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187593506%2F290918113901%2F1%2Foriginal.20260624-203547?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.987&fp-y=0.632&s=8c3bb42709776a2fa90a84666ac1d40a",
+    "url": "https://www.eventbrite.com/e/daft-disko-portland-or-tickets-1995670537299",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -50876,7 +50972,7 @@
   {
     "title": "Jungle: Holiday House! Toy Drive and Fundraiser!",
     "date": "2026-12-12",
-    "start": "14:00",
+    "start": "2026-12-12T14:00:00-08:00",
     "venue": "Jungle Hollywood",
     "neighborhood": "Hollywood",
     "category": "electronic",
@@ -50938,12 +51034,12 @@
   {
     "title": "WA$TED x TRINITY: ROOLER @ Globe Theatre [18+]",
     "date": "2026-12-12",
-    "start": "8pm-2am",
+    "start": "2026-12-12T20:00:00-08:00",
     "venue": "The Globe Theatre (Los Angeles)",
     "neighborhood": "Los Angeles",
     "category": "electronic",
     "genre": "hard dance, hardstyle",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "19hz",
@@ -51637,7 +51733,7 @@
   {
     "title": "Epic: Winter Wonderland w/Chant, Levtation, Tree Haus, Meirlin",
     "date": "2026-12-12",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -52186,7 +52282,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -52224,7 +52320,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -52264,7 +52360,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -52915,7 +53011,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -53164,7 +53260,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198439781%2F159033129452%2F1%2Foriginal.20261121-091504?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=fb6342d792f94be14fd373cc13c7675a",
     "url": "https://www.eventbrite.com/e/los-angeles-trippie-redd-the-mayan-18-tickets-2005171784786",
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -53246,7 +53342,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198569798%2F133060900643%2F1%2Foriginal.20261123-223618?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=9ed3f507a0960b25657ea175f70a350f",
     "url": "https://www.eventbrite.com/e/nachturnal-events-presents-unholy-night-tickets-2005313809586",
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -53255,7 +53351,15 @@
       "vibe": [],
       "region": "dtla",
       "near_home": true
-    }
+    },
+    "links": [],
+    "sources": [],
+    "lineup": null,
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "price": null
   },
   {
     "title": "SMD - Massimiliano Pagliara & Miracles",
@@ -53506,6 +53610,42 @@
       "region": "hollywood",
       "near_home": false
     }
+  },
+  {
+    "source": "eventbrite",
+    "id": "https://www.eventbrite.com/e/hands-on-synthesizers-i-fundamentals-of-synthesis-workshop-tickets-2004248955579",
+    "title": "Hands-On Synthesizers I: Fundamentals of  Synthesis Workshop",
+    "date": "2026-12-12",
+    "start": "2026-12-12T12:00:00-08:00",
+    "end": "2026-12-12T16:00:00-08:00",
+    "venue": "Vintage Synthesizer Museum",
+    "neighborhood": "Los Angeles",
+    "address": "1200 N Ave 54, Los Angeles, CA 90042",
+    "lat": null,
+    "lng": null,
+    "category": "general",
+    "price_min": "175.0",
+    "detail": "Ever wonder what all those knobs actually do? Get hands-on and learn the fundamentals of synthesis by patching, playing & experimenting.",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F772349309%2F272165572599%2F1%2Foriginal.20240520-223716?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C61%2C1200%2C600&s=7a8fe82c039168ecd08ddc2da859e122",
+    "url": "https://www.eventbrite.com/e/hands-on-synthesizers-i-fundamentals-of-synthesis-workshop-tickets-2004248955579",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
+  },
+  {
+    "source": "squarespace",
+    "title": "Space Yage Records presents…     Madam Bombs   Afterbirth Cartoons   ( Phoenix, ",
+    "date": "2026-12-12",
+    "start": "20:00",
+    "venue": "The Smell",
+    "neighborhood": "DTLA",
+    "lineup": [],
+    "category": "live_music",
+    "price": null,
+    "image": "https://images.squarespace-cdn.com/content/v1/651ce2ca967f580a448e4d46/1795581444614-1QSDRWV3GG38AY0E85FA/ISIMG-856862.jpeg",
+    "url": "https://www.thesmell.org/events/saturday-december-12-2026",
+    "detail": "Space Yage Records presents…     Madam Bombs   Afterbirth Cartoons   ( Phoenix, AZ)   The Heather Kathryn Band     8:00 pm    $10    Advance tickets available    here   .",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
   },
   {
     "title": "DragonForce: Inhuman Rampage 20th Anniversary",
@@ -53966,12 +54106,12 @@
   {
     "title": "Rose Bowl Flea Market Sunday, December 13, 2026",
     "date": "2026-12-13",
-    "start": "09:00",
+    "start": "2026-12-13T05:00:00-08:00",
     "venue": "Rose Bowl Stadium",
     "neighborhood": "Pasadena",
     "category": "general",
     "genre": null,
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -55257,7 +55397,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -55297,7 +55437,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -55642,14 +55782,14 @@
     }
   },
   {
-    "title": "Synthesizer Soundbath Feat. Chrome Sparks",
+    "title": "Synthesizer Soundbath 12pm-1:30pm feat. Chrome Sparks",
     "date": "2026-12-13",
-    "start": "12pm-1:30pm",
+    "start": "2026-12-13T14:00:00-08:00",
     "venue": "Vintage Synthesizer Museum (Los Angeles)",
-    "neighborhood": null,
+    "neighborhood": "Los Angeles",
     "category": "electronic",
     "genre": "house, pop EDM",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "19hz",
@@ -55660,7 +55800,7 @@
       "19hz"
     ],
     "organizers": null,
-    "detail": null,
+    "detail": "Second Sunday Synthesizer Soundbath 12pm-1:30pm feat. Chrome Sparks",
     "price": "$15",
     "ra_pick": false,
     "afterhours": false,
@@ -55681,7 +55821,8 @@
       ],
       "region": null,
       "near_home": false
-    }
+    },
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F516024179%2F272165572599%2F1%2Foriginal.20220707-211119?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C225%2C900%2C450&s=6c3f4796f0230cf17e0ce4ad66de5f04"
   },
   {
     "source": "squarespace",
@@ -55697,7 +55838,7 @@
     "url": "https://www.thesmell.org/events/sunday-december-13-2026",
     "detail": "Gamma.   SCUFF   Freedom Curse      8:30 pm    $10    Advance tickets available    here   .",
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -56376,7 +56517,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-19",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -56811,7 +56952,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57169,7 +57310,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F932936673%2F188787412609%2F1%2Foriginal.20250111-005811?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=436b828981fe67032c3944671ea6f154",
     "url": "https://www.eventbrite.com/e/paris-at-night-house-tuesdays-at-the-iconic-keys-los-angeles-tickets-2005167636378",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -57782,12 +57923,12 @@
   {
     "title": "GrowHouse X Party Peas present: BASS POD",
     "date": "2026-12-16",
-    "start": "7pm-12am",
+    "start": "2026-12-16T19:00:00-08:00",
     "venue": "Tiki Bar",
     "neighborhood": "Costa Mesa",
     "category": "electronic",
     "genre": "dubstep, bass music",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -57937,7 +58078,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -57979,7 +58120,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -58061,7 +58202,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -58996,7 +59137,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-28",
-    "last_seen": "2026-11-23",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "stage",
       "genre": [],
@@ -59554,7 +59695,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -59583,7 +59724,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/clay-date-dec17-chelsie",
     "detail": "GUEST ARTIST WORKSHOP | $35 | AGES 16+ | Join resident Clay Artist, Chelsie Rivera, for this hands-on beginner ceramic workshop. Students will learn how to build altars!  Great for those who are looking for access to ceramics, clay friends, or sharpening your skill set! No experience necessary. No r",
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -60930,12 +61071,12 @@
   {
     "title": "ORIGIN Presents Eelke Kleijn (LIVE)",
     "date": "2026-12-18",
-    "start": "9pm-3am",
+    "start": "2026-12-18T21:00:00-08:00",
     "venue": "613 Imperial St",
     "neighborhood": "Los Angeles",
     "category": "general",
     "genre": "deep house, progressive house",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -61763,12 +61904,12 @@
   {
     "title": "Daft Punk Night | Club Decades",
     "date": "2026-12-18",
-    "start": "10pm-2am",
+    "start": "2026-12-18T22:00:00-08:00",
     "venue": "Boardner's by La Belle",
     "neighborhood": "Los Angeles",
     "category": "electronic",
     "genre": "funky house, french house, disco",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -61829,7 +61970,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-07",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -61994,7 +62135,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -62107,7 +62248,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -62652,7 +62793,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-22",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -62719,7 +62860,7 @@
     "url": "https://juniorhighlosangeles.com/calendar/alittlecloser-12-18-26",
     "detail": "COMMUNITY | $25 PRE // $30 DOS | 18+ | A Little Closer is a slowfriending game and a relational meditation for connection. We’ll land together with a short meditation, then roll a die for a feeling and take turns talking and listening: six minutes each, five rounds, four new people. Minimal small ta",
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -64912,7 +65053,7 @@
   {
     "title": "Fish56Octagon in L.A.",
     "date": "2026-12-19",
-    "start": "10pm-2am",
+    "start": "2026-12-19T22:00:00-08:00",
     "venue": "Avalon Hollywood (Los Angeles)",
     "neighborhood": "Hollywood",
     "category": "electronic",
@@ -65478,7 +65619,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -65516,7 +65657,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65536,7 +65677,7 @@
   {
     "title": "WASTED: FUNTCASE",
     "date": "2026-12-19",
-    "start": "9pm-2am",
+    "start": "21:00",
     "venue": "The Circle OC (Huntington Beach)",
     "neighborhood": "Huntington Beach",
     "category": "electronic",
@@ -65973,7 +66114,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66208,11 +66349,11 @@
     "lng": null,
     "category": "general",
     "price_min": "20.05",
-    "detail": "Dubstep OG FuntCase brings his DPMO madness to The Circle OC on Saturday, December 19! Get ready for a full night of heavy bass!",
+    "detail": "Dubstep OG FuntCase brings his DPMO madness to The Circle OC on Sat, Dec 19 along w/ SweetTooth! Get ready for a full night of heavy bass!",
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197639185%2F159033129452%2F1%2Foriginal.20261109-232604?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=0ccee61aa109101b9437d3dab8243b44",
     "url": "https://www.eventbrite.com/e/orange-county-funtcase-the-circle-oc-18-tickets-2004620081627",
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -66400,6 +66541,42 @@
       "region": "hollywood",
       "near_home": false
     }
+  },
+  {
+    "source": "eventbrite",
+    "id": "https://www.eventbrite.com/e/hands-on-synthesizers-ii-modulation-motion-texture-tickets-2004460720975",
+    "title": "Hands-On Synthesizers II: Modulation, Motion & Texture",
+    "date": "2026-12-19",
+    "start": "2026-12-19T12:00:00-08:00",
+    "end": "2026-12-19T16:00:00-08:00",
+    "venue": "Vintage Synthesizer Museum",
+    "neighborhood": "Los Angeles",
+    "address": "1200 N Ave 54, Los Angeles, CA 90042",
+    "lat": null,
+    "lng": null,
+    "category": "general",
+    "price_min": "195.0",
+    "detail": "Get your hands on a studio full of classic vintage synthesizers and explore sync, PWM, noise, ring mod, cross mod, and more.",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1191402300%2F272165572599%2F1%2Foriginal.20260819-062753?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.484&fp-y=0.41&s=475837dedfa329cb4ae46b44a7a19d21",
+    "url": "https://www.eventbrite.com/e/hands-on-synthesizers-ii-modulation-motion-texture-tickets-2004460720975",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
+  },
+  {
+    "source": "squarespace",
+    "title": "Skull Shaped Heart   500 Cigs  B4B & Hash  11harro11  Dying Hues     8:00 pm    ",
+    "date": "2026-12-19",
+    "start": "20:00",
+    "venue": "The Smell",
+    "neighborhood": "DTLA",
+    "lineup": [],
+    "category": "live_music",
+    "price": null,
+    "image": "https://images.squarespace-cdn.com/content/v1/651ce2ca967f580a448e4d46/1795553828206-UNA7BAQOK7FG5GMEQQ0N/ISIMG-921033.jpg",
+    "url": "https://www.thesmell.org/events/thursday-december-3-2026",
+    "detail": "Skull Shaped Heart   500 Cigs  B4B & Hash  11harro11  Dying Hues     8:00 pm    $10    Advance tickets available    here   .",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
   },
   {
     "title": "The Hot Sardines",
@@ -67235,7 +67412,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -67276,7 +67453,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -68093,7 +68270,7 @@
     "url": "https://www.vibratogrilljazz.com/music/to-be-announced-1-zklhc",
     "detail": "Vibrato presents Vince Guaraldi’s classic Christmas album: Tawanda, Vi Jordan & Hanna Rose Lewis bring the Other Delights  Shows: 6:30pm & 9pm   Reserve Now",
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -68443,7 +68620,7 @@
   {
     "title": "A VERY MAJESTIC SHOW:NOA JAMES & FRIENDS Celebration & Toy Drive(18+)",
     "date": "2026-12-26",
-    "start": "19:00",
+    "start": "2026-12-26T19:00:00-08:00",
     "venue": "The Regent Theater",
     "neighborhood": "DTLA",
     "category": "Music",
@@ -68702,7 +68879,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69353,7 +69530,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1798603200000",
     "detail": null,
     "first_seen": "2026-08-31",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69407,7 +69584,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69564,7 +69741,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F932936673%2F188787412609%2F1%2Foriginal.20250111-005811?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=436b828981fe67032c3944671ea6f154",
     "url": "https://www.eventbrite.com/e/paris-at-night-house-tuesdays-at-the-iconic-keys-los-angeles-tickets-2005167866065",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -70099,7 +70276,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -70677,7 +70854,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-02",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -71178,7 +71355,7 @@
   {
     "title": "SETxSafra New Years Open 2 Close: Ali Farahani b2b Shan Nash, Goldcap +B3B",
     "date": "2026-12-31",
-    "start": "10pm-6am",
+    "start": "2026-12-31T22:00:00-08:00",
     "venue": "Secret Location LA",
     "neighborhood": "Los Angeles",
     "category": "general",
@@ -71488,12 +71665,12 @@
   {
     "title": "Daft Disko: NEW YEARS EVE [Los Angeles]",
     "date": "2026-12-31",
-    "start": "9pm-12am",
+    "start": "2026-12-31T21:00:00-08:00",
     "venue": "Moroccan Lounge (Los Angeles)",
     "neighborhood": "Arts District",
     "category": "electronic",
     "genre": "funky house, french house, disco",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "19hz",
@@ -71641,7 +71818,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-10-29",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -71987,7 +72164,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-10",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -72177,7 +72354,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -72497,7 +72674,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -73302,12 +73479,12 @@
   {
     "title": "ORIGIN Presents Breakbot & Irfane",
     "date": "2027-01-01",
-    "start": "10pm-3am",
+    "start": "2027-01-01T22:00:00-08:00",
     "venue": "613 Imperial St",
     "neighborhood": "Los Angeles",
     "category": "general",
     "genre": "funk, disco, house",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -73386,12 +73563,12 @@
   {
     "title": "Project X New Years Day | Club Decades",
     "date": "2027-01-01",
-    "start": "10pm-2am",
+    "start": "2027-01-01T22:00:00-08:00",
     "venue": "Boardner's by La Belle",
     "neighborhood": "Los Angeles",
     "category": "electronic",
     "genre": "pop EDM, electro house, hip-hop, indie sleaze, synthpop",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -73482,12 +73659,12 @@
   {
     "title": "Siouxsie vs Boy Harsher Night | Club Decades",
     "date": "2027-01-01",
-    "start": "10pm-2am",
+    "start": "2027-01-01T22:00:00-08:00",
     "venue": "Boardner's by La Belle",
     "neighborhood": "Los Angeles",
     "category": "electronic",
     "genre": "darkwave, industrial, post-punk, goth",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -74307,7 +74484,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-03",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -74549,7 +74726,7 @@
     "id": "https://www.eventbrite.com/e/second-wind-lee-burridge-ry-x-dj-set-jamiie-tickets-2004923639577",
     "title": "Second Wind:  Lee Burridge, RY X (DJ Set), JAMIIE",
     "date": "2027-01-02",
-    "start": "18:00",
+    "start": "2027-01-02T18:00:00-08:00",
     "end": "2027-01-03T03:00:00-08:00",
     "venue": "ORIGIN",
     "neighborhood": "Los Angeles",
@@ -77552,6 +77729,26 @@
     }
   },
   {
+    "source": "eventbrite",
+    "id": "https://www.eventbrite.com/e/hands-on-synthesizers-i-fundamentals-of-synthesis-workshop-tickets-2004863974116",
+    "title": "Hands-On Synthesizers I: Fundamentals of  Synthesis Workshop",
+    "date": "2027-01-09",
+    "start": "2027-01-09T12:00:00-08:00",
+    "end": "2027-01-09T16:00:00-08:00",
+    "venue": "Vintage Synthesizer Museum",
+    "neighborhood": "Los Angeles",
+    "address": "1200 N Ave 54, Los Angeles, CA 90042",
+    "lat": null,
+    "lng": null,
+    "category": "general",
+    "price_min": "175.0",
+    "detail": "Ever wonder what all those knobs actually do? Get hands-on and learn the fundamentals of synthesis by patching, playing & experimenting.",
+    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F772349309%2F272165572599%2F1%2Foriginal.20240520-223716?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=0%2C61%2C1200%2C600&s=7a8fe82c039168ecd08ddc2da859e122",
+    "url": "https://www.eventbrite.com/e/hands-on-synthesizers-i-fundamentals-of-synthesis-workshop-tickets-2004863974116",
+    "first_seen": "2026-11-25",
+    "last_seen": "2026-11-25"
+  },
+  {
     "title": "AJ McLean of Backstreet Boys",
     "date": "2027-01-10",
     "start": "20:00",
@@ -79715,7 +79912,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-05",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -79759,7 +79956,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -80062,7 +80259,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198189189%2F2452501526471%2F1%2Foriginal.20261117-200756?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=9a2c86700fcb9de2a7ffd99e81ddfb84",
     "url": "https://www.eventbrite.com/e/samelmo-at-zebbies-garden-tickets-2004972446560",
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -80324,7 +80521,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-14",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -81622,7 +81819,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -84881,7 +85078,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196403024%2F139732991620%2F1%2Foriginal.20261022-215435?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=e7b02b0d77b859ac45af143e4c3eb935",
     "url": "https://www.eventbrite.com/e/origin-presents-yung-bae-tickets-2002311837607",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -85504,7 +85701,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-26",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -90493,7 +90690,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-11",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "other",
       "genre": [],
@@ -91752,7 +91949,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -91865,7 +92062,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1797998400000",
     "detail": null,
     "first_seen": "2026-08-24",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -92008,7 +92205,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -92199,7 +92396,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F932936673%2F188787412609%2F1%2Foriginal.20250111-005811?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=436b828981fe67032c3944671ea6f154",
     "url": "https://www.eventbrite.com/e/paris-at-night-house-tuesdays-at-the-iconic-keys-los-angeles-tickets-2005167653429",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -95176,7 +95373,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -95331,7 +95528,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1799208000000",
     "detail": null,
     "first_seen": "2026-09-07",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -95900,7 +96097,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -95940,7 +96137,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -96243,7 +96440,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -96438,7 +96635,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-28",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -97781,7 +97978,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -101367,7 +101564,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -101408,7 +101605,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-23",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "stage",
       "genre": [],
@@ -102261,7 +102458,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -102302,7 +102499,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-23",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "stage",
       "genre": [],
@@ -102699,7 +102896,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -102740,7 +102937,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-23",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "workshop",
       "genre": [],
@@ -104770,7 +104967,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198580552%2F186591320827%2F1%2Foriginal.20261124-020318?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.494&fp-y=0.64&s=28504068ee0d262dc6527f49fd5781ea",
     "url": "https://www.eventbrite.com/e/we-love-kandy-2027-12-stages-one-massive-rave-tickets-2005320992069",
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -104788,7 +104985,15 @@
       ],
       "region": "hollywood",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "lineup": null,
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false,
+    "price": null
   },
   {
     "title": "EDC Mexico",
@@ -106898,7 +107103,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1194055090%2F3000529591216%2F1%2Foriginal.20260921-222815?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=9d6b7ac293a9e4c98f25649e560b6ee5",
     "url": "https://www.eventbrite.com/e/pony-rave-los-angeles-tickets-1992129103776",
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -107070,7 +107275,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -109160,7 +109365,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -114562,7 +114767,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1805252400000",
     "detail": null,
     "first_seen": "2026-11-16",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -116586,12 +116791,12 @@
   {
     "title": "ORIGIN Presents NTO",
     "date": "2027-03-20",
-    "start": "10pm-2am",
+    "start": "2027-03-20T22:00:00-07:00",
     "venue": "613 Imperial St",
     "neighborhood": "Los Angeles",
     "category": "general",
     "genre": "tech house, progressive house, techno",
-    "lineup": [],
+    "lineup": null,
     "links": [
       {
         "source": "eventbrite",
@@ -116646,7 +116851,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1196864031%2F512429968251%2F1%2Foriginal.20261029-160120?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.488&fp-y=0.367&s=1637f95b5dfd84c82643de41bbd08630",
     "url": "https://www.eventbrite.com/e/spag-this-is-spag-tour-los-angeles-tickets-2004076595044",
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -116725,7 +116930,7 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1193358537%2F2997101950518%2F1%2Foriginal.20260913-013249?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=f15fc46557597ffbf47f2a582197c5d5",
     "url": "https://www.eventbrite.com/e/rave-of-hopes-and-dreams-la-los-angeles-tickets-2000784079040",
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "club",
       "genre": [
@@ -118011,7 +118216,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -122670,7 +122875,7 @@
     "url": "https://tockify.com/sugarmillsaloon/detail/1721/1805857200000",
     "detail": null,
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-24",
+    "last_seen": "2026-11-25",
     "tags": {
       "type": "live-music",
       "genre": [
