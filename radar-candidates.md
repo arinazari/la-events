@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/24/2026 deterministically (no API). 164 candidates. Signals: big-venue 133, festival 28, tracked 4._
+_Generated 11/25/2026 deterministically (no API). 166 candidates. Signals: big-venue 135, festival 28, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -123,6 +123,12 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Fri 1/22 | 5 | Riordan - Remapped w/ Idemi & Boss Priester | Shrine Expo Hall (Los Angeles) | big-venue | [link](https://www.axs.com/events/1642398) |
 
+## May 2027
+
+| Date | Sc | Event | Venue | Why | Link |
+|---|---|---|---|---|---|
+| Sat 5/8 | 5 | An Evening with Wilco - Wilcoworld Tour 2027 | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/an-evening-with-wilco-wilcoworld-tour-los-angeles-california-05-08-2027/event/090065743A3C8B3D) |
+
 ## February 2027
 
 | Date | Sc | Event | Venue | Why | Link |
@@ -166,6 +172,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 1/23 | 3 | Swimming Paul | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1645234/swimming-paul-tickets) |
 | Fri 1/29 | 3 | SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour | Intuit Dome | big-venue | [link](https://www.ticketmaster.com/olivia-rodrigo-the-unraveled-tour-inglewood-california-01-29-2027/event/090064A4B7E1FA1A) |
 | Fri 1/29 | 3 | AYYBO | Shrine Expo Hall | big-venue | [link](https://www.axs.com/events/1629391/ayybo-tickets) |
+| Sat 1/30 | 3 | Hassan Shamaizadeh: Final Curtain | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/hassan-shamaizadeh-final-curtain-inglewood-california-01-30-2027/event/0A006575FBB499BC) |
 
 ## February 2027
 

@@ -1,60 +1,33 @@
 [
  {
-  "id": "1712371c86f1",
+  "id": "4e0a3f8c4971",
   "type": "club",
-  "subgenres": [],
-  "label_orbit": [],
-  "energy": "late-night",
-  "setting": "club",
-  "sounds_like": [],
-  "card": {"draw": 0, "rarity": 0, "lineup_depth": 0, "vibes": []},
-  "artist_notes": [
-   {"name": "Shaun Ross", "note": "Model, artist and DJ, a fixture on LA's fashion-adjacent party circuit."}
-  ],
-  "curator_note": "Hard to call from the bill alone: Shaun Ross is more scene-and-style than selector, and the other two names are unverified. Only worth it if you're already out and want a no-phones room.",
-  "description": "\"No Photos Plz\" electronic night at Say Yes on Sat 11/28 from 9pm, with Shaun Ross, BODII and nish.",
-  "confidence": "low"
- },
- {
-  "id": "86b0d4f3bbcf",
-  "type": "club",
-  "subgenres": ["tech-house", "house"],
-  "label_orbit": ["Experts Only"],
-  "energy": "peak",
-  "setting": "stadium",
-  "sounds_like": ["Dom Dolla", "Chris Lake", "FISHER"],
-  "card": {"draw": 3, "rarity": 1, "lineup_depth": 0, "vibes": []},
-  "artist_notes": [],
-  "curator_note": "John Summit playing the Coliseum is the tech-house boom at full stadium scale, and a real milestone for a guy who was packing small rooms a few years back. Big-room fun, so go for the singalong drops and the production, not for deep selection.",
-  "description": "John Summit's Ctrl Escape tour stops at the 77,000-capacity LA Memorial Coliseum on Fri 12/11.",
-  "confidence": "medium"
- },
- {
-  "id": "958bdd08345b",
-  "type": "club",
-  "subgenres": ["disco", "house"],
+  "subgenres": ["house", "deep-house"],
   "label_orbit": [],
   "energy": "groove",
+  "setting": "warehouse",
+  "sounds_like": [],
+  "card": {"draw": 0, "rarity": 1, "lineup_depth": 1, "vibes": []},
+  "artist_notes": [
+   {"name": "Artur (US)", "note": "LA vinyl selector from the Certified Groovers rotation, deep and warm all-wax house."},
+   {"name": "Enzo Muro", "note": "Peruvian-born, LA-based house/techno selector and Dialogue resident; co-runs the vinyl-only YouKnowWhat label/party."}
+  ],
+  "curator_note": "A closing party with two LA vinyl-first selectors, so expect patient, wax-heavy house instead of peak-hour bangers. Venue is still TBA, which usually means a proper underground room. Hold off until the location drops.",
+  "description": "Closing party for the Tears of Nature series, venue TBA, with Artur (US), Max Coletto and Enzo Muro.",
+  "confidence": "medium"
+ },
+ {
+  "id": "07c2c3e0202e",
+  "type": "club",
+  "subgenres": [],
+  "label_orbit": [],
+  "energy": "unknown",
   "setting": "club",
   "sounds_like": [],
   "card": {"draw": 0, "rarity": 0, "lineup_depth": 0, "vibes": []},
   "artist_notes": [],
-  "curator_note": "A Chinatown disco-and-house night with a 7pm start, so it's an early evening warm-up rather than a late-night commitment. I can't verify the artists, so treat it as a low-stakes drop-in for the groove.",
-  "description": "\"Disco Decadance\" electronic night at Apotheke in Chinatown from 7pm Sat 12/5, featuring Infinity Edge, NAYGOD and Dirtie Blonde.",
+  "curator_note": "Nothing to go on here. There's no lineup, no start time and no details beyond a cheeky title at a Ctrl Collective space. Skip it unless the lineup shows up and looks good.",
+  "description": "Electronic night listed on RA at Ctrl Collective's Playa Vista space, with no lineup or details published yet.",
   "confidence": "low"
- },
- {
-  "id": "30c088592749",
-  "type": "stage",
-  "subgenres": [],
-  "label_orbit": [],
-  "energy": "listening",
-  "setting": "theater",
-  "sounds_like": [],
-  "card": {"draw": 2, "rarity": 0, "lineup_depth": 0, "vibes": ["queer"]},
-  "artist_notes": [],
-  "curator_note": "Cole Escola's Tony-winning Broadway farce, in which Mary Todd Lincoln is a washed-up would-be cabaret star, is fast and absurd, and the touring run has been selling well. Funny and camp as hell, though it's very much a queer comedy-theater night, not a music one.",
-  "description": "Touring production of Cole Escola's Broadway comedy Oh, Mary!, a camp farce about Mary Todd Lincoln, at the Ahmanson Theatre.",
-  "confidence": "medium"
  }
 ]
