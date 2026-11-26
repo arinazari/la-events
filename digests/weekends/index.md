@@ -3,8 +3,8 @@
 | Weekend (Fri) | Events | Top pick |
 |---|---|---|
 | [2026-11-27](2026-11-27.md) | 18 | Time Warp Los Angeles 2026 |
-| [2026-12-04](2026-12-04.md) | 18 | TUNNEL 5YR: Special Guest (Berghain), ROZA Terenzi, Dj Warning, James Axon, & OZA |
-| [2026-12-11](2026-12-11.md) | 19 | Drumcode: Adam Beyer, Dreya V, Marco Faraone |
+| [2026-12-04](2026-12-04.md) | 19 | TUNNEL 5YR: Special Guest (Berghain), ROZA Terenzi, Dj Warning, James Axon, & OZA |
+| [2026-12-11](2026-12-11.md) | 18 | Drumcode: Adam Beyer, Dreya V, Marco Faraone |
 | [2026-12-18](2026-12-18.md) | 19 | Marten Horger w/ DJ Susan,Gold Lemonade, Dayze |
 | [2026-12-25](2026-12-25.md) | 19 | DJ Isaac |
 | [2027-01-01](2027-01-01.md) | 18 | Sidepiece |
@@ -17,4 +17,4 @@
 | [2027-02-19](2027-02-19.md) | 19 | Patrick Topping |
 | [2027-02-26](2027-02-26.md) | 19 | Romain Garcia |
 | [2027-03-05](2027-03-05.md) | 19 | Boogie T |
-| [2027-03-12](2027-03-12.md) | 18 | DUUNES: The Airwaves World Tour |
+| [2027-03-12](2027-03-12.md) | 18 | Fatboy Slim |

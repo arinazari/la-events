@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/25/2026 deterministically (no API). 166 candidates. Signals: big-venue 135, festival 28, tracked 4._
+_Generated 11/26/2026 deterministically (no API). 165 candidates. Signals: big-venue 135, festival 27, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -54,7 +54,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Wed 12/30 | 3 | Temper Festival 2026: Crankdat, Distinct Motive, G Jones,  | Petco Park (San Diego) | festival | [link](https://events.leapevents.com/event/led-presents-temper-festival/tag/laylo-presale) |
 | Thu 12/31 | 3 | Hollywood Blvd Block Party NYE 2027 LA | Jameson's Irish Pub | festival | [link](https://ra.co/events/2500017) |
 
 ## January 2027
