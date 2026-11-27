@@ -1069,6 +1069,7 @@
       ],
       "scale": "hall",
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": "far",
@@ -1781,6 +1782,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "hollywood",
@@ -5134,7 +5136,8 @@
     "editorial_mentions": [
       "We Like LA",
       "UncoverLA",
-      "LAist"
+      "LAist",
+      "Time Out LA"
     ]
   },
   {
@@ -5673,7 +5676,8 @@
     "url": "https://www.lalive.com/",
     "detail": "Run 11/27/2026-1/3/2027; outdoor ice rink plus 21,000 sq ft Holiday Village with shopping, dining, Santa.",
     "editorial_mentions": [
-      "DiscoverLA"
+      "DiscoverLA",
+      "Time Out LA"
     ],
     "first_seen": "2026-11-24",
     "last_seen": "2026-11-26",
@@ -6328,7 +6332,76 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1197736223%2F1372684577053%2F1%2Foriginal.20261111-015250?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=0b24823bc3b37077573e3f0282e9d97c",
     "url": "https://www.eventbrite.com/e/w3n-fridays-friendsgiving-musubi-1127-tickets-2004684582551",
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27"
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "far",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Nintendo Switch 2 Holiday Experience",
+    "date": "2026-11-27",
+    "start": null,
+    "venue": "Glendale Galleria, 100 W. Broadway, Suite 100",
+    "neighborhood": "Glendale",
+    "lineup": [],
+    "category": "community",
+    "price": null,
+    "image": null,
+    "url": "https://www.nintendo.com/us/whatsnew/events/nintendo-switch-2-holiday-experience/",
+    "detail": "Hands-on pop-up with Switch 2 demo games and a My Nintendo gift station; runs Nov 25 through Dec 23.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "pop-up"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Sippin' Santa at The CanTiki",
+    "date": "2026-11-27",
+    "start": null,
+    "venue": "The CanTiki",
+    "neighborhood": "North Hollywood",
+    "lineup": [],
+    "category": "food-drink",
+    "price": null,
+    "image": null,
+    "url": "https://www.thecantiki.com/",
+    "detail": "Tropical-themed holiday cocktail pop-up with themed drinks and collectible mugs; runs through Dec 30.",
+    "editorial_mentions": [
+      "We Like LA"
+    ],
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "pop-up"
+      ],
+      "region": "valley",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -8482,7 +8555,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "far",
       "near_home": false
     },
@@ -8919,6 +8994,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": null,
@@ -12861,7 +12937,8 @@
     "detail": "11/28-11/29; Hollywood Bowl Orchestra plays John Debney's score live to the film (from WLLA's November WDCH post).",
     "editorial_mentions": [
       "We Like LA",
-      "DiscoverLA"
+      "DiscoverLA",
+      "Time Out LA"
     ],
     "first_seen": "2026-11-24",
     "last_seen": "2026-11-24",
@@ -12951,7 +13028,8 @@
     "url": "https://www.sierramadreplayhouse.org/",
     "detail": "Run 11/28/2026-1/3/2027 (52 performances); Bob Baker Marionette Theater's 1969 puppet Nutcracker.",
     "editorial_mentions": [
-      "DiscoverLA"
+      "DiscoverLA",
+      "Time Out LA"
     ],
     "first_seen": "2026-11-24",
     "last_seen": "2026-11-24",
@@ -13435,6 +13513,62 @@
       "vibe": [],
       "region": null,
       "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Project ReWear $2/LB WEARhouse Sale",
+    "date": "2026-11-28",
+    "start": "09:00",
+    "venue": "2639 Lavery Court, Newbury Park",
+    "neighborhood": "Newbury Park",
+    "lineup": [],
+    "category": "market",
+    "price": "$2 per pound",
+    "image": null,
+    "url": "https://uncoverla.com/2026/11/25/best-los-angeles-events-november-2026/",
+    "detail": "Quarterly secondhand sale of clothing, shoes, books and more with a Levi's denim section; 9 a.m.-5 p.m.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "title": "Sendero Chocolate Master Class",
+    "date": "2026-11-28",
+    "start": "11:30",
+    "venue": "Sendero at The Ritz-Carlton, 900 W. Olympic Blvd.",
+    "neighborhood": "DTLA",
+    "lineup": [],
+    "category": "food-drink",
+    "price": null,
+    "image": null,
+    "url": "https://resy.com/cities/los-angeles-ca/venues/corteza-at-sendero/events/chocolate-master-class-2026-11-28-6",
+    "detail": "One-hour class where guests sculpt and decorate a chocolate showpiece; water and sparkling wine included.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "workshop",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "dtla",
+      "near_home": true
     }
   },
   {
@@ -14321,7 +14455,8 @@
     },
     "editorial_mentions": [
       "Time Out",
-      "Time Out LA"
+      "Time Out LA",
+      "We Like LA"
     ]
   },
   {
@@ -15277,7 +15412,8 @@
     "detail": "94th annual parade along Hollywood Blvd to Vine and Sunset; start listed as 6pm (We Like LA) / 5:30pm (UncoverLA).",
     "editorial_mentions": [
       "We Like LA",
-      "UncoverLA"
+      "UncoverLA",
+      "Time Out LA"
     ],
     "first_seen": "2026-11-15",
     "last_seen": "2026-11-26",
@@ -16535,6 +16671,36 @@
     }
   },
   {
+    "source": "editorial",
+    "title": "Museum Store Sunday 2026",
+    "date": "2026-11-29",
+    "start": null,
+    "venue": "Participating museum stores across L.A. (incl. The Broad, LACMA, The Getty, MOCA)",
+    "neighborhood": "Multiple Locations",
+    "lineup": [],
+    "category": "market",
+    "price": null,
+    "image": null,
+    "url": "https://museumstoresunday.org/find-a-store/",
+    "detail": "Museum shops offer discounts, gifts with purchase, book signings and workshops; hours vary by store.",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "first_seen": "2026-11-27",
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [
+        "gallery"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
     "title": "Babe Haven",
     "date": "2026-11-30",
     "start": "19:00",
@@ -16946,9 +17112,7 @@
         "bar"
       ],
       "scale": "bar",
-      "vibe": [
-        "residency"
-      ],
+      "vibe": [],
       "region": "westside",
       "near_home": false
     },
@@ -18963,7 +19127,18 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/local-s-night-w-eli-boreth-spellbound-da-seed-216039",
     "detail": "",
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27"
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -22937,6 +23112,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "residency"
       ],
       "region": null,
@@ -23880,7 +24056,20 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198757520%2F624665813843%2F1%2Foriginal.20261126-202455?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.508&fp-y=0.037&s=5d5ec79a044452b99aed22d35e7721b8",
     "url": "https://www.eventbrite.com/e/housekeeper-tickets-2005514709483",
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27"
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": "far",
+      "near_home": false
+    }
   },
   {
     "title": "The Neighbourhood: THE WOURLD TOUR",
@@ -24964,7 +25153,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -26792,6 +26983,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free",
         "free-rsvp",
         "18+"
@@ -27235,6 +27427,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "album-release"
       ],
       "region": null,
@@ -31828,6 +32021,7 @@
       ],
       "scale": "room",
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": "dtla",
@@ -43181,7 +43375,20 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198757799%2F624665813843%2F1%2Foriginal.20261126-203545?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.093&s=d1ccf5842b925a36b74c9999f240f5f1",
     "url": "https://www.eventbrite.com/e/afterimage-tickets-2005514815801",
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27"
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "dubstep"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": "far",
+      "near_home": false
+    }
   },
   {
     "title": "Strawberry Guy",
@@ -45637,7 +45844,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -45680,7 +45889,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -47451,26 +47662,6 @@
       "region": null,
       "near_home": false
     }
-  },
-  {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/daft-disko-portland-or-tickets-1995670537299",
-    "title": "Daft Disko: Portland, OR",
-    "date": "2026-12-11",
-    "start": "2026-12-11T21:00:00-08:00",
-    "end": "2026-12-12",
-    "venue": "The Get Down",
-    "neighborhood": "Portland",
-    "address": "680 SE 6th Ave., Portland, OR 97214",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "13.33",
-    "detail": "Daft Disko returns to Portland!",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187593506%2F290918113901%2F1%2Foriginal.20260624-203547?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.987&fp-y=0.632&s=8c3bb42709776a2fa90a84666ac1d40a",
-    "url": "https://www.eventbrite.com/e/daft-disko-portland-or-tickets-1995670537299",
-    "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27"
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -49860,7 +50051,7 @@
       ],
       "scale": null,
       "vibe": [
-        "day-party"
+        "afterhours"
       ],
       "region": "hollywood",
       "near_home": false
@@ -49912,6 +50103,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": null,
@@ -53193,12 +53385,12 @@
   {
     "title": "Rose Bowl Flea Market Sunday, December 13, 2026",
     "date": "2026-12-13",
-    "start": "2026-12-13T05:00:00-08:00",
+    "start": "09:00",
     "venue": "Rose Bowl Stadium",
     "neighborhood": "Pasadena",
     "category": "general",
     "genre": null,
-    "lineup": null,
+    "lineup": [],
     "links": [
       {
         "source": "eventbrite",
@@ -53230,7 +53422,7 @@
       "region": "valley",
       "near_home": false
     },
-    "updated_at": "2026-11-26",
+    "updated_at": "2026-11-27",
     "changed_fields": [
       "start"
     ],
@@ -54907,7 +55099,7 @@
       ],
       "scale": null,
       "vibe": [
-        "day-party"
+        "afterhours"
       ],
       "region": null,
       "near_home": false
@@ -57100,7 +57292,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "far",
       "near_home": false
     },
@@ -59200,7 +59394,20 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198757938%2F624665813843%2F1%2Foriginal.20261126-204050?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.517&fp-y=0.045&s=df817d72af9985f2b3ad6a70f846dda5",
     "url": "https://www.eventbrite.com/e/house-music-tickets-2005514863945",
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27"
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": "far",
+      "near_home": false
+    }
   },
   {
     "title": "NUTCRACKER! Magical Christmas Ballet",
@@ -60265,7 +60472,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -61097,7 +61306,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -64433,7 +64644,9 @@
         "club"
       ],
       "scale": "hall",
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "hollywood",
       "near_home": false
     },
@@ -68604,6 +68817,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "18+"
       ],
       "region": "hollywood",
@@ -71414,7 +71628,9 @@
       ],
       "setting": [],
       "scale": "room",
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "dtla",
       "near_home": true
     },
@@ -72814,7 +73030,16 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198758221%2F624665813843%2F1%2Foriginal.20261126-205136?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.51&fp-y=0.2&s=5c3a905246ad25925b006ef816f6e40d",
     "url": "https://www.eventbrite.com/e/new-year-eve-the-final-illusion-night-of-2026-tickets-2005515364442",
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27"
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "far",
+      "near_home": false
+    }
   },
   {
     "title": "The Book of Mormon (Touring)",
@@ -73408,7 +73633,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -73493,7 +73720,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -73587,7 +73816,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -74644,7 +74875,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -87255,7 +87488,18 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/dead-by-midnight-212498",
     "detail": "",
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27"
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "live-music",
+      "genre": [],
+      "setting": [
+        "bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
   },
   {
     "title": "SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour",
@@ -96081,7 +96325,16 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198758056%2F624665813843%2F1%2Foriginal.20261126-204631?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.508&fp-y=0.142&s=ef566c8c2c5e3c8c6eec65e8ed29da96",
     "url": "https://www.eventbrite.com/e/christmas-eve-open-decks-tickets-2005515108677",
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27"
+    "last_seen": "2026-11-27",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "far",
+      "near_home": false
+    }
   },
   {
     "title": "Disney Presents The Lion King (Touring)",
@@ -117667,7 +117920,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
