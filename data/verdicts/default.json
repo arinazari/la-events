@@ -52799,11 +52799,11 @@
     "d805c031bba6": {
       "tier": "solid",
       "adjust": 0,
-      "why": "Smorgasburg at ROW DTLA is the dependable Sunday food market; night 3 of 5, go any week, nothing special about this one.",
+      "why": "Smorgasburg is a reliable Sunday DTLA food market; this is the first of four Sundays, so any one of them works.",
       "confidence": "high",
-      "judged_at": "2026-11-15T13:17:51",
+      "judged_at": "2026-11-27T13:20:42",
       "input_version": 2,
-      "score_at_judge": 4
+      "score_at_judge": 6
     },
     "7984addbf2ad": {
       "tier": "solid",
@@ -53574,12 +53574,12 @@
     },
     "a588030a8214": {
       "tier": "solid",
-      "adjust": -1,
-      "why": "PLEASURES is a decent pull, but this is an anniversary at a TBA Inland Empire location 45 minutes out. That's far-flung for a thin bill.",
-      "confidence": "low",
-      "judged_at": "2026-11-21T13:20:08",
+      "adjust": 0,
+      "why": "Techno warehouse anniversary with PLEASURES, location TBA out in the Inland Empire about 45 minutes away. The lineup is thin for that drive.",
+      "confidence": "med",
+      "judged_at": "2026-11-27T13:20:42",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 9
     },
     "3badd60d944e": {
       "tier": "great",
@@ -54122,12 +54122,12 @@
     },
     "ade96f898701": {
       "tier": "great",
-      "adjust": 1,
-      "why": "Channel Tres is core rotation. His deep house, hip-hop and funk mix is a live show as much as a DJ set, and The Novo is a short hop from home on a Saturday.",
-      "confidence": "med",
-      "judged_at": "2026-11-25T13:21:06",
+      "adjust": 2,
+      "why": "Channel Tres is in your core rotation. He plays deep house, hip-hop and funk live, in the Moodymann/Kaytranada orbit, and the Novo is a short hop from DTLA on a Saturday.",
+      "confidence": "high",
+      "judged_at": "2026-11-27T13:20:42",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 9
     },
     "07c2c3e0202e": {
       "tier": "solid",
@@ -54149,13 +54149,13 @@
       "score_at_judge": 7
     },
     "f39af1b05599": {
-      "tier": "great",
+      "tier": "must-see",
       "adjust": 2,
-      "why": "Massimiliano Pagliara is a Berghain/Basement resident playing Chicago house and electro-disco, in the European lane you favor. It's a TBA-location Saturday warehouse and he's a strong Spotify match, so worth the risk.",
+      "why": "Massimiliano Pagliara is a Berghain/Ostgut Ton resident playing Chicago house and Italo-disco at a TBA LA warehouse. That's the European club lane, and the rarest booking in the batch.",
       "confidence": "med",
-      "judged_at": "2026-11-25T13:21:06",
+      "judged_at": "2026-11-27T13:20:42",
       "input_version": 2,
-      "score_at_judge": 7
+      "score_at_judge": 9
     },
     "b4ac799461c1": {
       "tier": "solid",
@@ -54274,6 +54274,179 @@
       "judged_at": "2026-11-26T13:21:33",
       "input_version": 2,
       "score_at_judge": 6
+    },
+    "77389a4862b6": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Bass/EDM-leaning bar night with an all-local, unknown bill at El Cid; close to home but not the house/techno lane.",
+      "confidence": "low",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "61b4c6e403be": {
+      "tier": "great",
+      "adjust": 1,
+      "why": "Free listening-bar night with Midnight Magic, a real nu-disco/boogie name, on a Black Friday. Easy DTLA house and disco.",
+      "confidence": "med",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "533d2e8ed948": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Secret-location party with cheap tickets. Tagged hard-techno and hard-dance next to tech-house, and the bill is unknown to me.",
+      "confidence": "low",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "7cd0d4c35761": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "4am Friday house afters with a free RSVP. Fine if you're already out, but not something to plan around.",
+      "confidence": "low",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "844abad6a6bb": {
+      "tier": "skip",
+      "lane": "stage",
+      "adjust": -1,
+      "why": "Family holiday film-with-orchestra. It is not a rep screening, and kids/family programming is off-taste.",
+      "confidence": "high",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e472ee65c8c2": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Hotel chocolate class at 11:30. It's a pleasant daytime thing, but it has no music or film angle.",
+      "confidence": "med",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 4
+    },
+    "0a5a1ea8610a": {
+      "tier": "skip",
+      "adjust": -2,
+      "why": "The title is scraper junk (a Delta Air Lines ad) and there's no lineup. I can't verify there's a real party here.",
+      "confidence": "med",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "e2385e437892": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Secret-location party at $7.52 with an unknown bill. Tagged hard-techno and trance next to house, so it's a gamble.",
+      "confidence": "low",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "a9622f5953d8": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "6am Saturday afters. It's the same house series as Friday's, only later and harder to justify.",
+      "confidence": "low",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "2c918b7669da": {
+      "tier": "great",
+      "adjust": 3,
+      "why": "TBA-location closing party. Artur is an all-wax LA selector and Enzo Muro is a vinyl-focused Dialogue resident. Deep, warm house like this is the best fit for you tonight.",
+      "confidence": "med",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 8
+    },
+    "66c7a39854ee": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Free-RSVP deep house/disco at Apotheke, a fine nearby Saturday warmup but nobody on the bill moves the needle.",
+      "confidence": "med",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 6
+    },
+    "6e7cf1d79a04": {
+      "tier": "great",
+      "adjust": 0,
+      "why": "Free, RA-picked all-night groove/afro-house bill with nish. as the real selector; Shaun Ross is scene texture, not the draw.",
+      "confidence": "med",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 10
+    },
+    "81cb51c52ff1": {
+      "tier": "great",
+      "adjust": 2,
+      "why": "Heidi Lawden (core rotation) with Unkle and Kyle NG at Lodge Room, a trusted room and an early 7pm start. A midweek treat.",
+      "confidence": "high",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 9
+    },
+    "67ac2821547f": {
+      "tier": "great",
+      "lane": "club:underground",
+      "adjust": 1,
+      "why": "Heidi Lawden again, this time a 10pm to 2am hotel-lounge set with Mez Monty. It's a night slot, not a day party, so I moved the lane. Catch her at Lodge Room first if you can only do one.",
+      "confidence": "med",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 10
+    },
+    "3520ae441fc9": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Late tech-house afters at the Lexington with no lineup listed. Last night of the run, and fine if you're already out.",
+      "confidence": "low",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "efef833b33ad": {
+      "tier": "solid",
+      "adjust": -1,
+      "why": "Apotheke disco/house night for a resident crowd, early 7pm start. Pleasant, but no name here is a draw.",
+      "confidence": "med",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "ff0af6c06ffc": {
+      "tier": "solid",
+      "adjust": -2,
+      "why": "Costume party with no lineup and a TBA location. It's more of a themed party than a DJ night.",
+      "confidence": "low",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "afff7e6cfcad": {
+      "tier": "solid",
+      "adjust": 0,
+      "why": "Free-RSVP techno/trance at Exchange with local names. Fine DTLA filler, but it's not a destination night.",
+      "confidence": "low",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 7
+    },
+    "1251de70fb6c": {
+      "tier": "solid",
+      "adjust": -3,
+      "why": "Last of nine Silverlake Flea dates, and it lands on Christmas Day, when it may not run. Check hours before planning around it.",
+      "confidence": "low",
+      "judged_at": "2026-11-27T13:20:42",
+      "input_version": 2,
+      "score_at_judge": 4
     }
   }
 }
