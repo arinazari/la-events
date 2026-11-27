@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/26/2026 deterministically (no API). 165 candidates. Signals: big-venue 135, festival 27, tracked 4._
+_Generated 11/27/2026 deterministically (no API). 165 candidates. Signals: big-venue 138, festival 24, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -23,17 +23,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 1/2 | 7 | Dixon / Maceo Plex / Mano Le Tough | East End Studios - Mission Campus | tracked:Dixon | [link](https://ra.co/events/2589101) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Thu 12/31 | 4 | Get It Together New Year's Eve 2026 - Oscar P, Coflo, Seep | Commonality Collective | festival | [link](https://ra.co/events/2572827) |
-
-## January 2027
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
 | Sat 1/16 | 4 | 2-Day Ticket: Dogs In A Pile | Pacific Electric | festival | [link](https://www.ticketmaster.com/2day-ticket-dogs-in-a-pile-los-angeles-california-01-16-2027/event/09006548DA01110F) |
 | Sat 1/23 | 4 | 2 DAY PASS - ALLEYCVT | Hollywood Palladium | festival | [link](https://www.ticketmaster.com/2-day-pass-alleycvt-hollywood-california-01-23-2027/event/09006541B491DF63) |
 
@@ -49,12 +38,6 @@ _Review → fold keepers into `festivals.yaml`._
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
 | Sat 4/10 | 4 | Basscon presents Lil Texas | Hollywood Palladium | festival | [link](https://www.ticketmaster.com/basscon-presents-lil-texas-hollywood-california-04-10-2027/event/0900656F3F114F8A) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Thu 12/31 | 3 | Hollywood Blvd Block Party NYE 2027 LA | Jameson's Irish Pub | festival | [link](https://ra.co/events/2500017) |
 
 ## January 2027
 
@@ -79,12 +62,6 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 3/6 | 3 | Boots in the Park | SilverLakes Festival Grounds | festival | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAAx-_) |
 | Fri 3/19 | 3 | 2 Day Pass: The Growlers - City Club 10 Year Anniversary T | The Wiltern | festival | [link](https://www.ticketmaster.com/2-day-pass-the-growlers-city-los-angeles-california-03-19-2027/event/0900654CF004D2A7) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Thu 12/31 | 2 | Trish Toledo | Riverside Municipal Auditorium | festival | [link](https://www.ticketmaster.com/trish-toledo-riverside-california-12-31-2026/event/0B00652B1A16A402) |
 
 ## May 2027
 
@@ -153,6 +130,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 5/8 | 4 | Madness | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/madness-hollywood-california-05-08-2027/event/0B00656CE05262ED) |
 | Fri 5/21 | 4 | Jhené Aiko Presents: Ark to Agartha - A Westside Whimsy Ex | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/jhene-aiko-presents-ark-to-agartha-los-angeles-california-05-21-2027/event/2C00656DB3C11474) |
 | Sat 5/22 | 4 | Jhené Aiko Presents: Ark to Agartha - A Westside Whimsy Ex | Crypto.com Arena | big-venue | [link](https://www.ticketmaster.com/jhene-aiko-presents-ark-to-agartha-los-angeles-california-05-22-2027/event/2C006570ECFD1353) |
+| Tue 5/25 | 4 | Damien Rice o 25th Anniversary Tour | Greek Theatre | big-venue | [link](https://www.ticketmaster.com/damien-rice-o-25th-anniversary-tour-los-angeles-california-05-25-2027/event/09006549AAA9A6FF) |
 
 ## January 2027
 
@@ -232,12 +210,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Tue 5/18 | 3 | Deftones - North American Tour 2027 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/deftones-north-american-tour-2027-hollywood-california-05-18-2027/event/0B006569EADF51F9) |
 | Wed 5/19 | 3 | Deftones - North American Tour 2027 | Hollywood Bowl | big-venue | [link](https://www.ticketmaster.com/deftones-north-american-tour-2027-hollywood-california-05-19-2027/event/0B006570CF044A26) |
 | Sat 5/22 | 3 | Niall Horan: Dinner Party Live On Tour | Kia Forum | big-venue | [link](https://www.ticketmaster.com/niall-horan-dinner-party-live-on-inglewood-california-05-22-2027/event/090064A700F6CCC2) |
-
-## December 2026
-
-| Date | Sc | Event | Venue | Why | Link |
-|---|---|---|---|---|---|
-| Thu 12/31 | 2 | Flo Rida - Ages 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Wed 5/26 | 3 | Calvin Harris - North America Tour | Kia Forum (Los Angeles) | big-venue | [link](https://www.ticketmaster.com/event/0900655401385F29) |
 
 ## January 2027
 
@@ -268,6 +241,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Tue 2/2 | 2 | Christine D'Clario - La Novia Tour  | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/christine-dclario-la-novia-tour-inglewood-california-02-02-2027/event/0A006179983A3029) |
 | Thu 2/4 | 2 | WayV | Shrine Auditorium | big-venue | [link](https://www.axs.com/events/1695099/wayv-tickets) |
 | Thu 2/11 | 2 | La Arrolladora Banda El Limon (21+ Event) | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
+| Thu 2/11 | 2 | Eslabon Armado | Toyota Arena | big-venue | [link](https://www.ticketmaster.com/eslabon-armado-ontario-california-02-11-2027/event/0900654EB49CA10C) |
 | Sun 2/14 | 2 | Diana Ross - Ages 21+ | Yaamava Resort & Casino at San Man | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Wed 2/17 | 2 | Yuridia - 21+ | Yaamava Theater | big-venue | [link](https://yaamava.com/yaamava-theater) |
 | Thu 2/18 | 2 | PABLO ALBORAN - GLOBAL TOUR KM0 | YouTube Theater | big-venue | [link](https://www.ticketmaster.com/pablo-alboran-global-tour-km0-inglewood-california-02-18-2027/event/0A0064CAC3AADDB8) |
@@ -342,6 +316,7 @@ _Review → fold keepers into `festivals.yaml`._
 |---|---|---|---|---|---|
 | Sat 5/1 | 1 | Jhené Aiko Presents: Ark to Agartha - A Westside Whimsy Ex | Honda Center | big-venue | [link](https://www.ticketmaster.com/jhene-aiko-presents-ark-to-agartha-anaheim-california-05-01-2027/event/0900656CC740F0BE) |
 | Thu 5/20 | 1 | Calvin Harris - North America Tour | Honda Center (Anaheim) | big-venue | [link](https://www.ticketmaster.com/event/09006555CCBD0EA8) |
+| Tue 5/25 | 1 | Gabriel Iglesias - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAA-aF) |
 
 ## February 2027
 
