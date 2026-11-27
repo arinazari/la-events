@@ -317,3 +317,6 @@ Tonight is Time Warp day one, which has been open since 2pm; if $180+ is too muc
 **The watch-list** — *festivals worth planning around*
 - **[Coachella 2027](https://www.coachella.com/)** — 4/9–11 and 4/16–18 · Empire Polo Club, Indio CA · **lineup pending** — Advance GA already sold out (~$549–599); official lineup not yet announced. Industry trades (Hits Daily Double) rumor Tame Impala + Dua Lipa headlining with Fred again.. in the "Returning to the Desert" slot — unconfirmed, ~7 months out.
 
+
+---
+*Coverage note: the Gmail "Events" label was skipped this run (connector not available in the session); Eventbrite timed out in the core fetch and was recovered on retry (101 events); Beatport returned no events; the Pantages JSON-LD page returned no events; The Dresden lists only its weekly residencies, The Baked Potato and Highland Park Bowl calendars could not be read, Harvelle's is partial (November only) and Sam First is partial (listings through 1/6). Editorial roundups: Secret LA and Eater LA could not be read. Spotify sync failed for 2 of 3 connected friend profiles (Worker 502) — those feeds keep their last good music layer.*
