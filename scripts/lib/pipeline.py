@@ -104,14 +104,16 @@ _JUNK_SERVICE_KW = re.compile(
 # Airline / travel brand + a service-action word (both required: keeps venue 'The
 # Airliner', band 'Delta By The Beach', 'The United Theater' etc. safe).
 _JUNK_TRAVEL_BRAND = re.compile(
-    r"(?i)\b(airlines?|airways|ryanair|lufthansa|qantas(?:link)?|expedia|jetblue|"
+    r"(?i)\b(air\s?lines?|airways|ryanair|lufthansa|qantas(?:link)?|expedia|jetblue|"
     r"easyjet|air\s+canada|air\s+france|british\s+airways|volotea|eurowings|"
     r"air\s+astana|oman\s+air|garuda|aegean|china\s+southern|norse\s+atlantic|"
     r"arik\s+air|gulf\s+air|virgin\s+australia|breeze\s+airways)\b")
 _JUNK_TRAVEL_ACTION = re.compile(
     r"(?i)\b(book(?:ing)?|reservations?|cancel(?:lation)?s?|refunds?|customer|"
     r"support|service|helpdesk|phone|number|call|baggage|check[\s\-]?in|"
-    r"flight\s+change|name\s+change|ticket\s+change)\b")
+    r"flight\s+change|name\s+change|ticket\s+change|"
+    # RA, 2026-11-27: "Delta Air Lines - Flight & Plane Tickets"
+    r"plane\s+tickets?|flight\s+tickets?|flights?\s*(?:&|and)\s*plane)\b")
 
 # Insurance / fintech brand + an account-service action word.
 _JUNK_FIN_BRAND = re.compile(
@@ -134,7 +136,7 @@ _JUNK_FAQ_SPAM = re.compile(
 # Any airline/carrier name (generic word + "airlines?/airways") co-occurring with a long digit
 # run (a fake terminal/hotline number) — catches brands not in _JUNK_TRAVEL_BRAND (United,
 # Delta, Allegiant, American, Southwest, ...) without hard-coding every carrier.
-_JUNK_AIRLINE_GENERIC = re.compile(r"(?i)\b\w+\s+air(?:lines?|ways)\b")
+_JUNK_AIRLINE_GENERIC = re.compile(r"(?i)\b\w+\s+air\s?(?:lines?|ways)\b")
 _JUNK_LONG_DIGIT_RUN = re.compile(r"\d{2}-?\d{7,}|\d{9,}")
 
 
