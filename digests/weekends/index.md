@@ -2,11 +2,11 @@
 
 | Weekend (Fri) | Events | Top pick |
 |---|---|---|
-| [2026-11-27](2026-11-27.md) | 18 | Time Warp Los Angeles 2026 |
+| [2026-11-27](2026-11-27.md) | 13 | Solomun |
 | [2026-12-04](2026-12-04.md) | 17 | TUNNEL 5YR: Special Guest (Berghain), ROZA Terenzi, Dj Warning, James Axon, & OZA |
 | [2026-12-11](2026-12-11.md) | 18 | Drumcode: Adam Beyer, Dreya V, Marco Faraone |
-| [2026-12-18](2026-12-18.md) | 19 | Marten Horger w/ DJ Susan,Gold Lemonade, Dayze |
-| [2026-12-25](2026-12-25.md) | 17 | DJ Isaac |
+| [2026-12-18](2026-12-18.md) | 20 | Marten Horger w/ DJ Susan,Gold Lemonade, Dayze |
+| [2026-12-25](2026-12-25.md) | 16 | DJ Isaac |
 | [2027-01-01](2027-01-01.md) | 18 | Sidepiece |
 | [2027-01-08](2027-01-08.md) | 17 | Mutate: Luca Lush, Angel Cannon, Amayah |
 | [2027-01-15](2027-01-15.md) | 18 | Nocturna |

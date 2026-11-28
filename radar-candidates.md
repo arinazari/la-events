@@ -1,6 +1,6 @@
 # Radar candidates — on the radar
 
-_Generated 11/27/2026 deterministically (no API). 165 candidates. Signals: big-venue 138, festival 24, tracked 4._
+_Generated 11/28/2026 deterministically (no API). 165 candidates. Signals: big-venue 139, festival 23, tracked 4._
 
 _Review → fold keepers into `festivals.yaml`._
 
@@ -43,7 +43,6 @@ _Review → fold keepers into `festivals.yaml`._
 
 | Date | Sc | Event | Venue | Why | Link |
 |---|---|---|---|---|---|
-| Fri 1/1 | 3 | Totally Tubular Festival | The Show at Agua Caliente Casino R | festival | [link](https://www.ticketmaster.com/totally-tubular-festival-rancho-mirage-california-01-01-2027/event/0900652A153D27DB) |
 | Sat 1/2 | 3 | Lost In Dreams Presents: ARMNHMR(18+) (FROM OBS OC FESTIVA | House of Blues Anaheim | festival | [link](https://www.ticketmaster.com/lost-in-dreams-presents-armnhmr18-from-anaheim-california-01-02-2027/event/090065468B706282) |
 | Sat 1/2 | 3 | ARMNHMR (18+)- MOVED TO HOUSE OF BLUES ANAHEIM | Observatory Festival Grounds | festival | [link](https://www.ticketmaster.com/armnhmr-18-moved-to-house-of-santa-ana-california-01-02-2027/event/0900649CF4A8321F) |
 
@@ -317,6 +316,7 @@ _Review → fold keepers into `festivals.yaml`._
 | Sat 5/1 | 1 | Jhené Aiko Presents: Ark to Agartha - A Westside Whimsy Ex | Honda Center | big-venue | [link](https://www.ticketmaster.com/jhene-aiko-presents-ark-to-agartha-anaheim-california-05-01-2027/event/0900656CC740F0BE) |
 | Thu 5/20 | 1 | Calvin Harris - North America Tour | Honda Center (Anaheim) | big-venue | [link](https://www.ticketmaster.com/event/09006555CCBD0EA8) |
 | Tue 5/25 | 1 | Gabriel Iglesias - Ages 21+ | Yaamava Theater | big-venue | [link](https://www.ticketmaster.com/event/Z7r9jZ1AAA-aF) |
+| Thu 5/27 | 1 | Calvin Harris | Kia Forum (Los Angeles) | big-venue |  |
 
 ## February 2027
 
