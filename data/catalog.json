@@ -1097,6 +1097,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -1611,6 +1612,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -1933,6 +1935,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "b2b",
         "tba-location"
       ],
@@ -1988,6 +1991,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "b2b",
         "tba-location",
         "ra-pick"
@@ -2601,7 +2605,6 @@
       "setting": [],
       "scale": null,
       "vibe": [
-        "afterhours",
         "18+"
       ],
       "region": null,
@@ -3888,7 +3891,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -3929,7 +3932,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -3978,7 +3981,7 @@
     "detail": "Standing together as two of the most undeniable voices emerging from Los Angeles’ creative music landscape, the classmates-turned-collaborators join forces to co-lead a project entitled \"Now Then,\" aiming to pay homage to this music’s rich history while simultaneously ushering in a new generation.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -4017,7 +4020,7 @@
     "detail": "Tagged: grateful dead, jerry garcia, jerry garcia band.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -4529,6 +4532,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "free"
       ],
       "region": "dtla",
@@ -5325,7 +5329,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/mix-master-mike-of-the-beastie-boys-214239",
     "detail": "Late show (10:30pm).",
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "other",
       "genre": [],
@@ -5508,7 +5512,8 @@
     "detail": "AAPI-focused market (art, jewelry, toys, beauty); run listed Nov 28-Dec 19.",
     "editorial_mentions": [
       "Time Out LA",
-      "UncoverLA"
+      "UncoverLA",
+      "Time Out"
     ],
     "first_seen": "2026-11-19",
     "last_seen": "2026-11-26",
@@ -5574,6 +5579,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -5977,7 +5983,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     }
@@ -6114,7 +6122,8 @@
     },
     "editorial_mentions": [
       "We Like LA",
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ]
   },
   {
@@ -6328,7 +6337,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     }
@@ -6517,7 +6528,8 @@
     "detail": "Run 11/28-12/23; outdoor holiday film screenings (often double features) with home tours, sing-alongs, light tunnels.",
     "editorial_mentions": [
       "Time Out LA",
-      "DiscoverLA"
+      "DiscoverLA",
+      "Time Out"
     ],
     "first_seen": "2026-11-24",
     "last_seen": "2026-11-24",
@@ -6547,7 +6559,8 @@
     "url": "https://www.timeout.com/los-angeles/dance/the-nutcracker-suite",
     "detail": "Run 11/28-12/24; 75-minute ballet with live Tchaikovsky score in an immersive snow-covered set.",
     "editorial_mentions": [
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-24",
     "last_seen": "2026-11-24",
@@ -6578,7 +6591,8 @@
     "editorial_mentions": [
       "We Like LA",
       "DiscoverLA",
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-24",
     "last_seen": "2026-11-24",
@@ -6669,7 +6683,8 @@
     "detail": "Run 11/28/2026-1/3/2027 (52 performances); Bob Baker Marionette Theater's 1969 puppet Nutcracker.",
     "editorial_mentions": [
       "DiscoverLA",
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-24",
     "last_seen": "2026-11-24",
@@ -7267,7 +7282,7 @@
     "start": "2026-11-28T22:00:00-08:00",
     "end": "2026-11-29T02:00:00-08:00",
     "venue": "Jungle Hollywood",
-    "neighborhood": "Los Angeles",
+    "neighborhood": "Hollywood",
     "address": "1640 North Cahuenga Boulevard, Los Angeles, CA 90028",
     "lat": null,
     "lng": null,
@@ -7277,26 +7292,18 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198791259%2F473461263511%2F1%2Foriginal.20261127-160653?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=0332378e3420899afa991569b0460272",
     "url": "https://www.eventbrite.com/e/afro-jungle-saturdays-tickets-2005152779942",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-78112251",
-    "title": "Mersiv + Seth David",
-    "date": "2026-11-28",
-    "start": "3pm-8pm",
-    "venue": "Fit Social (San Diego)",
-    "genre": "dubstep, bass music",
-    "organizers": "LED",
-    "price": "$38-50",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://events.leapevents.com/event/led-presents-mersiv-seth-david-fit-social-2026"
-    ],
-    "url": "https://events.leapevents.com/event/led-presents-mersiv-seth-david-fit-social-2026",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "source": "19hz",
@@ -7316,163 +7323,19 @@
     ],
     "url": "https://www.instagram.com/littlejoyla/",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-38387229",
-    "title": "Siesta Fiesta: H-Foundation, Doc Martin, Bertin",
-    "date": "2026-11-28",
-    "start": "4pm-9pm",
-    "venue": "Quartyard (San Diego)",
-    "genre": "tech house, deep house",
-    "organizers": "Deep End",
-    "price": "$25.30-36.80",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://quartyardsd.com/event/siesta-fiesta/",
-      "https://ra.co/events/2560562"
-    ],
-    "url": "https://quartyardsd.com/event/siesta-fiesta/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-22579797",
-    "title": "Psychosis Events Presents: Flozone w/Special Guest Cozy Kev",
-    "date": "2026-11-28",
-    "start": "8pm",
-    "venue": "3Oz Dive Club (San Diego)",
-    "genre": "dubstep, bass music, hip-hop",
-    "organizers": null,
-    "price": "$15-20",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://ticketly.events/e/598/psychosis-events-presents-flozone-wspecial-guest-cozy-kev?ref=EDMTrain"
-    ],
-    "url": "https://ticketly.events/e/598/psychosis-events-presents-flozone-wspecial-guest-cozy-kev?ref=EDMTrain",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-98824969",
-    "title": "Interstellar: Intrphaz3, Bojak, Jesse Jose",
-    "date": "2026-11-28",
-    "start": "8pm-1am",
-    "venue": "The Ballroom (San Diego)",
-    "genre": "house, drum and bass",
-    "organizers": "Kinetik, Armada",
-    "price": "$25-50",
-    "age": null,
-    "afterhours_flag": false,
-    "links": [
-      "https://www.instagram.com/p/DfX9jdjyDef/",
-      "https://posh.vip/e/kinetik-presents-interstellar"
-    ],
-    "url": "https://www.instagram.com/p/DfX9jdjyDef/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-2347324",
-    "title": "Amtrac - Dream Live Tour",
-    "date": "2026-11-28",
-    "start": "9pm",
-    "venue": "Music Box (San Diego)",
-    "genre": "house",
-    "organizers": "Belly Up & FNGRS CRSSD",
-    "price": "$33",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketweb.com/event/id/15032493"
-    ],
-    "url": "https://www.ticketweb.com/event/id/15032493",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-50115775",
-    "title": "Other Voices: Dark Dance Night w/DJ Fn1, Israel",
-    "date": "2026-11-28",
-    "start": "9pm-1:30am",
-    "venue": "The Banshee (San Diego)",
-    "genre": "darkwav,e post-punk, EBM, goth",
-    "organizers": null,
-    "price": "free",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://dice.fm/event/6ae50b9609c7060001e1c1e7"
-    ],
-    "url": "https://dice.fm/event/6ae50b9609c7060001e1c1e7",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-86792334",
-    "title": "Common Love: Arty D2, Deeyetti, Izaguirre, Johnny Knockout, Nemz, Elsewhere, Horge, Jon William, Seek-One",
-    "date": "2026-11-28",
-    "start": "9pm-2am",
-    "venue": "The Air Conditioned Lounge (San Diego)",
-    "genre": "house, dubstep, hard dance, techno",
-    "organizers": null,
-    "price": "free",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.instagram.com/thisiscommonlove/p/DgFG0u6JG1D/"
-    ],
-    "url": "https://www.instagram.com/thisiscommonlove/p/DgFG0u6JG1D/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-12136727",
-    "title": "Cosa Nostra Friendsgiving: Danny Grisa, Mystique, Sunny",
-    "date": "2026-11-28",
-    "start": "9pm-2am",
-    "venue": "Air Conditioned Lounge (San Diego)",
-    "genre": "tech house, afro house, bass house, indie dance, deep house, dubstep",
-    "organizers": null,
-    "price": "free w/rsvp",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://shotgun.live/en/events/cosa-nostra-friendsgiving",
-      "https://ra.co/events/2585725"
-    ],
-    "url": "https://shotgun.live/en/events/cosa-nostra-friendsgiving",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-42961282",
-    "title": "Low Brow",
-    "date": "2026-11-28",
-    "start": "10pm",
-    "venue": "EOS Lounge (Santa Barbara)",
-    "genre": "hyperpop, electropop, digicore, jersey club, electroclash, indie sleaze",
-    "organizers": null,
-    "price": "free",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.facebook.com/events/1129209733189784/",
-      "https://dice.fm/event/693v92-low-brow-28th-nov-eos-lounge-santa-barbara-tickets?dice_source=ee15ecdb&eventref=fb_oea"
-    ],
-    "url": "https://www.facebook.com/events/1129209733189784/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "neighborhood": "Echo Park",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "free"
+      ],
+      "region": "eastside",
+      "near_home": true
+    }
   },
   {
     "source": "19hz",
@@ -7492,26 +7355,19 @@
     ],
     "url": "https://www.instagram.com/sunsetatedition/",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-28-63497273",
-    "title": "Gaslamp Afters (Unofficial Max Styler Afters) - Aniden, DJ Ideal, Duzy, Undress, Lady Verse, Jdorah",
-    "date": "2026-11-28",
-    "start": "10pm-5am",
-    "venue": "TBA Warehouse (San Diego)",
-    "genre": "house",
-    "organizers": "Steppin' Til Checkout, New Life, Vince DiNatale, INNRSRCL",
-    "price": "free w/rsvp b4 midnight / $21",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://plots.events/event/downtownafters/edmtrain"
-    ],
-    "url": "https://plots.events/event/downtownafters/edmtrain",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "neighborhood": "West Hollywood",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "sunset"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "source": "19hz",
@@ -7531,7 +7387,44 @@
     ],
     "url": "https://www.instagram.com/electricjungle.ent/p/DgJo27XEa1I/",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "neighborhood": null,
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": null,
+      "near_home": false
+    }
+  },
+  {
+    "source": "editorial",
+    "id": "https://partiful.com/e/k3jbCaQcdcEzVzX2E445",
+    "title": "Superette Linktree Holiday Market",
+    "date": "2026-11-28",
+    "start": "12:00",
+    "venue": "The Grove",
+    "neighborhood": "Fairfax",
+    "category": "market",
+    "detail": "Small-business holiday market, noon-8pm (Nov 27-28)",
+    "url": "https://partiful.com/e/k3jbCaQcdcEzVzX2E445",
+    "editorial_mentions": [
+      "UncoverLA"
+    ],
+    "price_min": null,
+    "first_seen": "2026-11-28",
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "market",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "Coca-Cola Flow Fest",
@@ -7792,7 +7685,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-20",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -9264,7 +9157,7 @@
     "detail": "Recurring weekly residency on the calendar.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -9306,7 +9199,7 @@
     "detail": "Salsa DJ brunch.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -9380,7 +9273,8 @@
     "editorial_mentions": [
       "We Like LA",
       "UncoverLA",
-      "Time Out LA"
+      "Time Out LA",
+      "Time Out"
     ],
     "first_seen": "2026-11-15",
     "last_seen": "2026-11-26",
@@ -9710,7 +9604,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/tribute-to-buena-vista-social-club-by-arsenio-rodr-guez-project-212903",
     "detail": null,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -10672,62 +10566,37 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2026-11-29-90237651",
-    "title": "J. Worra",
+    "source": "editorial",
+    "id": "https://www.eventbrite.com/e/high-in-the-sky-the-rooftop-sade-experience-tickets-2003948108738",
+    "title": "High in the Sky: The Rooftop Sade Experience",
     "date": "2026-11-29",
-    "start": "3pm-8pm",
-    "venue": "Quartyard (San Diego)",
-    "genre": "funky house, bass house, deep house",
-    "organizers": "FNGRS CRSSD",
-    "price": "$27-39",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-jworra-quartyard-2026"
+    "start": "16:00",
+    "venue": "Somewhere Special L.A., 929 S Broadway",
+    "neighborhood": "DTLA",
+    "category": "electronic",
+    "detail": "Sade-inspired rooftop R&B/soul/house party, DJs Holiday Kirk and Warmbedrooms, 4-11pm",
+    "url": "https://www.eventbrite.com/e/high-in-the-sky-the-rooftop-sade-experience-tickets-2003948108738",
+    "editorial_mentions": [
+      "UncoverLA"
     ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-jworra-quartyard-2026",
+    "price_min": null,
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-29-51895454",
-    "title": "Baile F**K Vol. 006 w/ Bgz, Dehm, V!, Nukumori, Cali Cartier",
-    "date": "2026-11-29",
-    "start": "9pm-1:30am",
-    "venue": "Eq (San Diego)",
-    "genre": "baile funk, latin club, bass music",
-    "organizers": "Overdrive",
-    "price": "$11.50-25",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://linktr.ee/overdrive.hq",
-      "https://ra.co/events/2575495"
-    ],
-    "url": "https://linktr.ee/overdrive.hq",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-11-29-41328305",
-    "title": "Twerksgiving: Bby Teeth, Big Bad Vvolv, Jdorah, Miggy, Techki",
-    "date": "2026-11-29",
-    "start": "9pm-2am",
-    "venue": "3Oz Dive Club (San Diego)",
-    "genre": "house, tech house",
-    "organizers": "Galactic Giraffe Group",
-    "price": "free w/rsvp",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://posh.vip/e/twerksgiving-12"
-    ],
-    "url": "https://posh.vip/e/twerksgiving-12",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house"
+      ],
+      "setting": [
+        "rooftop"
+      ],
+      "scale": null,
+      "vibe": [
+        "day-party"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
   },
   {
     "title": "Babe Haven",
@@ -11130,7 +10999,7 @@
     "detail": "Benefit jam session; recurs on several November dates.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -12476,7 +12345,7 @@
     "detail": "GRAMMY-winning vocalist and original Manhattan Transfer member Janis Siegel celebrates The Art of Vocalese, her 16th solo album and first major project following the group’s farewell. Joined by pianist and arranger John Di Martino, Siegel honors the rich tradition of vocalese.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -12523,7 +12392,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -13160,9 +13029,9 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/local-s-night-w-eli-boreth-spellbound-da-seed-216039",
-    "detail": "",
+    "detail": null,
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -13173,7 +13042,13 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
+    },
+    "links": [],
+    "sources": [],
+    "organizers": null,
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "First Tuesdays: World AIDS Day & Holiday Edition",
@@ -13214,26 +13089,6 @@
       "region": null,
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-01-51467142",
-    "title": "Westside Boogie",
-    "date": "2026-12-01",
-    "start": "8pm",
-    "venue": "Music Box (San Diego)",
-    "genre": "hip-hop",
-    "organizers": null,
-    "price": "$45-116",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.facebook.com/events/1799145901658506/",
-      "https://www.ticketweb.com/event/westside-boogie-music-box-tickets/14360244?theme=musicboxsd"
-    ],
-    "url": "https://www.facebook.com/events/1799145901658506/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
@@ -14346,7 +14201,7 @@
     "detail": "Tristan Cappel presents his second album \"North Star\" with a superstar ensemble. Join them to hear a collection of singable melodies and memorable compositions.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -14429,7 +14284,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -15088,44 +14943,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2026-12-02-59661227",
-    "title": "Alter [Autmn]: Eddie Abarca, Tommy Pips, Cnr, Goeur",
-    "date": "2026-12-02",
-    "start": "8pm-12am",
-    "venue": "The Banshee (San Diego)",
-    "genre": "tech house, minimal, techno",
-    "organizers": null,
-    "price": "$4.99",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://dice.fm/event/6afca00162e32800018813bb"
-    ],
-    "url": "https://dice.fm/event/6afca00162e32800018813bb",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-02-58558553",
-    "title": "Avello",
-    "date": "2026-12-02",
-    "start": "8:15pm",
-    "venue": "Music Box (San Diego)",
-    "genre": "dubstep, bass music",
-    "organizers": null,
-    "price": "$46.8",
-    "age": "18+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketweb.com/event/id/14381114"
-    ],
-    "url": "https://www.ticketweb.com/event/id/14381114",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "Randall King",
     "date": "2026-12-03",
     "start": "19:00",
@@ -15268,7 +15085,7 @@
     "url": "https://thevenicewest.com/calendar",
     "source": "webfetch",
     "first_seen": "2026-07-09",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -17204,7 +17021,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "club",
       "genre": [
@@ -17247,7 +17064,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -17369,7 +17186,7 @@
     "url": "https://www.samfirstbar.com/events/max-walker-quintet-with-tristan-cappel-adam-hersh-graeham-guerin-nate-friedman",
     "detail": "Set time is the venue's general schedule (doors 6pm, music ~7:30 & 9:30pm). Guitarist Max Walker's Sam First debut.",
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -17905,7 +17722,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "eastside",
       "near_home": true
     },
@@ -18286,86 +18105,21 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189752851%2F1353655287983%2F1%2Foriginal.20260728-014628?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.516&fp-y=0.649&s=6ac0d694f69be0ccedab1ce88f9331dc",
     "url": "https://www.eventbrite.com/e/electric-jungle-tickets-2005558359040",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-03-40034570",
-    "title": "Kumo 99 - Cali '26",
-    "date": "2026-12-03",
-    "start": "7pm",
-    "venue": "Soda Bar (San Diego)",
-    "genre": "drum and bass, jungle, breaks, punk",
-    "organizers": null,
-    "price": "$25+",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.facebook.com/events/2134591724145200/",
-      "https://dice.fm/event/yo5xnv-kumo-99-cali-26-3rd-dec-soda-bar-san-diego-tickets?dice_source=ee15ecdb&eventref=fb_oea"
-    ],
-    "url": "https://www.facebook.com/events/2134591724145200/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-03-38564742",
-    "title": "Erika Casarin, Sienna, Daphne, Bea",
-    "date": "2026-12-03",
-    "start": "9pm-2am",
-    "venue": "3Oz Dive Club (San Diego)",
-    "genre": "tech house, progressive house, melodic techno",
-    "organizers": null,
-    "price": "free",
-    "age": "18+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.facebook.com/events/1104877742541794/",
-      "https://dice.fm/event/6afd325135994c0001a2fc40"
-    ],
-    "url": "https://www.facebook.com/events/1104877742541794/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-03-29732862",
-    "title": "The Techno Jungle",
-    "date": "2026-12-03",
-    "start": "9pm-2am",
-    "venue": "Eq (San Diego)",
-    "genre": "hard bounce, techno, EDM",
-    "organizers": "Byrd",
-    "price": "free w/rsvp b4 10pm / $6.50",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://mixloevents.com/events/f918455a-466e-4937-ac2a-8c490c37d584",
-      "https://ra.co/events/2582134"
-    ],
-    "url": "https://mixloevents.com/events/f918455a-466e-4937-ac2a-8c490c37d584",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-03-39198197",
-    "title": "Transmission 004: Unter Strom, Ennea, Lance Liquid Grey",
-    "date": "2026-12-03",
-    "start": "9pm-2am",
-    "venue": "Spin (San Diego)",
-    "genre": "progressive house, deep house",
-    "organizers": null,
-    "price": "$23",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://ra.co/events/2577614"
-    ],
-    "url": "https://ra.co/events/2577614",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house",
+        "dnb"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": "far",
+      "near_home": false
+    }
   },
   {
     "title": "The Neighbourhood: THE WOURLD TOUR",
@@ -19769,7 +19523,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -20097,6 +19851,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "all-night-set",
         "tba-location"
       ],
@@ -21228,6 +20983,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "all-vinyl",
         "tba-location"
       ],
@@ -21539,6 +21295,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -21629,6 +21386,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -21725,6 +21483,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "album-release"
       ],
       "region": null,
@@ -21942,7 +21701,9 @@
     "venue": "Avalon Hollywood",
     "neighborhood": "Hollywood",
     "category": "electronic",
-    "lineup": [],
+    "lineup": [
+      "Emo Nite"
+    ],
     "links": [
       {
         "source": "webfetch",
@@ -21959,7 +21720,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "club",
       "genre": [
@@ -22004,7 +21765,7 @@
     "detail": "Guitarists Peter Bernstein and Graham Dechter unite two generations of distinctive jazz voices. Joined by Jacob Mann, Alex Frank, and Ryan Shaw, the ensemble brings together deep tradition, masterful musicianship, and dynamic interplay for an exciting evening of jazz.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -22543,7 +22304,7 @@
     "url": "https://santamonica.harvelles.com/events/147826",
     "detail": "Recurring weekly residency on the calendar.",
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -23335,160 +23096,6 @@
       "region": "dtla",
       "near_home": true
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-04-76512124",
-    "title": "Hitech - Techquavious",
-    "date": "2026-12-04",
-    "start": "5pm-10pm",
-    "venue": "Spin (San Diego)",
-    "genre": "ghettotech, house, hip-hop, miami bass",
-    "organizers": "FNGRS CRSSD",
-    "price": "$21-33",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-hitech-spin-terrace-2026/tag/RA"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-hitech-spin-terrace-2026/tag/RA",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-04-34983671",
-    "title": "Capochino - Back To Life Tour w/ PapaJay, Noahfence B2B Drahcir, Fayrah, HAMMAH",
-    "date": "2026-12-04",
-    "start": "8pm",
-    "venue": "Break Point Pb (San Diego)",
-    "genre": "dubstep, bass music",
-    "organizers": "Psychosis Events",
-    "price": "$20-25",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://ticketly.events/e/592/psychosis-events-presents-capochino-back-to-life-tour?ref=EDMTrain"
-    ],
-    "url": "https://ticketly.events/e/592/psychosis-events-presents-capochino-back-to-life-tour?ref=EDMTrain",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-04-17150717",
-    "title": "Emancipator - Chrysalis Tour",
-    "date": "2026-12-04",
-    "start": "9pm",
-    "venue": "Music Box (San Diego)",
-    "genre": "trip-hop, downtempo",
-    "organizers": null,
-    "price": "$44 pre",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketweb.com/event/id/14275804"
-    ],
-    "url": "https://www.ticketweb.com/event/id/14275804",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-04-29394157",
-    "title": "X3butterfly, Hoochie",
-    "date": "2026-12-04",
-    "start": "9pm",
-    "venue": "1060 Garnet Ave (San Diego)",
-    "genre": "techno, hard dance, electro",
-    "organizers": null,
-    "price": "$5.50-16",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://dice.fm/event/aab3o7-x3butterfly-5th-dec-3oz-dive-club-san-diego-tickets?dice_source=ee15ecdb&eventref=fb_oea",
-      "https://ra.co/events/2587969"
-    ],
-    "url": "https://dice.fm/event/aab3o7-x3butterfly-5th-dec-3oz-dive-club-san-diego-tickets?dice_source=ee15ecdb&eventref=fb_oea",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-04-14326683",
-    "title": "Deathpact",
-    "date": "2026-12-04",
-    "start": "10pm-2am",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "dubstep, bass music",
-    "organizers": null,
-    "price": "$23 pre",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.tixr.com/groups/novasd/events/deathpact-201593"
-    ],
-    "url": "https://www.tixr.com/groups/novasd/events/deathpact-201593",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-04-9265164",
-    "title": "Winter Wonderland Rave",
-    "date": "2026-12-04",
-    "start": "10pm-2am",
-    "venue": "Salvatore's Nightclub (San Diego)",
-    "genre": "multigenre EDM",
-    "organizers": "San Diego'z Backyard",
-    "price": "$15-20+",
-    "age": "18+ with valid ID",
-    "afterhours_flag": true,
-    "links": [
-      "https://posh.vip/f/fc4ff?t=19hz"
-    ],
-    "url": "https://posh.vip/f/fc4ff?t=19hz",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-04-55807081",
-    "title": "Gudfella, Boys Don't Disco, Paul Najera",
-    "date": "2026-12-04",
-    "start": "10pm-3am",
-    "venue": "Spin Nightclub (San Diego)",
-    "genre": "house",
-    "organizers": "FNGRS CRSSD",
-    "price": "$20-25",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-gudfella-spin-2026"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-gudfella-spin-2026",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-04-41837150",
-    "title": "The Widdler, Die by the Sword, Phir",
-    "date": "2026-12-04",
-    "start": "10pm-3am",
-    "venue": "Eq (San Diego)",
-    "genre": "dubstep, bass music, trap",
-    "organizers": "LED",
-    "price": "$15-20",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.facebook.com/events/1099759426298041/",
-      "https://events.leapevents.com/event/led-presents-the-widdler-eq-2026"
-    ],
-    "url": "https://www.facebook.com/events/1099759426298041/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -24528,6 +24135,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -24738,7 +24346,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-08-28",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -25997,9 +25605,7 @@
         "club"
       ],
       "scale": "room",
-      "vibe": [
-        "free"
-      ],
+      "vibe": [],
       "region": "hollywood",
       "near_home": false
     },
@@ -26459,6 +26065,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location",
         "ra-pick"
       ],
@@ -26762,7 +26369,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -26941,6 +26550,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "all-night-set",
         "tba-location"
       ],
@@ -27485,7 +27095,7 @@
     "detail": "Guitarists Peter Bernstein and Graham Dechter unite two generations of distinctive jazz voices. Joined by Jacob Mann, Alex Frank, and Ryan Shaw, the ensemble brings together deep tradition, masterful musicianship, and dynamic interplay for an exciting evening of jazz.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27526,7 +27136,7 @@
     "detail": "Rolling Stones tribute.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -27665,7 +27275,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -27861,6 +27471,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -27968,6 +27579,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "day-party",
         "tba-location"
       ],
@@ -28155,6 +27767,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -28410,6 +28023,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -29981,7 +29595,7 @@
     "start": "2026-12-05T22:00:00-08:00",
     "end": "2026-12-06T02:00:00-08:00",
     "venue": "Jungle Hollywood",
-    "neighborhood": "Los Angeles",
+    "neighborhood": "Hollywood",
     "address": "1640 North Cahuenga Boulevard, Los Angeles, CA 90028",
     "lat": null,
     "lng": null,
@@ -29991,161 +29605,18 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198791172%2F473461263511%2F1%2Foriginal.20261127-160444?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=66e15f0b690bef6ba347432fe322cbac",
     "url": "https://www.eventbrite.com/e/afro-jungle-saturdays-tickets-2005154332586",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-05-44579858",
-    "title": "MK, Bensy, Jax Carter, TA, Heminguey",
-    "date": "2026-12-05",
-    "start": "3pm-8pm",
-    "venue": "Fit Social (San Diego)",
-    "genre": "house",
-    "organizers": "FNGRS CRSSD",
-    "price": "$32-42",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-mk-marc-kinchen-pbc-2026"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-mk-marc-kinchen-pbc-2026",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-05-93219985",
-    "title": "Hans Glader",
-    "date": "2026-12-05",
-    "start": "4pm-9pm",
-    "venue": "Spin (San Diego)",
-    "genre": "uk garage",
-    "organizers": "FNGRS CRSSD",
-    "price": "$21-33",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-hans-glader-spin-terrace-2026"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-hans-glader-spin-terrace-2026",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-05-60416493",
-    "title": "House For The Houseless 6",
-    "date": "2026-12-05",
-    "start": "4pm-9pm",
-    "venue": "Quartyard (San Diego)",
-    "genre": "house",
-    "organizers": null,
-    "price": "$25 pre / $35",
-    "age": "18+",
-    "afterhours_flag": false,
-    "links": [
-      "https://givebutter.com/c/H4H6"
-    ],
-    "url": "https://givebutter.com/c/H4H6",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-05-53054061",
-    "title": "House Music In Ocean Beach - Siggy Freud, Auxana, Mani, Stretchko, Kaitlin",
-    "date": "2026-12-05",
-    "start": "8pm-2am",
-    "venue": "Uppercuts Hair Studio (San Diego)",
-    "genre": "house",
-    "organizers": "Events By Siggy Freud",
-    "price": "$10+",
-    "age": null,
-    "afterhours_flag": true,
-    "links": [
-      "https://posh.vip/e/house-music-in-ocean-beach-holiday-party"
-    ],
-    "url": "https://posh.vip/e/house-music-in-ocean-beach-holiday-party",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-05-40703988",
-    "title": "Bear Night - DJ Jon Williams",
-    "date": "2026-12-05",
-    "start": "9pm-2am",
-    "venue": "Eq (San Diego)",
-    "genre": "house, circuit house",
-    "organizers": null,
-    "price": "$18",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.facebook.com/events/964120513130944/",
-      "https://www.eventbrite.com/e/dec-5-tickets-2004800171280"
-    ],
-    "url": "https://www.facebook.com/events/964120513130944/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-05-8678248",
-    "title": "Biscits",
-    "date": "2026-12-05",
-    "start": "9pm-2am",
-    "venue": "EOS Lounge (Santa Barbara)",
-    "genre": "tech house",
-    "organizers": null,
-    "price": "$9.89+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://dice.fm/event/6dyx52-biscits-5th-dec-eos-lounge-santa-barbara-tickets"
-    ],
-    "url": "https://dice.fm/event/6dyx52-biscits-5th-dec-eos-lounge-santa-barbara-tickets",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-05-94439016",
-    "title": "Unholy Night Ft. Davi",
-    "date": "2026-12-05",
-    "start": "9pm-4am",
-    "venue": "Spin Nightclub (San Diego)",
-    "genre": "progressive house, tech house, playa tech",
-    "organizers": "Ego Trip",
-    "price": "$33.85-39.19",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.facebook.com/events/2202509417338153/",
-      "https://www.eventbrite.com/e/ego-trip-presents-unholy-night-ft-davi-tickets-2003473802074"
-    ],
-    "url": "https://www.facebook.com/events/2202509417338153/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-05-1604128",
-    "title": "Valentino Khan",
-    "date": "2026-12-05",
-    "start": "10pm-2am",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "bass house, trap",
-    "organizers": null,
-    "price": "$23+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.tixr.com/groups/novasd/events/valentino-khan-208271"
-    ],
-    "url": "https://www.tixr.com/groups/novasd/events/valentino-khan-208271",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "The Nutcracker",
@@ -30963,7 +30434,7 @@
     "url": "https://www.mccabes.com/product/gill-landry-opener-kiki-cavazos/",
     "detail": "Folk/acoustic/Americana show at McCabe's Guitar Shop listening room.",
     "first_seen": "2026-09-03",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "other",
       "genre": [],
@@ -32527,7 +31998,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -32570,7 +32041,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -33116,7 +32587,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/beatles-brunch-w-the-beat-5-216037",
     "detail": "Tagged: brunch, mimosas, bottomless mimosas.",
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -33516,25 +32987,6 @@
       "region": null,
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-06-86093797",
-    "title": "Fraxiom, Saint Misty",
-    "date": "2026-12-06",
-    "start": "10pm-2am",
-    "venue": "Soda Bar (San Diego)",
-    "genre": "hyperpop",
-    "organizers": null,
-    "price": "$19 pre",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://dice.fm/event/v3lpkv-fraxiom-saint-misty-6th-dec-soda-bar-san-diego-tickets"
-    ],
-    "url": "https://dice.fm/event/v3lpkv-fraxiom-saint-misty-6th-dec-soda-bar-san-diego-tickets",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Whitechapel - 20th Anniversary Tour",
@@ -34378,7 +33830,7 @@
     "detail": "\"Tuesday Happenings\" is a weekly series curated by 7x GRAMMY-nominated pianist/composer Gerald Clayton. House band performs one set at 7:30pm followed by a jam session from 9:30-11pm.",
     "price": "$22.4",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -34423,7 +33875,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -35740,7 +35192,7 @@
     "detail": "College Night is a program aimed at giving young musicians valuable performance experience, a chance to network with future colleagues on other campuses, and exposure to the wider Sam First family of artists and audiences.",
     "price": "$16.8",
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -35821,7 +35273,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -36144,7 +35596,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/chad-jt-go-deep-216019",
     "detail": null,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -36203,25 +35655,6 @@
       "region": "hollywood",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-09-15712167",
-    "title": "Session w/ Horge, Marketing Porpoises, Brutaux",
-    "date": "2026-12-09",
-    "start": "9pm",
-    "venue": "3Oz Dive Club (San Diego)",
-    "genre": "drum and bass, jungle",
-    "organizers": "San Dnb",
-    "price": "free w/rsvp",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.facebook.com/events/1166405949579438/"
-    ],
-    "url": "https://www.facebook.com/events/1166405949579438/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Drag Show: “THIRSTY THURSDAYS” @ Hamburger Mary's Long Beach",
@@ -36307,7 +35740,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -37938,7 +37371,7 @@
     "detail": "Afterparty with a Frost Children DJ set; Syzy also listed.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "club",
       "genre": [
@@ -37979,7 +37412,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38060,7 +37493,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -38332,26 +37765,21 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198815009%2F533151786669%2F1%2Foriginal.20261128-031958?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.502&fp-y=1.0&s=402a0e2fede6394d7f42b8a36e3a1bb0",
     "url": "https://www.eventbrite.com/e/recollect-underground-tickets-2005560522511",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-10-86974492",
-    "title": "Dusky",
-    "date": "2026-12-10",
-    "start": "9pm-2am",
-    "venue": "EOS Lounge (Santa Barbara)",
-    "genre": "deep house, techno, tech house",
-    "organizers": null,
-    "price": "$9 pre",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://dice.fm/event/ry8eqy-dusky-10th-dec-eos-lounge-santa-barbara-tickets"
-    ],
-    "url": "https://dice.fm/event/ry8eqy-dusky-10th-dec-eos-lounge-santa-barbara-tickets",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "deep-house",
+        "minimal"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": null,
+      "near_home": false
+    }
   },
   {
     "title": "Strawberry Guy",
@@ -38789,7 +38217,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "club",
       "genre": [
@@ -38890,7 +38318,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -39608,6 +39036,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -39790,7 +39219,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -41388,7 +40819,7 @@
     "detail": "Friday show; listed as sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41438,7 +40869,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -41979,7 +41410,7 @@
     "price": null,
     "detail": "2010s EDM tribute party.",
     "first_seen": "2026-11-20",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "other",
       "genre": [],
@@ -42271,7 +41702,7 @@
     "url": "https://santamonica.harvelles.com/events/147827",
     "detail": "Recurring weekly residency on the calendar.",
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -42920,83 +42351,6 @@
     }
   },
   {
-    "source": "eventbrite",
-    "id": "https://www.eventbrite.com/e/daft-disko-portland-or-tickets-1995670537299",
-    "title": "Daft Disko: Portland, OR",
-    "date": "2026-12-11",
-    "start": "2026-12-11T21:00:00-08:00",
-    "end": "2026-12-12",
-    "venue": "The Get Down",
-    "neighborhood": "Portland",
-    "address": "680 SE 6th Ave., Portland, OR 97214",
-    "lat": null,
-    "lng": null,
-    "category": "general",
-    "price_min": "13.33",
-    "detail": "Daft Disko returns to Portland!",
-    "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1187593506%2F290918113901%2F1%2Foriginal.20260624-203547?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.987&fp-y=0.632&s=8c3bb42709776a2fa90a84666ac1d40a",
-    "url": "https://www.eventbrite.com/e/daft-disko-portland-or-tickets-1995670537299",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-11-33920409",
-    "title": "Sam Binga",
-    "date": "2026-12-11",
-    "start": "9pm-2am",
-    "venue": "3Oz Dive Club (San Diego)",
-    "genre": "drum and bass, jungle",
-    "organizers": null,
-    "price": "$7+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://dice.fm/event/5woyol-sam-binga-11th-dec-3oz-dive-club-san-diego-tickets"
-    ],
-    "url": "https://dice.fm/event/5woyol-sam-binga-11th-dec-3oz-dive-club-san-diego-tickets",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-11-34613539",
-    "title": "Marie Vaunt",
-    "date": "2026-12-11",
-    "start": "10pm-2am",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "techno",
-    "organizers": null,
-    "price": "$17+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.tixr.com/groups/novasd/events/marie-vaunt-208439"
-    ],
-    "url": "https://www.tixr.com/groups/novasd/events/marie-vaunt-208439",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-11-92810354",
-    "title": "Mashbit",
-    "date": "2026-12-11",
-    "start": "10pm-3am",
-    "venue": "Spin Nightclub (San Diego)",
-    "genre": "progressive house, EDM",
-    "organizers": "LED",
-    "price": "$15-25",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://events.leapevents.com/event/led-presents-mashbit-spin-nightclub-2026"
-    ],
-    "url": "https://events.leapevents.com/event/led-presents-mashbit-spin-nightclub-2026",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
     "date": "2026-12-12",
     "start": "14:30",
@@ -43465,7 +42819,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-07-07",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -43865,6 +43219,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -44482,6 +43837,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -45380,7 +44736,7 @@
       "type": "club",
       "genre": [
         "house",
-        "dnb"
+        "disco"
       ],
       "setting": [
         "club"
@@ -45713,7 +45069,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "eastside",
       "near_home": true
     },
@@ -45926,6 +45284,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -46017,6 +45376,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -46406,6 +45766,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "b2b",
         "tba-location"
       ],
@@ -46738,7 +46099,7 @@
     "detail": "Saturday show; listed as sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -46779,7 +46140,7 @@
     "detail": "Late show (10:30pm).",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -46938,7 +46299,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "other",
       "genre": [],
@@ -46975,7 +46336,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47007,7 +46368,7 @@
     "url": "https://santamonica.harvelles.com/events/147369",
     "detail": "Recurring weekly residency on the calendar.",
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -47050,7 +46411,7 @@
     "url": "https://www.samfirstbar.com/events/chicks-tunes-the-music-of-chick-corea-with-eric-scott-reed-ralph-moore-luca-alemanno-marcello-carelli-2",
     "detail": "Doors 6:00 PM; sets around 7:30 PM and 9:30 PM. Chick Corea tribute; Eric Scott Reed's quartet with tenor saxophonist Ralph Moore.",
     "first_seen": "2026-11-15",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -48246,7 +47607,7 @@
     "start": "2026-12-12T14:00:00-08:00",
     "end": "2026-12-12T21:00:00-08:00",
     "venue": "Jungle Hollywood",
-    "neighborhood": "Los Angeles",
+    "neighborhood": "Hollywood",
     "address": "1640 North Cahuenga Boulevard, Los Angeles, CA 90028",
     "lat": null,
     "lng": null,
@@ -48264,124 +47625,23 @@
     "genre": null,
     "ra_pick": false,
     "afterhours": false,
-    "price": null
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-12-77183075",
-    "title": "Ez Beets & Friendz",
-    "date": "2026-12-12",
-    "start": "3pm",
-    "venue": "AC Lounge (San Diego)",
-    "genre": "house, EDM",
-    "organizers": "EMX",
-    "price": "$10",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.facebook.com/events/1161736332950618/",
-      "https://eventsta.com/event/aclounge120626?promo=CAF&fbclid=IwY2xjawVuKQVleHRuA2FlbQIxMABwZG9mAWJyaWQRMTQ0Q2xtVWlIMUptOHIwclFzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEf29PqihEv5Af29NNgK0jiEwGsyn3GLd-av5cQsJ6j8KJxFocNqc1plrI-tt4_aem_c_LnZZFfEtW8a4TxMz4dpw"
-    ],
-    "url": "https://www.facebook.com/events/1161736332950618/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-12-36092825",
-    "title": "Almost Nakey Santa Con: Indigo Valet",
-    "date": "2026-12-12",
-    "start": "3pm-10:30pm",
-    "venue": "Belmont Park (San Diego)",
-    "genre": "tech house, uk garage, indie dance",
-    "organizers": null,
     "price": null,
-    "age": null,
-    "afterhours_flag": false,
-    "links": [
-      "https://www.instagram.com/indigovalet/",
-      "https://www.instagram.com/indigovalet/p/DflTNTlnYbH/"
-    ],
-    "url": "https://www.instagram.com/indigovalet/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-12-86649548",
-    "title": "Club Sabbat: The Last Gathering Of 2026",
-    "date": "2026-12-12",
-    "start": "9pm-2am",
-    "venue": "Eq (San Diego)",
-    "genre": "darkwave, goth, post-punk, EBM, industrial",
-    "organizers": null,
-    "price": "$10",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.facebook.com/events/1113521557982771/",
-      "https://www.eventbrite.com/e/club-sabbat-the-last-gathering-of-2026-tickets-2004868689219"
-    ],
-    "url": "https://www.facebook.com/events/1113521557982771/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-12-65378533",
-    "title": "Sam Binga",
-    "date": "2026-12-12",
-    "start": "9pm-2am",
-    "venue": "EOS Lounge (Santa Barbara)",
-    "genre": "drum and bass, jungle",
-    "organizers": null,
-    "price": "free w/rsvp b4 10pm / $7-15",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://dice.fm/event/oem66a-sam-binga-12th-dec-eos-lounge-santa-barbara-tickets"
-    ],
-    "url": "https://dice.fm/event/oem66a-sam-binga-12th-dec-eos-lounge-santa-barbara-tickets",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-12-6858142",
-    "title": "Yes Sir - Acid Cowboy",
-    "date": "2026-12-12",
-    "start": "9pm-2am",
-    "venue": "Spin Nightclub (San Diego)",
-    "genre": "tech house",
-    "organizers": null,
-    "price": "$17-34",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://shotgun.live/en/events/yes-sir-san-diego-12-12"
-    ],
-    "url": "https://shotgun.live/en/events/yes-sir-san-diego-12-12",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-12-70276992",
-    "title": "Jingle Jangle - Pippi Ciez, Sydka, Deiv Schon, J u l e a N, Mario Lui, MonoLoco",
-    "date": "2026-12-12",
-    "start": "9:30pm-5am",
-    "venue": "TBA (San Diego)",
-    "genre": "progressive house, tech house, indie dance",
-    "organizers": "AMA Sounds, The Usual Suspects",
-    "price": "$23-28+",
-    "age": null,
-    "afterhours_flag": true,
-    "links": [
-      "https://shotgun.live/en/events/ama-x-tus-jingle-jangle"
-    ],
-    "url": "https://shotgun.live/en/events/ama-x-tus-jingle-jangle",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "tags": {
+      "type": "club",
+      "genre": [
+        "house",
+        "dnb"
+      ],
+      "setting": [
+        "club"
+      ],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "DragonForce: Inhuman Rampage 20th Anniversary",
@@ -48842,12 +48102,12 @@
   {
     "title": "Rose Bowl Flea Market Sunday, December 13, 2026",
     "date": "2026-12-13",
-    "start": "2026-12-13T05:00:00-08:00",
+    "start": "09:00",
     "venue": "Rose Bowl Stadium",
     "neighborhood": "Pasadena",
     "category": "general",
     "genre": null,
-    "lineup": null,
+    "lineup": [],
     "links": [
       {
         "source": "eventbrite",
@@ -48879,7 +48139,7 @@
       "region": "valley",
       "near_home": false
     },
-    "updated_at": "2026-11-27",
+    "updated_at": "2026-11-28",
     "changed_fields": [
       "start"
     ],
@@ -49316,7 +48576,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/fayuca-206466",
     "detail": "Live music.",
     "first_seen": "2026-09-19",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -50213,7 +49473,7 @@
     "detail": "Sunday show; listed as sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -50298,7 +49558,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -50731,25 +49991,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2026-12-13-8232184",
-    "title": "Palms Beach Club w/ Rossi., Blaise Bracic, TA.",
-    "date": "2026-12-13",
-    "start": "4pm-9pm",
-    "venue": "Beach House (San Diego)",
-    "genre": "house, tech house",
-    "organizers": "FNGRS CRSSD",
-    "price": "$50-62",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-rossi-pbc-2026/tag/CRSSD-site"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-rossi-pbc-2026/tag/CRSSD-site",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "Gracie Abrams: The Look at My Life Tour presented by Capital One",
     "date": "2026-12-14",
     "start": "20:00",
@@ -51148,7 +50389,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -51799,7 +51040,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -51878,7 +51119,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -51912,7 +51153,7 @@
     "url": "https://www.samfirstbar.com/events/tuesday-happenings-hosted-by-gerald-clayton-79",
     "detail": "Doors 6:00 PM; sets around 7:30 PM and 9:30 PM. Weekly series curated by pianist Gerald Clayton: house band set at 7:30 PM, jam session 9:30-11 PM.",
     "first_seen": "2026-11-16",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53013,7 +52254,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -53089,7 +52330,7 @@
     "url": "https://www.samfirstbar.com/events/jimmy-branly-trio-with-andy-langham-rene-camacho-2",
     "detail": "Set time is the venue's general schedule (doors 6pm, music ~7:30 & 9:30pm). Havana-born drummer Jimmy Branly leads a trio.",
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -54659,7 +53900,7 @@
     "url": "https://santamonica.harvelles.com/shows/396373",
     "detail": null,
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -54700,7 +53941,7 @@
     "price": null,
     "detail": "Set time is the venue's general schedule (doors 6pm, music ~7:30 & 9:30pm). Release show for Shai Golan's album \"Homecoming.\"",
     "first_seen": "2026-11-20",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -54975,25 +54216,6 @@
       "region": "eastside",
       "near_home": true
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-17-67694579",
-    "title": "Bryce Alakai",
-    "date": "2026-12-17",
-    "start": "10pm",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "house, EDM",
-    "organizers": null,
-    "price": "$34.95",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.ticketweb.com/event/id/14366634"
-    ],
-    "url": "https://www.ticketweb.com/event/id/14366634",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "NUTCRACKER! Magical Christmas Ballet",
@@ -55609,7 +54831,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 18)",
     "date": "2026-12-18",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -57666,7 +56888,7 @@
       "webfetch"
     ],
     "first_seen": "2026-11-21",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -58245,120 +57467,6 @@
       "region": "dtla",
       "near_home": true
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-18-28937105",
-    "title": "Mishell, Mitch Dodge",
-    "date": "2026-12-18",
-    "start": "4pm-9pm",
-    "venue": "Spin Terrace (San Diego)",
-    "genre": "tech house, minimal",
-    "organizers": "FNGRS CRSSD",
-    "price": "$15-25",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-mishell-spin-terrace-2026"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-mishell-spin-terrace-2026",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-18-1440491",
-    "title": "Snooko, Dave Rose",
-    "date": "2026-12-18",
-    "start": "8pm-2am",
-    "venue": "3Oz Dive Club (San Diego)",
-    "genre": "tech house, EDM",
-    "organizers": "Top Haus",
-    "price": "$17.25-23",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://ra.co/events/2584276"
-    ],
-    "url": "https://ra.co/events/2584276",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-18-77248881",
-    "title": "Kompany, Beastboi, Careless Castle",
-    "date": "2026-12-18",
-    "start": "9pm-2am",
-    "venue": "Music Box (San Diego)",
-    "genre": "dubstep, bass music, riddim",
-    "organizers": "LED",
-    "price": "$21-36",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://events.leapevents.com/event/led-presents-kompany-music-box-2026/pre-sale"
-    ],
-    "url": "https://events.leapevents.com/event/led-presents-kompany-music-box-2026/pre-sale",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-18-67930794",
-    "title": "Circuit Papi w/ Isis Muretech, Alexander Reloda",
-    "date": "2026-12-18",
-    "start": "9pm-3am",
-    "venue": "Rich's (San Diego)",
-    "genre": "circuit house, big room, tech house",
-    "organizers": "Rich's San Diego",
-    "price": "$18.15",
-    "age": null,
-    "afterhours_flag": true,
-    "links": [
-      "https://wl.eventim.us/event/circuit-papi-w-isis-muretech/710347?afflky=RichsSanDiego"
-    ],
-    "url": "https://wl.eventim.us/event/circuit-papi-w-isis-muretech/710347?afflky=RichsSanDiego",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-18-67694579",
-    "title": "Bryce Alakai",
-    "date": "2026-12-18",
-    "start": "10pm",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "house, EDM",
-    "organizers": null,
-    "price": "$23+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.ticketweb.com/event/id/14349714"
-    ],
-    "url": "https://www.ticketweb.com/event/id/14349714",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-18-87327768",
-    "title": "Baby Jane",
-    "date": "2026-12-18",
-    "start": "10pm-3am",
-    "venue": "Eq (San Diego)",
-    "genre": "house, pop",
-    "organizers": "LED",
-    "price": "$21-33",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://events.leapevents.com/event/led-presents-baby-jane-eq-2026"
-    ],
-    "url": "https://events.leapevents.com/event/led-presents-baby-jane-eq-2026",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -58965,7 +58073,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/petty-or-not-a-tribute-to-tom-petty-the-heartbreakers-199223",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -59009,7 +58117,7 @@
     "source": "webfetch",
     "title": "Satin Jackets (Dec 19)",
     "date": "2026-12-19",
-    "start": "10:30pm-2:30am",
+    "start": "22:30",
     "venue": "The Venice West",
     "neighborhood": "Venice",
     "lineup": [
@@ -59925,6 +59033,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -60074,6 +59183,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -60650,6 +59760,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -60779,6 +59890,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -61608,7 +60720,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-22",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -61683,7 +60795,7 @@
     "url": "https://santamonica.harvelles.com/events/147829",
     "detail": null,
     "first_seen": "2026-11-23",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -62108,101 +61220,6 @@
       "region": "eastside",
       "near_home": true
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-19-74698076",
-    "title": "Mark Farina - Mushroom Jazz w/Cris Herrera",
-    "date": "2026-12-19",
-    "start": "4pm-9pm",
-    "venue": "Quartyard (San Diego)",
-    "genre": "downtempo, acid jazz, trip-hop, beats, deep house, jackin house",
-    "organizers": null,
-    "price": "$20.17-41.27",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.eventbrite.com/e/mark-farina-mushroom-jazz-tickets-2003793890467"
-    ],
-    "url": "https://www.eventbrite.com/e/mark-farina-mushroom-jazz-tickets-2003793890467",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-19-75292876",
-    "title": "Tommy Phillips + Cam Stockman at Spin Terrace",
-    "date": "2026-12-19",
-    "start": "4pm-9pm",
-    "venue": "Spin Nightclub (San Diego)",
-    "genre": "house",
-    "organizers": "FNGRS CRSSD",
-    "price": "$29-42",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-cam-stockman-tommy-phillips-spin-2026"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-cam-stockman-tommy-phillips-spin-2026",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-19-48019",
-    "title": "Nimino: Keep Me Awake Tour w/ Massane",
-    "date": "2026-12-19",
-    "start": "8pm",
-    "venue": "The Sound (Del Mar)",
-    "genre": "progressive house",
-    "organizers": null,
-    "price": "$44-71",
-    "age": "All ages",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketmaster.com/event/0A0064C49E4767BD"
-    ],
-    "url": "https://www.ticketmaster.com/event/0A0064C49E4767BD",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-19-69010398",
-    "title": "Svdden Death",
-    "date": "2026-12-19",
-    "start": "10pm-2am",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "dubstep",
-    "organizers": null,
-    "price": "$35",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.ticketweb.com/event/svdden-death-nova-sd-tickets/15010783"
-    ],
-    "url": "https://www.ticketweb.com/event/svdden-death-nova-sd-tickets/15010783",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-19-92182301",
-    "title": "Cristoph, Weska, Michael Anthony",
-    "date": "2026-12-19",
-    "start": "10pm-3am",
-    "venue": "The Rail (San Diego)",
-    "genre": "techno",
-    "organizers": "FNGRS CRSSD",
-    "price": "$33-50",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-cristoph-the-brass-rail-2026/tag/RA"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-cristoph-the-brass-rail-2026/tag/RA",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "The Hot Sardines",
@@ -63121,7 +62138,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -63578,25 +62595,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2026-12-20-69010398",
-    "title": "Svdden Death",
-    "date": "2026-12-20",
-    "start": "10pm",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "dubstep",
-    "organizers": null,
-    "price": "$52",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.tixr.com/groups/novasd/events/svdden-death-202458"
-    ],
-    "url": "https://www.tixr.com/groups/novasd/events/svdden-death-202458",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "Drag Show: \"Wild Wednesdays\" @ Hamburger Mary's Long Beach",
     "date": "2026-12-23",
     "start": "19:30",
@@ -63970,7 +62968,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -64089,7 +63087,7 @@
     "detail": "Doors 6:00 PM; music around 7:30 PM and 9:30 PM. Quartet led by pianist/singer-songwriter Alec Schulman.",
     "url": "https://www.samfirstbar.com/events/alec-schulman-quartet-with-katisse-buckingham-jermaine-paul-myles-martin",
     "first_seen": "2026-11-25",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -64119,7 +63117,7 @@
     "start": "2026-12-23T21:00:00-08:00",
     "end": "2026-12-24T02:00:00-08:00",
     "venue": "Jungle Hollywood",
-    "neighborhood": "Los Angeles",
+    "neighborhood": "Hollywood",
     "address": "1640 North Cahuenga Boulevard, Los Angeles, CA 90028",
     "lat": null,
     "lng": null,
@@ -64129,7 +63127,18 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198632775%2F473461263511%2F1%2Foriginal.20261124-192517?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=511b9f19e8162b29a3106d7a1b01dce3",
     "url": "https://www.eventbrite.com/e/clinic-ugly-sweater-xmas-party-tickets-2005046196147",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [
+        "club"
+      ],
+      "scale": null,
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -64550,7 +63559,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -64784,7 +63795,6 @@
       "setting": [],
       "scale": null,
       "vibe": [
-        "afterhours",
         "18+"
       ],
       "region": "hollywood",
@@ -65221,7 +64231,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -65513,7 +64523,7 @@
     "detail": "Allman Brothers revival.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -65556,7 +64566,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66208,7 +65218,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -66932,6 +65942,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -67255,6 +66266,7 @@
       ],
       "scale": null,
       "vibe": [
+        "afterhours",
         "b2b"
       ],
       "region": null,
@@ -67556,7 +66568,9 @@
       ],
       "setting": [],
       "scale": "room",
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": "dtla",
       "near_home": true
     },
@@ -67727,7 +66741,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -67819,6 +66835,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -67867,6 +66884,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -68076,6 +67094,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": "dtla",
@@ -68256,7 +67275,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -69021,64 +68040,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2026-12-31-77387539",
-    "title": "Party Peas New Year's Eve 2027 - San Diego",
-    "date": "2026-12-31",
-    "start": "8pm-2am",
-    "venue": "Charade Speakeasy (San Diego)",
-    "genre": "house, techno",
-    "organizers": "Party Peas Music & Arts Collective",
-    "price": "$62.67+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.instagram.com/partylikeapea?gwpx=MW5zd2QzYzhwbmcxbQ==",
-      "https://newyearnewpea.eventbrite.com/"
-    ],
-    "url": "https://www.instagram.com/partylikeapea?gwpx=MW5zd2QzYzhwbmcxbQ==",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-31-40569177",
-    "title": "The Floozies",
-    "date": "2026-12-31",
-    "start": "9:30pm",
-    "venue": "Belly Up (San Diego)",
-    "genre": "funk, synthpop, electropop",
-    "organizers": null,
-    "price": "$61",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketweb.com/event/id/14369984"
-    ],
-    "url": "https://www.ticketweb.com/event/id/14369984",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-31-82716827",
-    "title": "Timmy Trumpet",
-    "date": "2026-12-31",
-    "start": "10pm",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "house",
-    "organizers": null,
-    "price": "$40",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.ticketweb.com/event/id/14375344"
-    ],
-    "url": "https://www.ticketweb.com/event/id/14375344",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "The Book of Mormon (Touring)",
     "date": "2027-01-01",
     "start": "19:30",
@@ -69303,6 +68264,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -70140,7 +69102,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/steely-dead-198443",
     "detail": "Live show at The Venice West (former Witzend); funk/soul/jam/Americana room, tickets via Tixr.",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -70955,7 +69917,9 @@
       ],
       "setting": [],
       "scale": null,
-      "vibe": [],
+      "vibe": [
+        "afterhours"
+      ],
       "region": null,
       "near_home": false
     },
@@ -71022,6 +69986,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -71031,25 +69996,6 @@
     "changed_fields": [
       "start"
     ]
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-01-02-14043345",
-    "title": "NGHTMRE",
-    "date": "2027-01-02",
-    "start": "10pm",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "dubstep, trap",
-    "organizers": null,
-    "price": "$30+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.ticketweb.com/event/id/14391314"
-    ],
-    "url": "https://www.ticketweb.com/event/id/14391314",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "The Baker Brothers Jazz Orchestra",
@@ -72463,7 +71409,7 @@
     "url": "https://www.samfirstbar.com/events/jenny-scheinmans-all-species-parade-album-release-concert-2nd-set-live-radio-broadcast-on-kjazz-88-1-fm",
     "detail": "Doors 6:00 PM; music around 7:30 PM and 9:30 PM. Violinist Jenny Scheinman's album release; second set broadcast live on KJAZZ 88.1 FM.",
     "first_seen": "2026-11-26",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -72867,7 +71813,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -73854,7 +72800,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/live-forever-tribute-to-oasis-215093",
     "detail": "Late show (10:30pm).",
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -74120,25 +73066,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2027-01-09-62511007",
-    "title": "Blade Rave",
-    "date": "2027-01-09",
-    "start": "9pm",
-    "venue": "House Of Blues (San Diego)",
-    "genre": "house, goth, EBM, techno",
-    "organizers": null,
-    "price": "$28+",
-    "age": "18+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketmaster.com/event/0A00655E95D04E6C"
-    ],
-    "url": "https://www.ticketmaster.com/event/0A00655E95D04E6C",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "AJ McLean of Backstreet Boys",
     "date": "2027-01-10",
     "start": "20:00",
@@ -74387,7 +73314,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -75756,7 +74683,7 @@
     "detail": "Saturday show; listed as sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -76475,7 +75402,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -76509,7 +75436,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/zeppelin-in-jazz-presented-by-whole-lotta-swing-214256",
     "detail": null,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -76903,7 +75830,16 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198824238%2F953815555813%2F1%2Foriginal.20261128-115342?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=88d16474d746e825b01dbe2fc6ac50ff",
     "url": "https://www.eventbrite.com/e/fenix-flexin-friends-live-at-yost-theater-tickets-2005551905738",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": null,
+      "vibe": [],
+      "region": "far",
+      "near_home": false
+    }
   },
   {
     "title": "SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour",
@@ -77664,6 +76600,37 @@
     }
   },
   {
+    "source": "webfetch",
+    "id": "https://www.samfirstbar.com/events/lex-korten-trio",
+    "title": "Lex Korten Trio",
+    "date": "2027-01-14",
+    "start": "19:30",
+    "venue": "Sam First",
+    "neighborhood": "Westchester",
+    "category": "live_music",
+    "lineup": [
+      "Lex Korten"
+    ],
+    "price_min": null,
+    "detail": "Trio led by New York pianist Lex Korten.",
+    "url": "https://www.samfirstbar.com/events/lex-korten-trio",
+    "first_seen": "2026-11-28",
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "live-music",
+      "genre": [
+        "jazz"
+      ],
+      "setting": [
+        "listening-bar"
+      ],
+      "scale": "bar",
+      "vibe": [],
+      "region": "westside",
+      "near_home": false
+    }
+  },
+  {
     "title": "THE LEGEND OF KORRA IN CONCERT",
     "date": "2027-01-15",
     "start": "19:00",
@@ -78326,7 +77293,7 @@
     "detail": "Friday show; listed as sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -78548,7 +77515,7 @@
     "url": "https://avalonhollywood.com/event/chan-los-angeles-2027-january-15/",
     "detail": "Support: FVLAKO, CC LOVE, VEILED EYE.",
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "other",
       "genre": [],
@@ -79229,7 +78196,7 @@
     "detail": "Sunday show; listed as sold out.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -80493,7 +79460,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/venice-western-line-dancing-1-21--216038",
     "detail": null,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -81912,7 +80879,20 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1189431797%2F137015436972%2F1%2Foriginal.20260722-223450?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.531&fp-y=0.098&s=e22ad705f5b90fbee9a5297f53e04df1",
     "url": "https://www.eventbrite.com/e/twin-peaks-night-david-lynch-birthday-celebration-club-decades-tickets-1994909024594",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": null,
+      "near_home": false
+    }
   },
   {
     "source": "eventbrite",
@@ -81932,7 +80912,20 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198292846%2F137015436972%2F1%2Foriginal.20261119-022111?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.48&fp-y=0.908&s=d3c6d5f2b758f21cbcaeddc0cb4dbe45",
     "url": "https://www.eventbrite.com/e/klub-de-vampiros-club-decades-tickets-2005063661386",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "electronic"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": null,
+      "near_home": false
+    }
   },
   {
     "title": "Drag Show: “Saturday Drag Brunch” at Hamburger Mary's West Hollywood",
@@ -83586,7 +82579,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-22",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -83665,9 +82658,9 @@
     "price": null,
     "image": null,
     "url": "https://www.tixr.com/groups/thevenicewest/events/dead-by-midnight-212498",
-    "detail": "",
+    "detail": null,
     "first_seen": "2026-11-27",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -83678,64 +82671,13 @@
       "vibe": [],
       "region": "westside",
       "near_home": false
-    }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-01-23-98182768",
-    "title": "Effin + Nikita, The Wicked",
-    "date": "2027-01-23",
-    "start": "10pm-1:55am",
-    "venue": "Music Box (San Diego)",
-    "genre": "dubstep, uk garage",
-    "organizers": "LED",
-    "price": "$27-50",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://events.leapevents.com/event/led-presents-effin-music-box-2027"
-    ],
-    "url": "https://events.leapevents.com/event/led-presents-effin-music-box-2027",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-01-23-12936326",
-    "title": "Rayburger",
-    "date": "2027-01-23",
-    "start": "10pm-2am",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "latin dance, EDM",
+    },
+    "links": [],
+    "sources": [],
     "organizers": null,
-    "price": "$10+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.tixr.com/groups/novasd/events/rayburger-214251"
-    ],
-    "url": "https://www.tixr.com/groups/novasd/events/rayburger-214251",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-01-23-22682161",
-    "title": "Idemi",
-    "date": "2027-01-23",
-    "start": "10pm-3am",
-    "venue": "Spin Nightclub (San Diego)",
-    "genre": "tech house",
-    "organizers": "FNGRS CRSSD",
-    "price": "21+",
-    "age": null,
-    "afterhours_flag": true,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-idemi-spin-2027/pre-sale"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-idemi-spin-2027/pre-sale",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "genre": null,
+    "ra_pick": false,
+    "afterhours": false
   },
   {
     "title": "SILVER STAR TICKETS - Olivia Rodrigo: The Unraveled Tour",
@@ -84814,7 +83756,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -86276,6 +85218,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -87899,7 +86842,7 @@
     "url": "https://avalonhollywood.com/event/laidback-luke-los-angeles-2027-january-30/",
     "detail": null,
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "other",
       "genre": [],
@@ -88146,26 +87089,20 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198715725%2F139732991620%2F1%2Foriginal.20261126-001341?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=0bc1825b105390b8dba0dd7fafd5be92",
     "url": "https://www.eventbrite.com/e/origin-presents-colyn-tickets-2005431916848",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-01-30-99034501",
-    "title": "Maddix",
-    "date": "2027-01-30",
-    "start": "10pm-2am",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "big room house, tech house",
-    "organizers": null,
-    "price": "$15+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.tixr.com/groups/novasd/events/maddix-214423"
-    ],
-    "url": "https://www.tixr.com/groups/novasd/events/maddix-214423",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "melodic"
+      ],
+      "setting": [],
+      "scale": null,
+      "vibe": [
+        "afterhours"
+      ],
+      "region": null,
+      "near_home": false
+    }
   },
   {
     "title": "An Evening with Lord Huron",
@@ -88663,7 +87600,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -89298,7 +88235,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -89496,7 +88433,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/venice-western-line-dancing-216017",
     "detail": null,
     "first_seen": "2026-11-24",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -91022,25 +89959,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2027-02-05-57484717",
-    "title": "Artifakts X Parkbreezy",
-    "date": "2027-02-05",
-    "start": "10pm-3am",
-    "venue": "Eq (San Diego)",
-    "genre": "downtempo, hip-hop, dubstep, bass music",
-    "organizers": null,
-    "price": "$15-25",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://events.leapevents.com/event/led-presents-ARTIFAKTS-PARKBREEZY-eq-2027"
-    ],
-    "url": "https://events.leapevents.com/event/led-presents-ARTIFAKTS-PARKBREEZY-eq-2027",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "Odezenne",
     "date": "2027-02-06",
     "start": "7pm",
@@ -91563,7 +90481,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-26",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -92086,7 +91004,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -92305,25 +91223,6 @@
       "region": "far",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-02-06-47123058",
-    "title": "Habstrakt",
-    "date": "2027-02-06",
-    "start": "10pm-2am",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "bass house, tech house",
-    "organizers": null,
-    "price": "$17 pre",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.tixr.com/groups/novasd/events/habstrakt-188731"
-    ],
-    "url": "https://www.tixr.com/groups/novasd/events/habstrakt-188731",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Disney Presents The Lion King (Touring)",
@@ -93440,7 +92339,7 @@
     "price": "$32",
     "detail": "Listing says 'Sat Jan 8 2027' but the event page header says Fri, Jan 8th, 8:00 pm (Jan 8 is a Friday).",
     "first_seen": "2026-11-20",
-    "last_seen": "2026-11-27",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -93563,7 +92462,7 @@
     "start": "2027-01-08T21:00:00-08:00",
     "end": "2027-01-09T02:00:00-08:00",
     "venue": "1720",
-    "neighborhood": "Los Angeles",
+    "neighborhood": "Arts District",
     "address": "1720 East 16th Street, Los Angeles, CA 90021",
     "lat": null,
     "lng": null,
@@ -93573,7 +92472,23 @@
     "image": "https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F1198320107%2F159033129452%2F1%2Foriginal.20261119-141510?crop=focalpoint&fit=crop&w=940&auto=format%2Ccompress&q=75&sharp=10&fp-x=0.5&fp-y=0.5&s=eb41cd35d1770dda4e7bbc9160b71725",
     "url": "https://www.eventbrite.com/e/wated-x-trinity-stan-christ-1720-warehouse-18-tickets-2005082399432",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "club",
+      "genre": [
+        "hard-techno"
+      ],
+      "setting": [
+        "warehouse"
+      ],
+      "scale": "room",
+      "vibe": [
+        "afterhours",
+        "18+"
+      ],
+      "region": "dtla",
+      "near_home": true
+    }
   },
   {
     "title": "Disney Presents The Lion King (Touring)",
@@ -94898,7 +93813,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -96660,6 +95575,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -96692,7 +95608,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -96733,7 +95649,7 @@
     "detail": "Doors tribute.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -96947,26 +95863,6 @@
       "region": "dtla",
       "near_home": true
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-02-12-30602290",
-    "title": "Kayzo X Hhunter - Animal Control",
-    "date": "2027-02-12",
-    "start": "10pm",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "pop EDM, hard techno, dubstep, riddim, trap",
-    "organizers": "Mutate Experience",
-    "price": "$30",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.facebook.com/events/1859806708353330/",
-      "https://www.ticketweb.com/event/animal-control-nova-sd-tickets/14421634?REFID=clientsitewp&_gl=1*1nh6pya*_gcl_au*MTEyNDc5MjkwOS4xNzk0NDU2NDg4*_ga*MTY4Mjk4ODE5Mi4xNzk0NDU2NDg4*_ga_SQES2XENSV*czE3OTUwNDc5MDckbzMkZzEkdDE3OTUwNDc5MDgkajU5JGwwJGgw"
-    ],
-    "url": "https://www.facebook.com/events/1859806708353330/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Disney Presents The Lion King (Touring)",
@@ -98145,7 +97041,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -99493,25 +98389,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2027-02-18-31585762",
-    "title": "Two Lanes",
-    "date": "2027-02-18",
-    "start": "6pm-9pm",
-    "venue": "Quartyard (San Diego)",
-    "genre": "progressive house",
-    "organizers": null,
-    "price": "$31+",
-    "age": "All ages",
-    "afterhours_flag": false,
-    "links": [
-      "https://dice.fm/event/bbqqwk-two-lanes-18th-feb-quartyard-san-diego-tickets"
-    ],
-    "url": "https://dice.fm/event/bbqqwk-two-lanes-18th-feb-quartyard-san-diego-tickets",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "The Bodyguard",
     "date": "2027-03-02",
     "start": null,
@@ -99887,25 +98764,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2027-03-02-36815319",
-    "title": "2hollis: The Pirouette Tour",
-    "date": "2027-03-02",
-    "start": "8pm",
-    "venue": "Petco Park (San Diego)",
-    "genre": "hip-hop, electropop, EDM",
-    "organizers": null,
-    "price": "$71+",
-    "age": null,
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketmaster.com/event/0A006550B7447E8B"
-    ],
-    "url": "https://www.ticketmaster.com/event/0A006550B7447E8B",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "source": "webfetch",
     "title": "Buena Vista Social Club (Touring)",
     "date": "2027-03-09",
@@ -100027,7 +98885,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-09-16",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -101181,7 +100039,7 @@
     "price": null,
     "detail": null,
     "first_seen": "2026-11-20",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -101243,26 +100101,6 @@
       "region": "hollywood",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-02-19-84177206",
-    "title": "Riot: The Machine World Tour",
-    "date": "2027-02-19",
-    "start": "9pm",
-    "venue": "Spin Nightclub (San Diego)",
-    "genre": "dubstep, bass music",
-    "organizers": "Club Anonymous",
-    "price": "$20+",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.instagram.com/p/DesmGuZgsGq/?xtok=aGJ1dHk5bmEwaHA3",
-      "https://posh.vip/e/riot-the-machine-world-tour"
-    ],
-    "url": "https://www.instagram.com/p/DesmGuZgsGq/?xtok=aGJ1dHk5bmEwaHA3",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "EDC Mexico",
@@ -102023,7 +100861,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -102083,6 +100921,7 @@
       "setting": [],
       "scale": null,
       "vibe": [
+        "afterhours",
         "tba-location"
       ],
       "region": null,
@@ -102242,7 +101081,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/heated-rivalry-night-215169",
     "detail": null,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "other",
       "genre": [],
@@ -102833,7 +101672,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/alex-cuba-197114",
     "detail": null,
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -104373,7 +103212,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -104558,25 +103397,6 @@
       "region": "far",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-02-26-93258576",
-    "title": "Jacques Greene b2b Player Dave",
-    "date": "2027-02-26",
-    "start": "5pm-10pm",
-    "venue": "Quartyard (San Diego)",
-    "genre": "house",
-    "organizers": "Fngrs Crssd and Daisy Chain",
-    "price": "$10-30",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://events.leapevents.com/event/fngrs-crssd-presents-jacques-greene-player-dave-quartyard-2027"
-    ],
-    "url": "https://events.leapevents.com/event/fngrs-crssd-presents-jacques-greene-player-dave-quartyard-2027",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "A Swingin' Jazz Affair (Matt Forbes, Jesse Goddard, David Moscoe Trio)",
@@ -104916,26 +103736,6 @@
       "region": "hollywood",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2026-12-25-8367668",
-    "title": "Steam Towel Party San Diego - Mateo Segade",
-    "date": "2026-12-25",
-    "start": "10pm-2am",
-    "venue": "The Rail (San Diego)",
-    "genre": "tech house, bass house, big room house",
-    "organizers": "Hump Events",
-    "price": "$18",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://humpevents.com/steam-towel-party-sd",
-      "https://www.eventbrite.com/e/steam-san-diego-the-nightmare-on-christmas-tickets-2001707228204"
-    ],
-    "url": "https://humpevents.com/steam-towel-party-sd",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Sylvan Esso",
@@ -106008,7 +104808,7 @@
     "detail": "Low Cut Connie frontman, solo.",
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -106049,7 +104849,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -106189,26 +104989,6 @@
       "region": "dtla",
       "near_home": true
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-02-27-19730907",
-    "title": "Purity Ring [DJ Set]",
-    "date": "2027-02-27",
-    "start": "10pm",
-    "venue": "Eq (San Diego)",
-    "genre": "future beats, synthpop, downtempo",
-    "organizers": "FNGRS CRSSD",
-    "price": "$27-33",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.facebook.com/events/1061650640237176/",
-      "https://events.leapevents.com/event/fngrs-crssd-presents-purity-ring-eq-2027/tag/fb-event-page"
-    ],
-    "url": "https://www.facebook.com/events/1061650640237176/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Fink",
@@ -108070,7 +106850,7 @@
     "detail": null,
     "price": null,
     "first_seen": "2026-11-13",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -109089,7 +107869,7 @@
     "url": "https://www.tixr.com/groups/thevenicewest/events/sam-burchfield-209703",
     "detail": null,
     "first_seen": "2026-11-19",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [],
@@ -109187,25 +107967,6 @@
       "region": "far",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-03-06-29541347",
-    "title": "Troyboi 360",
-    "date": "2027-03-06",
-    "start": "10pm",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "trap, hip-hop",
-    "organizers": null,
-    "price": "21+",
-    "age": null,
-    "afterhours_flag": true,
-    "links": [
-      "https://www.facebook.com/events/1134836679264319/"
-    ],
-    "url": "https://www.facebook.com/events/1134836679264319/",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Peter Pan",
@@ -110962,7 +109723,7 @@
     "url": "https://avalonhollywood.com/event/vikkstar-los-angeles-2027-march-12/",
     "detail": null,
     "first_seen": "2026-11-18",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "other",
       "genre": [],
@@ -111019,25 +109780,6 @@
       "region": "valley",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-03-12-92644615",
-    "title": "Liquid Stranger Presents: Electric Helix w/Sully, Twopercent, Chozen",
-    "date": "2027-03-12",
-    "start": "8pm",
-    "venue": "Soma (San Diego)",
-    "genre": "dubstep, glitch-hop, bass music",
-    "organizers": null,
-    "price": "$36",
-    "age": "All ages",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketmaster.com/event/0A00655ED3549B2F"
-    ],
-    "url": "https://www.ticketmaster.com/event/0A00655ED3549B2F",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Eluveitie",
@@ -111792,25 +110534,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2027-03-05-13206426",
-    "title": "Ely Oaks",
-    "date": "2027-03-05",
-    "start": "10pm-2am",
-    "venue": "Nova Sd (San Diego)",
-    "genre": "eurodance, trance, EDM",
-    "organizers": null,
-    "price": "$11+",
-    "age": "21+",
-    "afterhours_flag": true,
-    "links": [
-      "https://www.tixr.com/groups/novasd/events/ely-oaks-208798"
-    ],
-    "url": "https://www.tixr.com/groups/novasd/events/ely-oaks-208798",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "The Who's Tommy (Touring)",
     "date": "2027-03-14",
     "start": "18:30",
@@ -112545,25 +111268,6 @@
       "region": "far",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-03-16-94027718",
-    "title": "Saxsquatch - The Conspiracy Theory Tour",
-    "date": "2027-03-16",
-    "start": "8pm",
-    "venue": "Music Box (San Diego)",
-    "genre": "live looping",
-    "organizers": null,
-    "price": "$33",
-    "age": "21+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketweb.com/event/id/14369004"
-    ],
-    "url": "https://www.ticketweb.com/event/id/14369004",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Twilight In Concert",
@@ -113771,25 +112475,6 @@
       "region": "far",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-03-19-97177667",
-    "title": "VNV Nation",
-    "date": "2027-03-19",
-    "start": "7pm",
-    "venue": "House Of Blues (San Diego)",
-    "genre": "synthpop, trance, EBM",
-    "organizers": null,
-    "price": "$39-87",
-    "age": "All ages",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketmaster.com/event/0A00634AB6C469D2"
-    ],
-    "url": "https://www.ticketmaster.com/event/0A00634AB6C469D2",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "VNV Nation",
@@ -115970,7 +114655,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -116010,7 +114695,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -117099,7 +115784,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-22",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -117896,25 +116581,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2027-03-27-81997552",
-    "title": "George Clanton",
-    "date": "2027-03-27",
-    "start": "8:30pm",
-    "venue": "Soma - Mainstage (San Diego)",
-    "genre": "synthpop, chillwave",
-    "organizers": "Live Nation",
-    "price": "$41+",
-    "age": "All ages",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketweb.com/event/id/14992103"
-    ],
-    "url": "https://www.ticketweb.com/event/id/14992103",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "Buena Vista Social Club (Touring)",
     "date": "2027-03-30",
     "start": "19:30",
@@ -118006,7 +116672,7 @@
     "start": "2027-03-30T19:30:00-07:00",
     "end": "2027-04-18T20:30:00-07:00",
     "venue": "Pantages Theatre",
-    "neighborhood": "Los Angeles",
+    "neighborhood": "Hollywood",
     "address": "6233 Hollywood Boulevard",
     "lat": null,
     "lng": null,
@@ -118016,7 +116682,20 @@
     "image": "https://www.broadwayinhollywood.com/assets/img/580x580.OPmince.Pic5-a5ae39d04f.jpg",
     "url": "https://www.broadwayinhollywood.com/events/detail/operation-mincemeat",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "stage",
+      "genre": [
+        "musical"
+      ],
+      "setting": [
+        "theater"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "Games We Play w/ Bears in Trees",
@@ -125258,25 +123937,6 @@
     }
   },
   {
-    "source": "19hz",
-    "id": "19hz-2027-04-24-85140317",
-    "title": "Lsdream: Bee Here Now Tour w/Kill The Noise, Vincent, Fayrvh",
-    "date": "2027-04-24",
-    "start": "9pm",
-    "venue": "The Sound (Del Mar)",
-    "genre": "electro house, dubstep",
-    "organizers": null,
-    "price": "$52-167",
-    "age": "18+",
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketmaster.com/event/0A00656465A51F85"
-    ],
-    "url": "https://www.ticketmaster.com/event/0A00656465A51F85",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
-  },
-  {
     "title": "Haken - In A Fever Dream Tour",
     "date": "2027-03-08",
     "start": "18:00",
@@ -127317,7 +125977,7 @@
     "ra_pick": false,
     "afterhours": false,
     "first_seen": "2026-11-14",
-    "last_seen": "2026-11-26",
+    "last_seen": "2026-11-28",
     "tags": {
       "type": "live-music",
       "genre": [
@@ -127536,25 +126196,6 @@
       "region": "south-bay",
       "near_home": false
     }
-  },
-  {
-    "source": "19hz",
-    "id": "19hz-2027-03-01-62753940",
-    "title": "Sylvan Esso",
-    "date": "2027-03-01",
-    "start": "8pm",
-    "venue": "The Sound (Del Mar)",
-    "genre": "indie dance, electropop",
-    "organizers": null,
-    "price": "$56+",
-    "age": null,
-    "afterhours_flag": false,
-    "links": [
-      "https://www.ticketmaster.com/event/0A0064C5CB48B87E"
-    ],
-    "url": "https://www.ticketmaster.com/event/0A0064C5CB48B87E",
-    "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
   },
   {
     "title": "Waitress (Touring)",
@@ -128415,7 +127056,7 @@
     "start": "2027-04-20T19:30:00-07:00",
     "end": "2027-04-25T20:30:00-07:00",
     "venue": "Pantages Theatre",
-    "neighborhood": "Los Angeles",
+    "neighborhood": "Hollywood",
     "address": "6233 Hollywood Boulevard",
     "lat": null,
     "lng": null,
@@ -128425,7 +127066,18 @@
     "image": "https://www.broadwayinhollywood.com/assets/img/580x580.Waitress.4-703b1577dc.jpg",
     "url": "https://www.broadwayinhollywood.com/events/detail/waitress-1",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "tags": {
+      "type": "stage",
+      "genre": [],
+      "setting": [
+        "theater"
+      ],
+      "scale": "hall",
+      "vibe": [],
+      "region": "hollywood",
+      "near_home": false
+    }
   },
   {
     "title": "Trouble in Mind",
@@ -133485,6 +132137,16 @@
     ],
     "url": "https://www.ticketmaster.com/event/09006548BAD7CE5D",
     "first_seen": "2026-11-28",
-    "last_seen": "2026-11-28"
+    "last_seen": "2026-11-28",
+    "neighborhood": "Inglewood",
+    "tags": {
+      "type": "other",
+      "genre": [],
+      "setting": [],
+      "scale": "arena",
+      "vibe": [],
+      "region": "south-bay",
+      "near_home": false
+    }
   }
 ]
